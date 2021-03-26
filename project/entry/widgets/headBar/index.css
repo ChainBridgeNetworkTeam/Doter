@@ -12,8 +12,8 @@
 .backArrow {
     background-image: url('./backArrow.png');
     background-size: 100% 100%;
-    width: .16rem;
-    height: .14rem;
+    width: .18rem;
+    height: .18rem;
     position: absolute;
     top: .21rem;
     left: .13rem;

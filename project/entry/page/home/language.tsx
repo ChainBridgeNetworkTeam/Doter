@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-03-03 23:27:47 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-25 22:20:14
+ * @Last Modified time: 2021-03-26 21:38:35
  */
 
 export const homeEn = {
@@ -11,14 +11,14 @@ export const homeEn = {
     'create wallet': 'Create wallet',
     'import wallet': 'Import wallet',
     'connecting': 'connecting',
-    'receiving': 'receiving',
-    'transfer': 'transfer',
+    'receiving': 'Receive',
+    'transfer': 'Transfer',
     'copy success': 'Available',
     'locked': 'locked',
-    'Available balance': 'Available balance',
-    'Network Governance': 'Network Governance',
-    'Transaction records': 'Transaction records',
-    'Polkadot Explorer': 'Polkadot Explorer',
+    'Available balance': 'Available',
+    'Network Governance': 'Governance',
+    'Transaction records': 'Transactions',
+    'Polkadot Explorer': 'Explorer',
 }
 export const homeCn = {
     'doter is a polkadot wallet': 'Doter是波卡网络的治理钱包',

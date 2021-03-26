@@ -9,6 +9,7 @@
 .TRtabWrap .ant-tabs-tab {
     color: #555555 !important;
     font-size: .14rem;
+    height: .38rem;
 }
 
 .TRtabWrap .ant-tabs-nav-wrap {

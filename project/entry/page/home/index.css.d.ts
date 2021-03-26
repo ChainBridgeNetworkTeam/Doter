@@ -29,3 +29,4 @@ export const record: string;
 export const browser: string;
 export const aWrap: string;
 export const grayBtn: string;
+export const tail: string;
