@@ -1,0 +1,31 @@
+.wrap {
+    background-color: #FAFAFA;
+    height: 100vh;
+}
+
+.item {
+    height: .48rem;
+    background-color: #ffffff;
+    padding-left: .16rem;
+    padding-right: .13rem;
+    font-size: .14rem;
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .01rem;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.arrow {
+    width: .18rem;
+    height: .18rem;
+    margin-left: .09rem;
+    background-image: url("../language/img/hook.png");
+    background-size: 100% 100%;
+}

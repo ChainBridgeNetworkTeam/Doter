@@ -1,0 +1,33 @@
+.formTitle {
+    font-size: .14rem;
+    color: #555555;
+    margin-bottom: .1rem;
+}
+
+.midT {
+    margin-top: .1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.secWrap {
+    width: .16rem;
+    height: .16rem;
+    background-size: 100% 100%;
+}
+
+.strongSec {
+    background-image: url('./img/strong.png');
+}
+
+.weatSec {
+    background-image: url('./img/weak.png');
+}
+
+.input {
+    height: .48rem;
+    width: 3.43rem;
+    margin: 0 auto;
+    font-size: .14rem !important;
+}

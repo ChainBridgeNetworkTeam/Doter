@@ -1,0 +1,33 @@
+.agreeWrap {
+    margin-top: .14rem;
+    font-size: .1rem;
+    display: flex;
+    user-select: none;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.check {
+    width: .1rem;
+    height: .1rem;
+    position: relative;
+    background-size: 100% 100%;
+}
+
+.accept {
+    background-image: url('./img/check.png');
+}
+
+.notAccept {
+    background-image: url('./img/notCheck.png');
+}
+
+.agreement {
+    color: #0273a4;
+}
+
+.agrCon {
+    margin-left: .02rem;
+    color: #555555;
+    cursor: pointer;
+}

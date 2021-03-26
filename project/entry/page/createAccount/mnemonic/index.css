@@ -1,0 +1,130 @@
+.wrap {
+    width: 100%;
+    padding-left: .16rem;
+    padding-right: .16rem;
+    color: #333333;
+    padding-top: 0.01rem;
+    background-color: #ffffff;
+}
+
+.title {
+    font-size: .14rem;
+    margin-top: .24rem;
+    margin-bottom: .12rem;
+}
+
+.info {
+    font-size: .12rem;
+    margin-bottom: .12rem;
+    display: flex;
+    line-height: .14rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.point {
+    font-size: .3rem;
+    position: relative;
+    top: -.03rem;
+    margin-right: .05rem;
+}
+
+.mask {
+    width: 100%;
+    height: 1.58rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('./image/mask.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.lock {
+    margin-bottom: .12rem;
+    width: .5rem;
+    height: .5rem;
+    background-image: url('./image/lock.png');
+    background-size: 100% 100%;
+}
+
+.btnTip {
+    font-size: .14rem;
+    color: #ffffff;
+}
+
+.bottomBtn {
+    width: 3.3rem;
+    position: fixed;
+    left: .16rem;
+    bottom: .28rem;
+    height: .48rem;
+    text-align: center;
+    line-height: .48rem;
+    font-size: .14rem;
+    color: #ffffff;
+    border-radius: .03rem;
+    background-color: #C7E3F0;
+    user-select: none;
+    cursor: pointer;
+}
+
+.showContent {
+    width: 100%;
+    min-height: 1.58rem;
+    background-color: #FAFAFA;
+    padding-top: .28rem;
+    padding-left: .19rem;
+}
+
+.pickContent {
+    width: 100%;
+    min-height: 1.58rem;
+    margin-top: .16rem;
+}
+
+.tag {
+    height: .26rem;
+    border: .01rem solid #CCCCCC;
+    background-color: #ffffff;
+    border-radius: .02rem;
+    font-size: .14rem;
+    text-align: center;
+    color: #333333;
+    padding-left: .08rem;
+    padding-right: .08rem;
+    margin-right: .12rem;
+    margin-bottom: .12rem;
+    display: inline-block;
+    vertical-align: top;
+    user-select: none;
+    cursor: pointer;
+}
+
+.notPick {
+    cursor: auto;
+}
+
+.grayTag {
+    border: .01rem solid #F2F2F2;
+    color: #F2F2F2;
+    cursor: auto;
+}
+
+.ableBtn {
+    background-color: #358FB6;
+
+}
+
+.check {
+    margin-top: .12rem;
+    height: .2rem;
+    color: #0273A4;
+    font-size: .1rem;
+    user-select: none;
+}   
+
+.deLine {
+    text-decoration: underline;
+}

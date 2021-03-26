@@ -1,0 +1,55 @@
+.wrap {
+    color: #555555;
+    background-color: rgb(250, 250, 250);
+    min-height: 100vh;
+    font-size: .14rem;
+}
+
+.contentWrap {
+    height: 5.2rem;
+    overflow-y: scroll;
+    font-size: .1rem;
+    background-color: #ffffff;
+    white-space: pre-line;
+    padding-left: .16rem;
+    padding-right: .16rem;
+}
+
+.contentWrap::-webkit-scrollbar {
+    display: none;
+}
+
+.title {
+    font-size: .14rem;
+    margin: 0 auto;
+    margin-top: .24rem;
+    margin-bottom: .24rem;
+    text-align: center;
+}
+
+.content {
+    width: 3.43rem;
+    margin: 0 auto;
+}
+
+.tag {
+    margin-bottom: .24rem;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: .1rem;
+}
+
+.big {
+    font-size: .14rem;
+}
+
+.ident {
+    /* text-indent: 2em; */
+}
+
+.center {
+    text-align: center;
+    margin-top: .15rem;
+}

@@ -1,0 +1,79 @@
+.wrap {
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.content {
+    width: 3.16rem;
+    margin: 0 auto;
+    margin-top: .36rem;
+    padding-top: .01rem;
+    padding-bottom: .01rem;
+    background-color: #FAFAFA;
+}
+
+.topTip {
+    color: #555555;
+    font-size: .14rem;
+    margin-top: .38rem;
+    text-align: center;
+    margin-bottom: .2rem;
+}
+
+.qrCode {
+    position: relative;
+    left: .8rem;
+    width: 1.55rem !important;
+    height: 1.55rem !important;
+}
+
+.address {
+    width: 2.27rem;
+    margin: 0 auto;
+    font-size: .14rem;
+    color: #555555;
+    word-wrap: break-word;
+    text-align: center;
+    margin-bottom: .45rem;
+}
+
+.bottm {
+    width: 3.16rem;
+    margin: 0 auto;
+    height: .48rem;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.buttonWord {
+    font-size: .14rem;
+    color: #555555;
+}
+
+.split {
+    width: .01rem;
+    height: .14rem;
+    background-color: #cccccc;
+}
+
+.buttonWord::before {
+    content: '';
+    display: inline-block;
+    width: .2rem;
+    height: .2rem;
+    background-size: 100% 100%;
+    margin-right: .07rem;
+    position: relative;
+    top: .03rem;
+}
+
+.copy::before {
+    background-image: url('./img//copy.png');
+}
+
+.downLoad::before {
+    background-image: url('./img//downLoad.png');
+}

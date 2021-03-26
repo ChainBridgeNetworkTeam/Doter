@@ -1,0 +1,44 @@
+.wrap {
+    background-color: #ffffff;
+    min-height: 100vh;
+    font-size: .14rem;
+    color: #333333;
+}
+
+.item {
+    height: .48rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: .14rem;
+    cursor: pointer;
+}
+
+.item::before {
+    content: '';
+    display: inline-block;
+    background-size: 100% 100%;
+    margin-right: .11rem;
+    height: .24rem;
+    width: .24rem;
+}
+
+.wallet::before {
+    background-image: url('./img/wallet.png');
+}
+
+.add::before {
+    background-image: url('./img/transferAddress.png');
+}
+
+.common::before {
+    background-image: url('./img/common.png');
+}
+
+.about::before {
+    background-image: url('./img/about.png');
+}
+
+.agreement::before {
+    background-image: url('./img/agreement.png');
+}

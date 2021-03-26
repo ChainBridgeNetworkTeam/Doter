@@ -1,0 +1,29 @@
+.wrap {
+    background-color: #FAFAFA;
+    min-height: 100vh;
+}
+
+.input {
+    height: .48rem;
+    width: 3.33rem !important;
+    margin-left: .14rem !important;
+    margin-top: .24rem !important;
+    font-size: .14rem !important;
+}
+
+.confirm {
+    height: .48rem;
+    width: 3.33rem;
+    color: #ffffff;
+    background-color: #C7E3F0;
+    text-align: center;
+    margin: 0 auto;
+    line-height: .48rem;
+    margin-top: 3.86rem;
+    font-size: .14rem;
+    cursor: pointer;
+}
+
+.heighLight {
+    background-color: #358FB6;
+}

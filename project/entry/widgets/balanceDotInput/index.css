@@ -1,0 +1,24 @@
+.amountIconWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #AAAAAA;
+    font-size: .14rem;
+    height: .48rem;
+    width: .7rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.split {
+    width: .01rem;
+    height: .14rem;
+    background-color: #AAAAAA;
+}
+
+.addressError {
+    color: #0273A4;
+    font-size: .1rem;
+    height: .14rem;
+    margin-top: .12rem;
+}

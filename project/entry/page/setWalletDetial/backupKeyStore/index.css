@@ -1,0 +1,36 @@
+.wrap {
+    background-color: #FAFAFA;
+    min-height: 100vh;
+}
+
+.contentWrap {
+    padding-left: .16rem;
+    padding-right: .16rem;
+}
+
+.input {
+    height: .48rem;
+    font-size: .14rem !important;
+    margin-top: .12rem !important;
+}
+
+.info {
+    color: #0273A4;
+    font-size: .12rem;
+    margin-top: .12rem;
+}
+
+.confirm {
+    position: fixed;
+    bottom: .28rem;
+    left: 50%;
+    width: 3.43rem;
+    margin-left: -1.715rem;
+    height: .48rem;
+    color: #ffffff;
+    font-size: .14rem;
+    text-align: center;
+    line-height: .48rem;
+    cursor: pointer;
+    background-color: #0273A4;
+}

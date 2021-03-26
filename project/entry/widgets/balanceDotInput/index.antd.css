@@ -1,0 +1,16 @@
+.tInput .ant-input{
+    font-size: .14rem;
+    border: none;
+    height: .48rem;
+}
+
+.tInput .ant-input-group-addon {
+    background-color: #ffffff;
+    border: none;
+}
+
+.tMInput .ant-input {
+    font-size: .3rem;
+    border: none;
+    height: .48rem;
+}

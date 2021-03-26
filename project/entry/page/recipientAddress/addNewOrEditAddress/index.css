@@ -1,0 +1,76 @@
+.wrap {
+    background-color: #FAFAFA;
+    height: 100vh;
+}
+
+.contentWrap {
+    padding-left: .16rem;
+    padding-right: .16rem;
+}
+
+.top {
+    height: .48rem;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .14rem;
+    color: #333333;
+    margin-top: .24rem;
+}
+
+.icon {
+    width: .25rem;
+    height: .25rem;
+    margin-left: .12rem;
+    background-size: 100% 100%;
+    margin-right: .12rem;
+    background-image: url('./../../home/img/coin.png');
+}
+
+.middle {
+    font-size: .14rem;
+    color: #555555;
+    margin-top: .48rem;
+    margin-bottom: .12rem;
+}
+
+.info {
+    color: #0273A4;
+    font-size: .12rem;
+    margin-top: .12rem;
+    height: .2rem;
+}
+
+.input {
+    height: .48rem;
+    width: 3.33rem !important;
+    font-size: .14rem !important;
+}
+
+.btn {
+    height: .48rem;
+    width: 3.33rem;
+    color: #ffffff;
+    background-color: #C7E3F0;
+    text-align: center;
+    margin: 0 auto;
+    line-height: .48rem;
+    margin-top: 1.66rem;
+    cursor: pointer;
+    font-size: .14rem;
+}
+
+.enable {
+    background-color: #358FB6;
+}
+
+.eCBtn {
+    margin-top: 1.1rem;
+}
+
+.deleteBtn {
+    color: #FF3333;
+    background-color: #ffffff;
+    margin-top: .16rem;
+}

@@ -1,0 +1,62 @@
+.wrap {
+    background-color: #FAFAFA;
+    min-height: 100vh;
+}
+
+.title {
+    color: #555555;
+    font-size: .14rem;
+    margin-top: .48rem;
+    margin-bottom: .12rem;
+}
+
+.item {
+    height: .48rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: .14rem;
+    font-size: .14rem;
+    margin-bottom: .01rem;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.item::before {
+    content: '';
+    display: inline-block;
+    background-size: 100% 100%;
+    margin-right: .11rem;
+    height: .24rem;
+    width: .24rem;
+}
+
+.wallet {
+    margin-top: .24rem;
+}
+
+.wallet::before {
+    background-image: url('../../setPanel/img/wallet.png');
+}
+
+.word::before {
+    height: .18rem;
+    width: .18rem;
+    background-image: url('../img/word.png');
+}
+
+.key::before {
+    width: .26rem;
+    height: .32rem;
+    background-image: url('../img/key.png');
+}
+
+.store::before {
+    width: .26rem;
+    height: .26rem;
+    background-image: url('../img/store.png');
+}
+
+.titlePadding {
+    padding-left: .16rem;
+}

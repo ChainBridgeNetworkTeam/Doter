@@ -1,0 +1,32 @@
+.content {
+    color: #333333;
+    font-size: .14rem;
+    text-align: center;
+    height: .56rem;
+    line-height: .56rem;
+    background-color: #ffffff;
+    border-bottom: 0.01rem solid #FAFAFA;
+    position: relative;
+}
+
+.backArrow {
+    background-image: url('./backArrow.png');
+    background-size: 100% 100%;
+    width: .16rem;
+    height: .14rem;
+    position: absolute;
+    top: .21rem;
+    left: .13rem;
+    cursor: pointer;
+}
+
+.addIcon {
+    background-image: url('./addIcon.png');
+    background-size: 100% 100%;
+    width: .28rem;
+    height: .28rem;
+    position: absolute;
+    top: .14rem;
+    right: .09rem;
+    cursor: pointer;
+}

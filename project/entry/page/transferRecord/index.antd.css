@@ -1,0 +1,20 @@
+.TRtabWrap > .ant-tabs-nav::before {
+    border-bottom: 1px solid #fafafa !important;
+}
+
+.TRtabWrap .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #358FB6 !important;
+}
+
+.TRtabWrap .ant-tabs-tab {
+    color: #555555 !important;
+    font-size: .14rem;
+}
+
+.TRtabWrap .ant-tabs-nav-wrap {
+    left: -.2rem;
+}
+
+.TRtabWrap .ant-tabs-nav-list {
+    left:  .2rem;
+}

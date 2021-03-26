@@ -1,0 +1,23 @@
+{
+    "name": "chrome_extension_for_polkadot",
+    "description" : "by gll",
+    "version": "1.0",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "pop/pop.html",
+        "default_title": "polkadot plugin",
+        "default_icon": "pIcon.png"
+    },
+    "content_security_policy": "script-src 'self' blob: 'unsafe-eval' 'wasm-eval'; object-src 'self'",
+    "commands": {
+        "_execute_browser_action": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+F",
+            "mac": "MacCtrl+Shift+F"
+          },
+          "description": "Opens pop.html"
+        }
+    },
+    "permissions": ["contextMenus", "declarativeContent", "http://localhost:3000/", "webRequest", "https://*/*", "http://*/*",
+        "webRequestBlocking", "tabs", "storage"]
+}

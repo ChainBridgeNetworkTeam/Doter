@@ -1,0 +1,46 @@
+.wrap {
+    background-color: #FAFAFA;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.itemWrap {
+    height: .72rem;
+    margin-bottom: .01rem;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.icon {
+    vertical-align: top;
+    width: .25rem;
+    height: .25rem;
+    margin-top: .12rem;
+    margin-left: .16rem;
+    background-size: 100% 100%;
+    margin-right: .12rem;
+    display: inline-block;
+    background-image: url('./../../home/img/coin.png');
+}
+
+.content {
+    display: inline-block;
+
+}
+
+.comment {
+    margin-top: .16rem;
+    font-size: .12rem;
+    color: #333333;
+}
+
+.address {
+    font-size: .1rem;
+    margin-top: .04rem;
+    color: #333333;
+}
+

@@ -1,0 +1,61 @@
+.title {
+    color: #555555;
+    font-size: .14rem;
+    margin-top: .48rem;
+    margin-bottom: .12rem;
+}
+
+.topTitle {
+    margin-top: 0;
+}
+
+.secInput {
+    font-size: .14rem !important;
+    height: .48rem;
+}
+
+.btn {
+    margin-top: .16rem;
+    margin-right: .16rem;
+    color: #ffffff;
+    background-color: #C7E3F0;
+    height: .48rem;
+    line-height: .48rem;
+    text-align: center;
+    border-radius: .02rem;
+    font-size: .14rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+.btnActive {
+    background-color: #0273A4;
+}
+
+.forAgree {
+    font-size: .1rem;
+    color: #0273A4;
+    margin-top: .05rem;
+    height: .15rem;
+}
+
+.checkInfo {
+    margin-top: .1rem;
+    font-size: .12rem;
+    height: .14rem;
+    color: #0273A4;
+}
+
+.formTitle {
+    font-size: .14rem;
+    color: #555555;
+    margin-bottom: .1rem;
+    margin-top: .1rem;
+}
+
+.input {
+    height: .48rem;
+    width: 3.43rem;
+    margin: 0 auto;
+    font-size: .14rem !important;
+}

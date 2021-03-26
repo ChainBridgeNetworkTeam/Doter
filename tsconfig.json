@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      //"module": "commonjs",
+      "noImplicitAny": true, 
+      "outDir": "./dist/",
+      "target": "es6",
+      "jsx": "react",
+      "sourceMap": true,
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "experimentalDecorators": true,
+      "baseUrl": "./",
+      "paths": {
+          "@utils/*": ["project/utils/*"],
+          "@widgets/*": ["project/entry/widgets/*"],
+          "@entry/*": ["project/entry/*"],
+          "@constants/*": ["project/constants/*"]
+      },
+    },
+    "include": [
+        "./project/*/*",
+        "./types/declaration.d.ts"
+    ],
+    "exclude": [ "node_modules" ]
+}

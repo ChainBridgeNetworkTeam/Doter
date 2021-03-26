@@ -1,0 +1,136 @@
+.wrap {
+    width: 3.43rem;
+    margin: 0 auto;
+    padding-top: .01rem;
+    min-height: 3.74rem;
+    height: 5.2rem;
+    overflow-y: scroll;
+}
+
+.wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.spin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 3.74rem;
+}
+
+.contentWrap {
+    min-height: 3.74rem;
+    padding-top: .04rem;
+    background-color: #ffffff;
+    margin-bottom: .15rem;
+    padding-left: .12rem;
+    padding-right: .12rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: .14rem;
+    justify-content: flex-start;
+    width: 3.19rem;
+    height: .21rem;
+    border-radius: .1rem;
+    color: #333333;
+    font-size: .14rem;
+    border: 0.01rem solid #cccccc;
+}
+
+.rank {
+    border-right: .01rem solid #cccccc;
+    width: .39rem;
+    margin-right: .06rem;
+    text-align: center;
+}
+
+.img {
+    width: .43rem;
+    height: .11rem;
+    margin-left: .04rem;
+    background-size: 100% 100%;
+    background-image: url('../img/tag@2x.png');
+}
+
+.rowTitle {
+    color: #828282;
+    font-size: .14rem;
+    margin-top: .16rem;
+}
+
+.authorWrap {
+    display: flex;
+    align-items: center;
+    font-size: .14rem;
+    justify-content: space-between;
+}
+
+.author {
+    color: #333333;
+    font-size: .14rem;
+}
+
+.ddetial {
+    color: #358FB6;
+    cursor: pointer;
+}
+
+.splitLine {
+    height: .01rem;
+    width: 3.19rem;
+    margin:  0 auto;
+    background-color: #F2F2F2;
+}
+
+.vote {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .12rem;
+    color: #555555;
+    margin-top: .15rem;
+}
+
+.voteBar {
+    width: 3.19rem;
+    height: .07rem;
+    background-color: #FC673C;
+    margin:  0 auto;
+    margin-top: .08rem;
+}
+
+.ayeBar {
+    background-color: #358FB6;
+    height:  100%;
+}
+
+.btnGroup {
+    margin-top: .24rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 3.19rem;
+}
+
+.btn {
+    height: .36rem;
+    width: 1.5rem;
+    text-align: center;
+    line-height: .36rem;
+    color: #ffffff;
+    border-radius: .02rem;
+    font-size: .14rem;
+    cursor: pointer;
+}
+
+.sBtn {
+    background-color: #358FB6;
+}
+
+.rBtn {
+    background-color: #FC673C;
+}

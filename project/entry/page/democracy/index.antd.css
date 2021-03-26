@@ -1,0 +1,12 @@
+.DEtabWrap > .ant-tabs-nav::before {
+    border-bottom: 1px solid #fafafa !important;
+}
+
+.DEtabWrap .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: #358FB6 !important;
+}
+
+.DEtabWrap .ant-tabs-tab {
+    color: #555555 !important;
+    font-size: .14rem;
+}

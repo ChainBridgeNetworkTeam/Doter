@@ -1,0 +1,117 @@
+.wrap {
+    background-color: #fafafa;
+    min-height: 100vh;
+}
+
+.leftBar {
+    display: inline-block;
+    vertical-align: top;
+    width: .58rem;
+}
+
+.rigthContent {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tab {
+    width: .58rem;
+    height: .58rem;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.blueBlock {
+    width: .03rem;
+    height: .22rem;
+    margin-right: .06rem;
+    background-color: #358FB6;
+}
+
+.polkadotIcon {
+    height: .38rem;
+    width:  .38rem;
+    background-size: 100% 100%;
+    background-image: url('../home//img/coin.png');
+}
+
+.rigthContent {
+    width: calc(100% - .58rem);
+    height: calc(100vh - .56rem);
+    background-color: #ffffff;
+    padding-left: .16rem;
+}
+
+.addIcon {
+    width: .15rem;
+    height: .15rem;
+    background-size: 100%;
+    cursor: pointer;
+    background-image: url('./img/add.png');
+}
+
+.title {
+    display: flex;
+    font-size: .12rem;
+    color: #333333;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: .3rem;
+    height: .55rem;
+}
+
+.accountWrap {
+    height: .56rem;
+    width: 2.65rem;
+    border: .01rem solid #F2F2F2;
+    margin-bottom: .12rem;
+    border-radius: .02rem;
+    cursor: pointer;
+}
+
+.firRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: .3rem;
+    padding-left: .12rem;
+    margin-right: .08rem;
+}
+
+.secAdd {
+    color: #333333;
+    font-size: .1rem;
+    padding-left: .3rem;
+}
+
+.ffRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .12rem;
+    color: #333333;
+}
+
+.point {
+    width: .1rem;
+    height: .1rem;
+    background-size: 100%;
+    margin-right: .08rem;
+}
+
+.activePoint {
+    background-image: url('../createAccount//secret/img/check.png');
+}
+
+.tail {
+    font-size: .3rem;
+    user-select: none;
+    color: #333333;
+}
+
+.aName {
+    position: relative;
+    top: -.01rem;
+}

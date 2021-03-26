@@ -1,0 +1,14 @@
+.feeInput .ant-input {
+    background-color: #ffffff !important;
+    font-size: .14rem;
+    color: #555555  !important;
+    user-select: none;
+}
+
+.sInput .ant-input{
+    font-size: .14rem !important;
+    border: none;
+    height: .45rem;
+    position: relative;
+    top: -.03rem;
+}

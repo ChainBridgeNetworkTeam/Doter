@@ -1,0 +1,40 @@
+.wrap {
+    background-color: #ffffff;
+    height: 100vh;
+}
+
+.logo {
+    width: 1rem;
+    height: 1rem;
+    background-size: 100% 100%;
+    background-image: url('../home/img/mainLogo.png');
+    margin: 0 auto;
+    margin-top: .8rem;
+}
+
+.title {
+    margin-top: .16rem;
+    font-size: .16rem;
+    color: #333333;
+    text-align: center;
+}
+
+.itemWrap {
+    height: .48rem;
+    padding-left: .16rem;
+    padding-right: .16rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .14rem;
+    color: #333333;
+    border-bottom: .01rem solid #fafafa;
+    cursor: pointer;
+}
+
+.link {
+    font-size: .12rem;
+    color: #0273A4;
+    text-decoration: underline;
+}
+

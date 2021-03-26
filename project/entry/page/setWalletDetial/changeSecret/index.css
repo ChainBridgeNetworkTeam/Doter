@@ -1,0 +1,44 @@
+.wrap {
+    background-color: #FAFAFA;
+    min-height: 100vh;
+}
+
+.contentWrap {
+    padding-left: .16rem;
+    padding-right: .16rem;
+}
+
+.topTitle {
+    font-size: .14rem;
+    color: #555555;
+    margin-top: .24rem;
+    margin-bottom: .12rem;
+}
+
+.input {
+    height: .48rem;
+    font-size: .14rem !important;
+    margin-bottom: .48rem !important;
+}
+
+.info {
+    color: #0273A4;
+    font-size: .12rem;
+    margin-top: .12rem;
+}
+
+.confirm {
+    margin: 0 auto;
+    margin-top: 1.36rem;
+    height: .48rem;
+    color: #ffffff;
+    font-size: .14rem;
+    text-align: center;
+    line-height: .48rem;
+    background-color: #C7E3F0;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #358FB6;
+}
