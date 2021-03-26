@@ -4,7 +4,7 @@
 }
 
 .contentWrap {
-    width: 3.43rem;
+    width: 3.23rem;
     margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .input {
-    width: 3.43rem;
+    width: 3.23rem;
     height: .48rem;
     font-size: .14rem !important;
 }
@@ -65,9 +65,9 @@
 .button {
     position: fixed;
     bottom: .28rem;
-    width: 3.33rem;
+    width: 3.23rem;
     height: .48rem;
-    left: .12rem;
+    left: .18rem;
     text-align: center;
     font-size: .14rem;
     color: #ffffff;

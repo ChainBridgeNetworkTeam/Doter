@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-28 09:30:32 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 11:17:32
+ * @Last Modified time: 2021-03-26 20:18:02
  */
 
 import React, { FC, useReducer, useEffect } from 'react';
@@ -84,8 +84,8 @@ const Entry:FC = function() {
     }
 
     async function confirm() {
-        const { input, otherInfo, errInfo } = stateObj;
-        if (errInfo) {
+        const { input, otherInfo, errInfo, isEnable } = stateObj;
+        if (errInfo || !isEnable) {
             return;
         }
         const copyArr = recipientArr.slice();
