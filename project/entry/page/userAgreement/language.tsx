@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-03-06 12:28:36 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 12:31:23
+ * @Last Modified time: 2021-03-26 20:32:41
  */
 
 export const userAgreementEn = {
@@ -10,7 +10,10 @@ export const userAgreementEn = {
     'title': 'Doter service agreement',
     'introducton1-0': 'Last updated at: 03/05/2021',
     'introducton1-1': 'Dear users:',
-    'int1-3': 'Thank you for choosing the Doter service. The Doter Service Agreement (hereinafter referred to as this agreement) was developed by the Doter development team (hereinafter referred to as “The team”) and you (hereinafter referred to as “The user”) , this agreement between you and the team has the legal effect of the contract. In this agreement: (1)“We”means the team and “Our”shall be construed accordingly; (2)“You”means the user and “Your”shall be construed accordingly. You and your team are called “One”and “Both”in combination.The team would like to remind you to read this agreement and the related agreements mentioned below carefully before using our Doter application (hereinafter referred to as “Doter”or “This software”) , in particular, the “Disclaimer and limitation of liability”and other provisions in bold form of this agreement, to ensure that you fully understand the provisions of this agreement, and independent consideration of risks.',
+    'int1-3': `Thank you for choosing the Doter service. The Doter Service Agreement (hereinafter referred to as this agreement) was developed by the Doter development team (hereinafter referred to as “The team”) and you (hereinafter referred to as “The user”) , this agreement between you and the team has the legal effect of the contract.
+    In this agreement:
+    (1)“We”means the team and “Our”shall be construed accordingly;
+    (2)“You”means the user and “Your”shall be construed accordingly. You and your team are called “One”and “Both”in combination.The team would like to remind you to read this agreement and the related agreements mentioned below carefully before using our Doter application (hereinafter referred to as “Doter”or “This software”) , in particular, the “Disclaimer and limitation of liability”and other provisions in bold form of this agreement, to ensure that you fully understand the provisions of this agreement, and independent consideration of risks.`,
     'c1-0': '1、Confirmation and acceptance of this agreement',
     'c1-1': '1. You understand that this agreement and related agreements apply to decentralized applications (“Dapp”for short) developed and owned by our team on Doter and Doter (excluding DAPP developed by third parties) .',
     'c1-2': '2. By downloading the Doter software and creating, restoring or importing the wallet (defined below) , you are deemed to have fully read and accepted the terms of this agreement, effective immediately and binding upon both parties. If you do not agree with the terms of this agreement, you should immediately stop using Doter. If you have downloaded Doter, please delete it immediately.',
@@ -308,7 +311,9 @@ export const userAgreementZh = {
     'title': 'Doter服务协议',
     'introducton1-0': '最近更新于：2021年03月5日',
     'introducton1-1': '尊敬的用户：',
-    'int1-3': '感谢您选择Doter服务。《Doter服务协议》（以下简称“本协议”）由Doter开发团队（以下简称“本团队”）和您（以下简称“用户”）签订，本协议在您与本团队之间具有合同上的法律效力。在本协议中：（1）“我们”指代本团队，“我们的”应据此解释；（2）“您”指代用户，“您的”应据此解释。您和本团队单独称为“一方”，合称为“双方”。本团队在此特别提醒您在使用我们的Doter应用（以下简称“Doter” 或“本软件”）之前，请认真阅读本协议及后文提及的相关协议，尤其是本协议中“免责及责任限制”等以加粗形式体现的条款，确保您充分理解本协议中各条款，并自主考虑风险。',
+    'int1-3': `感谢您选择Doter服务。《Doter服务协议》（以下简称“本协议”）由Doter开发团队（以下简称“本团队”）和您（以下简称“用户”）签订，本协议在您与本团队之间具有合同上的法律效力。
+    在本协议中：（1）“我们”指代本团队，“我们的”应据此解释；
+    （2）“您”指代用户，“您的”应据此解释。您和本团队单独称为“一方”，合称为“双方”。本团队在此特别提醒您在使用我们的Doter应用（以下简称“Doter” 或“本软件”）之前，请认真阅读本协议及后文提及的相关协议，尤其是本协议中“免责及责任限制”等以加粗形式体现的条款，确保您充分理解本协议中各条款，并自主考虑风险。`,
     'c1-0': '一、 关于本协议的确认与接纳',
     'c1-1': '1.您理解本协议及有关协议适用于Doter及Doter上本团队自主开发和拥有的去中心化应用（简称“DApp”）（排除第三方开发的DApp）。',
     'c1-2': '2.您下载Doter软件并创建身份、恢复钱包（定义见下文）或导入钱包，即视为您已经充分阅读并接受本协议全部条款，本协议立即生效，对双方具有约束力。 如果您不同意本协议条款，您应立即停止使用Doter。如果您已经下载了Doter，请立即删除。',
