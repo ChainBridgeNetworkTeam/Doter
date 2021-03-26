@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-12 19:59:05 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-18 11:42:27
+ * @Last Modified time: 2021-03-26 17:35:35
  */
 
  // 获取本地存储
@@ -87,13 +87,13 @@ export function removeStorage(keys: string | string[]) {
     })
 }
 
-export function sendMessageToContentScript(message: Object, callback: Function)
-{
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs)
-	{
-		chrome.tabs.sendMessage(tabs[0].id, message, function(response)
-		{
-			if(callback) callback(response);
-		});
-	});
-}
+// export function sendMessageToContentScript(message: Object, callback: Function)
+// {
+// 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs)
+// 	{
+// 		chrome.tabs.sendMessage(tabs[0].id, message, function(response)
+// 		{
+// 			if(callback) callback(response);
+// 		});
+// 	});
+// }

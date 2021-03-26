@@ -18,6 +18,5 @@
           "description": "Opens pop.html"
         }
     },
-    "permissions": ["contextMenus", "declarativeContent", "http://localhost:3000/", "webRequest", "https://*/*", "http://*/*",
-        "webRequestBlocking", "tabs", "storage"]
+    "permissions": ["webRequest", "https://*/*", "http://*/*", "storage"]
 }
