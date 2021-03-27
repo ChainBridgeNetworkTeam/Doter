@@ -6,26 +6,26 @@
  */
 
 export const createEn = {
-    'create wallet': 'create wallet',
+    'create wallet': 'Create wallet',
     'click to show mnemonic': 'click to show mnemonic',
-    'out of order': 'out of order,',
+    'out of order': 'Incorrect order of Mnemonic Phrase,',
     'click and try again': 'click and try again',
     'finish': 'finish',
     'save mnenoic': 'Backup Mnemonic Phrase',
     'Please copy the following mnemonics manually to make sure the backup is correct': 'Please write the mnemonic down in order to ensure the backup is correct',
     'Acquiring mnemonics is equivalent to owning the property of the wallet': 'Obtaining mnemonic is equivalent to owning wallet assets',
-    'Do not take a screen capture or copy, otherwise it may cause asset loss': 'Do not take screenshots or copy, otherwise it may cause asset loss',
+    'Do not take a screen capture or copy, otherwise it may cause asset loss': `Don't take screenshots or copy, otherwise it may cause asset loss`,
     'Confirm mnemonics': 'Confirmed backup',
-    'Please click the mnemonic words in order to confirm that your backup is correct': 'Please click the mnemonic words in order to confirm that your backup is correct',
+    'Please click the mnemonic words in order to confirm that your backup is correct': 'Please select Mnemonic Phrase in correct order.',
     'info1': 'At least 8 characters, recommended to mix uppercase and lowercase alphabets, numbers and symbols',
-    "info2": "This password will be used as the transaction password for the wallet，Doter does not save password and cannot retrieve them for you. Please keep your password safe.",
+    "info2": "This password will be used as the transaction password for the wallet，Doter does not save password and cannot retrieve them for you. Please keep your password safe!",
     'Please check the user agreement': 'Please check the user agreement',
     'The password is inconsistent': 'The password is inconsistent',
     'The password is less than 8 digits': 'The password is less than 8 digits',
     'Wallet name': 'Wallet Name',
     '1-12 characters': '1~12 Characters',
     'Creating wallets': 'Create',
-    'confirm the mnenoic': 'Confirm'
+    'confirm the mnenoic': 'Confirm backup'
 }
 export const createZh = {
     'create wallet': '创建钱包',

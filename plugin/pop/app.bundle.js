@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "42da9c1818ca8a3b2d30";
+/******/ 	var hotCurrentHash = "00b7050e5fde5e7710ac";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -2521,7 +2521,7 @@ eval("module.exports = \"image/import.1edc4392.png\";\n\n//# sourceURL=webpack:/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"image/mainLogo.2c1f4b13.png\";\n\n//# sourceURL=webpack:///./project/entry/page/home/img/mainLogo.png?");
+eval("module.exports = \"image/mainLogo.684667f7.png\";\n\n//# sourceURL=webpack:///./project/entry/page/home/img/mainLogo.png?");
 
 /***/ }),
 
@@ -2977,7 +2977,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setPanelEn\", function() { return setPanelEn; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setPanelZh\", function() { return setPanelZh; });\n/*\r\n * @Author: guanlanluditie\r\n * @Date: 2021-03-06 11:37:24\r\n * @Last Modified by: guanlanluditie\r\n * @Last Modified time: 2021-03-06 11:43:35\r\n */\r\nconst setPanelEn = {\r\n    'Setting': 'Setting',\r\n    'Wallet management': 'Wallet management',\r\n    'Transfer address': 'Transfer address',\r\n    'General settings': 'General settings',\r\n    'About doter': 'About doter',\r\n    'User agreement': 'User agreement',\r\n};\r\nconst setPanelZh = {\r\n    'Setting': '设置',\r\n    'Wallet management': '钱包管理',\r\n    'Transfer address': '转账地址',\r\n    'General settings': '通用',\r\n    'About doter': '关于doter',\r\n    'User agreement': '用户协议',\r\n};\r\n\n\n//# sourceURL=webpack:///./project/entry/page/setPanel/language.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setPanelEn\", function() { return setPanelEn; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"setPanelZh\", function() { return setPanelZh; });\n/*\r\n * @Author: guanlanluditie\r\n * @Date: 2021-03-06 11:37:24\r\n * @Last Modified by: guanlanluditie\r\n * @Last Modified time: 2021-03-06 11:43:35\r\n */\r\nconst setPanelEn = {\r\n    'Setting': 'Setting',\r\n    'Wallet management': 'Wallet management',\r\n    'Transfer address': 'Transfer address',\r\n    'General settings': 'General settings',\r\n    'About doter': 'About Doter',\r\n    'User agreement': 'User agreement',\r\n};\r\nconst setPanelZh = {\r\n    'Setting': '设置',\r\n    'Wallet management': '钱包管理',\r\n    'Transfer address': '转账地址',\r\n    'General settings': '通用',\r\n    'About doter': '关于doter',\r\n    'User agreement': '用户协议',\r\n};\r\n\n\n//# sourceURL=webpack:///./project/entry/page/setPanel/language.tsx?");
 
 /***/ }),
 

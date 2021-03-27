@@ -6,12 +6,12 @@
  */
 
 export const setPanelEn = {
-    'Setting': 'Setting',
-    'Wallet management': 'Wallet management',
-    'Transfer address': 'Transfer address',
-    'General settings': 'General settings',
-    'About doter': 'About doter',
-    'User agreement': 'User agreement',
+    'Setting': 'Settings',
+    'Wallet management': 'Management Wallet',
+    'Transfer address': 'Address Book',
+    'General settings': 'General',
+    'About doter': 'About Doter',
+    'User agreement': 'User Agreement',
     
 }
 

@@ -7,9 +7,9 @@
 
 
 export const retriveWalletEn = {
-    'Creating wallets': 'Creating wallets',
-    'Import Wallet': 'Import Wallet',
-    'Mnemonic words': 'Mnemonic words',
+    'Creating wallets': 'Creating Wallet',
+    'Import Wallet': 'Confirm',
+    'Mnemonic words': 'Mnemonic',
     'Please check the user agreement': 'Please check the user agreement',
     'Inconsistent password input': 'Inconsistent password input',
     'The number of password digits is less than 8': 'The number of password digits is less than 8',
@@ -18,8 +18,10 @@ export const retriveWalletEn = {
     'title of account': 'title of account',
     'Original password': 'Original password',
     'Wallet password': 'Wallet password',
-    'Please paste the contents of keystore JSON file': 'Please paste the contents of keystore JSON file',
-    'Please enter mnemonics and separate them with spaces': 'Please enter mnemonics and separate them with spaces'
+    'Please paste the contents of keystore JSON file': 'Enter Keystore content',
+    'Please enter mnemonics and separate them with spaces': 'Enter mnemonic phrases separated by spaces',
+    'Invalid mnemonic': 'Invalid mnemonic',
+    'Invalid Keystore': 'Invalid Keystore'
 }
 
 export const retriveWalletZh = {
@@ -35,5 +37,7 @@ export const retriveWalletZh = {
     'Original password': '原密码',
     'Wallet password': '钱包密码',
     'Please paste the contents of keystore JSON file': '请粘贴keyStore json文件内容',
-    'Please enter mnemonics and separate them with spaces': '请输入助记词,并使用空格分隔'
+    'Please enter mnemonics and separate them with spaces': '请输入助记词,并使用空格分隔',
+    'Invalid mnemonic': '无效的助记词',
+    'Invalid Keystore': '无效的Keystore'
 }

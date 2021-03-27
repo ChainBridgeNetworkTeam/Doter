@@ -16,7 +16,7 @@ import { runInAction } from 'mobx';
 import './index.antd.css';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
-import { validateMnemonicOrHexSeed } from '@utils/tools';
+import { useValidateMnemonicOrHexSeed } from '@utils/tools';
 import CommonPart from '../commonPart';
 import { changeInput } from '@utils/input';
 import { retrieveStoreType } from '../store';
@@ -32,7 +32,7 @@ const Mnemonic:FC = function() {
     function inputMnemonic(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const inputValue = e.target.value;
         changeInput(RetrieveStore, 'mnemonicWords', e);
-        const validateRes = validateMnemonicOrHexSeed(inputValue);
+        const validateRes = useValidateMnemonicOrHexSeed(inputValue);
         runInAction(() => {
             RetrieveStore.mnemonicErrMsg = validateRes.errMsg;
         })

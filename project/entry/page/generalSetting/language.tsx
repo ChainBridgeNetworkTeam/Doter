@@ -22,5 +22,4 @@ export const generalSettingZh = {
     '5 minutes': '5分钟',
     '10 minutes': '10分钟',
     'never': '永不',
-
 }

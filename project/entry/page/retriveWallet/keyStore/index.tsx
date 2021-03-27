@@ -16,7 +16,7 @@ import { runInAction } from 'mobx';
 import './index.antd.css';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
-import { validateKeyStoreJsonStr } from '@utils/tools';
+import { useValidateKeyStoreJsonStr } from '@utils/tools';
 import CommonPart from '../commonPart';
 import { changeInput } from '@utils/input';
 import { retrieveStoreType } from '../store';
@@ -32,7 +32,7 @@ const Mnemonic:FC = function() {
     function inputRestoreJson(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const inputValue = e.target.value;
         changeInput(RetrieveStore, 'keyStoreJsonStr', e);
-        const validateRes = validateKeyStoreJsonStr(inputValue);
+        const validateRes = useValidateKeyStoreJsonStr(inputValue);
         runInAction(() => {
             RetrieveStore.mnemonicErrMsg = validateRes.errMsg;
         })
@@ -49,7 +49,7 @@ const Mnemonic:FC = function() {
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Creating wallets')}/>
             <div className={s.wordsWrap}>
-                <div className={cx(s.title, s.topTitle)}>keyStore Json</div>
+                <div className={cx(s.title, s.topTitle)}>Keystore</div>
                 <Input.TextArea autoSize={{ minRows: 2 }} value={RetrieveStore.keyStoreJsonStr} onChange={(e) => inputRestoreJson(e)} className={s.textArea} placeholder={lanWrap('Please paste the contents of keystore JSON file')}/>
                 <div className={s.addressError}>{RetrieveStore.keyStoreErrMsg}</div>
                 <CommonPart />

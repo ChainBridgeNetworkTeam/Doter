@@ -6,7 +6,7 @@
  */
 
 export const walletManageEn = {
-    'Wallet management': 'Wallet management',
+    'Wallet management': 'Management Wallet ',
 }
 
 export const walletManageZh = {

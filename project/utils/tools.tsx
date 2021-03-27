@@ -35,17 +35,20 @@ export function addressFormat(address: string, padLength = 4) {
 }
 
 //  校验助记词输入
-export function validateMnemonicOrHexSeed(inputValue: string) {
+export function useValidateMnemonicOrHexSeed(inputValue: string) {
     let result = {
         success: true,
         errMsg: ''
     };
     let parsedAns;
+    let { t } = useTranslation();
+    //  国际化的包裹函数
+    const lanWrap = (input: string) => t(`retriveWallet:${input}`);
     try {
         parsedAns = keyExtractSuri(inputValue);
     } catch {
         result.success = false;
-        result.errMsg = '错误的输入'
+        result.errMsg = lanWrap('Invalid mnemonic');
         return result
     }
     const { phrase } = parsedAns;
@@ -70,18 +73,21 @@ export function validateMnemonicOrHexSeed(inputValue: string) {
 }
 
 //  校验keyStore输入
-export function validateKeyStoreJsonStr(content: string) {
+export function useValidateKeyStoreJsonStr(content: string) {
     let result = {
         success: true,
         errMsg: ''
     };
+    let { t } = useTranslation();
+    //  国际化的包裹函数
+    const lanWrap = (input: string) => t(`retriveWallet:${input}`);
     let json: KeyringPair$Json;
     try {
         json = JSON.parse(content) as KeyringPair$Json;
         keyring.createFromJson(json);
     } catch {
         result.success = false;
-        result.errMsg = '错误的输入';
+        result.errMsg = lanWrap('Invalid Keystore');
         return;
     }
     return result;

@@ -1,12 +1,18 @@
 {
     "name": "Doter",
-    "description" : "by gll",
+    "description" : "Doter is a browser extension wallet for Polkadot. It aims to become an interactive bridge between Polkadot and Parachain.",
     "version": "1.0.0",
     "manifest_version": 2,
     "browser_action": {
         "default_popup": "pop/pop.html",
-        "default_title": "polkadot plugin",
-        "default_icon": "pIcon.png"
+        "default_title": "Doter extension"
+    },
+    "icons": {
+      "16": "imgs/16.png",
+      "32": "imgs/32.png",
+      "48": "imgs/48.png",
+      "64": "imgs/64.png",
+      "128": "imgs/128.png"
     },
     "content_security_policy": "script-src 'self' blob: 'unsafe-eval' 'wasm-eval'; object-src 'self'",
     "commands": {
