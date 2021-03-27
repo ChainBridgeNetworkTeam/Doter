@@ -39,9 +39,8 @@ const ChangeSec:FC = function() {
     }
     const [stateObj, setState] = useReducer(stateReducer, { infoStr: '', secret: '', isSpining: false } as SecState);
 
-    function jump(path: string) {
-        history.push(path);
-    }
+    //  国际化的包裹函数
+    const lanWrap = (input: string) => t(`setWalletDetial:${input}`);
 
     const { address } = history.location.state as HState;
     const targetAccount = globalStore.accountObj[address];
@@ -63,7 +62,7 @@ const ChangeSec:FC = function() {
             } catch(e) {
                 console.log(e);
                 return setState({
-                    infoStr: '密码错误',
+                    infoStr: lanWrap('Wrong password'),
                     isSpining: false
                 })
             }
@@ -78,12 +77,12 @@ const ChangeSec:FC = function() {
 
     return (
         <div className={s.wrap}>
-            <HeadBar word={'备份keyStore'}/>
+            <HeadBar word={lanWrap('Backup keystore')}/>
             <div className={s.contentWrap}>
-                <Input.Password onChange={secInput} className={s.input} placeholder={'钱包密码'}/>
+                <Input.Password onChange={secInput} className={s.input} placeholder={lanWrap('Wallet password')}/>
                 <div className={s.info}>{stateObj.infoStr}</div>
                 <Spin spinning={stateObj.isSpining}>
-                    <div className={s.confirm} onClick={btnCLick}>确认</div>
+                    <div className={s.confirm} onClick={btnCLick}>{lanWrap('confirm')}</div>
                 </Spin>
             </div>
         </div>
