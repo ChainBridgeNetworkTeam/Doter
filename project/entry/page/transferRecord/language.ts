@@ -8,19 +8,19 @@
 export const transRecordEn = {
     'There is no record': 'There is no record',
     'No more': 'No more',
-    'Transaction records': 'Transactions',
+    'Transaction records': 'Transaction Record',
     'all': 'All',
     'income': 'In',
     'Transfer out': 'Out',
-    'transaction details': 'transaction details',
+    'transaction details': 'Details',
     'success': 'success',
-    'amount': 'amount',
-    "Miner's fee": "Miner's fee",
-    'to': 'to',
-    'from': 'from',
-    'Transaction time': 'Transaction time',
-    'hash': 'hash',
-    'Query transaction details in subscan': 'Query transaction details in subscan'
+    'amount': 'Amount',
+    "Miner's fee": "Miner Fee",
+    'to': 'To',
+    'from': 'From',
+    'Transaction time': 'Time',
+    'hash': 'TxID',
+    'Query transaction details in subscan': 'Query Details'
 }
 export const transRecordZh = {
     'There is no record': '没有记录',

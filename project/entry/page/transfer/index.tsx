@@ -213,7 +213,7 @@ const Transfer:FC = function() {
                     <div>{lanWrap('Transfer amount')}</div><div className={s.tContent}>{stateObj.transferAmount} DOT</div>
                 </div>
                 <div className={s.sTd}>
-                    <div>{lanWrap('Collection address')}</div><div className={cx(s.tContent, s.tCAdd)}>{stateObj.targetAdd}</div>
+                    <div>{lanWrap('Collection address v2')}</div><div className={cx(s.tContent, s.tCAdd)}>{stateObj.targetAdd}</div>
                 </div>
                 <div className={s.sTd}>
                     <div>{lanWrap('Payment address')}</div><div className={cx(s.tContent, s.tCAdd)}>{currentAccount.address}</div>

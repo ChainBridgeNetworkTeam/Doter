@@ -6,16 +6,16 @@
  */
 
 export const receiptAddressEn = {
-    'Transfer address': 'Transfer address',
-    'bad address': 'bad address',
+    'Transfer address': 'Address Book',
+    'bad address': 'invalid address',
     'The address already exists': 'The address already exists',
     'Are you sure you want to delete the address?': 'Are you sure you want to delete the address?',
     'Edit address': 'Edit address',
     'Add address': 'Add address',
-    'Address information': 'Address information',
-    'Enter the address': 'Enter the address',
-    'remarks': 'remarks',
-    'save': 'save',
+    'Address information': 'Address Information',
+    'Enter the address': 'input Address',
+    'remarks': 'memo',
+    'save': 'Save',
     'complete': 'complete',
     'delete': 'delete'
 }

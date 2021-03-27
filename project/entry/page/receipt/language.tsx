@@ -6,10 +6,10 @@
  */
 
 export const receiptEn = {
-    'Collection': 'Collection',
-    'Scan the QR code and transfer money to me': 'Scan the QR code and transfer money to me',
-    'Wallet address': 'Wallet address',
-    'Copy address': 'Copy',
+    'Collection': 'Receive',
+    'Scan the QR code and transfer money to me': 'Scan the QR code and transfer to me',
+    'Wallet address': 'Wallet Address',
+    'Copy address': 'Copy address',
     'Download collection code': 'Download',
     'Copy succeeded': 'Copy succeeded'
 }

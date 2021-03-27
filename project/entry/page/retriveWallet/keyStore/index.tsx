@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-20 09:07:13 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 11:33:17
+ * @Last Modified time: 2021-03-27 22:25:33
  */
 
 import React, { FC, useEffect } from 'react';
@@ -34,7 +34,7 @@ const Mnemonic:FC = function() {
         changeInput(RetrieveStore, 'keyStoreJsonStr', e);
         const validateRes = validateKeyStoreJsonStr(inputValue);
         runInAction(() => {
-            RetrieveStore.mnemonicErrMsg = validateRes.errMsg;
+            RetrieveStore.keyStoreErrMsg = validateRes.errMsg;
         })
     }
 
@@ -49,7 +49,7 @@ const Mnemonic:FC = function() {
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Creating wallets')}/>
             <div className={s.wordsWrap}>
-                <div className={cx(s.title, s.topTitle)}>keyStore Json</div>
+                <div className={cx(s.title, s.topTitle)}>Keystore</div>
                 <Input.TextArea autoSize={{ minRows: 2 }} value={RetrieveStore.keyStoreJsonStr} onChange={(e) => inputRestoreJson(e)} className={s.textArea} placeholder={lanWrap('Please paste the contents of keystore JSON file')}/>
                 <div className={s.addressError}>{RetrieveStore.keyStoreErrMsg}</div>
                 <CommonPart />

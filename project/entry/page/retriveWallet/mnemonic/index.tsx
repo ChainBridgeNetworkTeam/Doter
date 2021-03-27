@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-17 16:39:13 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 11:34:59
+ * @Last Modified time: 2021-03-27 22:18:49
  */
 
 import React, { FC, useEffect } from 'react';
@@ -33,6 +33,7 @@ const Mnemonic:FC = function() {
         const inputValue = e.target.value;
         changeInput(RetrieveStore, 'mnemonicWords', e);
         const validateRes = validateMnemonicOrHexSeed(inputValue);
+        console.log(validateRes, 'kkk');
         runInAction(() => {
             RetrieveStore.mnemonicErrMsg = validateRes.errMsg;
         })

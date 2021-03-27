@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-15 22:25:13 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 12:33:42
+ * @Last Modified time: 2021-03-27 22:18:35
  */
 
 import React, { FC, useEffect } from 'react';
@@ -27,10 +27,6 @@ const WalletManage:FC = function() {
     const history = useHistory();
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`walletManage:${input}`);
-
-    useEffect(() => {
-        console.log(globalStore.accountObj);
-    },[])
 
     function jump(path: string) {
         history.push(path);

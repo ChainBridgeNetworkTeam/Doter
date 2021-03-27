@@ -7,7 +7,7 @@
 
 export const homeEn = {
     'doter is a polkadot wallet': 'Doter is a polkadot wallet',
-    'welcome to use': 'welcome to use',
+    'welcome to use': 'welcome',
     'create wallet': 'Create wallet',
     'import wallet': 'Import wallet',
     'connecting': 'connecting',

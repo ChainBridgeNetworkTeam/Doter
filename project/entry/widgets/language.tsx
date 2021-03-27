@@ -6,7 +6,7 @@
  */
 
 export const widgetsEn = {
-    'password': 'password',
+    'password': 'Password',
     'Wallet password': 'Wallet Password',
     'Repeat the password': 'Repeat Password',
     'I have read and agree to the user agreement': 'I have read and agree to the ',

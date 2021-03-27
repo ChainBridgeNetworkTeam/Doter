@@ -14,6 +14,7 @@ import type BN from 'bn.js';
 import type { Time } from '@polkadot/util/types';
 import BNObj from 'bn.js';
 import { useMemo } from 'react';
+import i18n from 'i18next';
 import { BN_ONE, extractTime } from '@polkadot/util';
 
 type Result = [number, string, Time];
@@ -41,11 +42,12 @@ export function validateMnemonicOrHexSeed(inputValue: string) {
         errMsg: ''
     };
     let parsedAns;
+    const isEnglish = i18n.language === 'en';
     try {
         parsedAns = keyExtractSuri(inputValue);
     } catch {
         result.success = false;
-        result.errMsg = '错误的输入'
+        result.errMsg = isEnglish ? 'Invalid mnemonic' : '无效的助记词';
         return result
     }
     const { phrase } = parsedAns;
@@ -81,8 +83,7 @@ export function validateKeyStoreJsonStr(content: string) {
         keyring.createFromJson(json);
     } catch {
         result.success = false;
-        result.errMsg = '错误的输入';
-        return;
+        result.errMsg = i18n.language === 'en' ? 'Invalid Keystore' : '无效的keystore';
     }
     return result;
 }
