@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-22 22:36:26 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-22 22:41:29
+ * @Last Modified time: 2021-03-26 21:45:09
  */
 import React, { FC, useEffect, useReducer, useMemo, useState } from 'react';
 import { runInAction, toJS } from 'mobx';
@@ -99,10 +99,16 @@ const HomePage:FC = function() {
     const balanceObj = comLeft();
     const { balance, lockBalance = '0', preserveDot = '0' } = balanceObj;
 
+    function toSingleManage(e: React.MouseEvent<HTMLSpanElement, MouseEvent>, address: string) {
+        //  避免冒泡
+        e.stopPropagation();
+        history.push(PAGE_NAME.SINGLE_WALLTE_MANAGE, { address })
+    }
+
     function AccountPage() {
         const target = currentAccount;
         const { address, meta } = target;
-        const useDolar = (parseFloat(balance) * parseFloat(globalStore.dotToDollar)).toFixed(4);
+        const useDolar = (parseFloat(balance) * parseFloat(globalStore.dotToDollar)).toFixed(2);
         return (
             <>
                 <div className={s.head}>
@@ -113,7 +119,10 @@ const HomePage:FC = function() {
                     <div className={s.toolIcon} onClick={() => jump(PAGE_NAME.SET_PANEL)}/>
                 </div>
                 <div className={s.account}>
-                    <div className={s.aName}>{meta.name}</div>
+                    <div className={s.aName}>
+                        <div>{meta.name}</div>
+                        <div className={s.tail} onClick={(e) => toSingleManage(e, address)}>···</div>
+                    </div>
                     <div>
                         <div className={s.address}>{addressFormat(address)}</div>
                         <div className={s.copyIcon} onClick={() => copyClick()}/>
@@ -125,12 +134,12 @@ const HomePage:FC = function() {
                     <div className={s.usd}>${useDolar} USD</div>
                     <div className={s.balanceDetial}>
                         <div className={s.aWrap}>
-                            <div>{lockBalance} DOT</div>
+                            <div>{parseFloat(lockBalance).toFixed(2)} DOT</div>
                             <div>{t('home:locked')}</div>
                         </div>
                         <div className={s.split}/>
                         <div className={s.aWrap}>
-                            <div>{parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10)} DOT</div>
+                            <div>{parseFloat(parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10) + '').toFixed(2)} DOT</div>
                             <div>{t('home:Available balance')}</div>
                         </div>
                     </div>

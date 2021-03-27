@@ -2,16 +2,16 @@
  * @Author: guanlanluditie 
  * @Date: 2021-03-20 21:13:17 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-20 21:26:43
+ * @Last Modified time: 2021-03-26 21:56:48
  */
 
 export const transRecordEn = {
     'There is no record': 'There is no record',
     'No more': 'No more',
-    'Transaction records': 'Transaction records',
-    'all': 'all',
-    'income': 'income',
-    'Transfer out': 'Transfer out',
+    'Transaction records': 'Transactions',
+    'all': 'All',
+    'income': 'In',
+    'Transfer out': 'Out',
     'transaction details': 'transaction details',
     'success': 'success',
     'amount': 'amount',

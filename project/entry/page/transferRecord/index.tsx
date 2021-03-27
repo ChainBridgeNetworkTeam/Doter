@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-03-07 15:32:20 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-20 21:18:46
+ * @Last Modified time: 2021-03-26 21:55:42
  */
 
 import React, { FC, useEffect, useState, useReducer, useRef } from 'react';
@@ -118,7 +118,7 @@ const Entry:FC = function() {
         return <div className={s.listWrap}>
             {tarr.length ? ItemList : (isFetching ? null : <div className={s.empty}>{lanWrap('There is no record')}</div>)}
             {isFetching && <div className={s.center}><Spin /></div>}
-            <div className={s.observer} id='observerObj'>{hasMore ? '' : lanWrap('No more')}</div>
+            <div className={s.observer} id='observerObj'>{(hasMore || tarr.length === 0)? '' : lanWrap('No more')}</div>
         </div>
     }
 
