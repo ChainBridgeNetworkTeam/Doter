@@ -14,6 +14,7 @@ import type BN from 'bn.js';
 import type { Time } from '@polkadot/util/types';
 import BNObj from 'bn.js';
 import { useMemo } from 'react';
+import i18n from 'i18next';
 import { BN_ONE, extractTime } from '@polkadot/util';
 
 type Result = [number, string, Time];
@@ -35,20 +36,18 @@ export function addressFormat(address: string, padLength = 4) {
 }
 
 //  校验助记词输入
-export function useValidateMnemonicOrHexSeed(inputValue: string) {
+export function validateMnemonicOrHexSeed(inputValue: string) {
     let result = {
         success: true,
         errMsg: ''
     };
     let parsedAns;
-    let { t } = useTranslation();
-    //  国际化的包裹函数
-    const lanWrap = (input: string) => t(`retriveWallet:${input}`);
+    const isEnglish = i18n.language === 'en';
     try {
         parsedAns = keyExtractSuri(inputValue);
     } catch {
         result.success = false;
-        result.errMsg = lanWrap('Invalid mnemonic');
+        result.errMsg = isEnglish ? 'Invalid mnemonic' : '无效的助记词';
         return result
     }
     const { phrase } = parsedAns;
@@ -73,22 +72,18 @@ export function useValidateMnemonicOrHexSeed(inputValue: string) {
 }
 
 //  校验keyStore输入
-export function useValidateKeyStoreJsonStr(content: string) {
+export function validateKeyStoreJsonStr(content: string) {
     let result = {
         success: true,
         errMsg: ''
     };
-    let { t } = useTranslation();
-    //  国际化的包裹函数
-    const lanWrap = (input: string) => t(`retriveWallet:${input}`);
     let json: KeyringPair$Json;
     try {
         json = JSON.parse(content) as KeyringPair$Json;
         keyring.createFromJson(json);
     } catch {
         result.success = false;
-        result.errMsg = lanWrap('Invalid Keystore');
-        return;
+        result.errMsg = i18n.language === 'en' ? 'Invalid Keystore' : '无效的keystore';
     }
     return result;
 }

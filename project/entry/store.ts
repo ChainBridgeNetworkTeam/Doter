@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-28 00:13:41 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-25 22:43:43
+ * @Last Modified time: 2021-03-27 22:18:00
  */
 import { observable, runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -110,7 +110,6 @@ class AppStore {
         const subscription = accountsObservable.subject.subscribe((accounts: SubjectInfo): void =>
             {
                 const addArrs = Object.keys(accounts);
-                console.log(accounts, 'sub');
                 const parsedAccObj = {} as Record<string, any>;
                 addArrs.map(key => {
                     parsedAccObj[key] = accounts[key].json
