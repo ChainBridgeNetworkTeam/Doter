@@ -38,3 +38,12 @@
     text-decoration: underline;
 }
 
+.ctext {    
+    font-size: .12rem;
+    color: #0273A4;
+}
+
+.noPointer {
+    cursor: auto;
+}
+
