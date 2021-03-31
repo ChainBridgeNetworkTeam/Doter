@@ -44,7 +44,10 @@ export function getStorage(obj: Record<string, any>) {
         const keys = Object.keys(obj);
         const response = {} as Record<string, any>;
         keys.map(key => {
-            const target = JSON.parse(window.localStorage.getItem(key) || JSON.stringify(''));
+            let value = window.localStorage.getItem(key);
+            //  这里要兜底处理下
+            const finalValue = (value === 'undefined' || value === 'null') ? JSON.stringify('') : value;
+            const target = JSON.parse(finalValue);
             if (target) {
                 response[key] = target;
             } else {
@@ -66,7 +69,8 @@ export function setStorage(obj: Record<string, any>) {
         const keys = Object.keys(obj);
         const response = {} as Record<string, any>;
         keys.map(key => {
-            window.localStorage.setItem(key, JSON.stringify(obj[key]));
+            //  这里避免存入空值，否则get的时候undefined啥的都变成了字符串，兜底无效
+            obj[key] && window.localStorage.setItem(key, JSON.stringify(obj[key]));
         })
         res(response);
     })
