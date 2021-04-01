@@ -2,11 +2,11 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-29 11:39:22 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-14 20:43:07
+ * @Last Modified time: 2021-04-01 23:16:03
  */
 
-import React from 'react';
-import { MobXProviderContext, Provider } from 'mobx-react';
+import React, { useEffect, useState } from 'react';
+import { MobXProviderContext, Provider, observer } from 'mobx-react';
 import Home from './page/home';
 import GlobalStore from './store';
 import CreateAccount from './page/createAccount'; //    创建账号
@@ -35,10 +35,14 @@ import democracyVote from './page/democracy/voteForReferenda'; //   民主治理
 import democracyCheck from './page/democracy/voteCheck'; // 民主治理，投票确认
 import transferRecord from './page/transferRecord'; //  转账记录
 import transferRecordDetail from './page/transferRecord/recordDetail'; //   转账单笔详情
+import Authorize from './page/authPopup'; //    账号注入授权弹窗
 import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import { subscribeAuthorizeRequests } from '@utils/message/message';
+import { runInAction } from 'mobx';
 
 function AppRouter() {
     const storeObj = {
@@ -48,7 +52,30 @@ function AppRouter() {
         DemocracyStore
     }
 
+    const [list, setList] = useState([]);
+
+    useEffect((): void => {
+        Promise.all([
+          subscribeAuthorizeRequests((list) => {
+            //  setList(list);
+            GlobalStore.setAuthList(list);
+        })
+          //    subscribeSigningRequests(setSignRequests)
+        ],).catch(console.error);
+      }, []);
+
+    function Root({ authLenght = 0 }) {
+        console.log('render root', GlobalStore.authReqList);
+        let xxx = GlobalStore.authReqList;
+        if (authLenght === 0) {
+            return <Home />;
+        } else {
+            return <Authorize />;
+        }
+    }
+
     return <MobXProviderContext.Provider value={storeObj}>
+        <div style={{ display: 'none'}}>{GlobalStore.authReqList.length}</div>
         <Router>
             <Switch>
                 {/* 账户创建页 */}
@@ -114,10 +141,15 @@ function AppRouter() {
                     </>
                 }} />
                 {/* 首页 */}
-                <Route path='' exact component={Home} />
+                {/* <Route path='' exact component={Root} /> */}
+                <Route path='' exact render={() => {
+                    return <>
+                        <Root authLenght={GlobalStore.authReqList.length}/>
+                    </>
+                }} />
             </Switch>
         </Router>
     </MobXProviderContext.Provider>
 }
 
-export default AppRouter;
+export default observer(AppRouter);

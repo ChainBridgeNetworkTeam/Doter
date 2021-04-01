@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-28 00:13:41 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-27 22:18:00
+ * @Last Modified time: 2021-04-01 23:02:44
  */
 import { observable, runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -16,6 +16,14 @@ import type { SubjectInfo, SingleAddress } from '@polkadot/ui-keyring/observable
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import type BN from 'bn.js';
 
+export interface RequestAuthorizeTab {
+    origin: string;
+}
+export interface AuthorizeRequest {
+    id: string;
+    request: RequestAuthorizeTab;
+    url: string;
+}
 export interface globalStoreType {
     hasInit: boolean,
     api: ApiPromise,
@@ -29,6 +37,7 @@ export interface globalStoreType {
     recipientArr: Array<recipientObj>
     localConfig: loaclConfigType,
     dotToDollar: string,
+    authReqList: Array<AuthorizeRequest>;
 }
 
 interface metaData {
@@ -71,7 +80,7 @@ class AppStore {
     //  当前地址
     @observable favoriteAccount: string = '';
     //  账号映射
-    @observable accountObj: Record<string, Object> = {};
+    @observable accountObj: Record<string, KeyringPair$Json> = {} as Record<string, KeyringPair$Json>;
     //  当前账户余额
     @observable balance: number | string | BN | BigInt = 0;
     //  可用余额
@@ -84,6 +93,13 @@ class AppStore {
     @observable localConfig: loaclConfigType = {} ;
     //  1Dot兑美元汇率
     dotToDollar: string = '0';
+
+    @observable authReqList: Array<AuthorizeRequest> = [];
+
+    setAuthList(valueList: Array<AuthorizeRequest>) {
+        console.log(valueList, 'target');
+        this.authReqList = valueList;
+    }
 
     constructor() {
         makeAutoObservable(this)
