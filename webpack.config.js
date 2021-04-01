@@ -104,6 +104,9 @@ module.exports = {
                             modules: true,
                             namedExport: true
                         }
+                    },
+                    {
+                        loader: 'sass-loader'
                     }
                 ]
             },

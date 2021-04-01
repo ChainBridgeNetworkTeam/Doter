@@ -69,6 +69,8 @@
         "file-loader": "^6.2.0",
         "less": "^3.13.0",
         "less-loader": "^7.1.0",
+        "sass-loader": "^7.2.0",
+        "sass": "^1.22.10",
         "mini-css-extract-plugin": "^0.4.5",
         "source-map-loader": "^1.0.1",
         "style-loader": "^2.0.0",
