@@ -45,5 +45,5 @@
     "web_accessible_resources": [
       "injectScript.js"
     ],
-    "permissions": ["webRequest", "storage"]
+    "permissions": ["storage"]
 }

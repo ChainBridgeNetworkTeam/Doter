@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-29 11:39:22 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-04-01 23:16:03
+ * @Last Modified time: 2021-04-02 08:42:32
  */
 
 import React, { useEffect, useState } from 'react';
@@ -64,10 +64,10 @@ function AppRouter() {
         ],).catch(console.error);
       }, []);
 
-    function Root({ authLenght = 0 }) {
+    function Root() {
         console.log('render root', GlobalStore.authReqList);
         let xxx = GlobalStore.authReqList;
-        if (authLenght === 0) {
+        if (GlobalStore.authReqList.length === 0) {
             return <Home />;
         } else {
             return <Authorize />;
@@ -75,6 +75,7 @@ function AppRouter() {
     }
 
     return <MobXProviderContext.Provider value={storeObj}>
+        {/* 用这个元素来收集依赖 */}
         <div style={{ display: 'none'}}>{GlobalStore.authReqList.length}</div>
         <Router>
             <Switch>
@@ -141,12 +142,7 @@ function AppRouter() {
                     </>
                 }} />
                 {/* 首页 */}
-                {/* <Route path='' exact component={Root} /> */}
-                <Route path='' exact render={() => {
-                    return <>
-                        <Root authLenght={GlobalStore.authReqList.length}/>
-                    </>
-                }} />
+                <Route path='' exact component={Root} />
             </Switch>
         </Router>
     </MobXProviderContext.Provider>
