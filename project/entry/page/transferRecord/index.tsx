@@ -2,12 +2,11 @@
  * @Author: guanlanluditie 
  * @Date: 2021-03-07 15:32:20 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-26 21:55:42
+ * @Last Modified time: 2021-04-03 11:52:41
  */
 
 import React, { FC, useEffect, useState, useReducer, useRef } from 'react';
-import s from './index.css';
-import './index.antd.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import cx from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -126,11 +125,10 @@ const Entry:FC = function() {
     const outArr = AllAry.filter(item => item.from === TargetAdd);
     const inArr = AllAry.filter(item => item.from !== TargetAdd)
 
-
     return (
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Transaction records')}/>
-            <Tabs defaultActiveKey={TAB_MAP.ALL} onChange={setTab} centered className='TRtabWrap'>
+            <Tabs defaultActiveKey={TAB_MAP.ALL} onChange={setTab} centered className={s.TRtabWrap}>
                 <TabPane tab={lanWrap('all')} key={TAB_MAP.ALL}>
                     {List(AllAry)}
                 </TabPane>

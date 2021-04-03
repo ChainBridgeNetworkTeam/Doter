@@ -2,11 +2,10 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-13 23:57:28 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-25 22:36:52
+ * @Last Modified time: 2021-04-03 12:19:27
  */
 import React, { FC, useEffect, useReducer, useMemo } from 'react';
-import s from './index.css';
-import './index.antd.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
@@ -92,7 +91,7 @@ const Transfer:FC = function() {
     }, [stateObj.transferAmount, stateObj.targetAdd])
 
     const fee = (
-        <div className={s.fee}>{stateObj.partialFee} DOT</div>
+        <div className={s.fee}>{parseFloat(stateObj.partialFee || '0').toFixed(5)} DOT</div>
     )
     //  校验地址
     function addressInput(e: React.ChangeEvent<HTMLInputElement>) {
@@ -185,7 +184,7 @@ const Transfer:FC = function() {
         return <div className={s.contentWrap}>
             <div className={cx(s.formTitle, s.topT)}>{lanWrap('Collection address')}</div>
             <AutoComplete
-                className={cx(s.input, 'tInput')}
+                className={cx(s.input, s.tInput)}
                 onChange={addInput}
                 children={<Input onChange={(e) => addressInput(e)}
                     addonAfter={aferIcon}
@@ -200,7 +199,7 @@ const Transfer:FC = function() {
                     disabled
                     value={lanWrap('Transfer fee')}
                     addonAfter={fee}
-                    className={cx('feeInput', 'tInput')}/>
+                    className={cx(s.feeInput, s.tInput)}/>
             </div>
         </div>
     }
@@ -223,7 +222,7 @@ const Transfer:FC = function() {
                 </div>
             </div>
             <div className={cx(s.formTitle, s.topT)}>{lanWrap('Password confirmation')}</div>
-            <Input.Password onChange={(e) => inputSec(e)} className={cx(s.input, 'sInput')} placeholder={lanWrap('Please input a password')}/>
+            <Input.Password onChange={(e) => inputSec(e)} className={cx(s.input, s.sInput)} placeholder={lanWrap('Please input a password')}/>
             <div className={s.addressError}>{stateObj.errMsg}</div>
         </div>
     }

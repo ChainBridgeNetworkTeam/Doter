@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-28 00:13:41 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-04-01 23:02:44
+ * @Last Modified time: 2021-04-03 12:20:01
  */
 import { observable, runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -112,43 +112,43 @@ class AppStore {
 
     @action.bound
     async prepareAccount(): Promise<void> {
-        let ans = await getStorage({ 
-            [ADDRESS_ARRAY]: [],
-            [FAVORITE_ACCOUNT]: '',
-            [RECIPIENT_ARRAY]: [],
-            [LOCAL_CONFIG]: {
-                language: 'english',
-                autoLockTime: Infinity,
-                lastInSTM: 0
-            }}) as any || {};
+        // let ans = await getStorage({ 
+        //     [ADDRESS_ARRAY]: [],
+        //     [FAVORITE_ACCOUNT]: '',
+        //     [RECIPIENT_ARRAY]: [],
+        //     [LOCAL_CONFIG]: {
+        //         language: 'english',
+        //         autoLockTime: Infinity,
+        //         lastInSTM: 0
+        //     }}) as any || {};
 
-        //  订阅账户的变化
-        const subscription = accountsObservable.subject.subscribe((accounts: SubjectInfo): void =>
-            {
-                const addArrs = Object.keys(accounts);
-                const parsedAccObj = {} as Record<string, any>;
-                addArrs.map(key => {
-                    parsedAccObj[key] = accounts[key].json
-                })
-                runInAction(() => {
-                    this.accountObj = parsedAccObj;
-                    this.addressArr = addArrs;
-                })
-                setStorage({
-                    [ADDRESS_ARRAY]: addArrs,
-                })
-            }
-        );
-         const firsetAcc = ans.accountAddress[0];
+        // //  订阅账户的变化
+        // const subscription = accountsObservable.subject.subscribe((accounts: SubjectInfo): void =>
+        //     {
+        //         const addArrs = Object.keys(accounts);
+        //         const parsedAccObj = {} as Record<string, any>;
+        //         addArrs.map(key => {
+        //             parsedAccObj[key] = accounts[key].json
+        //         })
+        //         runInAction(() => {
+        //             this.accountObj = parsedAccObj;
+        //             this.addressArr = addArrs;
+        //         })
+        //         setStorage({
+        //             [ADDRESS_ARRAY]: addArrs,
+        //         })
+        //     }
+        // );
+        // const firsetAcc = ans.accountAddress[0];
         runInAction(() => {
-            this.favoriteAccount = ans.favoriteAccount || firsetAcc;
-            this.localConfig = ans[LOCAL_CONFIG];
-            this.recipientArr = ans[RECIPIENT_ARRAY];
+            // this.favoriteAccount = ans.favoriteAccount || firsetAcc;
+            // this.localConfig = ans[LOCAL_CONFIG];
+            // this.recipientArr = ans[RECIPIENT_ARRAY];
 
-            // this.favoriteAccount = add;
-            // this.addressArr = [add];
-            // this.accountObj = Object.assign.apply(null, [{}, mock]);
-            // this.recipientArr = [{ address: add, comment: 'wef' }];
+            this.favoriteAccount = add;
+            this.addressArr = [add];
+            this.accountObj = Object.assign.apply(null, [{}, mock]);
+            this.recipientArr = [{ address: add, comment: 'wef' }];
         });
     }
 

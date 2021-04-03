@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const tsImportPluginFactory = require("ts-import-plugin");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 //  判断是否是插件辅助文件打包
 const isPluginFileBuild = process.argv.includes('--pluginBuild');
@@ -61,6 +62,7 @@ module.exports = {
             filename: "[name].css",
             chunkFilename: "[name].css"
         }),
+        new ForkTsCheckerWebpackPlugin(),
         //  动态链接库
         new webpack.DllReferencePlugin({
             context: __dirname,
@@ -84,7 +86,7 @@ module.exports = {
                     //MiniCssExtractPlugin.loader,
                     'style-loader',
                     {
-                        loader: 'typings-for-css-modules-loader',
+                        loader: 'css-loader',
                         options: {
                             modules: false,
                             namedExport: true
@@ -99,7 +101,7 @@ module.exports = {
                     //MiniCssExtractPlugin.loader,
                     'style-loader',
                     {
-                        loader: 'typings-for-css-modules-loader',
+                        loader: 'css-loader',
                         options: {
                             modules: true,
                             namedExport: true
@@ -129,10 +131,12 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                loader: "awesome-typescript-loader",
+                //  loader: "awesome-typescript-loader",
+                loader: 'ts-loader',
                 options: {
-                  useCache: true,
-                  useBabel: false, // !important!
+                  //    这些是给awesome-typescript-loader用的
+                  //    useCache: true,
+                  //    useBabel: false, // !important!
                   getCustomTransformers: () => ({
                     before: [tsImportPluginFactory({
                       libraryName: 'antd',
@@ -140,6 +144,8 @@ module.exports = {
                       style: true
                     })]
                   }),
+                  //    不安排类型检查
+                  transpileOnly: true
                 },
                 exclude: [
                     /node_modules/
@@ -177,6 +183,6 @@ module.exports = {
             "@constants": path.resolve(__dirname, "project/constants")
           },
     },
-    //mode:"development",
-    mode:"production",
+    mode:"development",
+    //mode:"production",
 }
