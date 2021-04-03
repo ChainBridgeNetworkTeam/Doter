@@ -24,26 +24,5 @@
           "description": "Opens pop.html"
         }
     },
-    "background": {
-      "scripts": [
-        "background.js"
-      ],
-      "persistent": true
-    },
-    "content_scripts": [
-      {
-        "js": [
-          "content.js"
-        ],
-        "matches": [
-          "http://*/*",
-          "https://*/*"
-        ],
-        "run_at": "document_start"
-      }
-    ],
-    "web_accessible_resources": [
-      "injectScript.js"
-    ],
     "permissions": ["storage"]
 }
