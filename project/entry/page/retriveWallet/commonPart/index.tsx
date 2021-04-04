@@ -2,12 +2,11 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-17 17:20:34 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 11:31:34
+ * @Last Modified time: 2021-04-03 17:13:43
  */
 
 import React, { FC } from 'react';
-import s from './index.css';
-import './index.antd.css';
+import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'antd';
 import cx from 'classnames';
@@ -93,7 +92,7 @@ const CommonPart:FC = function() {
             <Input
                 value={name}
                 onChange={(e) => changeInput(RetrieveStore, 'name', e)}
-                className={cx(s.secInput, 'retrieveInput')} placeholder={lanWrap('title of account')}
+                className={cx(s.secInput, s.retrieveInput)} placeholder={lanWrap('title of account')}
             />
             {isInMnemonic ? <SecretInput secretKey='secret' checkSecretKey='confirmSecret' store={RetrieveStore}/>
                 : <>
@@ -101,7 +100,7 @@ const CommonPart:FC = function() {
                     <Input.Password
                         value={secret}
                         onChange={(e) => changeInput(RetrieveStore, 'secret', e)}
-                        className={cx(s.input, 'retrieveInput')}
+                        className={cx(s.input, s.retrieveInput)}
                         placeholder={lanWrap('Wallet password')}
                     />
                 </>  

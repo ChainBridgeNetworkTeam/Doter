@@ -63,13 +63,13 @@ module.exports = {
             chunkFilename: "[name].css"
         }),
         new ForkTsCheckerWebpackPlugin(),
-        //  动态链接库
-        new webpack.DllReferencePlugin({
+        //  动态链接库,背景文件打包的时候不需要
+        isPluginFileBuild ? null : new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: require('./plugin/pop/vendors-manifest.json')
         }),
         new webpack.HotModuleReplacementPlugin()
-    ],
+    ].filter(Boolean),
     watch: true,
     watchOptions: {
         poll: 1, // 每秒询问多少次

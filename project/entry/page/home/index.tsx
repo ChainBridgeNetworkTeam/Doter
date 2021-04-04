@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-22 22:36:26 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-04-03 09:45:58
+ * @Last Modified time: 2021-04-03 17:23:47
  */
 import React, { FC, useEffect, useReducer, useMemo, useState } from 'react';
 import { runInAction, toJS } from 'mobx';
@@ -17,7 +17,7 @@ import { Spin, message } from 'antd';
 import copyContent from 'copy-to-clipboard';
 import { getAddInfo, getDotInfo } from '@entry/service';
 import { keyring } from '@polkadot/ui-keyring';
-import s from './index.css';
+import s from './index.scss';
 import cx from 'classnames';
 
 const HomePage:FC = function() {
