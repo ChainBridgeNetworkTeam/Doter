@@ -24,7 +24,7 @@ const Auth:FC = function() {
     const _onReject = (authId: string) => rejectAuthRequest(authId).catch((error: Error) => console.error(error));
  
     function renderList() {
-        return globalStore.authReqList.map((item, index) => {
+        return globalStore.authReqList.slice(-1).map((item, index) => {
             const { id } = item;
             return (
                 <div key={index}>
@@ -37,7 +37,10 @@ const Auth:FC = function() {
 
     return (
         <div className={s.wrap}>
-            <div className={s.logo}>大家好</div>
+            <div className={s.title}>
+                <div className={s.logo}/>
+                Doter
+            </div>
             {renderList()}
         </div>
     )

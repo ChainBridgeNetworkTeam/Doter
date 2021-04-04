@@ -32,5 +32,6 @@ module.exports = {
     //     analyzerPort: 8899
     // })
   ],
-  mode:"production",
+  //mode:"production",
+  mode:"development",
 }

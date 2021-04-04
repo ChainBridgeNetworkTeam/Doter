@@ -35,7 +35,7 @@ import democracyVote from './page/democracy/voteForReferenda'; //   民主治理
 import democracyCheck from './page/democracy/voteCheck'; // 民主治理，投票确认
 import transferRecord from './page/transferRecord'; //  转账记录
 import transferRecordDetail from './page/transferRecord/recordDetail'; //   转账单笔详情
-//  import Authorize from './page/authPopup'; //    账号注入授权弹窗
+import Authorize from './page/authPopup'; //    账号注入授权弹窗
 import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
@@ -54,15 +54,15 @@ function AppRouter() {
 
     const [list, setList] = useState([]);
 
-    // useEffect((): void => {
-    //     Promise.all([
-    //       subscribeAuthorizeRequests((list) => {
-    //         //  setList(list);
-    //         GlobalStore.setAuthList(list);
-    //     })
-    //       //    subscribeSigningRequests(setSignRequests)
-    //     ],).catch(console.error);
-    //   }, []);
+    useEffect((): void => {
+        Promise.all([
+          subscribeAuthorizeRequests((list) => {
+            //  setList(list);
+            GlobalStore.setAuthList(list);
+        })
+          //    subscribeSigningRequests(setSignRequests)
+        ],).catch(console.error);
+      }, []);
 
     function Root() {
         console.log('render root', GlobalStore.authReqList);
@@ -70,8 +70,8 @@ function AppRouter() {
         if (GlobalStore.authReqList.length === 0) {
             return <Home />;
         } else {
-            return null;
-            //  return <Authorize />;
+            // return null;
+            return <Authorize />;
         }
     }
 
