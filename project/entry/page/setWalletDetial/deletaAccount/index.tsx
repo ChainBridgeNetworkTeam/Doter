@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-27 21:17:37 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 11:59:48
+ * @Last Modified time: 2021-04-05 12:21:46
  */
 
 import React, { FC, useReducer } from 'react';
@@ -16,6 +16,7 @@ import { Input, message, Spin } from 'antd';
 import { keyring } from '@polkadot/ui-keyring';
 import { runInAction } from 'mobx';
 import { PAGE_NAME } from '@constants/app';
+import { forgetAccount } from '@utils/message/message';
 import { removeStorage, setStorage, getStorage } from '@utils/chrome';
 import { ADDRESS_ARRAY, FAVORITE_ACCOUNT } from '@constants/chrome';
 
@@ -62,6 +63,10 @@ const DeleteAccount:FC = function() {
         setStorage({
             [FAVORITE_ACCOUNT]: (isFavorite ? addArr[0] : globalStore.favoriteAccount)
         })
+        //  删除bg keyring里面的账号
+        forgetAccount(add);
+        //  本地keyring删除账号
+        keyring.forgetAccount(add);
         if (add === favoriteAccount) {
             runInAction(() => {
                 globalStore.favoriteAccount = addArr[0];

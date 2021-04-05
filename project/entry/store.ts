@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-01-28 00:13:41 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-04-03 12:20:01
+ * @Last Modified time: 2021-04-05 10:52:17
  */
 import { observable, runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
@@ -112,7 +112,7 @@ class AppStore {
 
     @action.bound
     async prepareAccount(): Promise<void> {
-        let ans = await getStorage({ 
+        let ans = await getStorage({
             [ADDRESS_ARRAY]: [],
             [FAVORITE_ACCOUNT]: '',
             [RECIPIENT_ARRAY]: [],
@@ -122,7 +122,7 @@ class AppStore {
                 lastInSTM: 0
             }}) as any || {};
 
-        //  订阅账户的变化
+        //  订阅账户的变化,核心内容通过库来存取
         const subscription = accountsObservable.subject.subscribe((accounts: SubjectInfo): void =>
             {
                 const addArrs = Object.keys(accounts);

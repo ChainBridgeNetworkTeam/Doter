@@ -24,6 +24,7 @@ chrome.runtime.onConnect.addListener((port): void => {
   port.onDisconnect.addListener((): void => console.log(`Disconnected from ${port.name}`));
 });
 
+console.log('bg start');
 // initial setup
 cryptoWaitReady()
   .then((): void => {
