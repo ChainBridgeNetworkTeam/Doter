@@ -67,7 +67,7 @@ function AppRouter() {
     function Root() {
         console.log('render root', GlobalStore.authReqList);
         let xxx = GlobalStore.authReqList;
-        if (GlobalStore.authReqList.length === 0) {
+        if (!document.getElementById('notification')) {
             return <Home />;
         } else {
             // return null;
