@@ -2,7 +2,7 @@
  * @Author: guanlanluditie 
  * @Date: 2021-02-08 11:23:37 
  * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-25 22:42:42
+ * @Last Modified time: 2021-04-05 10:17:56
  */
 
 import React, { FC, useEffect, useReducer, useMemo } from 'react';
@@ -16,6 +16,7 @@ import { useHistory } from 'react-router-dom';
 import { PAGE_NAME } from '@constants/app';
 import { runInAction } from 'mobx';
 import { mnemonicGenerate, cryptoWaitReady } from '@polkadot/util-crypto';
+import { createAccountSuri } from '@utils/message/message';
 import cx from 'classnames';
 import { Spin } from 'antd';
 import { addNewAccount } from '@utils/tools';
@@ -174,6 +175,8 @@ const CreactMnemonic:FC = function() {
                 const originMnemonic = words.map(item => item.value).join(' ');
                 //  创建新账号
                 const result = keyring.addUri(originMnemonic, inputSec, { name: accountName });
+                //  同步给background.js里面的keyring
+                createAccountSuri(accountName, inputSec, originMnemonic, undefined).catch(e => console.log('create account to bg Err', e));
                 await addNewAccount(result);
                 //  修改新账号为当前偏好
                 runInAction(() => {
