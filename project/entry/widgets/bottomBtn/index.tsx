@@ -6,12 +6,12 @@
  */
 
 import React, { FC } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import cx from 'classnames';
 
 interface BarProps {
     word: string,
-    propClass?: Function,
+    propClass?: string,
     cb: Function;
 }
 const BottomButton:FC<BarProps> = function(props:BarProps) {
