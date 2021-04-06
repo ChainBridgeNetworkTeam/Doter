@@ -20,6 +20,8 @@ import { keyring } from '@polkadot/ui-keyring';
 import s from './index.scss';
 import cx from 'classnames';
 
+//  test
+
 const HomePage:FC = function() {
     const history = useHistory();
     let { t ,i18n} = useTranslation();
