@@ -18,7 +18,7 @@ import { runInAction } from 'mobx';
 import { mnemonicGenerate, cryptoWaitReady } from '@polkadot/util-crypto';
 import { createAccountSuri } from '@utils/message/message';
 import cx from 'classnames';
-import { Spin } from 'antd';
+import { Spin, message } from 'antd';
 import { addNewAccount } from '@utils/tools';
 
 const STATUS = {
@@ -156,7 +156,7 @@ const CreactMnemonic:FC = function() {
     }
 
     async function buttonClick() {
-        const { status, words } = stateObj;
+        const { status, words, pickWords } = stateObj;
         //  第一阶段直接返回
         if (isStepOne) {
             return;
@@ -167,6 +167,9 @@ const CreactMnemonic:FC = function() {
                 status: STATUS.THREE
             })
         } else {
+            if (!(pickWords.map(item => item.value).join(' ') === words.map(item => item.value).join(' '))) {
+                return message.error(mnLan('confirm the mnenoic'));
+            }
             setState({
                 showLoading: true
             })

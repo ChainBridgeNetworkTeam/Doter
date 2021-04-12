@@ -36,13 +36,15 @@ import democracyCheck from './page/democracy/voteCheck'; // 民主治理，投�
 import transferRecord from './page/transferRecord'; //  转账记录
 import transferRecordDetail from './page/transferRecord/recordDetail'; //   转账单笔详情
 import Authorize from './page/authPopup'; //    账号注入授权弹窗
+import SignPopup from './page/signPopup'; //    交易签名确认弹窗
 import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { subscribeAuthorizeRequests } from '@utils/message/message';
+import { subscribeAuthorizeRequests, subscribeSigningRequests } from '@utils/message/message';
 import { runInAction } from 'mobx';
+import e from 'express';
 
 function AppRouter() {
     const storeObj = {
@@ -52,26 +54,29 @@ function AppRouter() {
         DemocracyStore
     }
 
-    const [list, setList] = useState([]);
-
     useEffect((): void => {
         Promise.all([
-          subscribeAuthorizeRequests((list) => {
-            //  setList(list);
-            GlobalStore.setAuthList(list);
-        })
-          //    subscribeSigningRequests(setSignRequests)
+            //  订阅认证请求
+            subscribeAuthorizeRequests((list) => {
+                GlobalStore.setAuthList(list);
+            }),
+            //  订阅签名请求
+            subscribeSigningRequests((list) => {
+                GlobalStore.setSignList(list);
+            })
         ],).catch(console.error);
       }, []);
 
     function Root() {
-        console.log('render root', GlobalStore.authReqList);
-        let xxx = GlobalStore.authReqList;
+        console.log('render root', GlobalStore.authReqList, GlobalStore.signReqList);
         if (!document.getElementById('notification')) {
             return <Home />;
         } else {
-            // return null;
-            return <Authorize />;
+            if (GlobalStore.authReqList.length) {
+                return <Authorize />;
+            } else {
+                return <SignPopup />
+            }
         }
     }
 
