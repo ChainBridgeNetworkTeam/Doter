@@ -13,7 +13,10 @@ import { OFFICAL_END_POINT } from '@constants/chain';
 import { AccountsStore } from '@polkadot/extension-base/stores';
 import { accounts as accountsObservable } from '@polkadot/ui-keyring/observable/accounts';
 import type { SubjectInfo, SingleAddress } from '@polkadot/ui-keyring/observable/types';
-import type { KeyringPair$Json } from '@polkadot/keyring/types';
+import type { KeyringPair, KeyringPair$Json, KeyringPair$Meta } from '@polkadot/keyring/types';
+import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
+import type { KeypairType } from '@polkadot/util-crypto/types';
+import { TypeRegistry } from '@polkadot/types';
 import type BN from 'bn.js';
 
 export interface RequestAuthorizeTab {
@@ -22,6 +25,32 @@ export interface RequestAuthorizeTab {
 export interface AuthorizeRequest {
     id: string;
     request: RequestAuthorizeTab;
+    url: string;
+}
+
+export interface AccountJson extends KeyringPair$Meta {
+    address: string;
+    genesisHash?: string | null;
+    isExternal?: boolean;
+    isHardware?: boolean;
+    isHidden?: boolean;
+    name?: string;
+    parentAddress?: string;
+    suri?: string;
+    type?: KeypairType;
+    whenCreated?: number;
+}
+
+export interface RequestSign {
+    readonly payload: SignerPayloadJSON | SignerPayloadRaw;
+  
+    sign (registry: TypeRegistry, pair: KeyringPair): { signature: string };
+}
+
+export interface SigningRequest {
+    account: AccountJson;
+    id: string;
+    request: RequestSign;
     url: string;
 }
 export interface globalStoreType {
@@ -96,9 +125,15 @@ class AppStore {
 
     @observable authReqList: Array<AuthorizeRequest> = [];
 
+    signReqList: Array<SigningRequest> = [];
+
+    //  设置认证请求列表
     setAuthList(valueList: Array<AuthorizeRequest>) {
-        console.log(valueList, 'target');
         this.authReqList = valueList;
+    }
+    //  设置签名请求列表
+    setSignList(valueList: Array<SigningRequest>) {
+        this.signReqList = valueList;
     }
 
     constructor() {

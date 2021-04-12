@@ -25,7 +25,8 @@ export const createEn = {
     'Wallet name': 'Wallet Name',
     '1-12 characters': '1~12 Characters',
     'Creating wallets': 'Create',
-    'confirm the mnenoic': 'Confirm backup'
+    'confirm the mnenoic': 'Confirm backup',
+    'mnemonic out of order!': 'mnemonic out of order!'
 }
 export const createZh = {
     'create wallet': '创建钱包',
@@ -48,5 +49,6 @@ export const createZh = {
     'Wallet name': '钱包名称',
     '1-12 characters': '1-12位字符',
     'Creating wallets': '创建钱包',
-    'confirm the mnenoic': '确认助记词'
+    'confirm the mnenoic': '确认助记词',
+    'mnemonic out of order!': '错误的助记词顺序'
 }
