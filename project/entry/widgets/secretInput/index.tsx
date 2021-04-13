@@ -7,7 +7,7 @@
 
 
 import React, { FC, useState } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import { Form, Input } from 'antd';
 import { observer } from 'mobx-react';
