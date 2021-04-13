@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-04-01 08:45:08
  */
 
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useReducer } from 'react';
 import cx from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -18,12 +18,23 @@ import type { SignerPayloadJSON } from '@polkadot/types/types';
 import s from '../authPopup/index.scss';
 import styles from './index.scss';
 import { approveAuthRequest, rejectAuthRequest } from '@utils/message/message';
-import { getReferDetail } from '../democracy/service';
+import { Input } from 'antd';
+
+interface SignState {
+    secret?: string;
+    signBtnActive?: boolean;
+}
 
 const Auth:FC = function() {
     let { t } = useTranslation();
     const globalStore = GlobalStore as unknown as globalStoreType ;
     const history = useHistory();
+
+    //  状态管理
+    function stateReducer(state: Object, action: SignState) {
+        return Object.assign({}, state, action);
+    }
+    const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false } as SignState);
 
     const _onApprove = useCallback(() => {
         const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
@@ -34,15 +45,13 @@ const Auth:FC = function() {
         rejectAuthRequest(authId).catch((error: Error) => console.error(error));
     }, [globalStore.authReqList]);
     console.log(toJS(GlobalStore.signReqList), 'sign');
-    const target = GlobalStore.signReqList[0];
-    if (!target) {
-        return null;
-    }
-    const { address, name } = target.account;
 
-    function getReferDetail() {
+    function getTransDetail() {
         const target = GlobalStore.signReqList[0];
-
+        if (!target) {
+            return null;
+        }
+        const { address, name } = target.account;
         const { genesisHash, version, nonce, method } = target.request.payload as SignerPayloadJSON;
         const contentArray = [{ title: 'from', value: target.url}, { title: 'genesis', value: genesisHash},
         { title: 'version', value: version}, { title: 'nonce', value: nonce }, { title: 'method data', value: method }];
@@ -53,9 +62,21 @@ const Auth:FC = function() {
                 <div className={styles.right}>{value}</div>
             </div>
         })
-        return <div className={styles.tableWrap}>
+        return <>
+            <div className={styles.addWrap}>
+                <div>{name}</div>
+                <div className={styles.addDetail}>{address}</div>
+            </div>
+            <div className={styles.tableWrap}>
+                {table}
+            </div>
+        </>
+    }
 
-        </div>
+    function setSecret(e: React.ChangeEvent<HTMLInputElement>) {
+        setState({
+            secret: e.target.value
+        })
     }
     return (
         <div className={styles.wrap}>
@@ -65,11 +86,10 @@ const Auth:FC = function() {
             </div>
             <div className={s.dotLogo}/>
             <div className={s.auth}>签名信息</div>
-            <div className={styles.addWrap}>
-                <div>{name}</div>
-                <div className={styles.addDetail}>{address}</div>
-            </div>
-            {getReferDetail()}
+            {getTransDetail()}
+            <Input.Password onChange={setSecret} className={styles.input} placeholder={'Wallet Secret'}/>
+            <BottomBtn word={'签名'} cb={_onApprove} propClass={cx(styles.btn1)}/>
+            <BottomBtn word={'取消'} cb={_onReject} propClass={cx(styles.btn2)}/>
         </div>
     )
 }

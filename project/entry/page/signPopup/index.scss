@@ -10,11 +10,13 @@
     padding-left: .12rem;
     padding-top: .1rem;
     color: #333333;
+    margin: 0 auto;
     margin-top: .14rem;
 }
 
 .addDetail {
     width: 3.19rem;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -28,7 +30,9 @@
 .tableWrap {
     width: 3.43rem;
     margin: 0 auto;
+    margin-top: .04rem;
     background-color: #ffffff;
+    margin-bottom: .08rem;
 }
 
 .detail {
@@ -47,5 +51,27 @@
     width: 2.13rem;
     font-size: .14rem;
     text-overflow: ellipsis;
+    overflow: hidden;
     margin-left: .14rem;
 }
+
+.input {
+    font-size: .14rem !important;
+    width: 3.43rem;
+    margin: 0 auto;
+    height: .48rem !important;
+}
+
+.btn1 {
+    background-color: #C7E3F0;
+    margin-top: .24rem;
+    width: 3.43rem;
+}
+
+.btn2 {
+    color: #555555;
+    background-color: #ffffff;
+    margin-top: .16rem;
+    width: 3.43rem;
+}
+
