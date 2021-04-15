@@ -5,10 +5,9 @@
  * @Last Modified time: 2021-04-01 08:45:08
  */
 
-import React, { FC, useCallback, useReducer } from 'react';
+import React, { FC, useCallback, useEffect, useReducer } from 'react';
 import cx from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { globalStoreType } from '@entry/store';
 import GlobalStore from '@entry/store';
@@ -17,33 +16,68 @@ import { toJS } from 'mobx';
 import type { SignerPayloadJSON } from '@polkadot/types/types';
 import s from '../authPopup/index.scss';
 import styles from './index.scss';
-import { approveAuthRequest, rejectAuthRequest } from '@utils/message/message';
-import { Input } from 'antd';
+import { approveSignPassword, cancelSignRequest } from '@utils/message/message';
+import { Input, Spin, message } from 'antd';
 
 interface SignState {
     secret?: string;
     signBtnActive?: boolean;
+    showLoading?: boolean;
 }
 
 const Auth:FC = function() {
     let { t } = useTranslation();
     const globalStore = GlobalStore as unknown as globalStoreType ;
-    const history = useHistory();
 
     //  状态管理
     function stateReducer(state: Object, action: SignState) {
         return Object.assign({}, state, action);
     }
-    const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false } as SignState);
+    const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false, showLoading: false } as SignState);
+    const _onSign = useCallback(
+        (): Promise<void> => {
+          const signId = GlobalStore.signReqList[0]?.id;
+          setState({
+              showLoading: true
+          })
+          return approveSignPassword(signId, false, stateObj.secret)
+            .then((): void => {
+                console.log('transfer succes!')
+            })
+            .catch((error: Error): void => {
+              console.error(error);
+            }).finally(() => {
+                setState({
+                    showLoading: false
+                })
+            });
+        },
+        [stateObj.secret, GlobalStore.signReqList]
+    );
+    const { secret } = stateObj;
+    const _onCancel = useCallback(
+        (): Promise<void> => {
+        const signId = GlobalStore.signReqList[0]?.id;
+        return cancelSignRequest(signId)
+            .then(() => {
+                console.log('cancel success')
+            })
+            .catch((error: Error) => {
+                    if (error.toString().includes('supplied passphrase')) {
+                        message.error('密码错误')
+                    } else {
+                        message.error('签名失败')
+                    }
+                    console.error(error.toString())
+                }
+            )
+        },
+        [GlobalStore.signReqList]
+    );
 
-    const _onApprove = useCallback(() => {
-        const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
-        approveAuthRequest(authId).catch((error: Error) => console.error(error));
-    }, [globalStore.authReqList]);
-    const _onReject = useCallback(() => {
-        const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
-        rejectAuthRequest(authId).catch((error: Error) => console.error(error));
-    }, [globalStore.authReqList]);
+    useEffect(() => {
+        _onCancel();
+    }, []);
     console.log(toJS(GlobalStore.signReqList), 'sign');
 
     function getTransDetail() {
@@ -87,9 +121,13 @@ const Auth:FC = function() {
             <div className={s.dotLogo}/>
             <div className={s.auth}>签名信息</div>
             {getTransDetail()}
-            <Input.Password onChange={setSecret} className={styles.input} placeholder={'Wallet Secret'}/>
-            <BottomBtn word={'签名'} cb={_onApprove} propClass={cx(styles.btn1)}/>
-            <BottomBtn word={'取消'} cb={_onReject} propClass={cx(styles.btn2)}/>
+            <div className={styles.secWrap}>
+                <Input.Password onChange={setSecret} className={styles.input} placeholder={'Wallet Secret'}/>
+            </div>
+            <Spin spinning={stateObj.showLoading}>
+                <BottomBtn word={'签名'} cb={_onSign} propClass={cx(styles.btn1, secret ? styles.activeBtn : '')}/>
+            </Spin>
+            <BottomBtn word={'取消'} cb={_onCancel} propClass={cx(styles.btn2)}/>
         </div>
     )
 }

@@ -265,3 +265,42 @@
     color: #333333;
     cursor: pointer;
 }
+
+.changeLan {
+    position: fixed;
+    top: .15rem;
+    right: .1rem;
+    font-size: .14rem;
+    color: #555555;
+    cursor: pointer;
+}
+
+.lTitle {
+    width: .76rem;
+    height: .3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        width: .06rem;
+        height: .04rem;
+        margin-left: .04rem;
+        background-size: 100% 100%;
+        background-image: url('./img/lanArrow.png');
+    }
+}
+
+.lselect {
+    width: .76rem;
+    height: .3rem;
+    padding-left: .1rem;
+    line-height: .3rem;
+    background-color: #FAFAFA;
+
+    &:hover {
+        background-color: #358FB6;
+        color: #ffffff;
+    }
+}

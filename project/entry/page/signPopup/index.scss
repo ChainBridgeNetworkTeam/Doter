@@ -70,6 +70,12 @@
     background-color: #C7E3F0;
     margin-top: .24rem;
     width: 3.43rem;
+    cursor: unset;
+}
+
+.activeBtn {
+    cursor: pointer;
+    background-color: #358FB6;
 }
 
 .btn2 {
