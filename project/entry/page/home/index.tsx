@@ -20,7 +20,9 @@ import { keyring } from '@polkadot/ui-keyring';
 import s from './index.scss';
 import cx from 'classnames';
 
-//  test
+interface homeStatue {
+    showLanPanel?: boolean;
+}
 
 const HomePage:FC = function() {
     const history = useHistory();
@@ -34,10 +36,13 @@ const HomePage:FC = function() {
         console.log(path, 'path');
         history.push(path);
     }
-    function changeLanguage() {
-        i18n.changeLanguage(i18n.language=='en'?'zh':'en')
-    }
 
+    //  状态管理
+    function stateReducer(state: Object, action: homeStatue) {
+        return Object.assign({}, state, action);
+    }
+    const [stateObj, setState] = useReducer(stateReducer, {  showLanPanel:false } as homeStatue);
+    const { showLanPanel } = stateObj;
     //  拉取dot兑美元汇率
     useEffect(() => {
         async function getInfo() {
@@ -132,8 +137,8 @@ const HomePage:FC = function() {
                 </div>
                 <div className={s.pIcon}/>
                 <Spin spinning={balance === ''}>
-                    <div className={s.balance}>{balance} DOT</div>
-                    <div className={s.usd}>${useDolar} USD</div>
+                    <div className={s.balance}>{parseFloat(balance).toFixed(4)} DOT</div>
+                    <div className={s.usd}>${parseFloat(useDolar).toFixed(4)} USD</div>
                     <div className={s.balanceDetial}>
                         <div className={s.aWrap}>
                             <div>{parseFloat(lockBalance).toFixed(2)} DOT</div>
@@ -171,10 +176,35 @@ const HomePage:FC = function() {
             </>
         )
     }
+
+    function openLanPanel(e: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
+        e.stopPropagation();
+        setState({
+            showLanPanel: !showLanPanel
+        })
+    }
+
+    function outerChangeLan() {
+        setState({
+            showLanPanel: false
+        })
+    }
+
+    function changeLanguage(value: 'en' | 'zh') {
+        i18n.changeLanguage(value)
+    }
+
     function homeWithoutAccount() {
         return <>
+            <div className={s.changeLan}>
+                <div className={s.lTitle} onClick={openLanPanel}>{i18n.language === 'en' ? 'English' : '中文'}</div>
+                {showLanPanel && <>
+                    <div className={s.lselect} onClick={() => changeLanguage('zh')}>中文</div>
+                    <div className={s.lselect} onClick={() => changeLanguage('en')}>English</div>
+                </>}
+            </div>
             <div className={s.wrap}>
-                <div className={s.loggo} onClick={changeLanguage}/>
+                <div className={s.loggo} />
             </div>
             <div className={s.word}>{t('home:doter is a polkadot wallet')}</div>
             <div className={s.word}>{t('home:welcome to use')}</div>
@@ -184,7 +214,7 @@ const HomePage:FC = function() {
     }
     const hasAccount = currentAccount.address;
     return (
-        <div>
+        <div onClick={outerChangeLan}>
             {hasAccount ? AccountPage() : homeWithoutAccount()}
         </div>
     )
