@@ -5,8 +5,8 @@
  * @Last Modified time: 2021-03-25 21:17:11
  */
 
-import React, { FC, useState } from 'react';
-import s from './index.css';
+import React, { FC } from 'react';
+import s from './index.scss';
 import { PAGE_NAME } from '@constants/app';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
