@@ -15,12 +15,15 @@ import { observer } from 'mobx-react';
 import { useStores } from '@utils/useStore';
 import { CREAT_STAGE } from './contants';
 import { CreateStoreType } from './store';
+import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
+import { runInAction } from 'mobx';
 
 
 
 const CreactAccount:FC = function() {
     let { t } = useTranslation();
+    const history = useHistory();
     const createStore = useStores('CreateAccountStore') as CreateStoreType;
 
     function stageRender() {
@@ -34,10 +37,22 @@ const CreactAccount:FC = function() {
     function resetStatus() {
         createStore.resetStore();
     }
+
+    function createPageBack() {
+        //  密码阶段直接回退
+        if (createStore.createStage === CREAT_STAGE.SECRECT) {
+            resetStatus();
+            history.goBack();
+        } else {
+            runInAction(() => {
+                createStore.createStage = CREAT_STAGE.SECRECT;
+            })
+        }
+    }
  
     return (
         <div className={cx(s.wrap, createStore.createStage === CREAT_STAGE.MNEMONIC ? s.mnBg : '')}>
-            <HeadBar externalCallBack={resetStatus} word={t('createAccount:create wallet')}/>
+            <HeadBar selfBack={createPageBack} word={t('createAccount:create wallet')}/>
             {stageRender()}
         </div>
     )

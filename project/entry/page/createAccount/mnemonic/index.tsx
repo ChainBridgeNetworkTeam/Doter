@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useEffect, useReducer, useMemo } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import keyring from '@polkadot/ui-keyring';
 import { useStores } from '@utils/useStore';
