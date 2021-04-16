@@ -11,6 +11,8 @@ export const widgetsEn = {
     'Repeat the password': 'Repeat Password',
     'I have read and agree to the user agreement': 'I have read and agree to the ',
     'User agreement': 'User agreement',
+    'strong': 'strong',
+    'weak': 'weak',
 }
 
 export const widgetsZh = {
@@ -19,4 +21,6 @@ export const widgetsZh = {
     'Repeat the password': '重复输入密码',
     'I have read and agree to the user agreement': '我已阅读并同意用户协议',
     'User agreement': '用户协议',
+    'strong': '强',
+    'weak': '弱',
 }

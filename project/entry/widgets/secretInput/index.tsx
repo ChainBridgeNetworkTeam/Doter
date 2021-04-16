@@ -43,12 +43,17 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
     }
     return (
         <>
-            <div className={cx(s.formTitle, s.midT)}>{props.title || lanWrap('password')} <div className={cx(s.secWrap, secretStatus === 'strong' ? s.strongSec : s.weatSec)} /></div>
+            <div className={cx(s.formTitle, s.midT)}>
+                {props.title || lanWrap('password')}
+                <div className={cx(s.secWrap)}>
+                    {secretStatus === 'strong' ? lanWrap('strong') : lanWrap('weak')}
+                </div>
+            </div>
             <Input.Password
-                    value={store[secretKey]}
-                    onChange={(e) => changeSecret(e, secretKey)}
-                    className={cx(s.input, 'myInput')}
-                    placeholder={lanWrap('Wallet password')}
+                value={store[secretKey]}
+                onChange={(e) => changeSecret(e, secretKey)}
+                className={cx(s.input, 'myInput')}
+                placeholder={lanWrap('Wallet password')}
             />
             <Input.Password
                 value={store[checkSecretKey]}

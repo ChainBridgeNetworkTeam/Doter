@@ -195,7 +195,7 @@ const HomePage:FC = function() {
     }
 
     function homeWithoutAccount() {
-        return <>
+        return <div onClick={outerChangeLan}>
             <div className={s.changeLan}>
                 <div className={s.lTitle} onClick={openLanPanel}>{i18n.language === 'en' ? 'English' : '中文'}</div>
                 {showLanPanel && <>
@@ -210,11 +210,11 @@ const HomePage:FC = function() {
             <div className={s.word}>{t('home:welcome to use')}</div>
             <div className={cx(s.btn, s.create)} onClick={() => jump(PAGE_NAME.CREATE_ACCOUNT)}>{t('home:create wallet')}</div>
             <div className={cx(s.btn, s.importIcon)} onClick={() => jump(PAGE_NAME.RETRIEVE_WALLET)}>{t('home:import wallet')}</div>
-        </>
+        </div>
     }
     const hasAccount = currentAccount.address;
     return (
-        <div onClick={outerChangeLan}>
+        <div>
             {hasAccount ? AccountPage() : homeWithoutAccount()}
         </div>
     )

@@ -13,15 +13,20 @@ interface BarProps {
     word: string,
     externalCallBack?: Function,
     showRightIcon?: boolean,
-    rightIconCB?: Function
+    rightIconCB?: Function,
+    selfBack?: Function,
 }
 const HeadBar:FC<BarProps> = function(props:BarProps) {
     const history = useHistory();
-    const { word, externalCallBack, rightIconCB, showRightIcon } = props;
+    const { word, externalCallBack, rightIconCB, showRightIcon, selfBack } = props;
 
     function back() {
         externalCallBack?.();
-        history.goBack();
+        if (selfBack) {
+            selfBack();
+        } else {
+            history.goBack();
+        }
     }
 
     function addClick() {
