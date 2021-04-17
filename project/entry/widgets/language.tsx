@@ -13,6 +13,7 @@ export const widgetsEn = {
     'User agreement': 'User agreement',
     'strong': 'strong',
     'weak': 'weak',
+    'all': 'All',
 }
 
 export const widgetsZh = {
@@ -23,4 +24,5 @@ export const widgetsZh = {
     'User agreement': '用户协议',
     'strong': '强',
     'weak': '弱',
+    'all': '全部',
 }

@@ -6,7 +6,6 @@
  */
 
 export const transferEn = {
-    'all': 'All',
     'bad address': 'bad address',
     'Collection address and payment address cannot be the same': 'Collection address and payment address cannot be the same',
     'your credit is running low': 'your credit is running low',
@@ -31,7 +30,6 @@ export const transferEn = {
 }
 
 export const transferZh = {
-    'all': '全部',
     'bad address': '错误的地址',
     'Collection address and payment address cannot be the same': '收款地址和付款地址不能相同',
     'your credit is running low': '余额不足',

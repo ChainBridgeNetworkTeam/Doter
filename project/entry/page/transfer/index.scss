@@ -90,19 +90,17 @@
     background-color: #358FB6;
 }
 
-.tableWrap {
-    background-color: #ffffff;
-}
-
 .sTd {
     height: .48rem;
     display: flex;
+    background-color: #ffffff;
     justify-content: space-between;
     align-items: center;
     color: #AAAAAA;
     font-size: .14rem;
     padding-left: .12rem;
     padding-right: .12rem;
+    margin-bottom: .01rem;
 }
 
 .tContent {
@@ -149,13 +147,14 @@
 
 .sInput {
     color: red !important;
+    border: .01rem solid #FFFFFF !important;
     :global {
         .ant-input {
             font-size: .14rem !important;
             border: none;
             height: .45rem;
             position: relative;
-            top: -.03rem;
+            top: -.05rem;
             height: .48rem;
         }
     }
