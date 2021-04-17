@@ -32,7 +32,6 @@ const INFO_STATUS = {
 
 interface CreateStateObj {
     sectStatus?: 'weak' | 'strong',
-    userArgeementStatus?: boolean,
     showSec?: boolean,
     infoStatus?: number
 }
@@ -50,9 +49,8 @@ const SecretPart:FC = function() {
 
     //  切换用户协议状态
     function changeAgreeSta() {
-        let currentStatus = stateObj.userArgeementStatus;
-        setState({
-            userArgeementStatus: !currentStatus
+        runInAction(() => {
+           createStore.userAgreementSlect = !createStore.userAgreementSlect;
         })
     }
     //  创建账户
@@ -71,7 +69,7 @@ const SecretPart:FC = function() {
             })
         }
         //  没有勾选用户协议
-        if (!stateObj.userArgeementStatus) {
+        if (!createStore.userAgreementSlect) {
             return setState({
                 infoStatus: INFO_STATUS.CHECK_AGREEMENT
             })
@@ -80,6 +78,7 @@ const SecretPart:FC = function() {
         runInAction(() => {
             createStore.createStage = CREAT_STAGE.MNEMONIC;
         })
+        console.log(createStore.createStage, 'xxxxx');
     }
 
     function infoPart(type: number) {
@@ -104,9 +103,8 @@ const SecretPart:FC = function() {
     //     }
     //     return (show ? <div className={cx(s.secretIcon, s.canSee)} style={{color: 'red'}}>1</div> : <span className={cx(s.secretIcon, s.canNotSee)} style={styleObj}>2</span>)
     // }
-    const { userArgeementStatus } = stateObj;
-    const { inputSec, inputSecConfirm, accountName } = createStore;
-    const activeBtn = userArgeementStatus && inputSec && inputSecConfirm && accountName;
+    const { inputSec, inputSecConfirm, accountName, userAgreementSlect } = createStore;
+    const activeBtn = createStore.userAgreementSlect && inputSec && inputSecConfirm && accountName;
     return (
         <div className={s.contentWrap}>
             <div className={cx(s.formTitle, s.topT)}>{mnLan('Wallet name')}</div>
@@ -118,7 +116,7 @@ const SecretPart:FC = function() {
                 {infoPart(stateObj.infoStatus)}
             </div>
             <div className={s.pad}/>
-            <UserAgreement isCheck={stateObj.userArgeementStatus} externalCallBack={changeAgreeSta}/>
+            <UserAgreement isCheck={userAgreementSlect} externalCallBack={changeAgreeSta}/>
             <div className={cx(s.createBtn, activeBtn ? '' : s.shadowBtn)} onClick={createAccount}>{mnLan('Creating wallets')}</div>
         </div>
     )

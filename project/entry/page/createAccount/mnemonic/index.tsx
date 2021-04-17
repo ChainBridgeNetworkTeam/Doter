@@ -19,6 +19,7 @@ import { mnemonicGenerate, cryptoWaitReady } from '@polkadot/util-crypto';
 import { createAccountSuri } from '@utils/message/message';
 import cx from 'classnames';
 import { Spin, message } from 'antd';
+import { observer } from 'mobx-react';
 import { addNewAccount } from '@utils/tools';
 
 const STATUS = {
@@ -229,4 +230,4 @@ const CreactMnemonic:FC = function() {
     )
 }
 
-export default CreactMnemonic;
+export default observer(CreactMnemonic);

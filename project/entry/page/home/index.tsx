@@ -100,7 +100,11 @@ const HomePage:FC = function() {
     function copyClick() {
         const { address } = currentAccount;
         copyContent(address);
-        message.success(t('home:copy success'));
+        t('home:copy success')
+        message.success({
+            content: t('home:copy success'),
+            className: s.message
+        });
     }
 
     const balanceObj = comLeft();
