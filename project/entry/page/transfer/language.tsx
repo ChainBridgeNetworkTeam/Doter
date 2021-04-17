@@ -6,7 +6,7 @@
  */
 
 export const transferEn = {
-    'all': 'all',
+    'all': 'All',
     'bad address': 'bad address',
     'Collection address and payment address cannot be the same': 'Collection address and payment address cannot be the same',
     'your credit is running low': 'your credit is running low',

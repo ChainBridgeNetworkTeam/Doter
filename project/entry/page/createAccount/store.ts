@@ -14,7 +14,6 @@ export interface CreateStoreType {
     createStage: number;
     resetStore: Function;
     userAgreementSlect: boolean;
-    mnemonicStage: number;
 }
 
 class CreateAccountStore {
@@ -31,8 +30,6 @@ class CreateAccountStore {
     @observable createStage: number = 0;
     //  用户协议是否勾选
     userAgreementSlect = false;
-    //  助记词确认阶段的编号
-    mnemonicStage = 0;
 
     //  重置store,方便下次创建
     @action.bound

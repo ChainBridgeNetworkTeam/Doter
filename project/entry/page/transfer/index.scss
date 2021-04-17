@@ -4,7 +4,7 @@
 }
 
 .contentWrap {
-    width: 3.23rem;
+    width: 3.43rem;
     margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .input {
-    width: 3.23rem;
+    width: 3.43rem;
     height: .48rem;
     font-size: .14rem !important;
 }
@@ -48,6 +48,20 @@
 
 .feeWrap {
     margin-top: .24rem;
+    width: 3.43rem;
+    height: .48rem;
+    color: #555555;
+    font-size: .14rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: .12rem;
+    padding-right: .12rem;
+    background-color: #FFFFFF;
+}
+
+.feeStl {
+    color: #AAAAAA;
 }
 
 .fee {
@@ -74,7 +88,6 @@
     line-height: .48rem;
     border-radius: .02rem;
     background-color: #358FB6;
-    cursor: pointer;
 }
 
 .tableWrap {
@@ -125,6 +138,11 @@
     :global {
         .ant-input {
             height: .48rem;
+            border: .01rem solid #FFFFFF;
+        }
+        .ant-input-group-addon {
+            border: .01rem solid #FFFFFF;
+            background-color: #FFFFFF;
         }
     }
 }
@@ -141,4 +159,19 @@
             height: .48rem;
         }
     }
+}
+
+.texWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.textArea {
+    width: 3.2rem !important;
+}
+
+.canClick {
+    cursor: pointer;
 }

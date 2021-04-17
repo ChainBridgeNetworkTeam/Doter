@@ -58,7 +58,7 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
             <Input.Password
                 value={store[checkSecretKey]}
                 onChange={(e) => changeSecret(e, checkSecretKey)}
-                className={cx(s.input, 'myInput')}
+                className={cx(s.input, 'myInput', s.downInput)}
                 placeholder={lanWrap('Repeat the password')}
             />
         </>

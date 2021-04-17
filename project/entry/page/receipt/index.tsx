@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useEffect } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
