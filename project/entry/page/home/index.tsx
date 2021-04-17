@@ -96,14 +96,18 @@ const HomePage:FC = function() {
     function seeBloclBrowser() {
         window.open('https://polkadot.subscan.io/')
     }
+    useEffect(() => {
+        //  设置消息提醒高度，全局的
+        message.config({
+            top: 270
+        })
+    }, [])
 
     function copyClick() {
         const { address } = currentAccount;
         copyContent(address);
-        t('home:copy success')
         message.success({
             content: t('home:copy success'),
-            className: s.message
         });
     }
 
@@ -145,13 +149,13 @@ const HomePage:FC = function() {
                     <div className={s.usd}>${parseFloat(useDolar).toFixed(4)} USD</div>
                     <div className={s.balanceDetial}>
                         <div className={s.aWrap}>
-                            <div>{parseFloat(lockBalance).toFixed(2)} DOT</div>
-                            <div>{t('home:locked')}</div>
+                            <div>{parseFloat(lockBalance).toFixed(4)} DOT</div>
+                            <div className={s.balanceDes}>{t('home:locked')}</div>
                         </div>
                         <div className={s.split}/>
                         <div className={s.aWrap}>
-                            <div>{parseFloat(parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10) + '').toFixed(2)} DOT</div>
-                            <div>{t('home:Available balance')}</div>
+                            <div>{parseFloat(parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10) + '').toFixed(4)} DOT</div>
+                            <div className={s.balanceDes}>{t('home:Available balance')}</div>
                         </div>
                     </div>
                 </Spin>

@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-03-04 23:18:11
  */
 
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';

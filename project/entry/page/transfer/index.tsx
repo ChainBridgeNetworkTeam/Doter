@@ -15,6 +15,7 @@ import { addressFormat } from '@utils/tools';
 import { dotStrToTransferAmount } from '@utils/tools';
 import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
+import { useHistory } from 'react-router-dom';
 import { message } from 'antd';
 
 import { Input, AutoComplete } from 'antd';
@@ -37,6 +38,7 @@ interface transferStateObj {
 }
 const Transfer:FC = function() {
     let { t } = useTranslation();
+    const history = useHistory();
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`transfer:${input}`);
 
@@ -62,7 +64,8 @@ const Transfer:FC = function() {
     const buttonIsAcctive = useMemo(() => {
         const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret } = stateObj;
         if (isStepOne) {
-            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount)
+            console.log()
+            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0')
         } else {
             return !!secret
         }
@@ -94,7 +97,8 @@ const Transfer:FC = function() {
         <div className={s.fee}>{parseFloat(stateObj.partialFee || '0').toFixed(5)} DOT</div>
     )
     //  校验地址
-    function addressInput(e: React.ChangeEvent<HTMLInputElement>) {
+    //  React.ChangeEventHandler<HTMLTextAreaElement> React.ChangeEvent<HTMLInputElement>
+    function addressInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
         let inputValue = e.target.value;
         try {
             const publicKey = keyring.decodeAddress(inputValue);
@@ -186,20 +190,23 @@ const Transfer:FC = function() {
             <AutoComplete
                 className={cx(s.input, s.tInput)}
                 onChange={addInput}
-                children={<Input onChange={(e) => addressInput(e)}
-                    addonAfter={aferIcon}
-                    placeholder={lanWrap('Enter the address')}/>}
                 options={selectAddress()}
-            />
+            >
+                <div className={s.texWrap}>
+                    <Input.TextArea onChange={addressInput}
+                        value={stateObj.targetAdd}
+                        className={s.textArea}
+                        autoSize={{ minRows: 2, maxRows: 2 }}
+                        placeholder={lanWrap('Enter the address')}/>
+                    {aferIcon}
+                </div>
+            </AutoComplete>
             <div className={s.addressError}>{stateObj.addressErrMsg}</div>
-            <div className={cx(s.formTitle, s.mid)}>{lanWrap('amount of money')} <span className={s.tAmount}>{ableBalance} DOT {lanWrap('available')}</span></div>
+            <div className={cx(s.formTitle, s.mid)}>{lanWrap('amount of money')} <span className={s.tAmount}>{parseFloat(ableBalance).toFixed(4)} DOT {lanWrap('available')}</span></div>
             <DotInput changeInputFn={inputAmount} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
             <div className={s.feeWrap}>
-                <Input
-                    disabled
-                    value={lanWrap('Transfer fee')}
-                    addonAfter={fee}
-                    className={cx(s.feeInput, s.tInput)}/>
+                <span>{lanWrap('Transfer fee')}</span>
+                <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(5)} DOT</span>
             </div>
         </div>
     }
@@ -226,12 +233,23 @@ const Transfer:FC = function() {
             <div className={s.addressError}>{stateObj.errMsg}</div>
         </div>
     }
-    const { targetAdd, transferAmount } = stateObj;
+
+    function createPageBack() {
+        //  条件判断回退
+        if (stateObj.status === TRANSFER_STEP.ONE) {
+            history.goBack();
+        } else {
+            setState({
+                status: TRANSFER_STEP.ONE
+            })
+        }
+    }
+
     return (
         <div className={s.wrap}>
-            <HeadBar word={lanWrap('Transfer')}/>
+            <HeadBar selfBack={createPageBack} word={lanWrap('Transfer')}/>
             {isStepOne ? renderStepOne() : isStepTwo()}
-            <div className={cx(s.button, (targetAdd && transferAmount) ? '' : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
+            <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
         </div>
     )
 }
