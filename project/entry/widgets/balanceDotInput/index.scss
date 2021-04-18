@@ -1,0 +1,49 @@
+.amountIconWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #AAAAAA;
+    font-size: .14rem;
+    height: .48rem;
+    width: .7rem;
+    user-select: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    padding-right: .12rem;
+}
+
+.split {
+    width: .01rem;
+    height: .14rem;
+    background-color: #AAAAAA;
+}
+
+.addressError {
+    color: #0273A4;
+    font-size: .1rem;
+    height: .14rem;
+    margin-top: .12rem;
+}
+
+.tInput {
+    height: .48rem !important;
+    font-size: .3rem !important;
+    width: 3rem !important;
+    border: .01rem solid #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    :global {
+        .ant-input-group-addon {
+            background-color: #ffffff;
+            border: none;
+        }
+        input {
+            height: .48rem !important;
+        }
+    }
+}
+
+.inputWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

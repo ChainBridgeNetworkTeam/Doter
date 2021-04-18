@@ -6,14 +6,13 @@
  */
 
 import React, { FC, useEffect } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'antd';
 import cx from 'classnames';
 import { observer } from 'mobx-react';
 import { runInAction } from 'mobx';
-import './index.antd.css';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
 import { validateMnemonicOrHexSeed } from '@utils/tools';
@@ -40,11 +39,11 @@ const Mnemonic:FC = function() {
     }
 
     useEffect(() => {
-        const { name, mnemonicErrMsg, mnemonicWords, checkAgreement } = RetrieveStore;
+        const { name, mnemonicErrMsg, mnemonicWords, checkAgreement, secret, confirmSecret } = RetrieveStore;
         runInAction(() => {
-            RetrieveStore.buttonActive = (name && mnemonicWords && !mnemonicErrMsg && checkAgreement)
+            RetrieveStore.buttonActive = !!(name && mnemonicWords && !mnemonicErrMsg && checkAgreement && secret && confirmSecret)
         })
-    }, [RetrieveStore.name, RetrieveStore.mnemonicWords, RetrieveStore.mnemonicErrMsg, RetrieveStore.checkAgreement])
+    }, [RetrieveStore.name, RetrieveStore.mnemonicWords, RetrieveStore.mnemonicErrMsg, RetrieveStore.checkAgreement, RetrieveStore.secret, RetrieveStore.confirmSecret])
 
     return (
         <div className={s.wrap}>

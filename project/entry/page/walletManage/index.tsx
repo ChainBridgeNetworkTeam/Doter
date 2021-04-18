@@ -5,8 +5,8 @@
  * @Last Modified time: 2021-03-27 22:18:35
  */
 
-import React, { FC, useEffect } from 'react';
-import s from './index.css';
+import React, { FC } from 'react';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';

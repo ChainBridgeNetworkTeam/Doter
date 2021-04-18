@@ -6,7 +6,7 @@
 .title {
     color: #555555;
     font-size: .14rem;
-    margin-top: .24rem;
+    margin-top: .48rem;
     margin-bottom: .12rem;
 }
 
@@ -42,6 +42,7 @@
 .word::before {
     height: .18rem;
     width: .18rem;
+    margin-left: .02rem;
     background-image: url('../img/word.png');
 }
 

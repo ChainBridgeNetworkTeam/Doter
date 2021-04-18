@@ -88,12 +88,15 @@ const CommonPart:FC = function() {
     const { name, checkAgreement, buttonActive, secret } = RetrieveStore;
     return (
         <>
-            <div className={cx(s.title, s.topTitle)}>{lanWrap('user name')}</div>
-            <Input
-                value={name}
-                onChange={(e) => changeInput(RetrieveStore, 'name', e)}
-                className={cx(s.secInput, s.retrieveInput)} placeholder={lanWrap('title of account')}
-            />
+            {isInMnemonic && <>
+                    <div className={cx(s.title, s.topTitle)}>{lanWrap('user name')}</div>
+                    <Input
+                        value={name}
+                        onChange={(e) => changeInput(RetrieveStore, 'name', e)}
+                        className={cx(s.secInput, s.retrieveInput)} placeholder={lanWrap('title of account')}
+                    />
+                </>
+            }
             {isInMnemonic ? <SecretInput secretKey='secret' checkSecretKey='confirmSecret' store={RetrieveStore}/>
                 : <>
                     <div className={s.formTitle}>{lanWrap('Original password')}</div>
@@ -106,8 +109,11 @@ const CommonPart:FC = function() {
                 </>  
             }
             {checkInfo()}
-            <UserAgreement isCheck={checkAgreement} externalCallBack={changeStatus}/>
-            <div className={cx(s.btn, buttonActive ? s.btnActive : '')} onClick={importAccount}>{lanWrap('Import Wallet')}</div>
+            <div className={s.bottonPart}>
+                <UserAgreement isCheck={checkAgreement} externalCallBack={changeStatus}/>
+                <div className={cx(s.btn, buttonActive ? s.btnActive : '')} onClick={importAccount}>{lanWrap('Import Wallet')}</div>
+            </div>
+
         </>
     )
 }
