@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useState } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import { toJS } from 'mobx';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
@@ -58,8 +58,8 @@ const Entry:FC = function() {
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Change wallet name')}/>
             <Input onChange={enterNewName} className={s.input} placeholder={lanWrap('1-12 characters')} maxLength={12}/>
-            <Input.Password onChange={secInput} className={s.input} placeholder={'钱包密码'}/>
-            <div className={cx(s.confirm, newName.length > 0 ? s.heighLight : '')} onClick={confirm}>{lanWrap('confirm')}</div>
+            <Input.Password onChange={secInput} className={s.input} placeholder={lanWrap('Wallet password')}/>
+            <div className={cx(s.confirm, (newName.length > 0 && secret) ? s.heighLight : '')} onClick={confirm}>{lanWrap('confirm')}</div>
         </div>
     )
 }

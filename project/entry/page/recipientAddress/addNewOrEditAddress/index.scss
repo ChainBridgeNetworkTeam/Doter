@@ -42,10 +42,18 @@
     height: .2rem;
 }
 
+.textArea {
+    width: 3.43rem !important;
+    font-size: .14rem !important;
+    border: none !important;
+    margin-bottom: .04rem !important;
+}
+
 .input {
     height: .48rem;
-    width: 3.33rem !important;
+    width: 3.43rem !important;
     font-size: .14rem !important;
+    border: none !important;
 }
 
 .btn {
@@ -57,12 +65,12 @@
     margin: 0 auto;
     line-height: .48rem;
     margin-top: 1.66rem;
-    cursor: pointer;
     font-size: .14rem;
 }
 
 .enable {
     background-color: #358FB6;
+    cursor: pointer;
 }
 
 .eCBtn {
@@ -73,4 +81,5 @@
     color: #FF3333;
     background-color: #ffffff;
     margin-top: .16rem;
+    cursor: pointer;
 }

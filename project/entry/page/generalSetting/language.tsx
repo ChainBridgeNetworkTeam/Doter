@@ -13,6 +13,7 @@ export const generalSettingEn = {
     '5 minutes': '5 minutes',
     '10 minutes': '10 minutes',
     'never': 'never',
+    'save': 'Save',
 }
 export const generalSettingZh = {
     'General settings': '通用',
@@ -22,4 +23,5 @@ export const generalSettingZh = {
     '5 minutes': '5分钟',
     '10 minutes': '10分钟',
     'never': '永不',
+    'save': '保存',
 }

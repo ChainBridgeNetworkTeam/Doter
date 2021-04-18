@@ -8,10 +8,18 @@
     padding-right: .16rem;
 }
 
+.topTitle {
+    font-size: .14rem;
+    color: #555555;
+    margin-top: .24rem;
+    margin-bottom: .12rem;
+}
+
 .input {
     height: .48rem;
     font-size: .14rem !important;
-    margin-top: .12rem !important;
+    margin-bottom: .48rem !important;
+    border: none !important;
 }
 
 .info {
@@ -21,16 +29,17 @@
 }
 
 .confirm {
-    position: fixed;
-    bottom: .28rem;
-    left: 50%;
-    width: 3.43rem;
-    margin-left: -1.715rem;
+    margin: 0 auto;
+    margin-top: 1.36rem;
     height: .48rem;
     color: #ffffff;
     font-size: .14rem;
     text-align: center;
     line-height: .48rem;
+    background-color: #C7E3F0;
+}
+
+.active {
+    background-color: #358FB6;
     cursor: pointer;
-    background-color: #0273A4;
 }

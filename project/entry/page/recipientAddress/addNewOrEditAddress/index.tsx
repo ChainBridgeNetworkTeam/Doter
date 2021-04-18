@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useReducer, useEffect } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -62,7 +62,7 @@ const Entry:FC = function() {
         }
     }, [])
 
-    function addInput(e: React.ChangeEvent<HTMLInputElement>) {
+    function addInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
         const inputValue = e.target.value;
         try {
             const publicKey = keyring.decodeAddress(inputValue);
@@ -150,7 +150,12 @@ const Entry:FC = function() {
                     <div>DOT</div>
                 </div>
                 <div className={s.middle}>{lanWrap('Address information')}</div>
-                <Input defaultValue={targetConfig.address} className={s.input} placeholder={lanWrap('Enter the address')} onChange={addInput}/>
+                <Input.TextArea onChange={addInput}
+                        defaultValue={targetConfig.address}
+                        className={s.textArea}
+                        autoSize={{ minRows: 2, maxRows: 2 }}
+                        placeholder={lanWrap('Enter the address')}/>
+                {/* <Input defaultValue={targetConfig.address} className={s.input} placeholder={lanWrap('Enter the address')} onChange={addInput}/> */}
                 <Input defaultValue={targetConfig.comment} className={s.input} placeholder={lanWrap('remarks')} onChange={otherInfoChange}/>
                 <div className={s.info}>{stateObj.errInfo}</div>
                 <div className={cx(s.btn, stateObj.isEnable ? s.enable : '', isEdit ? s.eCBtn : '')} onClick={confirm}>{isEdit ? lanWrap('save') : lanWrap('complete')}</div>

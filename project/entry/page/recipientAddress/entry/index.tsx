@@ -1,12 +1,14 @@
 /*
- * @Author: guanlanluditie 
- * @Date: 2021-02-28 09:30:32 
- * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-03-06 11:07:24
+ * @Author: wp
+ * @Date: 2021-04-06 23:45:39
+ * @LastEditTime: 2021-04-18 16:26:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Doter/project/entry/page/recipientAddress/entry/index.tsx
  */
 
 import React, { FC } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -29,7 +31,8 @@ const Entry:FC = function() {
 
     function itemsRender() {
         const { recipientArr } = globalStore;
-        return recipientArr.map((item, index) => {
+        
+        return recipientArr.length ? recipientArr.map((item, index) => {
             const { address, comment } = item;
             return <div key={index} className={s.itemWrap} onClick={() => jump(PAGE_NAME.RECIPIENT_ADD_NEW_OR_EDIT, { target: 'edit', address })}>
                 <div className={s.icon} />
@@ -39,6 +42,7 @@ const Entry:FC = function() {
                 </div>
             </div>
         })
+        : <div className={s.noData}>{lanWrap('No Data')}</div>
     }
 
     return (
