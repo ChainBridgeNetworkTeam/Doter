@@ -6,14 +6,14 @@
  */
 
 import React, { FC, useReducer, useState } from 'react';
-import s from './index.css';
-import './index.antd.css';
+import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
-import { Input } from 'antd';
+import { InputNumber, message } from 'antd';
 import { observer } from 'mobx-react';
+import { valueType } from 'antd/lib/statistic/utils';
 
 interface BarProps {
     changeInputFn: Function,
@@ -45,17 +45,16 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
     }
     const [stateObj, setState] = useReducer(stateReducer, {
         transAmountErrMsg: ''
-    } as InputStatus
-    );
+    } as InputStatus);
 
     //  验证输入金额
-    function inputAmount(e: React.ChangeEvent<HTMLInputElement>) {
-        const inputValue = e.target.value;
+    function inputAmount(value: valueType) {
+        const inputValue = value;
         const intReg = /^([0-9]{1,})$/; // 判断整数的正则
         const floatReg = /^([0-9]{1,}[.][0-9]*)$/; //   判断小数的正则
-        console.log(inputValue, 'xc');
-        if (intReg.test(inputValue) || floatReg.test(inputValue)) {
-            if (parseFloat(inputValue) > parseFloat(balance as string)) {
+        const strInput = (inputValue || 0).toString();
+        if (intReg.test(strInput) || floatReg.test(strInput)) {
+            if (inputValue > parseFloat(balance as string)) {
                 const errStr = lanWrap('your credit is running low');
                 setState({
                     transAmountErrMsg: errStr
@@ -72,8 +71,8 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
             })
             setErr(errStr)
         }
-        changeInputFn(inputValue);
-        setCValue(inputValue);
+        changeInputFn(strInput);
+        setCValue(strInput);
     }
 
     //  点击全部
@@ -90,10 +89,21 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
 
     return (
         <div className={wrapCls}>
-            <Input onChange={(e) => inputAmount(e)}
+            {/* <Input onChange={(e) => inputAmount(e)}
                 addonAfter={amountIcon}
                 value={cValue === '0' ? '' : cValue}
-                className={cx('tInput', 'tMInput')}/>
+                className={cx('tInput', 'tMInput')}/> */}
+            <div className={s.inputWrap}>
+                <InputNumber
+                    bordered={false}
+                    onChange={inputAmount}
+                    value={parseFloat(cValue === '0' ? '' : cValue)}
+                    className={s.tInput}
+                    min={0}
+                />
+                {amountIcon}
+            </div>
+
             <div className={s.addressError}>{stateObj.transAmountErrMsg}</div>
         </div>
     )

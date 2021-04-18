@@ -1,9 +1,12 @@
 /*
- * @Author: guanlanluditie 
- * @Date: 2021-02-13 23:57:28 
- * @Last Modified by: guanlanluditie
- * @Last Modified time: 2021-04-03 12:19:27
+ * @Author: your name
+ * @Date: 2021-04-06 23:45:39
+ * @LastEditTime: 2021-04-17 20:59:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /Doter/project/entry/page/transfer/index.tsx
  */
+
 import React, { FC, useEffect, useReducer, useMemo } from 'react';
 import s from './index.scss';
 import HeadBar from '@widgets/headBar';
@@ -64,12 +67,11 @@ const Transfer:FC = function() {
     const buttonIsAcctive = useMemo(() => {
         const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret } = stateObj;
         if (isStepOne) {
-            console.log()
             return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0')
         } else {
             return !!secret
         }
-    }, [stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd])
+    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret])
     const aferIcon = (
         <div className={s.icon}/>
     )
@@ -93,9 +95,6 @@ const Transfer:FC = function() {
         computedFee();
     }, [stateObj.transferAmount, stateObj.targetAdd])
 
-    const fee = (
-        <div className={s.fee}>{parseFloat(stateObj.partialFee || '0').toFixed(5)} DOT</div>
-    )
     //  校验地址
     //  React.ChangeEventHandler<HTMLTextAreaElement> React.ChangeEvent<HTMLInputElement>
     function addressInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
@@ -115,6 +114,7 @@ const Transfer:FC = function() {
     }
     //  验证输入金额
     function inputAmount(inputValue: string) {
+        console.log('outer input')
         setState({ transferAmount: inputValue })
     }
 
@@ -214,7 +214,7 @@ const Transfer:FC = function() {
     function isStepTwo() {
         return <div className={s.contentWrap}>
             <div className={cx(s.formTitle, s.topT)}>{lanWrap('Transfer information')}</div>
-            <div className={s.tableWrap}>
+            <div>
                 <div className={s.sTd}>
                     <div>{lanWrap('Transfer amount')}</div><div className={s.tContent}>{stateObj.transferAmount} DOT</div>
                 </div>
@@ -245,6 +245,7 @@ const Transfer:FC = function() {
         }
     }
 
+    const btnClass = (isStepOne ? buttonIsAcctive : stateObj.secret) ? s.canClick : s.shadowBtn;
     return (
         <div className={s.wrap}>
             <HeadBar selfBack={createPageBack} word={lanWrap('Transfer')}/>
