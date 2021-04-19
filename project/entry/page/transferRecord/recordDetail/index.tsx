@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useEffect, useState } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import cx from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -68,11 +68,11 @@ const Entry:FC = function() {
             <div className={s.status}>{success ? lanWrap('success') : lanWrap('fail')}</div>
             <div className={s.content}>
                 <div className={s.title}>{lanWrap('amount')}</div>
-                <div className={s.cInfo}>{isIn ? '+' : '-'}{amount} DOT</div>
+                <div className={s.cInfo}>{isIn ? '+' : '-'}{parseFloat(amount || '0').toFixed(4)} DOT</div>
             </div>
             <div className={cx(s.content, s.mT)}>
                 <div className={s.title}>{lanWrap("Miner's fee")}</div>
-                <div className={s.cInfo}>{parseInt(fee) / Math.pow(10, 10)} DOT</div>
+                <div className={s.cInfo}>{parseFloat((parseInt(fee) / Math.pow(10, 10) + '')).toFixed(5)} DOT</div>
             </div>
             <div className={s.content}>
                 <div className={s.title}>{lanWrap('to')}</div>
@@ -84,7 +84,7 @@ const Entry:FC = function() {
             </div>
             <div className={s.content}>
                 <div className={s.title}>{lanWrap('Transaction time')}</div>
-                <div className={s.cInfo}>{moment(block_timestamp * 1000).format('YYYY-MM-DD hh:mm:ss')}</div>
+                <div className={s.cInfo}>{moment(block_timestamp * 1000).format('YYYY-MM-DD HH:mm:ss')}</div>
             </div>
             <div className={cx(s.content, s.order)}>
                 <div className={s.title}>{lanWrap('hash')}</div>

@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useEffect, useState } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import './index.antd.css';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
@@ -38,7 +38,7 @@ const Entry:FC = function() {
     return (
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Democratic Governance')}/>
-            <Tabs defaultActiveKey={TAB_MAP.REFERENDA} onChange={setTab} centered className='DEtabWrap'>
+            <Tabs defaultActiveKey={TAB_MAP.REFERENDA} onChange={setTab} centered className={s.DEtabWrap}>
                 <TabPane tab={lanWrap('Chain referendum')} key={TAB_MAP.REFERENDA}>
                     <Referenda />
                 </TabPane>
