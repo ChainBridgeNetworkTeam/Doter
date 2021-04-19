@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
 import { PAGE_NAME } from '@constants/app';
+import GlobalStore from '../../../store';
 import RetrieveStore from '../store';
 
 const Entry:FC = function() {
@@ -26,10 +27,13 @@ const Entry:FC = function() {
         history.push(path);
     }
 
+    //  当前没有账号的时候不展示
+    const showCreate = GlobalStore.addressArr.length > 0;
+
     return (
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Creating wallets')}/>
-            <div className={cx(s.item, s.wallet)} onClick={() => jump(PAGE_NAME.CREATE_ACCOUNT)}>{lanWrap('Creating wallets')}</div>
+            {showCreate && <div className={cx(s.item, s.wallet)} onClick={() => jump(PAGE_NAME.CREATE_ACCOUNT)}>{lanWrap('Creating wallets')}</div>}
             <div className={cx(s.title, s.titlePadding)}>{lanWrap('Import Wallet')}</div>
             <div className={cx(s.item, s.word)} onClick={() => jump(PAGE_NAME.RW_MNEMONIC)}>{lanWrap('Mnemonic words')}</div>
             {/* <div className={cx(s.item, s.key)} onClick={() => {}}>私钥</div> */}

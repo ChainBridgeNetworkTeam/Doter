@@ -6,8 +6,7 @@
  */
 
 import React, { FC, useReducer } from 'react';
-import s from './index.css';
-import './index.antd.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import cx from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -90,7 +89,7 @@ const Entry = function() {
                     <div className={cx(s.bWapr, s.weight)}>
                         <div className={s.title}>{lanWrap('Voting weight')}</div>
                     </div>
-                    <Select onChange={changeRatio} className={cx(s.select, 'reSelect')} defaultValue={ratioArr[0].ratio}>
+                    <Select onChange={changeRatio} className={cx(s.select, s.reSelect)} defaultValue={ratioArr[0].ratio}>
                         {ratioArr.map((item, index) => {
                             const { text, ratio } = item;
                             return <Select.Option key={index} value={ratio}>{text}</Select.Option>
