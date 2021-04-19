@@ -12,6 +12,7 @@
 .secInput {
     font-size: .14rem !important;
     height: .48rem;
+    border: none !important;
 }
 
 .btn {
@@ -26,11 +27,11 @@
     border-radius: .02rem;
     font-size: .14rem;
     user-select: none;
-    cursor: pointer;
 }
 
 .btnActive {
     background-color: #0273A4;
+    cursor: pointer;
 }
 
 .forAgree {
@@ -59,6 +60,7 @@
     width: 3.43rem;
     margin: 0 auto;
     font-size: .14rem !important;
+    border: none !important;
 }
 
 .retrieveInput {
@@ -67,4 +69,9 @@
             font-size: .14rem !important;
         }
     }
+}
+
+.bottonPart {
+    position: fixed;
+    bottom: .28rem;
 }

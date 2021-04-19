@@ -16,6 +16,7 @@ export const receiptAddressEn = {
     'Enter the address': 'input Address',
     'remarks': 'memo',
     'save': 'Save',
+    'No Data': 'No Data',
     'complete': 'complete',
     'delete': 'delete'
 }
@@ -32,5 +33,6 @@ export const receiptAddressZh = {
     'remarks': '备注',
     'save': '保存',
     'complete': '完成',
-    'delete': '删除'
+    'delete': '删除',
+    'No Data': '暂无数据',
 }

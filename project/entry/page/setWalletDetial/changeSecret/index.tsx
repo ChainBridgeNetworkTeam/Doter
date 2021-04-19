@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useReducer, useEffect } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -28,7 +28,8 @@ const INFO_STATUS = {
     ONE: 0,
     TWO: 1,
     THREE: 2,
-    FOUR: 3
+    FOUR: 3,
+    FIVE: 4,
 }
 
 interface SecState {
@@ -75,11 +76,17 @@ const ChangeSec:FC = function() {
                 buttonActive: false
             })
         }
+        if (!stateObj.oldSec) {
+            return setState({
+                infoStatus: INFO_STATUS.FIVE,
+                buttonActive: false
+            })
+        }
         setState({
             infoStatus: INFO_STATUS.ONE,
             buttonActive: true
         })
-    }, [SWStore.secret, SWStore.confirmSecret])
+    }, [SWStore.secret, SWStore.confirmSecret, stateObj.oldSec])
 
     function btnCLick() {
         if (stateObj.buttonActive) {
@@ -112,7 +119,8 @@ const ChangeSec:FC = function() {
             [INFO_STATUS.ONE]: lanWrap('No less than 8 characters. It is recommended to mix upper and lower case letters, numbers and symbols'),
             [INFO_STATUS.TWO]: lanWrap('The number of password digits is less than 8'),
             [INFO_STATUS.THREE]: lanWrap('The two passwords are inconsistent'),
-            [INFO_STATUS.FOUR]: lanWrap('Wrong password')
+            [INFO_STATUS.FOUR]: lanWrap('Wrong password'),
+            [INFO_STATUS.FIVE]: lanWrap('please input oldPass')
         }
         return <div className={s.info}>{contentMap[stateObj.infoStatus]}</div>
     }

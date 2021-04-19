@@ -5,10 +5,11 @@
 
 .input {
     height: .48rem;
-    width: 3.33rem !important;
-    margin-left: .14rem !important;
+    width: 3.43rem !important;
+    margin-left: .16rem !important;
     margin-top: .24rem !important;
     font-size: .14rem !important;
+    border: none !important;
 }
 
 .confirm {
@@ -19,11 +20,11 @@
     text-align: center;
     margin: 0 auto;
     line-height: .48rem;
-    margin-top: 3.86rem;
+    margin-top: 3.3rem;
     font-size: .14rem;
-    cursor: pointer;
 }
 
 .heighLight {
     background-color: #358FB6;
+    cursor: pointer;
 }

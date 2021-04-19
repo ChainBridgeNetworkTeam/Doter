@@ -19,12 +19,12 @@
 }
 
 .contentWrap {
-    min-height: 3.74rem;
     padding-top: .04rem;
     background-color: #ffffff;
     margin-bottom: .15rem;
     padding-left: .12rem;
     padding-right: .12rem;
+    padding-bottom: .16rem;
 }
 
 .title {
@@ -59,7 +59,7 @@
 .rowTitle {
     color: #828282;
     font-size: .14rem;
-    margin-top: .16rem;
+    margin-top: .1rem;
 }
 
 .authorWrap {
@@ -82,7 +82,8 @@
 .splitLine {
     height: .01rem;
     width: 3.19rem;
-    margin:  0 auto;
+    margin: 0 auto;
+    margin-top: .16rem;
     background-color: #F2F2F2;
 }
 
@@ -92,7 +93,7 @@
     justify-content: space-between;
     font-size: .12rem;
     color: #555555;
-    margin-top: .15rem;
+    margin-top: .16rem;
 }
 
 .voteBar {

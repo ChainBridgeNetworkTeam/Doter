@@ -108,9 +108,9 @@ const Entry:FC = function() {
                         <div className={cx(s.icon, isIn ? '' : s.outIcon)} />
                         <div>{addressFormat(from, 8)} --{'>'} {addressFormat(to, 8)}</div>
                     </div>
-                    <div className={s.amout}>{isIn ? '+' : '-'}{amount}</div>
+                    <div className={s.amout}>{isIn ? '+' : '-'}{parseFloat(amount || '0').toFixed(4)}</div>
                 </div>
-                <div className={s.time}>{moment(block_timestamp * 1000).format('DD/MM/YYYY hh:mm:ss')}</div>
+                <div className={s.time}>{moment(block_timestamp * 1000).format('DD/MM/YYYY HH:mm:ss')}</div>
             </div>
         });
         const { hasMore, isFetching } = stateObj;

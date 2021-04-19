@@ -6,7 +6,7 @@
  */
 
 import React, { FC } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -32,7 +32,7 @@ const Entry:FC = function() {
             <div className={s.item} onClick={() => jump(PAGE_NAME.GENERAL_SETTING_LANGUAGE)}>
                 <div>{lanWrap('language')}</div>
                 <div className={s.right}>
-                    <div className={s.mini}>{globalStore.localConfig.language === 'chinese' ? '简体中文' : 'english'}</div>
+                    <div className={s.mini}>{globalStore.localConfig.language === 'chinese' ? '简体中文' : 'English'}</div>
                     <div className={s.arrow}/>
                 </div>
             </div>

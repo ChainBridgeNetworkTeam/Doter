@@ -12,6 +12,10 @@
     align-items: center;
     padding-left: .14rem;
     cursor: pointer;
+
+    &:hover {
+        background-color: #FAFAFA;
+    }
 }
 
 .item::before {

@@ -1,0 +1,33 @@
+.wrap {
+    background-color: #fafafa;
+    min-height: 100vh;
+    font-size: .14rem;
+    color: #333333;
+}
+
+.DEtabWrap {
+    :global {
+        .ant-tabs-nav::before {
+            border-bottom: 1px solid #fafafa !important;
+        }
+
+        .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+            color: #358FB6 !important;
+        }
+
+        .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+            color: #358FB6 !important;
+        }
+
+        .ant-tabs-tab {
+            color: #555555 !important;
+            font-size: .14rem;
+            padding-top: .08rem;
+            padding-bottom: .12rem;
+        }
+
+        .ant-tabs-ink-bar {
+            background-color: #358FB6;
+        }
+    }
+}

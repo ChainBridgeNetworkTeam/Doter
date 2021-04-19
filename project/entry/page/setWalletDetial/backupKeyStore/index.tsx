@@ -6,7 +6,8 @@
  */
 
 import React, { FC, useReducer } from 'react';
-import s from './index.css';
+import s from './index.scss';
+import cx from 'classnames';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -14,7 +15,7 @@ import { observer } from 'mobx-react';
 import { Spin } from 'antd';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
-import { Input } from 'antd';
+import { Input, message } from 'antd';
 import { keyring } from '@polkadot/ui-keyring';
 import { saveAs } from 'file-saver';
 
@@ -55,6 +56,9 @@ const ChangeSec:FC = function() {
         setState({
             isSpining: true
         })
+        if (!stateObj.secret) {
+            return message.error(lanWrap('no pass'));
+        }
         //  上面setState本身是异步的，不这样没法有spin效果
         setTimeout(() => {
             try {
@@ -82,7 +86,7 @@ const ChangeSec:FC = function() {
                 <Input.Password onChange={secInput} className={s.input} placeholder={lanWrap('Wallet password')}/>
                 <div className={s.info}>{stateObj.infoStr}</div>
                 <Spin spinning={stateObj.isSpining}>
-                    <div className={s.confirm} onClick={btnCLick}>{lanWrap('confirm')}</div>
+                    <div className={cx(s.confirm, stateObj.secret ? s.btn : '')} onClick={btnCLick}>{lanWrap('confirm')}</div>
                 </Spin>
             </div>
         </div>

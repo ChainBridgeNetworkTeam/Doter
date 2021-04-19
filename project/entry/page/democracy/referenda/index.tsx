@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useEffect, useState, useMemo } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';

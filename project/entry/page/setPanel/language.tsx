@@ -7,7 +7,7 @@
 
 export const setPanelEn = {
     'Setting': 'Settings',
-    'Wallet management': 'Management Wallet',
+    'Wallet management': 'Switch Wallet',
     'Transfer address': 'Address Book',
     'General settings': 'General',
     'About doter': 'About Doter',

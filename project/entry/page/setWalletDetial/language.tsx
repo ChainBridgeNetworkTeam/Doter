@@ -26,7 +26,8 @@ export const setWalletDetialEn = {
     'Change wallet password': 'Change Wallet Password',
     'Old password': 'Current Password',
     'New password': 'New Password',
-    
+    'please input oldPass': 'please input old password',
+    'no pass': 'need password!',
 }
 
 export const setWalletDetialZh = {
@@ -51,6 +52,6 @@ export const setWalletDetialZh = {
     'Change wallet password': '修改钱包密码',
     'Old password': '旧的密码',
     'New password': '新的密码',
-
-
+    'please input oldPass': '请输入密码',
+    'no pass': '请输入密码'
 }
