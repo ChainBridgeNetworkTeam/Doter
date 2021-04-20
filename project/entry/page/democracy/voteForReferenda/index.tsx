@@ -61,7 +61,10 @@ const Entry = function() {
 
     function nextSetp() {
         const { index } = history.location.state as HisState;
-        if (stateObj.errStr || !democrcacyStore.voteDot) {
+        if (!democrcacyStore.voteDot) {
+            return;
+        }
+        if (stateObj.errStr) {
             message.error(lanWrap('Wrong number of votes'))
         } else {
             history.push(PAGE_NAME.DEMOCRACY_CHECK, { index })
@@ -74,6 +77,7 @@ const Entry = function() {
         })
     }
     const { voteDot = '0', voteRatio} = democrcacyStore;
+    console.log(democrcacyStore.voteDot, 'test');
     //  倍率选择
     const ratioArr = useWeightArr();
     return (
@@ -83,7 +87,7 @@ const Entry = function() {
                 <div className={s.contentWrap}>
                     <div className={s.bWapr}>
                         <div className={s.title}>{lanWrap('Number of votes')}</div>
-                        <div className={s.dot}>{globalStore.ableBalance} DOT {lanWrap('available')}</div>
+                        <div className={s.dot}>{parseFloat(globalStore.ableBalance).toFixed(4)} DOT {lanWrap('available')}</div>
                     </div>
                     <DotInput changeInputFn={cInput} controlValue={voteDot} setErr={setErrStr} allDot={globalStore.ableBalance}/>
                     <div className={cx(s.bWapr, s.weight)}>
@@ -95,9 +99,9 @@ const Entry = function() {
                             return <Select.Option key={index} value={ratio}>{text}</Select.Option>
                         })}
                     </Select>
-                    <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{parseFloat(democrcacyStore.voteDot || '0') * voteRatio}</div>{lanWrap('polls')}</div>
+                    <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{(parseFloat(democrcacyStore.voteDot || '0') * voteRatio).toFixed(4)}</div>{lanWrap('polls')}</div>
                     <div className={s.split}/>
-                    <BottonBtn word={lanWrap('next step')} cb={nextSetp}/>
+                    <BottonBtn word={lanWrap('next step')} propClass={cx(democrcacyStore.voteDot ? '' : s.notActive)} cb={nextSetp}/>
                 </div>
         </div>
         }
