@@ -58,3 +58,15 @@
     padding-right: .08rem;
     display: inline-block;
 }
+
+.reSelect {
+    :global {
+        .ant-select-selection-item {
+            font-size: .14rem;
+            line-height: .48rem !important;
+        }
+        .ant-select-selector {
+            height: .48rem !important;
+        }
+    }
+}
