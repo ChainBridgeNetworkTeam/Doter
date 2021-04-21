@@ -7,7 +7,6 @@
 
 import React, { FC, useEffect, useState } from 'react';
 import s from './index.scss';
-import './index.antd.css';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';

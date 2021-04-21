@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useEffect, useState, useReducer } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import BottonBtn from '@widgets/bottomBtn';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,7 @@ import { keyring } from '@polkadot/ui-keyring';
 import { WEIGHT_ARR } from '@constants/chain';
 import { globalStoreType } from '@entry/store';
 import { dotStrToTransferAmount } from '@utils/tools';
+import { PAGE_NAME } from '@constants/app';
 
 interface checkStatus {
     fee?: string;
@@ -79,8 +80,10 @@ const Entry:FC = function() {
     //  投票操作
     async function vote() {
         let sendPair = keyring.createFromJson(currentAccount);
+        if (!stateObj.passWord) {
+            return;
+        }
         try {
-            console.log(stateObj.passWord, 'xxx');
             sendPair.decodePkcs8(stateObj.passWord)
         } catch(e) {
             console.log(e);
@@ -91,7 +94,8 @@ const Entry:FC = function() {
         try {
             const voteAction = getVoteAction();
             const result = await voteAction.signAndSend(sendPair);
-            message.info(lanWrap('success'))
+            message.info(lanWrap('success'));
+            history.push(PAGE_NAME.HOME);
             console.log(result);
         } catch (e) {
             console.log(e)
@@ -126,11 +130,11 @@ const Entry:FC = function() {
                 <div className={s.title}>{lanWrap('Password confirmation')}</div>
                 <Input.Password
                     onChange={changePass}
-                    className={cx(s.input, 'retrieveInput')}
+                    className={cx(s.input)}
                     placeholder={lanWrap('Wallet password')}
                 />
                 <div className={s.errPass}>{stateObj.errPass ? lanWrap('Wrong password') : ''}</div>
-                <BottonBtn cb={vote} word={lanWrap('confirm')}/>
+                <BottonBtn cb={vote} propClass={cx(stateObj.passWord ? '' : s.notActive)} word={lanWrap('confirm')}/>
             </div>
         </div>
     )
