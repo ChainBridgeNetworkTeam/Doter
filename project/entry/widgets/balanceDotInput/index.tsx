@@ -96,6 +96,7 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
             <div className={s.inputWrap}>
                 <InputNumber
                     bordered={false}
+                    stringMode
                     onChange={inputAmount}
                     value={parseFloat(cValue === '0' ? '' : cValue)}
                     className={s.tInput}
