@@ -20,7 +20,7 @@
     },
     "include": [
         "./project/*/*",
-        "./types/declaration.d.ts"
+        "./types/declaration.d.ts",  
     ],
     "exclude": [ "node_modules" ]
 }
