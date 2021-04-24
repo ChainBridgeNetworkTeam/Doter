@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-02-28 09:37:42
  */
 import React, { FC } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import { useHistory } from 'react-router-dom';
 import cx from 'classnames';
 

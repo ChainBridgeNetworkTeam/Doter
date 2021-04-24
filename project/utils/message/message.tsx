@@ -11,6 +11,7 @@ import type { KeypairType } from '@polkadot/util-crypto/types';
 import { PORT_EXTENSION } from '@polkadot/extension-base/defaults';
 import { metadataExpand } from '@polkadot/extension-chains';
 import chrome from '@polkadot/extension-inject/chrome';
+import mockChrome from '../../../__mocks__/chrome';
 import { MetadataDef } from '@polkadot/extension-inject/types';
 
 import allChains from './chains';
@@ -26,7 +27,7 @@ interface Handler {
 
 type Handlers = Record<string, Handler>;
 
-const port = chrome.runtime.connect({ name: PORT_EXTENSION });
+const port = (chrome || mockChrome).runtime.connect({ name: PORT_EXTENSION });
 const handlers: Handlers = {};
 let idCounter = 0;
 
