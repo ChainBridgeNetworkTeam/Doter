@@ -102,28 +102,39 @@ const mock = {
 const add = '5EhmYogkqoyHiCDEfMWvQkEBcJjuaaZ4chW5K1z3TuioHTP7';
 
 class AppStore {
-    @observable hasInit: boolean = false;
-    @observable api: ApiPromise;
+    //@observable 
+    hasInit: boolean = false;
+    //@observable 
+    api: ApiPromise;
     //  地址列表
-    @observable addressArr: Array<string> = [];
+    //@observable
+    addressArr: Array<string> = [];
     //  当前地址
-    @observable favoriteAccount: string = '';
+    //@observable
+    favoriteAccount: string = '';
     //  账号映射
-    @observable accountObj: Record<string, KeyringPair$Json> = {} as Record<string, KeyringPair$Json>;
+    //@observable
+    accountObj: Record<string, KeyringPair$Json> = {} as Record<string, KeyringPair$Json>;
     //  当前账户余额
-    @observable balance: number | string | BN | BigInt = 0;
+    //@observable
+    balance: number | string | BN | BigInt = 0;
     //  可用余额
-    @observable ableBalance: string;
+    //@observable
+    ableBalance: string;
     //  锁定余额
-    @observable lockBalance: string;
+    //@observable
+    lockBalance: string;
     //  转账账户列表
-    @observable recipientArr: Array<recipientObj> = [];
+    //@observable
+    recipientArr: Array<recipientObj> = [];
     //  本地配置对象
-    @observable localConfig: loaclConfigType = {} ;
+    //@observable
+    localConfig: loaclConfigType = {} ;
     //  1Dot兑美元汇率
     dotToDollar: string = '0';
 
-    @observable authReqList: Array<AuthorizeRequest> = [];
+    //@observable
+    authReqList: Array<AuthorizeRequest> = [];
 
     signReqList: Array<SigningRequest> = [];
 

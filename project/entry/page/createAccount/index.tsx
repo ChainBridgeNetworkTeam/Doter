@@ -18,8 +18,6 @@ import createStore from './store';
 import cx from 'classnames';
 import { runInAction } from 'mobx';
 
-
-
 const CreactAccount:FC = function() {
     let { t } = useTranslation();
     const history = useHistory();
@@ -56,4 +54,8 @@ const CreactAccount:FC = function() {
     )
 }
 
+// function xxhashAsHex() {
+//     return <div>111</div>
+// }
+// export default xxhashAsHex;
 export default observer(CreactAccount);
