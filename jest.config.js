@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-22 09:01:57
- * @LastEditTime: 2021-04-24 14:32:31
+ * @LastEditTime: 2021-04-24 17:12:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Doter/jest.config.js

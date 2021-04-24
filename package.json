@@ -32,6 +32,7 @@
         "@polkadot/wasm-crypto": "4.0.2",
         "@types/file-saver": "^2.0.1",
         "@types/qrcode": "^1.4.0",
+        "@types/sinon-chrome": "^2.2.10",
         "antd": "^4.4.2",
         "classnames": "^2.2.6",
         "copy-to-clipboard": "^3.3.1",
