@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-24 10:25:20
- * @LastEditTime: 2021-04-24 15:43:42
+ * @LastEditTime: 2021-04-25 22:22:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/createAccount/index.test.tsx
@@ -12,6 +12,7 @@ import { configure, mount, ReactWrapper, shallow } from 'enzyme';
 import { flushAllPromises } from '../../../utils/testHelpers';
 import React from 'react';
 import HeadBar from '../../widgets/headBar';
+import secStyle from './secret/index.scss';
 import { act } from 'react-dom/test-utils';
 
 import CreateAccount from './index';
@@ -26,22 +27,25 @@ describe('Create Account', () => {
     seed: 'horse battery staple correct'
   };
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  const mountComponent = (): ReactWrapper => shallow(<CreateAccount />);
+  const mountComponent = (): ReactWrapper => mount(<CreateAccount />);
 
   beforeEach(async () => {
     onActionStub = jest.fn();
     // jest.spyOn(messaging, 'createSeed').mockResolvedValue(exampleAccount);
     // jest.spyOn(messaging, 'createAccountSuri').mockResolvedValue(true);
     wrapper = mountComponent();
-    console.log('1111');
     await act(flushAllPromises);
     wrapper.update();
   });
 
   describe('Phase 1', () => {
     it('see mnemonic mask', () => {
-        console.log(222);
       expect(wrapper.find(HeadBar).prop('word')).toBe('createAccount:create wallet');
     });
+
+    it('find wraper', () => {
+        console.log(wrapper.find('.test'), secStyle.formTitle, '333');
+        expect(wrapper.find('.test').first().text()).toBe('createAccount:Wallet name');
+    })
   })
 });
