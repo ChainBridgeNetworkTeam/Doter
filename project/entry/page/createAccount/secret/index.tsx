@@ -107,7 +107,7 @@ const SecretPart:FC = function() {
     const activeBtn = createStore.userAgreementSlect && inputSec && inputSecConfirm && accountName;
     return (
         <div className={s.contentWrap}>
-            <div className={cx(s.formTitle, s.topT, 'test')}>{mnLan('Wallet name')}</div>
+            <div className={cx(s.formTitle, s.topT)}>{mnLan('Wallet name')}</div>
             <Form.Item className={s.formWrap}>
                 <Input value={createStore.accountName} onChange={(e) => changeInput(createStore, 'accountName', e)} className={s.input} maxLength={12} placeholder={mnLan('1-12 characters')}/>
             </Form.Item>
