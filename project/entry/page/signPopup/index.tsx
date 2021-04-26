@@ -36,6 +36,9 @@ const Auth:FC = function() {
     const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false, showLoading: false } as SignState);
     const _onSign = useCallback(
         (): Promise<void> => {
+          if (!stateObj.secret) {
+              return;
+          }
           const signId = GlobalStore.signReqList[0]?.id;
           setState({
               showLoading: true
@@ -75,9 +78,6 @@ const Auth:FC = function() {
         [GlobalStore.signReqList]
     );
 
-    useEffect(() => {
-        _onCancel();
-    }, []);
     console.log(toJS(GlobalStore.signReqList), 'sign');
 
     function getTransDetail() {
