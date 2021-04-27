@@ -187,7 +187,6 @@ export function getBlockTime(blocks = BN_ONE) {
     const blockTime = DEFAULT_TIME;
     const time = extractTime(blockTime.mul(blocks).toNumber());
     const { days, hours, minutes, seconds } = time;
-    console.log(time ,'xxx');
     const timeStr = [
       days ? (days > 1) ? `${days} days` : '1 day' : null, 
       hours ? (hours > 1) ? `${hours} hours` : '1 hr' : null,

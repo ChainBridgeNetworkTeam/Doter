@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2021-04-25 22:48:18
- * @LastEditTime: 2021-04-26 08:50:42
+ * @LastEditTime: 2021-04-27 08:36:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/utils/utils.test.tsx
  */
 
-import { myFormatBalance, addressFormat, validateMnemonicOrHexSeed, validateKeyStoreJsonStr, dotStrToTransferAmount } from './tools';
+import { myFormatBalance, addressFormat, validateMnemonicOrHexSeed, validateKeyStoreJsonStr, dotStrToTransferAmount, getBlockTime } from './tools';
 import keyring from '@polkadot/ui-keyring';
 
 const testKeyStoreJson = {"encoded":"quXlEwqQ5VXyU6rEZJx7aPCqNuDNk0dv1RR2jgQJCgMAgAAAAQAAAAgAAABbe1b7qGsXVk9jvzMgMkVNkchomxCiZzfC6rxbD4vIfdk8lCuaiYEsCNBC3Lx0tWqBs+pFYokWGPqOQ3QEqmRsPuSZ6kkRxuyRTdnGHUX7Lt129kl8xELrcsxE3t4zuPUddvqltp0cw0ssibZbeJSD38dhsoBK8TlvDmEWRKSrS3ybUj2BokltTl1TkwoY56z64sM8bLnARHLc083h","encoding":{"content":["pkcs8","ed25519"],"type":["scrypt","xsalsa20-poly1305"],"version":"3"},"address":"138zXWBiXnW9fjWR43x65WE2KiEpWKtkE2oxNav6NoWntQFH","meta":{"name":"test2","whenCreated":1618650418740}};
@@ -42,5 +42,9 @@ describe('test format for balance', () => {
 
     it('transfor str to amount', () => {
         expect(dotStrToTransferAmount('1.5')).toStrictEqual(15000000000);
+    })
+
+    it('get block time', () => {
+        expect(getBlockTime()).toStrictEqual('6 seconds');
     })
 })
