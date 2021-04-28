@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-24 10:25:20
- * @LastEditTime: 2021-04-28 23:42:14
+ * @LastEditTime: 2021-04-28 23:48:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/createAccount/index.test.tsx
@@ -92,6 +92,14 @@ describe('Create Account', () => {
       wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111235689' } });
       wrapper.find('.btn').simulate('click');
       expect(wrapper.find('.error').first().text()).toBe('createAccount:Please check the user agreement');
+    })
+
+    it('enter next stage', async () => {
+      wrapper.find('input[type="password"]').first().simulate('change', { target: { value: '111235689' } });
+      wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111235689' } });
+      wrapper.find('.userAgree').simulate('click');
+      wrapper.find('.btn').simulate('click');
+      expect(wrapper.find('.mnTitle').first().text()).toBe('createAccount:save mnenoic');
     })
   })
 });

@@ -209,7 +209,7 @@ const CreactMnemonic:FC = function() {
     function headInfo() {
         const { status } = stateObj;
         return status !== STATUS.THREE ? <>
-                <div className={s.title}>{mnLan('save mnenoic')}</div>
+                <div className={cx(s.title, 'mnTitle')}>{mnLan('save mnenoic')}</div>
                 <div className={s.info}>{mnLan('Please copy the following mnemonics manually to make sure the backup is correct')}</div>
                 <div className={s.info}><span className={s.point}>·</span> {mnLan('Acquiring mnemonics is equivalent to owning the property of the wallet')}</div>
                 <div className={s.info}><span className={s.point}>·</span> {mnLan('Do not take a screen capture or copy, otherwise it may cause asset loss')}</div>
