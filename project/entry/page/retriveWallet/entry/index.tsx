@@ -32,7 +32,7 @@ const Entry:FC = function() {
 
     return (
         <div className={s.wrap}>
-            <HeadBar word={lanWrap('Creating wallets')}/>
+            <HeadBar word={lanWrap('Import Wallet')}/>
             {showCreate && <div className={cx(s.item, s.wallet)} onClick={() => jump(PAGE_NAME.CREATE_ACCOUNT)}>{lanWrap('Creating wallets')}</div>}
             <div className={cx(s.title, s.titlePadding)}>{lanWrap('Import Wallet')}</div>
             <div className={cx(s.item, s.word)} onClick={() => jump(PAGE_NAME.RW_MNEMONIC)}>{lanWrap('Mnemonic words')}</div>
