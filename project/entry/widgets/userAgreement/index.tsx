@@ -33,7 +33,7 @@ const HeadBar:FC<BarProps> = function(props:BarProps) {
     }
     return (
         <>
-            <div className={s.agreeWrap} onClick={changeAgreeStatus}>
+            <div className={cx(s.agreeWrap, 'userAgree')} onClick={changeAgreeStatus}>
                 <div className={cx(s.check, props.isCheck ? s.accept : s.notAccept)}/>
                 <div className={s.agrCon}>{lanWrap('I have read and agree to the user agreement')}<span className={s.agreement} onClick={toAgreement}>《{lanWrap('User agreement')}》</span></div>
             </div>

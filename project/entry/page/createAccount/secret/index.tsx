@@ -57,7 +57,6 @@ const SecretPart:FC = function() {
     //  创建账户
     function createAccount() {
         const { inputSec, inputSecConfirm } = createStore;
-        console.log(inputSec, 'xxx111');
         //  密码过短
         if (inputSec.length <= 7) {
             return setState({
@@ -105,6 +104,7 @@ const SecretPart:FC = function() {
     //     }
     //     return (show ? <div className={cx(s.secretIcon, s.canSee)} style={{color: 'red'}}>1</div> : <span className={cx(s.secretIcon, s.canNotSee)} style={styleObj}>2</span>)
     // }
+
     const { inputSec, inputSecConfirm, accountName, userAgreementSlect } = createStore;
     const activeBtn = createStore.userAgreementSlect && inputSec && inputSecConfirm && accountName;
     return (
