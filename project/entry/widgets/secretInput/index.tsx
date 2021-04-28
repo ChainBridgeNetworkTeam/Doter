@@ -30,6 +30,7 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
 
     //  修改两个密码
     function changeSecret(e: React.ChangeEvent<HTMLInputElement>, key: string) {
+        console.log(key, 'key');
         changeInput(store, key, e);
         if (key === secretKey) {
             const value = e.target.value;

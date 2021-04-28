@@ -7,7 +7,7 @@
 
 
 export const retriveWalletEn = {
-    'Creating wallets': 'Import Wallet',
+    'Creating wallets': 'Create Wallet',
     'Import Wallet': 'Import wallet',
     'Mnemonic words': 'Mnemonic',
     'Please check the user agreement': 'Please check the user agreement',

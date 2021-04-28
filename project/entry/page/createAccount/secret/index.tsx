@@ -17,6 +17,7 @@ import { runInAction } from 'mobx';
 import UserAgreement from '@widgets/userAgreement';
 import { CreateStoreType } from '../store';
 import SecretInput from '@widgets/secretInput';
+import createStore from '../store';
 
 const CREATE_STORE_KEY = {
     INPUT_SEC: 'inputSec',
@@ -44,7 +45,7 @@ const SecretPart:FC = function() {
         return Object.assign({}, state, action);
     }
     const [stateObj, setState] = useReducer(stateReducer, { infoStatus: INFO_STATUS.COMMON } as CreateStateObj);
-    const createStore = useStores('CreateAccountStore') as CreateStoreType;
+    //  const createStore = useStores('CreateAccountStore') || {} as CreateStoreType;
     const mnLan = (input: string) => t(`createAccount:${input}`);
 
     //  切换用户协议状态
@@ -56,6 +57,7 @@ const SecretPart:FC = function() {
     //  创建账户
     function createAccount() {
         const { inputSec, inputSecConfirm } = createStore;
+        console.log(inputSec, 'xxx111');
         //  密码过短
         if (inputSec.length <= 7) {
             return setState({
@@ -107,17 +109,17 @@ const SecretPart:FC = function() {
     const activeBtn = createStore.userAgreementSlect && inputSec && inputSecConfirm && accountName;
     return (
         <div className={s.contentWrap}>
-            <div className={cx(s.formTitle, s.topT)}>{mnLan('Wallet name')}</div>
+            <div className={cx(s.formTitle, s.topT, 'testT')}>{mnLan('Wallet name')}</div>
             <Form.Item className={s.formWrap}>
                 <Input value={createStore.accountName} onChange={(e) => changeInput(createStore, 'accountName', e)} className={s.input} maxLength={12} placeholder={mnLan('1-12 characters')}/>
             </Form.Item>
             <SecretInput secretKey={CREATE_STORE_KEY.INPUT_SEC} checkSecretKey={CREATE_STORE_KEY.INPUT_SEC_CONFIRM} store={createStore}/>
-            <div className={s.explainInfo}>
+            <div className={cx(s.explainInfo, 'error')}>
                 {infoPart(stateObj.infoStatus)}
             </div>
             <div className={s.pad}/>
             <UserAgreement isCheck={userAgreementSlect} externalCallBack={changeAgreeSta}/>
-            <div className={cx(s.createBtn, activeBtn ? '' : s.shadowBtn)} onClick={createAccount}>{mnLan('Creating wallets')}</div>
+            <div className={cx(s.createBtn, activeBtn ? '' : s.shadowBtn, 'btn')} onClick={createAccount}>{mnLan('Creating wallets')}</div>
         </div>
     )
 }
