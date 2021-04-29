@@ -30,7 +30,6 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
 
     //  修改两个密码
     function changeSecret(e: React.ChangeEvent<HTMLInputElement>, key: string) {
-        console.log(key, 'key');
         changeInput(store, key, e);
         if (key === secretKey) {
             const value = e.target.value;
@@ -53,13 +52,13 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
             <Input.Password
                 value={store[secretKey]}
                 onChange={(e) => changeSecret(e, secretKey)}
-                className={cx(s.input, 'myInput')}
+                className={cx(s.input)}
                 placeholder={lanWrap('Wallet password')}
             />
             <Input.Password
                 value={store[checkSecretKey]}
                 onChange={(e) => changeSecret(e, checkSecretKey)}
-                className={cx(s.input, 'myInput', s.downInput)}
+                className={cx(s.input, s.downInput)}
                 placeholder={lanWrap('Repeat the password')}
             />
         </>
