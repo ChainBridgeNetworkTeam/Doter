@@ -79,7 +79,6 @@ const SecretPart:FC = function() {
         runInAction(() => {
             createStore.createStage = CREAT_STAGE.MNEMONIC;
         })
-        console.log(createStore.createStage, 'xxxxx');
     }
 
     function infoPart(type: number) {

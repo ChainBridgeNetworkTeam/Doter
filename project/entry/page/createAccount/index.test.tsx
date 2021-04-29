@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-24 10:25:20
- * @LastEditTime: 2021-04-28 23:48:02
+ * @LastEditTime: 2021-04-29 08:26:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/createAccount/index.test.tsx
@@ -99,6 +99,9 @@ describe('Create Account', () => {
       wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111235689' } });
       wrapper.find('.userAgree').simulate('click');
       wrapper.find('.btn').simulate('click');
+      //  mnemonics 里面有异步操作，不等的话会报错
+      await act(flushAllPromises);
+      wrapper.update();
       expect(wrapper.find('.mnTitle').first().text()).toBe('createAccount:save mnenoic');
     })
   })
