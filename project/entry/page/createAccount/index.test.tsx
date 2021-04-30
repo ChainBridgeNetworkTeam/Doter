@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-24 10:25:20
- * @LastEditTime: 2021-04-29 08:26:02
+ * @LastEditTime: 2021-04-29 08:30:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/createAccount/index.test.tsx
@@ -13,7 +13,6 @@ import { configure, mount, ReactWrapper, shallow } from 'enzyme';
 import { flushAllPromises } from '../../../utils/testHelpers';
 import React from 'react';
 import HeadBar from '../../widgets/headBar';
-import secStyle from './secret/index.scss';
 import { act } from 'react-dom/test-utils';
 
 import CreateAccount from './index';

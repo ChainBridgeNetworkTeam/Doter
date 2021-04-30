@@ -8,9 +8,7 @@
         "build": "webpack --color --config webpack.config.js",
         "pbuild": "webpack --color --config webpack.config.js --pluginBuild",
         "dll": "webpack --color --config webpack.dll.config.js",
-        "test": "jest",
-        "test2": "polkadot-dev-run-test",
-        "tt": "node --experimental-vm-modules node_modules/.bin/jest",
+        "test": "polkadot-dev-run-test",
         "clear": "node project/script/pre-commit.js",
         "deploy": "npm run build && node writeHtml.js"
     },
