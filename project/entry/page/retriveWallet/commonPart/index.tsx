@@ -15,7 +15,7 @@ import { observer } from 'mobx-react';
 import { changeInput } from '@utils/input';
 import { keyring } from '@polkadot/ui-keyring';
 import UserAgreement from '@widgets/userAgreement';
-import type { retrieveStoreType } from '../store';
+import RetrieveStore, { retrieveStoreType } from '../store';
 import SecretInput from '@widgets/secretInput';
 import { useHistory } from 'react-router-dom';
 import { CHECT_STATUS } from '../store';
@@ -28,7 +28,6 @@ import { addNewAccount } from '@utils/tools';
 const CommonPart:FC = function() {
     let { t } = useTranslation();
     const history = useHistory();
-    const RetrieveStore = useStores('RetrieveStore') as retrieveStoreType;
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`retriveWallet:${input}`);
 
@@ -51,11 +50,13 @@ const CommonPart:FC = function() {
                 return runInAction(() => RetrieveStore.checkStatus = CHECT_STATUS.SECRET_TOO_SHORT);
             }
             if (confirmSecret !== secret) {
+                console.log(confirmSecret, secret, 'er');
                 return runInAction(() => RetrieveStore.checkStatus = CHECT_STATUS.SECRECT_NOT_EQUAL);
             }
         }
         runInAction(() => RetrieveStore.checkStatus === CHECT_STATUS.PASS);
         if (isInMnemonic) {
+            console.log('final')
             const mnemoRes = keyring.addUri(mnemonicWords, secret, { name });
             //  store和chrome存储都同步
             await addNewAccount(mnemoRes);
@@ -82,7 +83,7 @@ const CommonPart:FC = function() {
             [CHECT_STATUS.SECRET_TOO_SHORT]: lanWrap('The number of password digits is less than 8'),
             [CHECT_STATUS.WRONG_PASS]: lanWrap('Wrong password')
         }
-        return <div className={s.checkInfo}>{contentMap[RetrieveStore.checkStatus]}</div>
+        return <div className={cx(s.checkInfo, 'reCheckInfo')}>{contentMap[RetrieveStore.checkStatus]}</div>
     }
 
     const { name, checkAgreement, buttonActive, secret } = RetrieveStore;
@@ -111,7 +112,7 @@ const CommonPart:FC = function() {
             {checkInfo()}
             <div className={s.bottonPart}>
                 <UserAgreement isCheck={checkAgreement} externalCallBack={changeStatus}/>
-                <div className={cx(s.btn, buttonActive ? s.btnActive : '')} onClick={importAccount}>{lanWrap('Import Wallet')}</div>
+                <div className={cx(s.btn, buttonActive ? s.btnActive : '', 'reBtn')} onClick={importAccount}>{lanWrap('Import Wallet')}</div>
             </div>
 
         </>
