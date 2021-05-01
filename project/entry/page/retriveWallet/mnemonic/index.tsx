@@ -18,12 +18,11 @@ import { globalStoreType } from '@entry/store';
 import { validateMnemonicOrHexSeed } from '@utils/tools';
 import CommonPart from '../commonPart';
 import { changeInput } from '@utils/input';
-import { retrieveStoreType } from '../store';
+import RetrieveStore from '../store';
 
 const Mnemonic:FC = function() {
     let { t } = useTranslation();
     const globalStore = useStores('GlobalStore') as globalStoreType;
-    const RetrieveStore = useStores('RetrieveStore') as retrieveStoreType;
 
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`retriveWallet:${input}`);
@@ -32,7 +31,6 @@ const Mnemonic:FC = function() {
         const inputValue = e.target.value;
         changeInput(RetrieveStore, 'mnemonicWords', e);
         const validateRes = validateMnemonicOrHexSeed(inputValue);
-        console.log(validateRes, 'kkk');
         runInAction(() => {
             RetrieveStore.mnemonicErrMsg = validateRes.errMsg;
         })
