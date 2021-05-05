@@ -50,13 +50,13 @@ const CommonPart:FC = function() {
                 return runInAction(() => RetrieveStore.checkStatus = CHECT_STATUS.SECRET_TOO_SHORT);
             }
             if (confirmSecret !== secret) {
-                console.log(confirmSecret, secret, 'er');
                 return runInAction(() => RetrieveStore.checkStatus = CHECT_STATUS.SECRECT_NOT_EQUAL);
             }
         }
-        runInAction(() => RetrieveStore.checkStatus === CHECT_STATUS.PASS);
+        runInAction(() => {
+            RetrieveStore.checkStatus = CHECT_STATUS.PASS;
+        });
         if (isInMnemonic) {
-            console.log('final')
             const mnemoRes = keyring.addUri(mnemonicWords, secret, { name });
             //  store和chrome存储都同步
             await addNewAccount(mnemoRes);

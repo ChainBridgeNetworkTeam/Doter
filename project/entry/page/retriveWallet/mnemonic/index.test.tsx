@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-30 22:09:49
- * @LastEditTime: 2021-04-30 23:54:19
+ * @LastEditTime: 2021-05-05 11:16:58
  */
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, mount, ReactWrapper } from 'enzyme';
@@ -77,12 +77,10 @@ describe('Retrive wallet with mnemonic', () => {
         wrapper.find('textarea').first().simulate('change', { target: { value: testMnemonic }});
         wrapper.find('input[type="password"]').first().simulate('change', { target: { value: '12345678' } });
         wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '12345678' } });
-        await act(flushAllPromises);
-        wrapper.update();
         wrapper.find('.reBtn').first().simulate('click');
         await act(flushAllPromises);
         wrapper.update();
-        expect(wrapper.find('.reCheckInfo').first().text()).toBe('retriveWallet:Inconsistent password input');
+        expect(wrapper.find('.reCheckInfo').first().text()).toBe('');
     });
   })
 });
