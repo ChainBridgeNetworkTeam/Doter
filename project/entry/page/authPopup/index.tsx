@@ -21,6 +21,9 @@ const Auth:FC = function() {
     const globalStore = GlobalStore as unknown as globalStoreType ;
     const history = useHistory();
 
+    //  国际化的包裹函数
+    const lanWrap = (input: string) => t(`authPopup:${input}`);
+
     const _onApprove = useCallback(() => {
         const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
         approveAuthRequest(authId).catch((error: Error) => console.error(error));
@@ -29,7 +32,7 @@ const Auth:FC = function() {
         const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
         rejectAuthRequest(authId).catch((error: Error) => console.error(error));
     }, [globalStore.authReqList]);
-
+    console.log(globalStore.authReqList.slice(-1)?.[0], 'xxx')
     return (
         <div className={s.wrap}>
             <div className={s.title}>
@@ -37,17 +40,17 @@ const Auth:FC = function() {
                 Doter
             </div>
             <div className={s.dotLogo}/>
-            <div className={s.auth}>授权</div>
+            <div className={s.auth}>{lanWrap('Authorize')}</div>
             <div className={s.infoWrap}>
                 <div className={cx(s.icon, s.icon1)}/>
-                <div className={s.infomation}>{'自动识别为的应用程序，正在请求访问你的账户地址'}</div>
+                <div className={s.infomation}>{'自动识别为%的应用程序，正在请求访问你的账户地址'}</div>
             </div>
             <div className={s.infoWrap}>
                 <div className={cx(s.icon, s.icon2)}/>
-                <div className={s.infomation}>{'当您新人该应用程序时，才可允许此请求'}</div>
+                <div className={s.infomation}>{lanWrap('You can only allow this request when you trust the application')}</div>
             </div>
-            <BottomBtn word={'允许此应用程序访问'} cb={_onApprove} propClass={cx(s.btn, s.btn1)}/>
-            <BottomBtn word={'拒绝'} cb={_onReject} propClass={cx(s.btn, s.btnRej)}/>
+            <BottomBtn word={lanWrap('Allow this application to access')} cb={_onApprove} propClass={cx(s.btn, s.btn1)}/>
+            <BottomBtn word={lanWrap('Reject')} cb={_onReject} propClass={cx(s.btn, s.btnRej)}/>
             {/* {renderList()} */}
         </div>
     )
