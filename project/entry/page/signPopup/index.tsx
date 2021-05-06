@@ -34,6 +34,10 @@ const Auth:FC = function() {
         return Object.assign({}, state, action);
     }
     const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false, showLoading: false } as SignState);
+
+    //  国际化的包裹函数
+    const lanWrap = (input: string) => t(`signPopup:${input}`);
+
     const _onSign = useCallback(
         (): Promise<void> => {
           if (!stateObj.secret) {
@@ -67,9 +71,9 @@ const Auth:FC = function() {
             })
             .catch((error: Error) => {
                     if (error.toString().includes('supplied passphrase')) {
-                        message.error('密码错误')
+                        message.error('Wrong password')
                     } else {
-                        message.error('签名失败')
+                        message.error('Signature failed')
                     }
                     console.error(error.toString())
                 }
@@ -77,8 +81,6 @@ const Auth:FC = function() {
         },
         [GlobalStore.signReqList]
     );
-
-    console.log(toJS(GlobalStore.signReqList), 'sign');
 
     function getTransDetail() {
         const target = GlobalStore.signReqList[0];
@@ -119,15 +121,15 @@ const Auth:FC = function() {
                 Doter
             </div>
             <div className={s.dotLogo}/>
-            <div className={s.auth}>签名信息</div>
+            <div className={s.auth}>{lanWrap('sign info')}</div>
             {getTransDetail()}
             <div className={styles.secWrap}>
-                <Input.Password onChange={setSecret} className={styles.input} placeholder={'Wallet Secret'}/>
+                <Input.Password onChange={setSecret} className={styles.input} placeholder={lanWrap('wallet secret')}/>
             </div>
             <Spin spinning={stateObj.showLoading}>
-                <BottomBtn word={'签名'} cb={_onSign} propClass={cx(styles.btn1, secret ? styles.activeBtn : '')}/>
+                <BottomBtn word={lanWrap('sign')} cb={_onSign} propClass={cx(styles.btn1, secret ? styles.activeBtn : '')}/>
             </Spin>
-            <BottomBtn word={'取消'} cb={_onCancel} propClass={cx(styles.btn2)}/>
+            <BottomBtn word={lanWrap('cancel')} cb={_onCancel} propClass={cx(styles.btn2)}/>
         </div>
     )
 }
