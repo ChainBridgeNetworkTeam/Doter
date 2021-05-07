@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "4cd01648ce2e74bdf123";
+/******/ 	var hotCurrentHash = "935ab7ba77ae2285c521";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -854,7 +854,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(18)(__webpack_require__.s = 18);
+/******/ 	return hotCreateRequire(15)(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -895,7 +895,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pol
 
 /***/ }),
 
-/***/ 18:
+/***/ 15:
 /*!*********************************************!*\
   !*** multi ./project/pluginFile/content.ts ***!
   \*********************************************/
