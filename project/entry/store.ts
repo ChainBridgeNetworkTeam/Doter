@@ -173,6 +173,7 @@ class AppStore {
             {
                 const addArrs = Object.keys(accounts);
                 const parsedAccObj = {} as Record<string, any>;
+                console.log(accounts, 'lll');
                 addArrs.map(key => {
                     parsedAccObj[key] = accounts[key].json
                 })

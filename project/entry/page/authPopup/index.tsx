@@ -24,6 +24,7 @@ const Auth:FC = function() {
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`authPopup:${input}`);
 
+    const target = globalStore.authReqList.slice(-1)?.[0];
     const _onApprove = useCallback(() => {
         const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
         approveAuthRequest(authId).catch((error: Error) => console.error(error));
@@ -32,7 +33,7 @@ const Auth:FC = function() {
         const authId = globalStore.authReqList.slice(-1)?.[0].id || '0';
         rejectAuthRequest(authId).catch((error: Error) => console.error(error));
     }, [globalStore.authReqList]);
-    console.log(globalStore.authReqList.slice(-1)?.[0], 'xxx')
+
     return (
         <div className={s.wrap}>
             <div className={s.title}>
@@ -43,7 +44,7 @@ const Auth:FC = function() {
             <div className={s.auth}>{lanWrap('Authorize')}</div>
             <div className={s.infoWrap}>
                 <div className={cx(s.icon, s.icon1)}/>
-                <div className={s.infomation}>{'自动识别为%的应用程序，正在请求访问你的账户地址'}</div>
+                <div className={s.infomation}>{lanWrap('App automatically identified as%, requesting access to your account address').replace('%', target.request.origin)}</div>
             </div>
             <div className={s.infoWrap}>
                 <div className={cx(s.icon, s.icon2)}/>
