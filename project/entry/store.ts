@@ -153,7 +153,7 @@ class AppStore {
 
     @computed
     get currentAccount() {
-        return this.accountObj[this.favoriteAccount] || this.accountObj[this.addressArr[0]] || {}
+        return this.accountObj[this.favoriteAccount] || this.accountObj[this.addressArr[0]] || {} as account
     }
 
     @action.bound
@@ -206,7 +206,7 @@ class AppStore {
         keyring.loadAll({
             //  genesisHash: this.api.genesisHash as any,
             ss58Format: 0,
-            //  store: new AccountsStore(),
+            store: new AccountsStore(),
             type: 'ed25519'
         }, [])
         const provider = new WsProvider(OFFICAL_END_POINT);

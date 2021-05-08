@@ -14,15 +14,13 @@ import cx from 'classnames';
 import { observer } from 'mobx-react';
 import { runInAction } from 'mobx';
 import { LOCAL_CONFIG } from '@constants/chrome';
-import { useStores } from '@utils/useStore';
-import { globalStoreType } from '@entry/store';
 import CommonBtn from '@widgets/bottomBtn';
 import { setStorage } from '@utils/chrome';
 import { LOCAL_LANGUAGE, PAGE_NAME } from '@constants/app';
+import globalStore from '../../../store';
 
 const Entry:FC = function() {
     let { t, i18n } = useTranslation();
-    const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
 
     const { localConfig } = globalStore;
@@ -55,10 +53,10 @@ const Entry:FC = function() {
     return (
         <div className={s.wrap}>
             <HeadBar word={lanWrap('language')}/>
-            <div className={s.item} onClick={() => changeLoacl('chinese')}>
+            <div className={cx(s.item, 'chineseT')} onClick={() => changeLoacl('chinese')}>
                 <div>简体中文</div>
                 <div className={s.right}>
-                    {conLanguage === 'chinese' && <div className={s.arrow}/>}
+                    {conLanguage === 'chinese' && <div className={cx(s.arrow, 'chineseArrow')}/>}
                 </div>
             </div>
             <div className={s.item}  onClick={() => changeLoacl('english')}>
