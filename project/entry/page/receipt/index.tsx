@@ -11,8 +11,7 @@ import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 import Qrcode from 'qrcode';
-import { useStores } from '@utils/useStore';
-import { globalStoreType } from '../../store';
+import globalStore from '../../store';
 import { message } from 'antd';
 import { canvasToDataURL, dataURLToBlob } from '@utils/tools';
 import { saveAs } from 'file-saver';
@@ -20,14 +19,13 @@ import copyContent from 'copy-to-clipboard';
 
 const Recient:FC = function() {
     let { t } = useTranslation();
-    const globalStore = useStores('GlobalStore') as globalStoreType;
     const { currentAccount } = globalStore;
 
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`receipt:${input}`);
 
     useEffect(() => {
-        Qrcode.toCanvas(document.getElementById('qrcode'), currentAccount.address)
+        document.getElementById('qrcode') && Qrcode.toCanvas(document.getElementById('qrcode'), currentAccount.address)
     }, [])
 
     function copyAdd() {

@@ -10,13 +10,12 @@ import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useStores } from '@utils/useStore';
 import { PAGE_NAME } from '@constants/app';
 import { globalStoreType } from '@entry/store';
+import globalStore from '../../../store';
 
 const Entry:FC = function() {
     let { t } = useTranslation();
-    const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
 
     //  国际化的包裹函数

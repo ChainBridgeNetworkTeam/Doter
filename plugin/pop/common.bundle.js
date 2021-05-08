@@ -878,6 +878,66 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./node_modules/@polkadot/extension-base/node_modules/@polkadot/extension-inject/chrome.js":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/@polkadot/extension-base/node_modules/@polkadot/extension-inject/chrome.js ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// Copyright 2019-2021 @polkadot/extension-inject authors & contributors\n// SPDX-License-Identifier: Apache-2.0\nconst extension = typeof chrome !== 'undefined' ? chrome : typeof browser !== 'undefined' ? browser : null;\n/* harmony default export */ __webpack_exports__[\"default\"] = (extension);\n\n//# sourceURL=webpack:///./node_modules/@polkadot/extension-base/node_modules/@polkadot/extension-inject/chrome.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@polkadot/extension-base/stores/Accounts.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@polkadot/extension-base/stores/Accounts.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return AccountsStore; });\n/* harmony import */ var _Base_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Base.js */ \"./node_modules/@polkadot/extension-base/stores/Base.js\");\n// Copyright 2019-2021 @polkadot/extension-base authors & contributors\n// SPDX-License-Identifier: Apache-2.0\n\nclass AccountsStore extends _Base_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\n  constructor() {\n    super(null);\n  }\n\n  all(cb) {\n    super.all(cb);\n  }\n\n  get(key, update) {\n    super.get(key, update);\n  }\n\n  remove(key, update) {\n    super.remove(key, update);\n  }\n\n  set(key, value, update) {\n    // shortcut, don't save testing accounts in extension storage\n    if (key.startsWith('account:') && value.meta && value.meta.isTesting) {\n      update && update();\n      return;\n    }\n\n    super.set(key, value, update);\n  }\n\n}\n\n//# sourceURL=webpack:///./node_modules/@polkadot/extension-base/stores/Accounts.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@polkadot/extension-base/stores/Base.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@polkadot/extension-base/stores/Base.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return BaseStore; });\n/* harmony import */ var _babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classPrivateFieldLooseBase */ \"./node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseBase.js\");\n/* harmony import */ var _babel_runtime_helpers_esm_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classPrivateFieldLooseKey */ \"./node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseKey.js\");\n/* harmony import */ var _polkadot_extension_inject_chrome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @polkadot/extension-inject/chrome */ \"./node_modules/@polkadot/extension-base/node_modules/@polkadot/extension-inject/chrome.js\");\n\n\n// Copyright 2019-2021 @polkadot/extension-base authors & contributors\n// SPDX-License-Identifier: Apache-2.0\n\n\nconst lastError = type => {\n  const error = _polkadot_extension_inject_chrome__WEBPACK_IMPORTED_MODULE_2__[\"default\"].runtime.lastError;\n\n  if (error) {\n    console.error(`BaseStore.${type}:: runtime.lastError:`, error);\n  }\n};\n\nvar _prefix = Object(_babel_runtime_helpers_esm_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"prefix\");\n\nclass BaseStore {\n  constructor(prefix) {\n    Object.defineProperty(this, _prefix, {\n      writable: true,\n      value: void 0\n    });\n    Object(_babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, _prefix)[_prefix] = prefix ? `${prefix}:` : '';\n  }\n\n  all(update) {\n    _polkadot_extension_inject_chrome__WEBPACK_IMPORTED_MODULE_2__[\"default\"].storage.local.get(null, result => {\n      lastError('all');\n      Object.entries(result).filter(([key]) => key.startsWith(Object(_babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, _prefix)[_prefix])).forEach(([key, value]) => {\n        update(key.replace(Object(_babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, _prefix)[_prefix], ''), value);\n      });\n    });\n  }\n\n  get(_key, update) {\n    const key = `${Object(_babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, _prefix)[_prefix]}${_key}`;\n    _polkadot_extension_inject_chrome__WEBPACK_IMPORTED_MODULE_2__[\"default\"].storage.local.get([key], result => {\n      lastError('get');\n      update(result[key]);\n    });\n  }\n\n  remove(_key, update) {\n    const key = `${Object(_babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, _prefix)[_prefix]}${_key}`;\n    _polkadot_extension_inject_chrome__WEBPACK_IMPORTED_MODULE_2__[\"default\"].storage.local.remove(key, () => {\n      lastError('remove');\n      update && update();\n    });\n  }\n\n  set(_key, value, update) {\n    const key = `${Object(_babel_runtime_helpers_esm_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this, _prefix)[_prefix]}${_key}`;\n    _polkadot_extension_inject_chrome__WEBPACK_IMPORTED_MODULE_2__[\"default\"].storage.local.set({\n      [key]: value\n    }, () => {\n      lastError('set');\n      update && update();\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./node_modules/@polkadot/extension-base/stores/Base.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@polkadot/extension-base/stores/Metadata.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@polkadot/extension-base/stores/Metadata.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return MetadataStore; });\n/* harmony import */ var _Base_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Base.js */ \"./node_modules/@polkadot/extension-base/stores/Base.js\");\n// Copyright 2019-2021 @polkadot/extension-base authors & contributors\n// SPDX-License-Identifier: Apache-2.0\n\nclass MetadataStore extends _Base_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\n  constructor() {\n    super('metadata');\n  }\n\n  all(cb) {\n    super.all(cb);\n  }\n\n  get(key, update) {\n    super.get(key, update);\n  }\n\n  remove(key, update) {\n    super.remove(key, update);\n  }\n\n  set(key, value, update) {\n    super.set(key, value, update);\n  }\n\n}\n\n//# sourceURL=webpack:///./node_modules/@polkadot/extension-base/stores/Metadata.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@polkadot/extension-base/stores/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@polkadot/extension-base/stores/index.js ***!
+  \***************************************************************/
+/*! exports provided: AccountsStore, MetadataStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Accounts_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Accounts.js */ \"./node_modules/@polkadot/extension-base/stores/Accounts.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"AccountsStore\", function() { return _Accounts_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _Metadata_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Metadata.js */ \"./node_modules/@polkadot/extension-base/stores/Metadata.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"MetadataStore\", function() { return _Metadata_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n// Copyright 2019-2021 @polkadot/extension-base authors & contributors\n// SPDX-License-Identifier: Apache-2.0\n\n\n\n//# sourceURL=webpack:///./node_modules/@polkadot/extension-base/stores/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/@polkadot/extension-inject/chrome.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@polkadot/extension-inject/chrome.js ***!
