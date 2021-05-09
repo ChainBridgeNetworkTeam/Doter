@@ -15,7 +15,7 @@ import { Input, Modal } from 'antd';
 import { runInAction } from 'mobx';
 import { useStores } from '@utils/useStore';
 import { keyring } from '@polkadot/ui-keyring';
-import { setStorage } from '@utils/chrome'
+import { chromeLocalSet } from '@utils/chrome'
 import { globalStoreType } from '@entry/store';
 import { RECIPIENT_ARRAY } from '@constants/chrome';
 
@@ -101,7 +101,7 @@ const Entry:FC = function() {
             globalStore.recipientArr = copyArr;
         })
         //  修改chromeStorage
-        await setStorage({
+        await chromeLocalSet({
             [RECIPIENT_ARRAY]: copyArr
         })
         history.goBack();
@@ -124,7 +124,7 @@ const Entry:FC = function() {
                     globalStore.recipientArr = copyArr;
                 })
                 //  修改chromeStorage
-                await setStorage({
+                await chromeLocalSet({
                     [RECIPIENT_ARRAY]: copyArr
                 })
                 history.goBack();

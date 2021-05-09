@@ -8,7 +8,7 @@ import { observable, runInAction, action, makeAutoObservable, computed, toJS } f
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ADDRESS_ARRAY, FAVORITE_ACCOUNT, RECIPIENT_ARRAY, LOCAL_CONFIG } from '@constants/chrome';
 import keyring from '@polkadot/ui-keyring';
-import { getStorage, setStorage } from '@utils/chrome';
+import { getStorage, setStorage, chromeLocalGet } from '@utils/chrome';
 import { OFFICAL_END_POINT } from '@constants/chain';
 import { AccountsStore } from '@polkadot/extension-base/stores';
 import { accounts as accountsObservable } from '@polkadot/ui-keyring/observable/accounts';
@@ -169,6 +169,10 @@ class AppStore {
                 lastInSTM: 0
             }}) as any || {};
 
+
+        const chormeLocalStorage = await chromeLocalGet({
+            [RECIPIENT_ARRAY]: [],
+        }) as any || {};
         //  订阅账户的变化,核心内容通过库来存取
         const subscription = accountsObservable.subject.subscribe((accounts: SubjectInfo): void =>
             {
@@ -191,7 +195,8 @@ class AppStore {
         runInAction(() => {
             this.favoriteAccount = ans.favoriteAccount || firsetAcc;
             this.localConfig = ans[LOCAL_CONFIG];
-            this.recipientArr = ans[RECIPIENT_ARRAY];
+            //  常用的地址存在chrome本地存储
+            this.recipientArr = chormeLocalStorage[RECIPIENT_ARRAY];
 
             // this.favoriteAccount = add;
             // this.addressArr = [add];

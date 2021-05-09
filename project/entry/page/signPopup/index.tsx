@@ -12,7 +12,6 @@ import { observer } from 'mobx-react';
 import { globalStoreType } from '@entry/store';
 import GlobalStore from '@entry/store';
 import BottomBtn from '@widgets/bottomBtn';
-import { toJS } from 'mobx';
 import type { SignerPayloadJSON } from '@polkadot/types/types';
 import s from '../authPopup/index.scss';
 import styles from './index.scss';
@@ -23,6 +22,7 @@ interface SignState {
     secret?: string;
     signBtnActive?: boolean;
     showLoading?: boolean;
+    signIndex?: number;
 }
 
 const Auth:FC = function() {
@@ -33,7 +33,7 @@ const Auth:FC = function() {
     function stateReducer(state: Object, action: SignState) {
         return Object.assign({}, state, action);
     }
-    const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false, showLoading: false } as SignState);
+    const [stateObj, setState] = useReducer(stateReducer, { secret: '', signBtnActive: false, showLoading: false, signIndex: 0 } as SignState);
 
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`signPopup:${input}`);
@@ -43,7 +43,7 @@ const Auth:FC = function() {
           if (!stateObj.secret) {
               return;
           }
-          const signId = GlobalStore.signReqList[0]?.id;
+          const signId = GlobalStore.signReqList[stateObj.signIndex]?.id;
           setState({
               showLoading: true
           })
@@ -64,7 +64,7 @@ const Auth:FC = function() {
     const { secret } = stateObj;
     const _onCancel = useCallback(
         (): Promise<void> => {
-        const signId = GlobalStore.signReqList[0]?.id;
+        const signId = GlobalStore.signReqList[stateObj.signIndex]?.id;
         return cancelSignRequest(signId)
             .then(() => {
                 console.log('cancel success')
@@ -83,7 +83,7 @@ const Auth:FC = function() {
     );
 
     function getTransDetail() {
-        const target = GlobalStore.signReqList[0];
+        const target = GlobalStore.signReqList[stateObj.signIndex];
         if (!target) {
             return null;
         }
@@ -114,11 +114,30 @@ const Auth:FC = function() {
             secret: e.target.value
         })
     }
+
+    function changeSingIndex(diff: number) {
+        const target = stateObj.signIndex + diff;
+
+        if (target < 0 || target > GlobalStore.signReqList.length - 1) {
+            return;
+        } else {
+            setState({
+                signIndex: target
+            })
+        }
+    }
     return (
         <div className={styles.wrap}>
-            <div className={s.title}>
-                <div className={s.logo}/>
-                Doter
+            <div className={styles.title}>
+                <div className={styles.left}>
+                    <div className={cx(s.logo, styles.logo)}/>
+                    <div>Doter</div>
+                </div>
+                {GlobalStore.signReqList.length > 1 && <div className={styles.rightPart}>
+                    <div className={cx(styles.forwardArrow)} onClick={() => changeSingIndex(-1)}/>
+                    <div className={styles.rank}>{`${(stateObj.signIndex || 0) + 1} / ${GlobalStore.signReqList.length}`}</div>
+                    <div className={cx(styles.forwardArrow, styles.backWardArrow)} onClick={() => changeSingIndex(1)}/>
+                </div>}
             </div>
             <div className={s.dotLogo}/>
             <div className={s.auth}>{lanWrap('sign info')}</div>

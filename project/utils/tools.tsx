@@ -95,19 +95,12 @@ export async function addNewAccount(result: CreateResult) {
     const saveKey = json.address;
     let origin = await getStorage({ [ADDRESS_ARRAY]: [] }) as addressArrayObj;
     let newArray = origin[ADDRESS_ARRAY];
-    //  本地存储的账号信息,看来不需要脱敏，因为polkadot.js直接放在localstorage里面
-    const localSaveObj = json;
     newArray.push(saveKey);
     //  同步本地的store状态
     runInAction(() => {
         //  globalStore.addressArr = newArray,
         globalStore.favoriteAccount = globalStore.favoriteAccount || address;
         //  globalStore.accountObj = Object.assign({}, globalStore.accountObj, { [address]: localSaveObj })
-    })
-    //  修改chromeStorage
-    await setStorage({
-        // [ADDRESS_ARRAY]: newArray,
-        [address]: localSaveObj
     })
 }
 
