@@ -6,7 +6,7 @@
  */
 
 import React, { FC, useReducer } from 'react';
-import s from './index.css';
+import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -17,7 +17,7 @@ import { keyring } from '@polkadot/ui-keyring';
 import { runInAction } from 'mobx';
 import { PAGE_NAME } from '@constants/app';
 import { forgetAccount } from '@utils/message/message';
-import { removeStorage, setStorage, getStorage } from '@utils/chrome';
+import { setStorage } from '@utils/chrome';
 import { ADDRESS_ARRAY, FAVORITE_ACCOUNT } from '@constants/chrome';
 
 interface HState {

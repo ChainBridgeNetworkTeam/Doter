@@ -1,3 +1,9 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-04-06 23:45:39
+ * @LastEditTime: 2021-05-09 15:45:18
+ */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
@@ -33,7 +39,7 @@ redirectIfPhishing().then((gotRedirected) => {
 function inject () {
   console.log('enter enable');
   injectExtension(enable, {
-    name: 'polkadot-js',
+    name: 'Doter',
     version: process.env.PKG_VERSION as string
   });
 }

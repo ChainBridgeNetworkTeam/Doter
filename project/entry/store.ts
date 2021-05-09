@@ -17,6 +17,7 @@ import type { KeyringPair, KeyringPair$Json, KeyringPair$Meta } from '@polkadot/
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
 import { TypeRegistry } from '@polkadot/types';
+import { cryptoWaitReady } from '@polkadot/util-crypto';
 import type BN from 'bn.js';
 
 export interface RequestAuthorizeTab {
@@ -203,12 +204,12 @@ class AppStore {
     @action.bound
     async init(): Promise<void> {
         //  keyring初始化
-        keyring.loadAll({
+        cryptoWaitReady().then(() => keyring.loadAll({
             //  genesisHash: this.api.genesisHash as any,
-            ss58Format: 0,
             store: new AccountsStore(),
-            type: 'ed25519'
-        }, [])
+            //  类型要和bg的保持一致，否则会有bug,删除账号的时候有问题
+            type: 'sr25519'
+        }, []));
         const provider = new WsProvider(OFFICAL_END_POINT);
         let initSuccess = true;
         this.api = await (ApiPromise.create({

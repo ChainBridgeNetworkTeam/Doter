@@ -1,3 +1,9 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-04-06 23:45:39
+ * @LastEditTime: 2021-05-09 17:59:33
+ */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
@@ -20,7 +26,9 @@ chrome.runtime.onConnect.addListener((port): void => {
   assert([PORT_CONTENT, PORT_EXTENSION].includes(port.name), `Unknown connection from ${port.name}`);
 
   // message and disconnect handlers
-  port.onMessage.addListener((data): void => handlers(data, port));
+  port.onMessage.addListener((data): void => {
+    handlers(data, port)
+  });
   port.onDisconnect.addListener((): void => console.log(`Disconnected from ${port.name}`));
 });
 

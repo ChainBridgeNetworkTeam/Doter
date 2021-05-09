@@ -162,7 +162,6 @@ export function useBlockTime (blocks = BN_ONE): Result {
       const blockTime = DEFAULT_TIME;
       const time = extractTime(blockTime.mul(blocks).toNumber());
       const { days, hours, minutes, seconds } = time;
-      console.log(time ,'xxx');
       const timeStr = [
         days ? (days > 1) ? t<string>('{{days}} days', { replace: { days } }) : t<string>('1 day') : null,
         hours ? (hours > 1) ? t<string>('{{hours}} hrs', { replace: { hours } }) : t<string>('1 hr') : null,

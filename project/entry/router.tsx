@@ -43,8 +43,6 @@ import { PAGE_NAME } from '@constants/app';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { subscribeAuthorizeRequests, subscribeSigningRequests } from '@utils/message/message';
-import { runInAction } from 'mobx';
-import e from 'express';
 
 function AppRouter() {
     const storeObj = {
