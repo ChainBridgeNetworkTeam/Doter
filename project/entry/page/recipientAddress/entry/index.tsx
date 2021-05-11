@@ -1,8 +1,8 @@
 /*
  * @Author: wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-04-18 16:26:09
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-10 23:36:17
+ * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/recipientAddress/entry/index.tsx
  */
@@ -12,14 +12,12 @@ import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { useStores } from '@utils/useStore';
 import { PAGE_NAME } from '@constants/app';
-import { globalStoreType } from '@entry/store';
+import globalStore from '@entry/store';
 import { addressFormat } from '@utils/tools';
 
 const Entry:FC = function() {
     let { t } = useTranslation();
-    const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
 
     function jump(path: string, state?: Record<string, any>) {

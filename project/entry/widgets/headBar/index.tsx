@@ -38,7 +38,7 @@ const HeadBar:FC<BarProps> = function(props:BarProps) {
            {word}
            <div className={s.backArrow} onClick={back}/>
            {/* 右侧的加号Icon */}
-           {showRightIcon && <div className={s.addIcon} onClick={addClick}/>}
+           {showRightIcon && <div className={cx(s.addIcon, 'headerT')} onClick={addClick}/>}
         </div>
     )
 }

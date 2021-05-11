@@ -10,8 +10,6 @@ import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';
-import { useStores } from '@utils/useStore';
-import { globalStoreType } from '@entry/store';
 import democrcacyStore from '../store';
 import { runInAction } from 'mobx';
 import cx from 'classnames';
@@ -19,9 +17,9 @@ import { Spin } from 'antd';
 import BN from 'bn.js';
 import { PAGE_NAME } from '@constants/app';
 import { BN_ONE } from '@polkadot/util';
-import { addressFormat, useBlockTime, getBlockTime } from '@utils/tools';
+import { addressFormat, getBlockTime } from '@utils/tools';
 import { getReferendas, getReferDetail } from '../service';
-import type { DeriveReferendumExt } from '@polkadot/api-derive/types';
+import globalStore from '@entry/store';
 
 function getVote(value: string) {
     return new BN(value).div(new BN(Math.pow(10, 10))).toString();
@@ -29,7 +27,6 @@ function getVote(value: string) {
 
 const Referenda:FC = function() {
     let { t } = useTranslation();
-    const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
     const [hasInit, setInit] = useState(false);
     const [oHasInit, setOInit] = useState(false);
