@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-07 23:01:43
- * @LastEditTime: 2021-05-07 23:28:15
+ * @LastEditTime: 2021-05-11 08:59:37
  */
 
 import Adapter from 'enzyme-adapter-react-16';
@@ -14,7 +14,8 @@ import { act } from 'react-dom/test-utils';
 
 import GeneralSetting from './entry/index';
 
-configure({ adapter: new Adapter() });
+const adapter = new Adapter();
+configure({ adapter });
 
 describe('Create Account', () => {
   let wrapper: ReactWrapper;

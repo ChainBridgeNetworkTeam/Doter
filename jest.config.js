@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-22 09:01:57
- * @LastEditTime: 2021-05-10 22:50:44
+ * @LastEditTime: 2021-05-11 08:46:41
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/jest.config.js
@@ -33,7 +33,7 @@ const config = require('@polkadot/dev/config/jest.cjs');
 
 module.exports = {
   ...config,
-  testMatch: ['**/?(*.)+(single).[jt]s?(x)'],
+  //  testMatch: ['**/?(*.)+(single).[jt]s?(x)'],
   moduleNameMapper: {
     //'@polkadot/extension-(base|chains|dapp|inject|ui)(.*)$': '<rootDir>/packages/extension-$1/src/$2',
     // eslint-disable-next-line sort-keys
