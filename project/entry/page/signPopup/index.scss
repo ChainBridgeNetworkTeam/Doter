@@ -85,3 +85,48 @@
     width: 3.43rem;
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: .16rem;
+    padding-right: .16rem;
+    height: .5rem;
+    background-color: #ffffff;
+}
+
+.forwardArrow {
+    background-image: url('../../widgets/headBar/backArrow.png');
+    background-size: 100% 100%;
+    width: .18rem;
+    height: .18rem;
+    top: .21rem;
+    left: .13rem;
+    cursor: pointer;
+}
+
+.backWardArrow {
+    transform: rotate(180deg);
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    margin-left: 0;
+}
+
+.rank {
+    margin-left: .12rem;
+    margin-right: .12rem;
+}
+
+.rightPart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

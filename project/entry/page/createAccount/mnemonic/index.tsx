@@ -31,7 +31,8 @@ const STATUS = {
 const LAN_PREFIX = 'createAccount';
 interface WordObj {
     value: string,
-    isPick: boolean
+    isPick: boolean,
+    key: number
 }
 interface mnemonicStateObj {
     status?: number,
@@ -68,7 +69,7 @@ const CreactMnemonic:FC = function() {
         async function init() {
             await cryptoWaitReady();
             const mnemonic = mnemonicGenerate() as string;
-            const wordsList = mnemonic.split(' ').map((item) => ({ value: item, isPick: false } as WordObj))
+            const wordsList = mnemonic.split(' ').map((item, index) => ({ value: item, isPick: false, key: index } as WordObj))
             setState({
                 words: wordsList,
                 pickWords: [],
@@ -80,9 +81,9 @@ const CreactMnemonic:FC = function() {
     }, []);
 
     //  选择助记词
-    function pickWord(value: string, isCancel = false) {
+    function pickWord(key: number, isCancel = false) {
         const { randomSortWords, pickWords } = stateObj;
-        const targetIndex = randomSortWords.findIndex(item => item.value === value);
+        const targetIndex = randomSortWords.findIndex(item => item.key === key);
         if (randomSortWords[targetIndex].isPick && !isCancel) {
             return;
         }
@@ -91,7 +92,7 @@ const CreactMnemonic:FC = function() {
         if (isCancel) {
             //  如果是删除
             copyList[targetIndex].isPick = false;
-            const pcikIndex = pickWords.findIndex(item => item.value === value);
+            const pcikIndex = pickWords.findIndex(item => item.key === key);
             copyPickList.splice(pcikIndex, 1);
         } else {
             copyList[targetIndex].isPick = true;
@@ -127,16 +128,16 @@ const CreactMnemonic:FC = function() {
             [STATUS.TWO]: () => <>
                 <div className={s.showContent}>
                     {words.map(item => {
-                        const { value } = item;
-                        return <div className={cx(s.tag, s.notPick)} key={value}>{value}</div>
+                        const { value, key } = item;
+                        return <div className={cx(s.tag, s.notPick)} key={key}>{value}</div>
                     })}
                 </div>
             </>,
             [STATUS.THREE]: () => <>
                 <div className={s.showContent}>
                     {pickWords.map(item => {
-                        const { value } = item;
-                        return <div className={s.tag} key={value} onClick={() => pickWord(value, true)}>{value}</div>
+                        const { value, key } = item;
+                        return <div className={s.tag} key={key} onClick={() => pickWord(key, true)}>{value}</div>
                     })}
                 </div>
                 <div className={s.check}>
@@ -147,8 +148,8 @@ const CreactMnemonic:FC = function() {
                 </div>
                 <div className={s.pickContent}>
                     {randomSortWords.map(item => {
-                        const { value, isPick } = item;
-                        return <div className={cx(s.tag, isPick ? s.grayTag : '')} key={value} onClick={() => pickWord(value)}>{value}</div>
+                        const { value, isPick, key } = item;
+                        return <div className={cx(s.tag, isPick ? s.grayTag : '')} key={key} onClick={() => pickWord(key)}>{value}</div>
                     })}
                 </div>
             </>

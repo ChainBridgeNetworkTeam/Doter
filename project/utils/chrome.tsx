@@ -5,6 +5,8 @@
  * @Last Modified time: 2021-03-26 17:35:35
  */
 
+import chrome from '@polkadot/extension-inject/chrome';
+
  // 获取本地存储
 function getLocalStorage(obj: Object) {
     let ans = {} as Record<string, any>;
@@ -101,3 +103,21 @@ export function removeStorage(keys: string | string[]) {
 // 		});
 // 	});
 // }
+
+//  从chrome 本地存储中获取内容
+export async function chromeLocalGet(obj: Record<string, any>) {
+    return new Promise((res) => {
+        chrome.storage.local.get(obj, result => {
+            res(result);
+          });
+    });
+}
+
+//  设置chrome本地存储内容
+export async function chromeLocalSet(obj: Record<string, any>) {
+    return await new Promise((res) => {
+        chrome.storage.local.set(obj, () => {
+            res(1);
+        });
+    });
+}

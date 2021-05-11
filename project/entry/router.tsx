@@ -1,11 +1,11 @@
 /*
- * @Author: guanlanluditie 
+ * @Author: dianluyuanli-wp 
  * @Date: 2021-01-29 11:39:22 
- * @Last Modified by: guanlanluditie
+ * @Last Modified by: dianluyuanli-wp
  * @Last Modified time: 2021-04-02 08:42:32
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { MobXProviderContext, Provider, observer } from 'mobx-react';
 import Home from './page/home';
 import GlobalStore from './store';
@@ -65,10 +65,9 @@ function AppRouter() {
         ],).catch(console.error);
       }, []);
 
-    function Root() {
-        console.log('render root', GlobalStore.authReqList, GlobalStore.signReqList);
+    const Root = useCallback(() => {
         if (!document.getElementById('notification')) {
-            return <Home />;
+            return GlobalStore.signReqList.length ? <SignPopup /> : <Home />;
         } else {
             if (GlobalStore.authReqList.length) {
                 return <Authorize />;
@@ -76,7 +75,7 @@ function AppRouter() {
                 return <SignPopup />
             }
         }
-    }
+    }, [GlobalStore.authReqList, GlobalStore.signReqList])
 
     return <MobXProviderContext.Provider value={storeObj}>
         {/* 用这个元素来收集依赖 */}
