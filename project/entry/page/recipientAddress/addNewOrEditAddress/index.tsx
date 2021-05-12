@@ -148,12 +148,12 @@ const Entry:FC = function() {
                 <div className={s.middle}>{lanWrap('Address information')}</div>
                 <Input.TextArea onChange={addInput}
                         defaultValue={targetConfig.address}
-                        className={s.textArea}
+                        className={cx(s.textArea, 'recipientT')}
                         autoSize={{ minRows: 2, maxRows: 2 }}
                         placeholder={lanWrap('Enter the address')}/>
                 {/* <Input defaultValue={targetConfig.address} className={s.input} placeholder={lanWrap('Enter the address')} onChange={addInput}/> */}
                 <Input defaultValue={targetConfig.comment} className={s.input} placeholder={lanWrap('remarks')} onChange={otherInfoChange}/>
-                <div className={s.info}>{stateObj.errInfo}</div>
+                <div className={cx(s.info, 'reciInfoT')}>{stateObj.errInfo}</div>
                 <div className={cx(s.btn, stateObj.isEnable ? s.enable : '', isEdit ? s.eCBtn : '')} onClick={confirm}>{isEdit ? lanWrap('save') : lanWrap('complete')}</div>
                 {isEdit && <div className={cx(s.btn, s.deleteBtn)} onClick={deleteAddress}>{lanWrap('delete')}</div>}
             </div>
