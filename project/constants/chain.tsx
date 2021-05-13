@@ -1,10 +1,20 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-04-06 23:45:39
+ * @LastEditTime: 2021-05-13 08:27:08
+ */
 import { useTranslation } from 'react-i18next';
 export const OFFICAL_END_POINT = 'wss://rpc.polkadot.io';
+
+export const KUSAMA_END_POINT = 'wss://kusama-rpc.polkadot.io';
 
 export const SEED_LENGTHS = [12, 15, 18, 21, 24];
 
 //  subscan的域名
 export const SUBSCAN_DOMAIN = 'https://polkadot.subscan.io';
+
+export const KUSAMA_DOMAIN = 'https://kusama.subscan.io';
 
 //  投票锁定与倍率
 export const WEIGHT_ARR = [{

@@ -24,6 +24,11 @@ const SetPanel:FC = function() {
         history.push(path);
     }
 
+    //  changeNet work
+    function test() {
+        location.replace(`chrome-extension://${location.host}/pop/pop.html`)
+    }
+
     return (
         <div className={s.wrap}>
             <HeadBar word={lanWrap('Setting')}/>
