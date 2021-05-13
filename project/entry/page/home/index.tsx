@@ -143,6 +143,7 @@ const HomePage:FC = function() {
                         <div className={s.copyIcon} onClick={() => copyClick()}/>
                     </div>
                 </div>
+                <div>111</div>
                 <div className={s.pIcon}/>
                 <Spin spinning={balance === ''}>
                     <div className={s.balance}>{parseFloat(balance).toFixed(4)} DOT</div>
