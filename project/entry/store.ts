@@ -6,10 +6,10 @@
  */
 import { observable, runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { ADDRESS_ARRAY, FAVORITE_ACCOUNT, RECIPIENT_ARRAY, LOCAL_CONFIG } from '@constants/chrome';
+import { ADDRESS_ARRAY, FAVORITE_ACCOUNT, RECIPIENT_ARRAY, LOCAL_CONFIG, MAINTAIN_NET } from '@constants/chrome';
 import keyring from '@polkadot/ui-keyring';
 import { getStorage, setStorage, chromeLocalGet } from '@utils/chrome';
-import { OFFICAL_END_POINT } from '@constants/chain';
+import { OFFICAL_END_POINT, KUSAMA_END_POINT, NET_TYPE } from '@constants/chain';
 import { AccountsStore } from '@polkadot/extension-base/stores';
 import { accounts as accountsObservable } from '@polkadot/ui-keyring/observable/accounts';
 import type { SubjectInfo, SingleAddress } from '@polkadot/ui-keyring/observable/types';
@@ -89,18 +89,6 @@ export interface loaclConfigType {
     autoLockTime?: number,
     lastInSTM?: number
 }
-
-const mock = {
-    '5EhmYogkqoyHiCDEfMWvQkEBcJjuaaZ4chW5K1z3TuioHTP7': {
-        address: '5EhmYogkqoyHiCDEfMWvQkEBcJjuaaZ4chW5K1z3TuioHTP7',
-        meta: {
-            name: "wang",
-            whenCreated: 1613125836858
-        }
-    }
-}
-
-const add = '5EhmYogkqoyHiCDEfMWvQkEBcJjuaaZ4chW5K1z3TuioHTP7';
 
 class AppStore {
     //@observable 
@@ -215,7 +203,11 @@ class AppStore {
             //  类型要和bg的保持一致，否则会有bug,删除账号的时候有问题
             type: 'sr25519'
         }, []));
-        const provider = new WsProvider(OFFICAL_END_POINT);
+        const netType = await chromeLocalGet({
+            [MAINTAIN_NET]: NET_TYPE.POLKADOT,
+        }) as any || {};
+        const netUrl = netType === NET_TYPE.POLKADOT ? OFFICAL_END_POINT : KUSAMA_END_POINT;
+        const provider = new WsProvider(netUrl);
         let initSuccess = true;
         this.api = await (ApiPromise.create({
             provider
