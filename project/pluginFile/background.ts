@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-09 17:59:33
+ * @LastEditTime: 2021-05-15 14:28:44
  */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
@@ -39,7 +39,11 @@ cryptoWaitReady()
     console.log('crypto initialized');
 
     // load all the keyring data
-    keyring.loadAll({ store: new AccountsStore(), type: 'sr25519' });
+    keyring.loadAll({
+      store: new AccountsStore(),
+      ss58Format: 0,
+      type: 'ed25519'
+    });
 
     console.log('initialization completed');
   })

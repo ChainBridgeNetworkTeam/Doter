@@ -15,6 +15,7 @@ import type { Time } from '@polkadot/util/types';
 import BNObj from 'bn.js';
 import { useMemo } from 'react';
 import i18n from 'i18next';
+import { decodeAddress, encodeAddress } from '@polkadot/util-crypto';
 import { BN_ONE, extractTime } from '@polkadot/util';
 
 type Result = [number, string, Time];
@@ -90,17 +91,10 @@ export function validateKeyStoreJsonStr(content: string) {
 
 //  添加新账号，同步store和chrome storage
 export async function addNewAccount(result: CreateResult) {
-    const { json } = result;
-    const { address } = json
-    const saveKey = json.address;
-    let origin = await getStorage({ [ADDRESS_ARRAY]: [] }) as addressArrayObj;
-    let newArray = origin[ADDRESS_ARRAY];
-    newArray.push(saveKey);
-    //  同步本地的store状态
+    const { pair } = result;
+    const targetAdd = encodeAddress(pair.publicKey, 0)
     runInAction(() => {
-        //  globalStore.addressArr = newArray,
-        globalStore.favoriteAccount = globalStore.favoriteAccount || address;
-        //  globalStore.accountObj = Object.assign({}, globalStore.accountObj, { [address]: localSaveObj })
+        globalStore.favoriteAccount = targetAdd || globalStore.favoriteAccount;
     })
 }
 

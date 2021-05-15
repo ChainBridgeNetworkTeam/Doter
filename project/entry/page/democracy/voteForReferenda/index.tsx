@@ -61,7 +61,8 @@ const Entry = function() {
 
     function nextSetp() {
         const { index } = history.location.state as HisState;
-        if (!democrcacyStore.voteDot) {
+        const voteAmount = democrcacyStore.voteDot;
+        if (!voteAmount || voteAmount === '0') {
             return;
         }
         if (stateObj.errStr) {
@@ -76,7 +77,7 @@ const Entry = function() {
             errStr: value
         })
     }
-    const { voteDot = '0', voteRatio} = democrcacyStore;
+    const { voteDot = '0', voteRatio } = democrcacyStore;
     console.log(democrcacyStore.voteDot, 'test');
     //  倍率选择
     const ratioArr = useWeightArr();
@@ -101,7 +102,7 @@ const Entry = function() {
                     </Select>
                     <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{(parseFloat(democrcacyStore.voteDot || '0') * voteRatio).toFixed(4)}</div>{lanWrap('polls')}</div>
                     <div className={s.split}/>
-                    <BottonBtn word={lanWrap('next step')} propClass={cx(democrcacyStore.voteDot ? '' : s.notActive)} cb={nextSetp}/>
+                    <BottonBtn word={lanWrap('next step')} propClass={cx((voteDot && voteDot !== '0') ? '' : s.notActive)} cb={nextSetp}/>
                 </div>
         </div>
         }
