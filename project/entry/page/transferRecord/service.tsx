@@ -5,12 +5,11 @@
  * @Last Modified time: 2021-03-14 20:50:27
  */
 
-import { postReq } from '@utils/request';
-import { SUBSCAN_DOMAIN } from '@constants/chain';
+import { postReq, getSubscanReqDomain } from '@utils/request';
 
 //  拉取用户转账信息
 export function getTransRecord(address: string, pageNum: number, pageSize: number) {
-    return postReq(`${SUBSCAN_DOMAIN}/api/scan/transfers`, {
+    return postReq(`${getSubscanReqDomain()}/api/scan/transfers`, {
         address,
         page: pageNum,
         row: pageSize
@@ -19,7 +18,7 @@ export function getTransRecord(address: string, pageNum: number, pageSize: numbe
 
 //  拉取单笔详情
 export function getRecordDetail(hash: string) {
-    return postReq(`${SUBSCAN_DOMAIN}/api/scan/extrinsic`, {
+    return postReq(`${getSubscanReqDomain()}/api/scan/extrinsic`, {
         hash,
     })
 }
