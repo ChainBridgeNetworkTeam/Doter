@@ -121,7 +121,7 @@ const Entry:FC = function() {
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap('total')}</div>
-                    <div className={s.cContent}>{parseFloat(voteDot) * voteRatio}票 ({voteDot}×{voteRatio})</div>
+                    <div className={s.cContent}>{parseFloat(voteDot) * voteRatio} polls ({voteDot}×{voteRatio})</div>
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap("Miner's fee")}</div>

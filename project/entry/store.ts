@@ -212,8 +212,9 @@ class AppStore {
         cryptoWaitReady().then(() => keyring.loadAll({
             //  genesisHash: this.api.genesisHash as any,
             store: new AccountsStore(),
+            ss58Format: 0,
             //  类型要和bg的保持一致，否则会有bug,删除账号的时候有问题
-            type: 'sr25519'
+            type: 'ed25519'
         }, []));
         const provider = new WsProvider(OFFICAL_END_POINT);
         let initSuccess = true;

@@ -18,6 +18,7 @@ import { runInAction } from 'mobx';
 import { PAGE_NAME } from '@constants/app';
 import { forgetAccount } from '@utils/message/message';
 import { setStorage } from '@utils/chrome';
+import cx from 'classnames';
 import { ADDRESS_ARRAY, FAVORITE_ACCOUNT } from '@constants/chrome';
 
 interface HState {
@@ -103,7 +104,7 @@ const DeleteAccount:FC = function() {
             <Input.Password onChange={enterSec} className={s.input} placeholder={lanWrap('Please input a password')}/>
             <div className={s.info}>{stateObj.errorInfo}</div>
             <Spin spinning={stateObj.isSpining}>
-                <div className={s.confirm} onClick={confirm}>{lanWrap('confirm')}</div>
+                <div className={cx(s.confirm, stateObj.secret ? '' : s.cantClick)} onClick={confirm}>{lanWrap('confirm')}</div>
             </Spin>
         </div>
     )

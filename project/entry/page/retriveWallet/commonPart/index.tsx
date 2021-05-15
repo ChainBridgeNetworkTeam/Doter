@@ -19,7 +19,7 @@ import RetrieveStore, { retrieveStoreType } from '../store';
 import SecretInput from '@widgets/secretInput';
 import { useHistory } from 'react-router-dom';
 import { CHECT_STATUS } from '../store';
-import { useStores } from '@utils/useStore';
+import { createAccountSuri, jsonRestore } from '@utils/message/message';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import { PAGE_NAME } from '@constants/app';
 import type { CreateResult } from '@polkadot/ui-keyring/types';
@@ -59,17 +59,21 @@ const CommonPart:FC = function() {
         if (isInMnemonic) {
             const mnemoRes = keyring.addUri(mnemonicWords, secret, { name });
             //  store和chrome存储都同步
+            createAccountSuri(name, secret, mnemonicWords, undefined).catch(e => console.log('backup accound from mnemonic failed', e));
             await addNewAccount(mnemoRes);
         } else {
             const parsedJson = JSON.parse(keyStoreJsonStr) as KeyringPair$Json;
+            let restorePair;
             try {
                 //  校验密码
-                keyring.restoreAccount(parsedJson, secret);
+                restorePair = keyring.restoreAccount(parsedJson, secret);
             } catch {
                 return runInAction(() => RetrieveStore.checkStatus = CHECT_STATUS.WRONG_PASS);
             }
+            //  同步background的account
+            jsonRestore(parsedJson, secret).catch(e => console.log('backup from json file failed', e));
             //  store和chrome存储都同步
-            await addNewAccount({ json: parsedJson } as CreateResult);
+            await addNewAccount({ json: parsedJson, pair: restorePair } as CreateResult);
         }
         //  回到首页
         history.push(PAGE_NAME.HOME);
