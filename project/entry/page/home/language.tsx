@@ -13,7 +13,7 @@ export const homeEn = {
     'connecting': 'connecting',
     'receiving': 'Receive',
     'transfer': 'Transfer',
-    'copy success': 'available',
+    'copy success': 'Copy succeeded',
     'locked': 'locked',
     'Available balance': 'Available',
     'Network Governance': 'Governance',
