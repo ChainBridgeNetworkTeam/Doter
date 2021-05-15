@@ -225,9 +225,9 @@ export async function windowOpen (path: AllowedPath): Promise<boolean> {
 //   return sendMessage('pri(json.account.info)', json);
 // }
 
-// export async function jsonRestore (file: KeyringPair$Json, password: string): Promise<void> {
-//   return sendMessage('pri(json.restore)', { file, password });
-// }
+export async function jsonRestore (file: KeyringPair$Json, password: string): Promise<void> {
+  return sendMessage('pri(json.restore)', { file, password });
+}
 
 // export async function batchRestore (file: KeyringPairs$Json, password: string): Promise<void> {
 //   return sendMessage('pri(json.batchRestore)', { file, password });

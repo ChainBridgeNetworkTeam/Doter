@@ -40,6 +40,8 @@ const WalletManage:FC = function() {
         setStorage({
             [FAVORITE_ACCOUNT]: address
         })
+        //  回到首页
+        history.push(PAGE_NAME.HOME);
     }
 
     function toSingleManage(e: React.MouseEvent<HTMLSpanElement, MouseEvent>, address: string) {

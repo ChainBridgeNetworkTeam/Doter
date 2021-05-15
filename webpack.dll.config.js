@@ -1,3 +1,9 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-04-06 23:45:39
+ * @LastEditTime: 2021-05-13 23:37:45
+ */
 const webpack = require('webpack')
 const library = '[name]_dll'
 const path = require('path');
@@ -17,8 +23,8 @@ module.exports = {
     filename: '[name]_dll.js',
     path: path.resolve(__dirname, 'plugin/pop'),
     //publicPath: path.resolve(__dirname, 'dist'),
-    //  publicPath: './',
-    publicPath: 'http://localhost:3000/',
+    //publicPath: './',
+    //publicPath: 'http://localhost:3000/',
     library
   },
 
@@ -26,12 +32,13 @@ module.exports = {
     new webpack.DllPlugin({
       path: path.join(__dirname, 'plugin/pop/[name]-manifest.json'),
       // This must match the output.library option above
-      name: library
+      name: library,
+      context: __dirname
     }),
     // new BundleAnalyzerPlugin({
     //     analyzerPort: 8899
     // })
   ],
-  //mode:"production",
-  mode:"development",
+  mode:"production",
+  //mode:"development",
 }

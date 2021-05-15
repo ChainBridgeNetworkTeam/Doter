@@ -222,7 +222,7 @@
     align-items: center;
     flex-flow: column;
     cursor: pointer;
-    width: .48rem;
+    width: .6rem;
 }
 
 .img {
@@ -274,6 +274,8 @@
     user-select: none;
     color: #333333;
     cursor: pointer;
+    position: relative;
+    left: -.01rem;
 }
 
 .changeLan {
