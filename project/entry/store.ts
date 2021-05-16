@@ -68,6 +68,8 @@ export interface globalStoreType {
     localConfig: loaclConfigType,
     dotToDollar: string,
     authReqList: Array<AuthorizeRequest>;
+    signReqList: Array<SigningRequest>;
+    netType: string;
 }
 
 interface metaData {
@@ -122,10 +124,12 @@ class AppStore {
     //  1Dot兑美元汇率
     dotToDollar: string = '0';
 
-    //@observable
+    // 认证请求列表
     authReqList: Array<AuthorizeRequest> = [];
-
+    //  签名请求列表
     signReqList: Array<SigningRequest> = [];
+    //  网络类型 polkadot或者kusama
+    netType: string = NET_TYPE.POLKADOT;
 
     //  设置认证请求列表
     setAuthList(valueList: Array<AuthorizeRequest>) {
@@ -200,6 +204,7 @@ class AppStore {
         cryptoWaitReady().then(() => keyring.loadAll({
             //  genesisHash: this.api.genesisHash as any,
             store: new AccountsStore(),
+            //  控制地址格式，0是polkadot格式，2是kusama格式
             ss58Format: 0,
             //  类型要和bg的保持一致，否则会有bug,删除账号的时候有问题
             type: 'ed25519'
@@ -207,7 +212,7 @@ class AppStore {
         const netType = await chromeLocalGet({
             [MAINTAIN_NET]: NET_TYPE.POLKADOT,
         }) as any || {};
-        const netUrl = netType === NET_TYPE.POLKADOT ? OFFICAL_END_POINT : KUSAMA_END_POINT;
+        const netUrl = netType === NET_TYPE.KUSAMA ? KUSAMA_END_POINT : OFFICAL_END_POINT;
         const provider = new WsProvider(netUrl);
         let initSuccess = true;
         this.api = await (ApiPromise.create({

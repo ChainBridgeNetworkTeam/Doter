@@ -16,7 +16,7 @@ import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
 import { Input, message } from 'antd';
 import { keyring } from '@polkadot/ui-keyring';
-import type { CreateResult } from '@polkadot/ui-keyring/types';
+import { editAccount } from '@utils/message/message';
 
 interface HState {
     address?: string;
@@ -29,6 +29,7 @@ const Entry:FC = function() {
 
     const [newName, setNewName] = useState('');
     const [secret, setSecret] = useState('');
+    const [isWrongSec, setSecStatus] = useState(false);
 
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`setWalletDetial:${input}`);
@@ -48,10 +49,21 @@ const Entry:FC = function() {
         if (newName.length === 0) {
             return;
         }
+        try {
+            keyring.restoreAccount(configAccount, secret);
+        } catch(e) {
+            return setSecStatus(true)
+        }
+        setSecStatus(false);
+        //  update to background accound
+        editAccount(address, newName);
         const originJson = toJS(configAccount);
         originJson.meta.name = newName;
         keyring.restoreAccount(originJson, secret);
         message.info(lanWrap('Name updated'));
+        setTimeout(() => {
+            history.goBack();
+        }, 1500);
     }
 
     return (
@@ -59,6 +71,7 @@ const Entry:FC = function() {
             <HeadBar word={lanWrap('Change wallet name')}/>
             <Input onChange={enterNewName} className={s.input} placeholder={lanWrap('1-12 characters')} maxLength={12}/>
             <Input.Password onChange={secInput} className={s.input} placeholder={lanWrap('Wallet password')}/>
+            <div className={s.info}>{isWrongSec ? lanWrap('Wrong password') : ''}</div>
             <div className={cx(s.confirm, (newName.length > 0 && secret) ? s.heighLight : '')} onClick={confirm}>{lanWrap('confirm')}</div>
         </div>
     )

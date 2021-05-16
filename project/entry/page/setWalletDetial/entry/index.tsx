@@ -15,7 +15,7 @@ import cx from 'classnames';
 import { useStores } from '@utils/useStore';
 import { PAGE_NAME } from '@constants/app';
 import { globalStoreType } from '@entry/store';
-//  import RetrieveStore from '../store';
+import RetrieveStore from '../store';
 
 interface HState {
     address?: string;
@@ -34,7 +34,7 @@ const Entry:FC = function() {
 
     function jump(path: string) {
         //  重新进入的时候要重置数据
-        // RetrieveStore.resetStore();
+        RetrieveStore.resetStore();
         history.push(path, { address });
     }
 

@@ -28,7 +28,8 @@ const INFO_STATUS = {
     COMMON: 0,
     CHECK_AGREEMENT: 1,
     SECRET_NOT_EQUAL: 2,
-    SEC_TOO_SHORT: 3
+    SEC_TOO_SHORT: 3,
+    NEED_WALLET_NAME: 4
 }
 
 interface CreateStateObj {
@@ -56,7 +57,13 @@ const SecretPart:FC = function() {
     }
     //  创建账户
     function createAccount() {
-        const { inputSec, inputSecConfirm } = createStore;
+        const { inputSec, inputSecConfirm, accountName } = createStore;
+        //  没有名字
+        if (!accountName) {
+            return setState({
+                infoStatus: INFO_STATUS.NEED_WALLET_NAME
+            })
+        }
         //  密码过短
         if (inputSec.length <= 7) {
             return setState({
@@ -89,7 +96,8 @@ const SecretPart:FC = function() {
             </>,
             [INFO_STATUS.CHECK_AGREEMENT]: () => <div className={s.info}>{mnLan('Please check the user agreement')}</div>,
             [INFO_STATUS.SECRET_NOT_EQUAL]: () => <div className={s.info}>{mnLan('The password is inconsistent')}</div>,
-            [INFO_STATUS.SEC_TOO_SHORT]: () => <div className={s.info}>{mnLan('The password is less than 8 digits')}</div>
+            [INFO_STATUS.SEC_TOO_SHORT]: () => <div className={s.info}>{mnLan('The password is less than 8 digits')}</div>,
+            [INFO_STATUS.NEED_WALLET_NAME]: () => <div className={s.info}>{mnLan('need wallet name')}</div>,
         }
         return contentMap[type]();
     }

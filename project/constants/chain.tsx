@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-13 08:52:01
+ * @LastEditTime: 2021-05-16 15:00:27
  */
 import { useTranslation } from 'react-i18next';
 export const OFFICAL_END_POINT = 'wss://rpc.polkadot.io';
@@ -25,7 +25,7 @@ export const NET_TYPE = {
 
 //  投票锁定与倍率
 export const WEIGHT_ARR = [{
-    text: '×0.1(Not locked)',
+    text: 'notLock',
     ratio: 0.1
 }, {
     text: '×1(Lock in for 28 days)',

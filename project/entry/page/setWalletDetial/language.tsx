@@ -28,6 +28,7 @@ export const setWalletDetialEn = {
     'New password': 'New Password',
     'please input oldPass': 'please input old password',
     'no pass': 'need password!',
+    'Password modified successfully': 'Password modified successfully',
 }
 
 export const setWalletDetialZh = {
@@ -53,5 +54,6 @@ export const setWalletDetialZh = {
     'Old password': '旧的密码',
     'New password': '新的密码',
     'please input oldPass': '请输入密码',
-    'no pass': '请输入密码'
+    'no pass': '请输入密码',
+    'Password modified successfully': '密码修改成功',
 }

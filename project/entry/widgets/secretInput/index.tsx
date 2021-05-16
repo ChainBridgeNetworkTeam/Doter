@@ -45,9 +45,9 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
         <>
             <div className={cx(s.formTitle, s.midT)}>
                 {props.title || lanWrap('password')}
-                <div className={cx(s.secWrap)}>
+                {store[secretKey] && <div className={cx(s.secWrap)}>
                     {secretStatus === 'strong' ? lanWrap('strong') : lanWrap('weak')}
-                </div>
+                </div>}
             </div>
             <Input.Password
                 value={store[secretKey]}
