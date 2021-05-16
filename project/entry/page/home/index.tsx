@@ -99,7 +99,8 @@ const HomePage:FC = function() {
     useEffect(() => {
         //  设置消息提醒高度，全局的
         message.config({
-            top: 270
+            top: 270,
+            duration: 1,
         })
     }, [])
 

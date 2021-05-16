@@ -1,3 +1,9 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-05-16 09:56:30
+ * @LastEditTime: 2021-05-16 12:19:52
+ */
 import { useTranslation } from 'react-i18next';
 export const OFFICAL_END_POINT = 'wss://rpc.polkadot.io';
 
@@ -6,9 +12,10 @@ export const SEED_LENGTHS = [12, 15, 18, 21, 24];
 //  subscan的域名
 export const SUBSCAN_DOMAIN = 'https://polkadot.subscan.io';
 
+//×0.1(Not locked)
 //  投票锁定与倍率
 export const WEIGHT_ARR = [{
-    text: '×0.1(Not locked)',
+    text: 'notLock',
     ratio: 0.1
 }, {
     text: '×1(Lock in for 28 days)',

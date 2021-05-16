@@ -52,7 +52,11 @@ const Auth:FC = function() {
                 console.log('transfer succes!')
             })
             .catch((error: Error): void => {
-              console.error(error);
+                if (error.toString().includes('supplied passphrase')) {
+                    message.error('Wrong password')
+                } else {
+                    message.error('Signature failed')
+                }
             }).finally(() => {
                 setState({
                     showLoading: false
@@ -70,11 +74,6 @@ const Auth:FC = function() {
                 console.log('cancel success')
             })
             .catch((error: Error) => {
-                    if (error.toString().includes('supplied passphrase')) {
-                        message.error('Wrong password')
-                    } else {
-                        message.error('Signature failed')
-                    }
                     console.error(error.toString())
                 }
             )
