@@ -15,9 +15,9 @@ import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
 import DotInput from '@widgets/balanceDotInput';
 import { Select, message } from 'antd';
-import { useLocalObservable, Observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 import democrcacyStore, { CreateStoreType } from '../store';
-import { WEIGHT_ARR, useWeightArr } from '@constants/chain';
+import { useWeightArr } from '@constants/chain';
 import { runInAction } from 'mobx';
 import { PAGE_NAME } from '@constants/app';
 import BottonBtn from '@widgets/bottomBtn';
@@ -82,33 +82,29 @@ const Entry = function() {
     //  倍率选择
     const ratioArr = useWeightArr();
     return (
-        <Observer>{
-            () => <div className={s.wrap}>
-                <HeadBar word={lanWrap('Chain referendum')}/>
-                <div className={s.contentWrap}>
-                    <div className={s.bWapr}>
-                        <div className={s.title}>{lanWrap('Number of votes')}</div>
-                        <div className={s.dot}>{parseFloat(globalStore.ableBalance).toFixed(4)} DOT {lanWrap('available')}</div>
-                    </div>
-                    <DotInput changeInputFn={cInput} controlValue={voteDot} setErr={setErrStr} allDot={globalStore.ableBalance}/>
-                    <div className={cx(s.bWapr, s.weight)}>
-                        <div className={s.title}>{lanWrap('Voting weight')}</div>
-                    </div>
-                    <Select onChange={changeRatio} className={cx(s.select, s.reSelect)} defaultValue={ratioArr[0].ratio}>
-                        {ratioArr.map((item, index) => {
-                            const { text, ratio } = item;
-                            return <Select.Option key={index} value={ratio}>{text}</Select.Option>
-                        })}
-                    </Select>
-                    <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{(parseFloat(democrcacyStore.voteDot || '0') * voteRatio).toFixed(4)}</div>{lanWrap('polls')}</div>
-                    <div className={s.split}/>
-                    <BottonBtn word={lanWrap('next step')} propClass={cx((voteDot && voteDot !== '0') ? '' : s.notActive)} cb={nextSetp}/>
+        <div className={s.wrap}>
+            <HeadBar word={lanWrap('Chain referendum')}/>
+            <div className={s.contentWrap}>
+                <div className={s.bWapr}>
+                    <div className={s.title}>{lanWrap('Number of votes')}</div>
+                    <div className={s.dot}>{parseFloat(globalStore.ableBalance).toFixed(4)} DOT {lanWrap('available')}</div>
                 </div>
+                <DotInput changeInputFn={cInput} controlValue={voteDot} setErr={setErrStr} allDot={globalStore.ableBalance}/>
+                <div className={cx(s.bWapr, s.weight)}>
+                    <div className={s.title}>{lanWrap('Voting weight')}</div>
+                </div>
+                <Select onChange={changeRatio} className={cx(s.select, s.reSelect)} defaultValue={ratioArr[0].ratio}>
+                    {ratioArr.map((item, index) => {
+                        const { text, ratio } = item;
+                        return <Select.Option key={index} value={ratio}>{text}</Select.Option>
+                    })}
+                </Select>
+                <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{(parseFloat(democrcacyStore.voteDot || '0') * voteRatio).toFixed(4)}</div>{lanWrap('polls')}</div>
+                <div className={s.split}/>
+                <BottonBtn word={lanWrap('next step')} propClass={cx((voteDot && voteDot !== '0') ? '' : s.notActive)} cb={nextSetp}/>
+            </div>
         </div>
-        }
-        </Observer>
-
     )
 }
 
-export default Entry;
+export default observer(Entry);

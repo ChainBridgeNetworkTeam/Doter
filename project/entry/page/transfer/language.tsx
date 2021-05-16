@@ -7,7 +7,7 @@
 
 export const transferEn = {
     'bad address': 'bad address',
-    'Collection address and payment address cannot be the same': 'Collection address and payment address cannot be the same',
+    'Collection address and payment address cannot be the same': 'Collection address and payment address cannot be same',
     'your credit is running low': 'your credit is running low',
     'Wrong format': 'Wrong format',
     'Wrong password': 'Wrong password',
@@ -43,7 +43,8 @@ export const transferZh = {
     'Transfer information': '转账信息',
     'Transfer amount': '转账金额',
     'Payment address': '付款地址',
-    'Transfer fee': '转账费',
+    'Collection address v2': '目标地址',
+    'Transfer fee': '矿工费',
     'Password confirmation': '密码确认',
     'Please input a password': '请输入密码',
     'Transfer': '转账',

@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-04-17 20:59:57
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-16 13:14:23
+ * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
  */
@@ -119,13 +119,20 @@ const Transfer:FC = function() {
     }
 
     function inputSec(e: React.ChangeEvent<HTMLInputElement>) {
+        const targetVallue = e.target.value;
+        if (!targetVallue) {
+            setState({
+                errMsg: ''
+            })
+        }
         setState({
-            secret: e.target.value
+            secret: targetVallue
         })
     }
 
     function addInput(value: string) {
         setState({
+            addressErrMsg: value === currentAccount.address ? lanWrap('Collection address and payment address cannot be the same') : '',
             targetAdd: value
         })
     }
@@ -141,7 +148,8 @@ const Transfer:FC = function() {
         if (buttonIsAcctive) {
             if (isStepOne) {
                 setState({
-                    status: TRANSFER_STEP.TWO
+                    status: TRANSFER_STEP.TWO,
+                    errMsg: ''
                 })  
             } else {
                 let sendPair = keyring.createFromJson(currentAccount);

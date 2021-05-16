@@ -52,8 +52,8 @@ const WalletManage:FC = function() {
 
     function renderAccount() {
         const target = globalStore.accountObj;
-        return Object.keys(target).map((item, index) => {
-            const { address, meta } = target[item] as KeyringPair$Json;
+        return Object.keys(target).map((item) => (target[item])).sort((a, b) => (a.meta.whenCreated) as number - (b.meta.whenCreated as number)).map((item, index) => {
+            const { address, meta } = item as KeyringPair$Json;
             return <div key={index} className={s.accountWrap} onClick={() => changeFavorite(address)}>
                 <div className={s.firRow}>
                     <div className={s.ffRow}>
