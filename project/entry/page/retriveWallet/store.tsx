@@ -59,6 +59,7 @@ class RetrieveStore {
         this.name = '';
         this.secret = '';
         this.checkAgreement = false;
+        this.mnemonicWords = '';
         this.confirmSecret = '';
         this.keyStoreJsonStr = '';
         this.keyStoreErrMsg = '';
