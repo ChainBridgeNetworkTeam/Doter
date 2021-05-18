@@ -73,7 +73,7 @@ const WalletManage:FC = function() {
             <div className={s.leftBar}>
                 <div className={s.tab}>
                     <div className={s.blueBlock}/>
-                    <div className={s.polkadotIcon}></div>
+                    <div className={cx(s.polkadotIcon, globalStore.isKusama ? s.kIcon : '')}></div>
                 </div>
             </div>
             <div className={s.rigthContent}>

@@ -3,9 +3,6 @@ import { SEED_LENGTHS } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import keyring from '@polkadot/ui-keyring';
 import { keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
-import { ADDRESS_ARRAY } from '@constants/chrome';
-import { getStorage, setStorage } from '@utils/chrome';
-import { globalStoreType } from '@entry/store';
 import { useTranslation } from 'react-i18next';
 import type { CreateResult } from '@polkadot/ui-keyring/types';
 import { runInAction } from 'mobx';
@@ -15,6 +12,7 @@ import type { Time } from '@polkadot/util/types';
 import BNObj from 'bn.js';
 import { useMemo } from 'react';
 import i18n from 'i18next';
+import { NET_TYPE } from '@constants/chain';
 import { decodeAddress, encodeAddress } from '@polkadot/util-crypto';
 import { BN_ONE, extractTime } from '@polkadot/util';
 
@@ -133,6 +131,13 @@ export function dataURLToBlob(dataurl: string){
 //  将字符串转化成转账金额
 export function dotStrToTransferAmount(amount: string) {
     return parseFloat(amount) * Math.pow(10, 10)
+}
+
+export function useTokenName () {
+    const name = useMemo(() => {
+        return globalStore.netType === NET_TYPE.KUSAMA ? 'KSM' : 'DOT';
+    }, [globalStore.netType]);
+    return name;
 }
 
 export function useBlockTime (blocks = BN_ONE): Result {

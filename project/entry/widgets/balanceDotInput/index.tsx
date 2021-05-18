@@ -13,6 +13,7 @@ import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
 import { InputNumber, message } from 'antd';
 import { observer } from 'mobx-react';
+import { useTokenName } from '@utils/tools';
 import { valueType } from 'antd/lib/statistic/utils';
 
 interface BarProps {
@@ -30,6 +31,7 @@ interface InputStatus {
 
 const DotInput:FC<BarProps> = function(props:BarProps) {
     let { t } = useTranslation();
+    const tokenName = useTokenName();
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`widgets:${input}`);
     const { changeInputFn, wrapCls, setErr, allDot, controlValue } = props;
@@ -83,7 +85,7 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
 
     const amountIcon = (
         <div className={s.amountIconWrap} onClick={allBtnClick}>
-            DOT<div className={s.split} /><div>{lanWrap('all')}</div>
+            {tokenName}<div className={s.split} /><div>{lanWrap('all')}</div>
         </div>
     )
 

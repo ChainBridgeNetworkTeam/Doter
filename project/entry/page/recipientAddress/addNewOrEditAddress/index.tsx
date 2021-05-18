@@ -16,6 +16,7 @@ import { runInAction } from 'mobx';
 import { keyring } from '@polkadot/ui-keyring';
 import { chromeLocalSet } from '@utils/chrome'
 import globalStore from '@entry/store';
+import { useTokenName } from '@utils/tools';
 import { RECIPIENT_ARRAY } from '@constants/chrome';
 interface AddStatus {
     input?: string,
@@ -31,13 +32,14 @@ interface historyState {
 const Entry:FC = function() {
     let { t } = useTranslation();
     const history = useHistory();
+    const tokenName = useTokenName();
 
     const { addressArr, recipientArr } = globalStore;
 
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`recipientAddress:${input}`);
 
-    //  状态管理
+    //  状态管理icon
     function stateReducer(state: Object, action: AddStatus) {
         return Object.assign({}, state, action);
     }
@@ -142,8 +144,8 @@ const Entry:FC = function() {
             <HeadBar word={isEdit? lanWrap('Edit address') : lanWrap('Add address')}/>
             <div className={s.contentWrap}>
                 <div className={s.top}>
-                    <div className={s.icon}/>
-                    <div>DOT</div>
+                    <div className={cx(s.icon, globalStore.isKusama ? s.kIcon : '')}/>
+                    <div>{tokenName}</div>
                 </div>
                 <div className={s.middle}>{lanWrap('Address information')}</div>
                 <Input.TextArea onChange={addInput}

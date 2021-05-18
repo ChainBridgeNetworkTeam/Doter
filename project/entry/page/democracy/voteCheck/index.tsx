@@ -21,6 +21,7 @@ import { WEIGHT_ARR } from '@constants/chain';
 import { globalStoreType } from '@entry/store';
 import { dotStrToTransferAmount } from '@utils/tools';
 import { PAGE_NAME } from '@constants/app';
+import { useTokenName } from '@utils/tools';
 
 interface checkStatus {
     fee?: string;
@@ -36,6 +37,7 @@ const Entry:FC = function() {
     let { t } = useTranslation();
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
+    const tokenName = useTokenName();
 
     function stateReducer(state: Object, action: checkStatus) {
         return Object.assign({}, state, action);
@@ -113,7 +115,7 @@ const Entry:FC = function() {
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap('Number of votes')}</div>
-                    <div className={s.cContent}>{voteDot} DOT</div>
+                    <div className={s.cContent}>{voteDot} {tokenName}</div>
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap('Voting weight')}</div>
@@ -125,7 +127,7 @@ const Entry:FC = function() {
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap("Miner's fee")}</div>
-                    <div className={s.cContent}>{stateObj.fee} DOT</div>
+                    <div className={s.cContent}>{stateObj.fee} {tokenName}</div>
                 </div>
                 <div className={s.title}>{lanWrap('Password confirmation')}</div>
                 <Input.Password

@@ -19,6 +19,8 @@ import { getAddInfo, getDotInfo } from '@entry/service';
 import { keyring } from '@polkadot/ui-keyring';
 import s from './index.scss';
 import cx from 'classnames';
+import { useTokenName } from '@utils/tools';
+import { NET_TYPE } from '@constants/chain';
 
 interface homeStatue {
     showLanPanel?: boolean;
@@ -29,6 +31,7 @@ const HomePage:FC = function() {
     let { t ,i18n} = useTranslation();
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const { currentAccount } = globalStore;
+    const tokenName = useTokenName();
 
     //  是否初始化完成
     const hasInit = useMemo(() => globalStore.hasInit, [globalStore.hasInit]);
@@ -121,6 +124,13 @@ const HomePage:FC = function() {
         history.push(PAGE_NAME.SINGLE_WALLTE_MANAGE, { address })
     }
 
+    function changeNet() {
+        const type = globalStore.netType;
+        runInAction(() => {
+            globalStore.netType = type === NET_TYPE.POLKADOT ? NET_TYPE.KUSAMA : NET_TYPE.POLKADOT;
+        })
+    }
+
     function AccountPage() {
         const target = currentAccount;
         const { address, meta } = target;
@@ -144,19 +154,19 @@ const HomePage:FC = function() {
                         <div className={s.copyIcon} onClick={() => copyClick()}/>
                     </div>
                 </div>
-                <div>111</div>
-                <div className={s.pIcon}/>
+                <div onClick={changeNet}>111</div>
+                <div className={cx(s.pIcon, globalStore.netType === NET_TYPE.KUSAMA ? s.kusama : '')}/>
                 <Spin spinning={balance === ''}>
-                    <div className={s.balance}>{parseFloat(balance).toFixed(4)} DOT</div>
+                    <div className={s.balance}>{parseFloat(balance).toFixed(4)} {tokenName}</div>
                     <div className={s.usd}>${parseFloat(useDolar).toFixed(4)} USD</div>
                     <div className={s.balanceDetial}>
                         <div className={s.aWrap}>
-                            <div>{parseFloat(lockBalance).toFixed(4)} DOT</div>
+                            <div>{parseFloat(lockBalance).toFixed(4)} {tokenName}</div>
                             <div className={s.balanceDes}>{t('home:locked')}</div>
                         </div>
                         <div className={s.split}/>
                         <div className={s.aWrap}>
-                            <div>{parseFloat(parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10) + '').toFixed(4)} DOT</div>
+                            <div>{parseFloat(parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10) + '').toFixed(4)} {tokenName}</div>
                             <div className={s.balanceDes}>{t('home:Available balance')}</div>
                         </div>
                     </div>
