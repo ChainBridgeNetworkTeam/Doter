@@ -20,6 +20,7 @@ import democrcacyStore, { CreateStoreType } from '../store';
 import { useWeightArr } from '@constants/chain';
 import { runInAction } from 'mobx';
 import { PAGE_NAME } from '@constants/app';
+import { useTokenName } from '@utils/tools';
 import BottonBtn from '@widgets/bottomBtn';
 
 interface infoVote {
@@ -35,6 +36,7 @@ const Entry = function() {
     let { t } = useTranslation();
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
+    const tokenName = useTokenName();
     function stateReducer(state: Object, action: infoVote) {
         return Object.assign({}, state, action);
     }
@@ -87,7 +89,7 @@ const Entry = function() {
             <div className={s.contentWrap}>
                 <div className={s.bWapr}>
                     <div className={s.title}>{lanWrap('Number of votes')}</div>
-                    <div className={s.dot}>{parseFloat(globalStore.ableBalance).toFixed(4)} DOT {lanWrap('available')}</div>
+                    <div className={s.dot}>{parseFloat(globalStore.ableBalance).toFixed(4)} {tokenName} {lanWrap('available')}</div>
                 </div>
                 <DotInput changeInputFn={cInput} controlValue={voteDot} setErr={setErrStr} allDot={globalStore.ableBalance}/>
                 <div className={cx(s.bWapr, s.weight)}>

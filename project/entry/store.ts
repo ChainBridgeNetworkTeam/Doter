@@ -70,6 +70,7 @@ export interface globalStoreType {
     authReqList: Array<AuthorizeRequest>;
     signReqList: Array<SigningRequest>;
     netType: string;
+    isKusama: boolean;
 }
 
 interface metaData {
@@ -147,6 +148,11 @@ class AppStore {
     @computed
     get currentAccount() {
         return this.accountObj[this.favoriteAccount] || this.accountObj[this.addressArr[0]] || {} as account
+    }
+
+    @computed
+    get isKusama() {
+        return this.netType === NET_TYPE.KUSAMA;
     }
 
     @action.bound

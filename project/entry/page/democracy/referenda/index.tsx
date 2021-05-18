@@ -20,6 +20,7 @@ import { BN_ONE } from '@polkadot/util';
 import { addressFormat, getBlockTime } from '@utils/tools';
 import { getReferendas, getReferDetail } from '../service';
 import globalStore from '@entry/store';
+import { useTokenName } from '@utils/tools';
 
 function getVote(value: string) {
     return new BN(value).div(new BN(Math.pow(10, 10))).toString();
@@ -28,6 +29,7 @@ function getVote(value: string) {
 const Referenda:FC = function() {
     let { t } = useTranslation();
     const history = useHistory();
+    const tokenName = useTokenName();
     const [hasInit, setInit] = useState(false);
     const [oHasInit, setOInit] = useState(false);
     
@@ -143,7 +145,7 @@ const Referenda:FC = function() {
                     <div className={s.author}>{textList[index]}</div>
                 </Spin>
                 <div className={s.rowTitle}>{lanWrap('Voting participation')}</div>
-                <div className={s.author}>{getVote(turnout || '0') || '0'}DOT({rateList[index]})</div>
+                <div className={s.author}>{getVote(turnout || '0') || '0'}{tokenName}({rateList[index]})</div>
                 <div className={s.splitLine} />
                 <div className={s.vote}>
                     <div>{lanWrap('support')}: {getVote(aye_amount)}{lanWrap('polls')}</div>

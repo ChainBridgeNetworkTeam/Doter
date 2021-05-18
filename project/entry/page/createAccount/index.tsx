@@ -54,8 +54,4 @@ const CreactAccount:FC = function() {
     )
 }
 
-// function xxhashAsHex() {
-//     return <div>111</div>
-// }
-// export default xxhashAsHex;
 export default observer(CreactAccount);
