@@ -126,9 +126,8 @@ const HomePage:FC = function() {
 
     function changeNet() {
         const type = globalStore.netType;
-        runInAction(() => {
-            globalStore.netType = type === NET_TYPE.POLKADOT ? NET_TYPE.KUSAMA : NET_TYPE.POLKADOT;
-        })
+        const targetType = type === NET_TYPE.POLKADOT ? NET_TYPE.KUSAMA : NET_TYPE.POLKADOT;
+        globalStore.changeNetType(targetType);
     }
 
     function AccountPage() {

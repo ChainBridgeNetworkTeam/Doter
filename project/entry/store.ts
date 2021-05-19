@@ -8,14 +8,15 @@ import { observable, runInAction, action, makeAutoObservable, computed, toJS } f
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ADDRESS_ARRAY, FAVORITE_ACCOUNT, RECIPIENT_ARRAY, LOCAL_CONFIG, MAINTAIN_NET } from '@constants/chrome';
 import keyring from '@polkadot/ui-keyring';
-import { getStorage, setStorage, chromeLocalGet } from '@utils/chrome';
-import { OFFICAL_END_POINT, KUSAMA_END_POINT, NET_TYPE } from '@constants/chain';
+import { getStorage, setStorage, chromeLocalGet, chromeLocalSet } from '@utils/chrome';
+import { OFFICAL_END_POINT, KUSAMA_END_POINT, NET_TYPE, ADDRESS_FORMAT } from '@constants/chain';
 import { AccountsStore } from '@polkadot/extension-base/stores';
 import { accounts as accountsObservable } from '@polkadot/ui-keyring/observable/accounts';
 import type { SubjectInfo, SingleAddress } from '@polkadot/ui-keyring/observable/types';
 import type { KeyringPair, KeyringPair$Json, KeyringPair$Meta } from '@polkadot/keyring/types';
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
+import { encodeAddress } from '@polkadot/util-crypto';
 import { TypeRegistry } from '@polkadot/types';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 import type BN from 'bn.js';
@@ -71,6 +72,8 @@ export interface globalStoreType {
     signReqList: Array<SigningRequest>;
     netType: string;
     isKusama: boolean;
+
+    changeNetType: (value: string) => void;
 }
 
 interface metaData {
@@ -193,8 +196,14 @@ class AppStore {
         runInAction(() => {
             this.favoriteAccount = ans.favoriteAccount || firsetAcc;
             this.localConfig = ans[LOCAL_CONFIG];
-            //  常用的地址存在chrome本地存储
-            this.recipientArr = chormeLocalStorage[RECIPIENT_ARRAY];
+            //  常用的地址存在chrome本地存储,根据环境调整格式
+            this.recipientArr = chormeLocalStorage[RECIPIENT_ARRAY].map((item: recipientObj) => {
+                const { address, comment } = item;
+                return {
+                    address: encodeAddress(address, this.isKusama ? ADDRESS_FORMAT.KUSAMA : ADDRESS_FORMAT.POLKADOT),
+                    comment: comment
+                }
+            });
 
             // this.favoriteAccount = add;
             // this.addressArr = [add];
@@ -203,22 +212,38 @@ class AppStore {
         });
     }
 
+    @action.bound
+    async changeNetType(type: string) {
+        runInAction(() =>{
+            this.netType = type;
+        })
+        await chromeLocalSet({
+            [MAINTAIN_NET]: type,
+        })
+        //  首页刷新
+        location.reload();
+    }
+
     //  初始化api
     @action.bound
     async init(): Promise<void> {
+        const netType = await chromeLocalGet({
+            [MAINTAIN_NET]: NET_TYPE.POLKADOT,
+        }) as any || {};
+        const isKusama = netType[MAINTAIN_NET] === NET_TYPE.KUSAMA;
+        runInAction(() => {
+            this.netType = netType[MAINTAIN_NET];
+        })
         //  keyring初始化
         cryptoWaitReady().then(() => keyring.loadAll({
             //  genesisHash: this.api.genesisHash as any,
             store: new AccountsStore(),
             //  控制地址格式，0是polkadot格式，2是kusama格式
-            ss58Format: 0,
+            ss58Format: isKusama ? ADDRESS_FORMAT.KUSAMA : ADDRESS_FORMAT.POLKADOT,
             //  类型要和bg的保持一致，否则会有bug,删除账号的时候有问题
             type: 'ed25519'
         }, []));
-        const netType = await chromeLocalGet({
-            [MAINTAIN_NET]: NET_TYPE.POLKADOT,
-        }) as any || {};
-        const netUrl = netType === NET_TYPE.KUSAMA ? KUSAMA_END_POINT : OFFICAL_END_POINT;
+        const netUrl = isKusama ? KUSAMA_END_POINT : OFFICAL_END_POINT;
         const provider = new WsProvider(netUrl);
         let initSuccess = true;
         this.api = await (ApiPromise.create({

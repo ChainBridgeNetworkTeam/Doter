@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-16 15:00:27
+ * @LastEditTime: 2021-05-18 08:46:31
  */
 import { useTranslation } from 'react-i18next';
 export const OFFICAL_END_POINT = 'wss://rpc.polkadot.io';
@@ -21,6 +21,11 @@ export const KUSAMA_DOMAIN = 'https://kusama.subscan.io';
 export const NET_TYPE = {
     POLKADOT: 'polkadot',
     KUSAMA: 'kusama',
+}
+
+export const ADDRESS_FORMAT = {
+    POLKADOT: 0,
+    KUSAMA: 2,
 }
 
 //  投票锁定与倍率
