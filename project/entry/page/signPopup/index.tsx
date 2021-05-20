@@ -38,6 +38,11 @@ const Auth:FC = function() {
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`signPopup:${input}`);
 
+    function retrieveWindow () {
+        const target = document.getElementsByTagName('html')[0];
+        target.style.cssText = 'width: 375px; height: 600px; font-size: 26.66667vw; overflow-x: hidden;'
+    }
+
     const _onSign = useCallback(
         (): Promise<void> => {
           if (!stateObj.secret) {
@@ -58,6 +63,7 @@ const Auth:FC = function() {
                     message.error('Signature failed')
                 }
             }).finally(() => {
+                retrieveWindow()
                 setState({
                     showLoading: false
                 })
@@ -76,7 +82,9 @@ const Auth:FC = function() {
             .catch((error: Error) => {
                     console.error(error.toString())
                 }
-            )
+            ).finally(() => {
+                retrieveWindow();
+            })
         },
         [GlobalStore.signReqList]
     );

@@ -133,7 +133,7 @@ class AppStore {
     //  签名请求列表
     signReqList: Array<SigningRequest> = [];
     //  网络类型 polkadot或者kusama
-    netType: string = NET_TYPE.POLKADOT;
+    netType: string = '';
 
     //  设置认证请求列表
     setAuthList(valueList: Array<AuthorizeRequest>) {
