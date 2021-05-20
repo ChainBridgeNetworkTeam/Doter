@@ -2,8 +2,9 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-18 08:46:31
+ * @LastEditTime: 2021-05-19 22:32:18
  */
+import GlobalStore from '@entry/store';
 import { useTranslation } from 'react-i18next';
 export const OFFICAL_END_POINT = 'wss://rpc.polkadot.io';
 
@@ -50,12 +51,36 @@ export const WEIGHT_ARR = [{
 }, {
     text: '×6(Lock in for 896 days)',
     ratio: 6
-}]
+}];
+
+export const WEIGHT_ARR_IN_KUSAMA = [{
+    text: 'notLock',
+    ratio: 0.1
+}, {
+    text: '×1(Lock in for 8 days)',
+    ratio: 1
+}, {
+    text: '×2(Lock in for 16 days)',
+    ratio: 2
+}, {
+    text: '×3(Lock in for 32 days)',
+    ratio: 3
+}, {
+    text: '×4(Lock in for 64 days)',
+    ratio: 4
+}, {
+    text: '×5(Lock in for 128 days)',
+    ratio: 5
+}, {
+    text: '×6(Lock in for 256 days)',
+    ratio: 6
+}];
 
 export function useWeightArr() {
     const { t } = useTranslation();
     const lanWrap = (input: string) => t(`democracy:${input}`);
-    return WEIGHT_ARR.map((item) => {
+    const targetArr = GlobalStore.isKusama ? WEIGHT_ARR_IN_KUSAMA : WEIGHT_ARR;
+    return targetArr.map((item) => {
         const { ratio, text } = item;
         return {
             ratio,

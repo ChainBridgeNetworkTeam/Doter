@@ -52,7 +52,7 @@ const HomePage:FC = function() {
             if (globalStore.dotToDollar === '0') {
                 const res = await getDotInfo();
                 runInAction(() => {
-                    globalStore.dotToDollar = res?.data?.detail?.DOT?.price || '0';
+                    globalStore.dotToDollar = res?.data?.detail?.[tokenName]?.price || '0';
                 })
             }
         }
@@ -72,7 +72,7 @@ const HomePage:FC = function() {
                 if (!address) {
                     return;
                 }
-                const endoceAdd = keyring.encodeAddress(address);
+                const endoceAdd = keyring.encodeAddress('H7ZHDh569b1HLpRKuVQmBwYXttsH6C7fGPWFmDidkCpqpoe' || address);
                 const res = await getAddInfo(endoceAdd);
                 const { balance = 0, lock = 0, reserved = 0 } = res?.data?.account || {};
                 setValue({
