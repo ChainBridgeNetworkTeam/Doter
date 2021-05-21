@@ -18,6 +18,7 @@ import { addressFormat } from '@utils/tools';
 import { setStorage } from '@utils/chrome';
 import { useStores } from '@utils/useStore';
 import { FAVORITE_ACCOUNT } from '@constants/chrome';
+import { NET_WORD } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import { globalStoreType } from '../../store';
 
@@ -77,7 +78,7 @@ const WalletManage:FC = function() {
                 </div>
             </div>
             <div className={s.rigthContent}>
-                <div className={s.title}>Polkadot <div className={s.addIcon} onClick={() => jump(PAGE_NAME.RETRIEVE_WALLET)}/></div>
+                <div className={s.title}>{globalStore.isKusama ? NET_WORD.KUSAMA : NET_WORD.POLKADOT} <div className={s.addIcon} onClick={() => jump(PAGE_NAME.RETRIEVE_WALLET)}/></div>
                 {renderAccount()}
             </div>
         </div>

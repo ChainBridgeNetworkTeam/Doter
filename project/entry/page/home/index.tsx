@@ -20,6 +20,7 @@ import { keyring } from '@polkadot/ui-keyring';
 import s from './index.scss';
 import cx from 'classnames';
 import { useTokenName } from '@utils/tools';
+import ChangeNetBtn from './changeNetMask';
 import { NET_TYPE } from '@constants/chain';
 
 interface homeStatue {
@@ -139,13 +140,14 @@ const HomePage:FC = function() {
                 <div className={s.head}>
                     <div className={s.leftTitle}>
                         <div className={s.titleIcon} />
-                        <div>Doter {statusIcon()}</div>
+                        <div>Doter</div>
                     </div>
+                    <ChangeNetBtn />
                     <div className={s.toolIcon} onClick={() => jump(PAGE_NAME.SET_PANEL)}/>
                 </div>
                 <div className={s.account}>
                     <div className={s.aName}>
-                        <div>{meta.name}</div>
+                        <div>{meta.name} {statusIcon()}</div>
                         <div className={s.tail} onClick={(e) => toSingleManage(e, address)}>···</div>
                     </div>
                     <div>
