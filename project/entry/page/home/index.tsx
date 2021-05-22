@@ -125,12 +125,6 @@ const HomePage:FC = function() {
         history.push(PAGE_NAME.SINGLE_WALLTE_MANAGE, { address })
     }
 
-    function changeNet() {
-        const type = globalStore.netType;
-        const targetType = type === NET_TYPE.POLKADOT ? NET_TYPE.KUSAMA : NET_TYPE.POLKADOT;
-        globalStore.changeNetType(targetType);
-    }
-
     function AccountPage() {
         const target = currentAccount;
         const { address, meta } = target;
@@ -155,7 +149,6 @@ const HomePage:FC = function() {
                         <div className={s.copyIcon} onClick={() => copyClick()}/>
                     </div>
                 </div>
-                <div onClick={changeNet}>111</div>
                 <div className={cx(s.pIcon, globalStore.netType === NET_TYPE.KUSAMA ? s.kusama : '')}/>
                 <Spin spinning={balance === ''}>
                     <div className={s.balance}>{parseFloat(balance).toFixed(4)} {tokenName}</div>
