@@ -20,6 +20,7 @@ import { keyring } from '@polkadot/ui-keyring';
 import s from './index.scss';
 import cx from 'classnames';
 import { useTokenName } from '@utils/tools';
+import ChangeNetBtn from './changeNetMask';
 import { NET_TYPE } from '@constants/chain';
 
 interface homeStatue {
@@ -124,12 +125,6 @@ const HomePage:FC = function() {
         history.push(PAGE_NAME.SINGLE_WALLTE_MANAGE, { address })
     }
 
-    function changeNet() {
-        const type = globalStore.netType;
-        const targetType = type === NET_TYPE.POLKADOT ? NET_TYPE.KUSAMA : NET_TYPE.POLKADOT;
-        globalStore.changeNetType(targetType);
-    }
-
     function AccountPage() {
         const target = currentAccount;
         const { address, meta } = target;
@@ -139,13 +134,14 @@ const HomePage:FC = function() {
                 <div className={s.head}>
                     <div className={s.leftTitle}>
                         <div className={s.titleIcon} />
-                        <div>Doter {statusIcon()}</div>
+                        <div>Doter</div>
                     </div>
+                    <ChangeNetBtn />
                     <div className={s.toolIcon} onClick={() => jump(PAGE_NAME.SET_PANEL)}/>
                 </div>
                 <div className={s.account}>
                     <div className={s.aName}>
-                        <div>{meta.name}</div>
+                        <div>{meta.name} {statusIcon()}</div>
                         <div className={s.tail} onClick={(e) => toSingleManage(e, address)}>···</div>
                     </div>
                     <div>
@@ -153,7 +149,6 @@ const HomePage:FC = function() {
                         <div className={s.copyIcon} onClick={() => copyClick()}/>
                     </div>
                 </div>
-                <div onClick={changeNet}>111</div>
                 <div className={cx(s.pIcon, globalStore.netType === NET_TYPE.KUSAMA ? s.kusama : '')}/>
                 <Spin spinning={balance === ''}>
                     <div className={s.balance}>{parseFloat(balance).toFixed(4)} {tokenName}</div>

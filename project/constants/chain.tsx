@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-19 22:32:18
+ * @LastEditTime: 2021-05-20 22:55:05
  */
 import GlobalStore from '@entry/store';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +22,11 @@ export const KUSAMA_DOMAIN = 'https://kusama.subscan.io';
 export const NET_TYPE = {
     POLKADOT: 'polkadot',
     KUSAMA: 'kusama',
+}
+
+export const NET_WORD = {
+    POLKADOT: 'Polkadot',
+    KUSAMA: 'Kusama',
 }
 
 export const ADDRESS_FORMAT = {

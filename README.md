@@ -1,3 +1,9 @@
+<!--
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-04-08 23:06:10
+ * @LastEditTime: 2021-05-21 08:42:59
+-->
 # What is Doter
 Doter is a chrome wallet extension for polkadot ecosystem. User can import or create the accounts with the wallet, and to transfer dot to some other account or join in the ecosystem governance.  
 ## the home page
@@ -17,7 +23,8 @@ Doter is a chrome wallet extension for polkadot ecosystem. User can import or cr
 1. `yarn install` to install the dependencies  
 2. `yarn dll` to build dll files
 3. `yarn build` to build the extension, then the bundle results will be in the `plugin` file 
-4. Install the extension
+4. `yarn test` to run unit test case
+5. Install the extension
     - go to `chrome://extensions/`
     - ensure you have the Development flag set
     - "Load unpacked" and point to `plugin`
