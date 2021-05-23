@@ -2,11 +2,18 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-20 22:55:05
+ * @LastEditTime: 2021-05-22 20:40:06
  */
 import GlobalStore from '@entry/store';
 import { useTranslation } from 'react-i18next';
 export const OFFICAL_END_POINT = 'wss://rpc.polkadot.io';
+
+
+//  kusama下基本单位到ksm的汇率
+export const KUSAMA_TOKEN_RATE = Math.pow(10, 12);
+
+//  polkadot下基本单位dot的汇率
+export const POLKADOT_TOKEN_RATE = Math.pow(10, 10);
 
 //  kusama下主网初始化地址
 export const KUSAMA_END_POINT = 'wss://kusama-rpc.polkadot.io';

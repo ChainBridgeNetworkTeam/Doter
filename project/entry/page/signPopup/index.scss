@@ -39,16 +39,17 @@
     display: flex;
     justify-content: flex-start;
     padding-left: .12rem;
+    padding-right: .12rem;
 }
 
 .left {
     font-size: .14rem;
     color: #aaaaaa;
-    width: .87rem;
+    width: 1rem;
 }
 
 .right {
-    width: 2.13rem;
+    width: 4.29rem;
     font-size: .14rem;
     text-overflow: ellipsis;
     overflow: hidden;

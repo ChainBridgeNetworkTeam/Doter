@@ -2,17 +2,20 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-20 23:14:27
- * @LastEditTime: 2021-05-21 08:40:15
+ * @LastEditTime: 2021-05-22 21:39:12
  */
 
 import React, { FC, useState } from 'react';
 import s from './index.scss';
 import cx from 'classnames';
+import { useTranslation } from 'react-i18next';
 import { NET_WORD, NET_TYPE } from '@constants/chain';
 import globalStore from '../../../store';
 
 const ChangeNetBtn:FC = function() {
     const [showMask, setShow] = useState(false);
+    let { t } = useTranslation();
+    t('home:locked')
 
     function changeNet(inputType: string) {
         const type = globalStore.netType;
@@ -27,7 +30,7 @@ const ChangeNetBtn:FC = function() {
         <>
             <div onClick={() => setShow(true)} className={s.changeBtn}>{globalStore.isKusama ? NET_WORD.KUSAMA : NET_WORD.POLKADOT}<div className={s.cArrow}/></div>
             {showMask && <div className={s.mask}>
-                <div className={s.top}>Slect Network <div className={s.close} onClick={() => setShow(false)}/></div>
+                <div className={s.top}>{t('home:selectNet')}<div className={s.close} onClick={() => setShow(false)}/></div>
                 <div className={s.single} onClick={() => changeNet(NET_TYPE.POLKADOT)}>
                     <div className={cx(s.icon)}/>
                     <div className={s.wrap}>
