@@ -73,7 +73,7 @@ const HomePage:FC = function() {
                 if (!address) {
                     return;
                 }
-                const endoceAdd = keyring.encodeAddress('H7ZHDh569b1HLpRKuVQmBwYXttsH6C7fGPWFmDidkCpqpoe' || address);
+                const endoceAdd = keyring.encodeAddress(address);
                 const res = await getAddInfo(endoceAdd);
                 const { balance = 0, lock = 0, reserved = 0 } = res?.data?.account || {};
                 setValue({

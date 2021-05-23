@@ -12,7 +12,7 @@ import type { Time } from '@polkadot/util/types';
 import BNObj from 'bn.js';
 import { useMemo } from 'react';
 import i18n from 'i18next';
-import { NET_TYPE } from '@constants/chain';
+import { NET_TYPE, POLKADOT_TOKEN_RATE, KUSAMA_TOKEN_RATE } from '@constants/chain';
 import { decodeAddress, encodeAddress } from '@polkadot/util-crypto';
 import { BN_ONE, extractTime } from '@polkadot/util';
 
@@ -130,7 +130,24 @@ export function dataURLToBlob(dataurl: string){
 
 //  将字符串转化成转账金额
 export function dotStrToTransferAmount(amount: string) {
-    return parseFloat(amount) * Math.pow(10, 10)
+    return parseFloat(amount) * (globalStore.isKusama ? KUSAMA_TOKEN_RATE : POLKADOT_TOKEN_RATE);
+}
+
+//  获取不同网络下基本单位到对应主单位的汇率，比如用在查转账费
+//  将基本单位转化为DOT或者KSM
+export function useTokenRate () {
+    const rate = useMemo(() => {
+        return globalStore.netType === NET_TYPE.KUSAMA ? KUSAMA_TOKEN_RATE : POLKADOT_TOKEN_RATE;
+    }, [globalStore.netType]);
+    return rate;
+}
+
+//  获取不同网络下基本单位的汇率，预估转账费,将查转账费接口的返回内容转化为单位是DOT或者KSM的转账费
+export function useFeeRate () {
+    const feeRate = useMemo(() => {
+        return globalStore.netType === NET_TYPE.KUSAMA ? Math.pow(10, 6) : Math.pow(10, 3);
+    }, [globalStore.netType]);
+    return feeRate;
 }
 
 export function useTokenName () {

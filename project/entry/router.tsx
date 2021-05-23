@@ -71,7 +71,7 @@ function AppRouter() {
             //  sign popup样式保持和公共库一致，主要是宽度560px
             if (showSignPopup) {
                 const target = document.getElementsByTagName('html')[0];
-                target.style.cssText = 'width: 560px; height: 621px; font-size: 17.8581vw; overflow-x: hidden;'
+                target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow: hidden;'
             }
             return showSignPopup ? <SignPopup /> : <Home />;
         } else {

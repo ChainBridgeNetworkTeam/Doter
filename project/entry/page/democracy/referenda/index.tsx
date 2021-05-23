@@ -17,13 +17,13 @@ import { Spin } from 'antd';
 import BN from 'bn.js';
 import { PAGE_NAME } from '@constants/app';
 import { BN_ONE } from '@polkadot/util';
-import { addressFormat, getBlockTime } from '@utils/tools';
+import { addressFormat, getBlockTime, useTokenRate } from '@utils/tools';
 import { getReferendas, getReferDetail } from '../service';
 import globalStore from '@entry/store';
 import { useTokenName } from '@utils/tools';
 
-function getVote(value: string) {
-    return new BN(value).div(new BN(Math.pow(10, 10))).toString();
+function getVote(value: string, rate: number) {
+    return new BN(value).div(new BN(rate)).toString();
 }
 
 const Referenda:FC = function() {
@@ -32,6 +32,7 @@ const Referenda:FC = function() {
     const tokenName = useTokenName();
     const [hasInit, setInit] = useState(false);
     const [oHasInit, setOInit] = useState(false);
+    const tokenRage = useTokenRate();
     
 
     //  国际化的包裹函数
@@ -145,11 +146,11 @@ const Referenda:FC = function() {
                     <div className={s.author}>{textList[index]}</div>
                 </Spin>
                 <div className={s.rowTitle}>{lanWrap('Voting participation')}</div>
-                <div className={s.author}>{getVote(turnout || '0') || '0'}{tokenName}({rateList[index]})</div>
+                <div className={s.author}>{getVote(turnout || '0', tokenRage) || '0'}{tokenName}({rateList[index]})</div>
                 <div className={s.splitLine} />
                 <div className={s.vote}>
-                    <div>{lanWrap('support')}: {getVote(aye_amount)}{lanWrap('polls')}</div>
-                    <div>{lanWrap('oppose')}：{getVote(nay_amount)}{lanWrap('polls')}</div>
+                    <div>{lanWrap('support')}: {getVote(aye_amount, tokenRage)}{lanWrap('polls')}</div>
+                    <div>{lanWrap('oppose')}：{getVote(nay_amount, tokenRage)}{lanWrap('polls')}</div>
                 </div>
                 <div className={s.voteBar}>
                     <div className={s.ayeBar} style={{ width: parseInt(aye_amount) / (parseInt(nay_amount) + parseInt(aye_amount)) * 3.19 + 'rem'}}/>

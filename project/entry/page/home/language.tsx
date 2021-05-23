@@ -19,6 +19,7 @@ export const homeEn = {
     'Network Governance': 'Governance',
     'Transaction records': 'Transactions',
     'Polkadot Explorer': 'Explorer',
+    'selectNet': 'Select Network',
 }
 export const homeCn = {
     'doter is a polkadot wallet': 'Doter是波卡网络的治理钱包',
@@ -33,5 +34,6 @@ export const homeCn = {
     'Available balance': '可用',
     'Network Governance': '网络治理',
     'Transaction records': '交易记录',
-    'Polkadot Explorer': '区块浏览器'
+    'Polkadot Explorer': '区块浏览器',
+    'selectNet': '选择网络',
 }

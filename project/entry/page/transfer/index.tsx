@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-17 23:33:55
+ * @LastEditTime: 2021-05-22 21:18:08
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -19,7 +19,7 @@ import { dotStrToTransferAmount } from '@utils/tools';
 import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
 import { useHistory } from 'react-router-dom';
-import { useTokenName } from '@utils/tools';
+import { useTokenName, useFeeRate } from '@utils/tools';
 import { message } from 'antd';
 
 import { Input, AutoComplete } from 'antd';
@@ -44,6 +44,7 @@ const Transfer:FC = function() {
     let { t } = useTranslation();
     const history = useHistory();
     const tokenName = useTokenName();
+    const feeRate = useFeeRate();
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`transfer:${input}`);
 
@@ -78,6 +79,8 @@ const Transfer:FC = function() {
         <div className={s.icon}/>
     )
 
+    const fixDicimal = globalStore.isKusama ? 7 : 5;
+
     useEffect(() => {
         async function computedFee() {
             //  实时计算交易费用
@@ -89,7 +92,7 @@ const Transfer:FC = function() {
                 const transfer = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount))
                 const { partialFee } = await transfer.paymentInfo(currentAccount.address);
                 setState({
-                    partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + ''
+                    partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + ''
                 })
             } catch {
             }
@@ -216,7 +219,7 @@ const Transfer:FC = function() {
             <DotInput changeInputFn={inputAmount} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
             <div className={s.feeWrap}>
                 <span>{lanWrap('Transfer fee')}</span>
-                <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(5)} {tokenName}</span>
+                <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(fixDicimal)} {tokenName}</span>
             </div>
         </div>
     }
@@ -235,7 +238,7 @@ const Transfer:FC = function() {
                     <div>{lanWrap('Payment address')}</div><div className={cx(s.tContent, s.tCAdd)}>{currentAccount.address}</div>
                 </div>
                 <div className={s.sTd}>
-                    <div>{lanWrap('Transfer fee')}</div><div className={s.tContent}>{parseFloat(stateObj.partialFee).toFixed(5)} {tokenName}</div>
+                    <div>{lanWrap('Transfer fee')}</div><div className={s.tContent}>{parseFloat(stateObj.partialFee).toFixed(fixDicimal)} {tokenName}</div>
                 </div>
             </div>
             <div className={cx(s.formTitle, s.topT)}>{lanWrap('Password confirmation')}</div>

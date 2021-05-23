@@ -16,7 +16,7 @@ import { useStores } from '@utils/useStore';
 import { globalStoreType } from '@entry/store';
 import { getRecordDetail } from '../service';
 import moment from 'moment';
-import { useTokenName } from '@utils/tools';
+import { useTokenName, useTokenRate } from '@utils/tools';
 interface HisState {
     hash?: string;
 }
@@ -33,6 +33,7 @@ const Entry:FC = function() {
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
     const tokenName = useTokenName();
+    const tokenRate = useTokenRate();
 
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`transRecord:${input}`);
@@ -73,7 +74,7 @@ const Entry:FC = function() {
             </div>
             <div className={cx(s.content, s.mT)}>
                 <div className={s.title}>{lanWrap("Miner's fee")}</div>
-                <div className={s.cInfo}>{parseFloat((parseInt(fee) / Math.pow(10, 10) + '')).toFixed(5)} {tokenName}</div>
+                <div className={s.cInfo}>{parseFloat((parseInt(fee) / tokenRate + '')).toFixed(5)} {tokenName}</div>
             </div>
             <div className={s.content}>
                 <div className={s.title}>{lanWrap('to')}</div>

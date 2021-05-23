@@ -21,7 +21,7 @@ import { WEIGHT_ARR } from '@constants/chain';
 import { globalStoreType } from '@entry/store';
 import { dotStrToTransferAmount } from '@utils/tools';
 import { PAGE_NAME } from '@constants/app';
-import { useTokenName } from '@utils/tools';
+import { useTokenName, useFeeRate } from '@utils/tools';
 
 interface checkStatus {
     fee?: string;
@@ -38,6 +38,7 @@ const Entry:FC = function() {
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
     const tokenName = useTokenName();
+    const feeRate = useFeeRate();
 
     function stateReducer(state: Object, action: checkStatus) {
         return Object.assign({}, state, action);
@@ -68,7 +69,7 @@ const Entry:FC = function() {
             try {
                 const voteAction = getVoteAction();
                 const { partialFee } = await voteAction.paymentInfo(currentAccount.address);
-                setState({ fee: parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '' })
+                setState({ fee: parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + '' })
             } catch {
             }
         }
