@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-20 23:14:27
- * @LastEditTime: 2021-05-22 21:39:12
+ * @LastEditTime: 2021-05-23 08:23:37
  */
 
 import React, { FC, useState } from 'react';
@@ -15,7 +15,6 @@ import globalStore from '../../../store';
 const ChangeNetBtn:FC = function() {
     const [showMask, setShow] = useState(false);
     let { t } = useTranslation();
-    t('home:locked')
 
     function changeNet(inputType: string) {
         const type = globalStore.netType;
