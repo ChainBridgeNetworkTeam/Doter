@@ -204,11 +204,6 @@ class AppStore {
                     comment: comment
                 }
             });
-
-            // this.favoriteAccount = add;
-            // this.addressArr = [add];
-            // this.accountObj = Object.assign.apply(null, [{}, mock]);
-            // this.recipientArr = [{ address: add, comment: 'wef' }];
         });
     }
 
