@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-04-24 10:25:20
- * @LastEditTime: 2021-04-29 08:30:47
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-25 22:35:46
+ * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/createAccount/index.test.tsx
  */
@@ -73,6 +73,7 @@ describe('Create Account', () => {
     });
 
     it('check secret input for length', async () => {
+      wrapper.find('input').first().simulate('change', { target: { value: 'testName' } });
       wrapper.find('input[type="password"]').first().simulate('change', { target: { value: '111' } });
       wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111' } });
       wrapper.find('.btn').simulate('click');
@@ -80,6 +81,7 @@ describe('Create Account', () => {
     })
 
     it('check secret input for repeat not stay same with secret input', async () => {
+      wrapper.find('input').first().simulate('change', { target: { value: 'testName' } });
       wrapper.find('input[type="password"]').first().simulate('change', { target: { value: '111235689' } });
       wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111235680' } });
       wrapper.find('.btn').simulate('click');
@@ -87,6 +89,7 @@ describe('Create Account', () => {
     })
 
     it('check for user agreement check', async () => {
+      wrapper.find('input').first().simulate('change', { target: { value: 'testName' } });
       wrapper.find('input[type="password"]').first().simulate('change', { target: { value: '111235689' } });
       wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111235689' } });
       wrapper.find('.btn').simulate('click');
@@ -94,6 +97,7 @@ describe('Create Account', () => {
     })
 
     it('enter next stage', async () => {
+      wrapper.find('input').first().simulate('change', { target: { value: 'testName' } });
       wrapper.find('input[type="password"]').first().simulate('change', { target: { value: '111235689' } });
       wrapper.find('input[type="password"]').last().simulate('change', { target: { value: '111235689' } });
       wrapper.find('.userAgree').simulate('click');
