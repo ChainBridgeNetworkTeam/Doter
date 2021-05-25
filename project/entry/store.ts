@@ -97,7 +97,6 @@ export interface loaclConfigType {
 }
 
 class AppStore {
-    //@observable 
     hasInit: boolean = false;
     //@observable 
     api: ApiPromise;
