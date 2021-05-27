@@ -98,7 +98,6 @@ export interface loaclConfigType {
 
 class AppStore {
     hasInit: boolean = false;
-    //@observable 
     api: ApiPromise;
     //  地址列表
     //@observable
