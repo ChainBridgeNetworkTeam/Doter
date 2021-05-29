@@ -100,7 +100,6 @@ class AppStore {
     hasInit: boolean = false;
     api: ApiPromise;
     //  地址列表
-    //@observable
     addressArr: Array<string> = [];
     //  当前地址
     //@observable
