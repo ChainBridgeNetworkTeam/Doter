@@ -102,7 +102,6 @@ class AppStore {
     //  地址列表
     addressArr: Array<string> = [];
     //  当前地址
-    //@observable
     favoriteAccount: string = '';
     //  账号映射
     //@observable
