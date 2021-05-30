@@ -1,3 +1,9 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-05-29 10:36:59
+ * @LastEditTime: 2021-05-29 20:43:28
+ */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
@@ -183,5 +189,16 @@ export function getBlockTime(blocks = BN_ONE) {
       .slice(0, 2)
       .join(' ');
     return timeStr
+}
+
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * 
+ * 主要是用来给各种非dapp唤起的弹窗来重新设置样式，为了保证样式一致
+ */
+export function retrieveWindow () {
+    const target = document.getElementsByTagName('html')[0];
+    target.style.cssText = 'width: 375px; height: 600px; font-size: 26.66667vw; overflow-x: hidden;'
 }
 

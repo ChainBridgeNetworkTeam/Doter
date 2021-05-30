@@ -21,6 +21,7 @@ interface BarProps {
     setErr: Function,
     wrapCls?: string,
     allDot?: string;
+    minerFee: number;
 }
 
 interface InputStatus {
@@ -32,7 +33,7 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
     let { t } = useTranslation();
     //  国际化的包裹函数
     const lanWrap = (input: string) => t(`widgets:${input}`);
-    const { changeInputFn, wrapCls, setErr, allDot, controlValue } = props;
+    const { changeInputFn, wrapCls, setErr, allDot, controlValue, minerFee } = props;
 
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const { balance } = globalStore;
@@ -54,7 +55,7 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
         const floatReg = /^([0-9]{1,}[.][0-9]*)$/; //   判断小数的正则
         const strInput = (inputValue || 0).toString();
         if (intReg.test(strInput) || floatReg.test(strInput)) {
-            if (inputValue > parseFloat(balance as string)) {
+            if (inputValue > (parseFloat(balance as string) - minerFee)) {
                 const errStr = lanWrap('your credit is running low');
                 setState({
                     transAmountErrMsg: errStr
@@ -77,8 +78,9 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
 
     //  点击全部
     function allBtnClick() {
-        changeInputFn(allDot);
-        setCValue(allDot);
+        const legalAllMount = (parseFloat(allDot) * Math.pow(10, 10) - minerFee * Math.pow(10, 10)) / Math.pow(10, 10) + ''
+        changeInputFn(legalAllMount);
+        setCValue(legalAllMount);
     }
 
     const amountIcon = (

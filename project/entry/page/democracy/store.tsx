@@ -34,14 +34,15 @@ class Democry {
     //  投票系数
     @observable voteRatio: number = 0.1;
 
+    //  矿工费
+    minerFee: string = '0';
+
     //  重置store,方便下次创建
-    // @action.bound
-    // resetStore() {
-    //     this.createStage = 0;
-    //     this.inputSec = '';
-    //     this.inputSecConfirm = '';
-    //     this.accountName = '';
-    // }
+    @action.bound
+    resetStore() {
+        this.voteDot = '';
+        this.voteRatio = 0.1;
+    }
 }
 
 export default new Democry();

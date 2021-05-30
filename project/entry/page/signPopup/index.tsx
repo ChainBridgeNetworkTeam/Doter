@@ -15,6 +15,7 @@ import BottomBtn from '@widgets/bottomBtn';
 import type { SignerPayloadJSON } from '@polkadot/types/types';
 import s from '../authPopup/index.scss';
 import styles from './index.scss';
+import { retrieveWindow } from '@utils/tools';
 import { approveSignPassword, cancelSignRequest } from '@utils/message/message';
 import { Input, Spin, message } from 'antd';
 
@@ -58,6 +59,7 @@ const Auth:FC = function() {
                     message.error('Signature failed')
                 }
             }).finally(() => {
+                retrieveWindow();
                 setState({
                     showLoading: false
                 })
@@ -76,7 +78,9 @@ const Auth:FC = function() {
             .catch((error: Error) => {
                     console.error(error.toString())
                 }
-            )
+            ).finally(() => {
+                retrieveWindow();
+            })
         },
         [GlobalStore.signReqList]
     );

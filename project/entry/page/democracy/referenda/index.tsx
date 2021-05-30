@@ -40,6 +40,7 @@ const Referenda:FC = function() {
     }
 
     function vote(action: 'support' | 'reject', index: number) {
+        democrcacyStore.resetStore();
         runInAction(() => {
             democrcacyStore.action = action;
         })

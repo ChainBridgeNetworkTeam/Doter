@@ -23,7 +23,6 @@ import { dotStrToTransferAmount } from '@utils/tools';
 import { PAGE_NAME } from '@constants/app';
 
 interface checkStatus {
-    fee?: string;
     passWord?: string;
     errPass?: boolean
 }
@@ -59,19 +58,6 @@ const Entry:FC = function() {
             }
         });
     }
-
-    useEffect(() => {
-        async function computedFee() {
-            //  实时计算投票费用
-            try {
-                const voteAction = getVoteAction();
-                const { partialFee } = await voteAction.paymentInfo(currentAccount.address);
-                setState({ fee: parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '' })
-            } catch {
-            }
-        }
-        computedFee();
-    }, []);
 
     function changePass(e: React.ChangeEvent<HTMLInputElement>) {
         setState({ passWord: e.target.value })
@@ -121,11 +107,11 @@ const Entry:FC = function() {
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap('total')}</div>
-                    <div className={s.cContent}>{parseFloat(voteDot) * voteRatio} polls ({voteDot}×{voteRatio})</div>
+                    <div className={s.cContent}>{parseFloat(voteDot) * 10 *  voteRatio / 10} polls ({voteDot}×{voteRatio})</div>
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap("Miner's fee")}</div>
-                    <div className={s.cContent}>{stateObj.fee} DOT</div>
+                    <div className={s.cContent}>{democrcacyStore.minerFee} DOT</div>
                 </div>
                 <div className={s.title}>{lanWrap('Password confirmation')}</div>
                 <Input.Password

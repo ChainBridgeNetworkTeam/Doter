@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-16 13:14:23
+ * @LastEditTime: 2021-05-29 20:18:03
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -55,6 +55,7 @@ const Transfer:FC = function() {
         status: TRANSFER_STEP.ONE,
         transferAmount: '0',
         targetAdd: '',
+        partialFee: '',
         buttonActive: false,
         errMsg: '',
         secret: '' } as transferStateObj
@@ -65,13 +66,13 @@ const Transfer:FC = function() {
     const isStepOne = useMemo(() => stateObj.status === TRANSFER_STEP.ONE, [stateObj.status]);
     //  判断摁钮是否可点击
     const buttonIsAcctive = useMemo(() => {
-        const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret } = stateObj;
+        const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret, partialFee } = stateObj;
         if (isStepOne) {
-            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0')
+            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0' && partialFee !== '' && partialFee !== '0')
         } else {
             return !!secret
         }
-    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret])
+    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret, stateObj.partialFee])
     const aferIcon = (
         <div className={s.icon}/>
     )
@@ -86,6 +87,7 @@ const Transfer:FC = function() {
                 }
                 const transfer = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount))
                 const { partialFee } = await transfer.paymentInfo(currentAccount.address);
+                console.log(partialFee.toHuman(), parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '');
                 setState({
                     partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + ''
                 })
@@ -147,10 +149,14 @@ const Transfer:FC = function() {
         const { secret, targetAdd, transferAmount } = stateObj;
         if (buttonIsAcctive) {
             if (isStepOne) {
+                //  强判断是否超过余额
+                if (parseFloat(stateObj.transferAmount) > (parseFloat(ableBalance) - parseFloat(stateObj.partialFee))) {
+                    return message.error(t('widgets:your credit is running low'));
+                }
                 setState({
                     status: TRANSFER_STEP.TWO,
                     errMsg: ''
-                })  
+                })
             } else {
                 let sendPair = keyring.createFromJson(currentAccount);
                 try {
@@ -211,7 +217,7 @@ const Transfer:FC = function() {
             </AutoComplete>
             <div className={s.addressError}>{stateObj.addressErrMsg}</div>
             <div className={cx(s.formTitle, s.mid)}>{lanWrap('amount of money')} <span className={s.tAmount}>{parseFloat(ableBalance).toFixed(4)} DOT {lanWrap('available')}</span></div>
-            <DotInput changeInputFn={inputAmount} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
+            <DotInput changeInputFn={inputAmount} minerFee={parseFloat(stateObj.partialFee || '0') * 1.1} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
             <div className={s.feeWrap}>
                 <span>{lanWrap('Transfer fee')}</span>
                 <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(5)} DOT</span>

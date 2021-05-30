@@ -64,6 +64,8 @@ class RetrieveStore {
         this.keyStoreJsonStr = '';
         this.keyStoreErrMsg = '';
         this.mnemonicErrMsg = '';
+        this.keyStoreJsonStr = '';
+        this.keyStoreErrMsg = '';
     }
 }
 

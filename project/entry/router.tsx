@@ -37,12 +37,13 @@ import transferRecord from './page/transferRecord'; //  转账记录
 import transferRecordDetail from './page/transferRecord/recordDetail'; //   转账单笔详情
 import Authorize from './page/authPopup'; //    账号注入授权弹窗
 import SignPopup from './page/signPopup'; //    交易签名确认弹窗
+import MetadataPopup from './page/metadataPopup'; //    metadata同步更新弹窗
 import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { subscribeAuthorizeRequests, subscribeSigningRequests } from '@utils/message/message';
+import { subscribeAuthorizeRequests, subscribeSigningRequests, subscribeMetadataRequests } from '@utils/message/message';
 
 function AppRouter() {
     const storeObj = {
@@ -54,6 +55,10 @@ function AppRouter() {
 
     useEffect((): void => {
         Promise.all([
+            //  订阅metadata同步请求，尽管没啥用
+            subscribeMetadataRequests((list) => {
+                GlobalStore.setMetadataList(list);
+            }),
             //  订阅认证请求
             subscribeAuthorizeRequests((list) => {
                 GlobalStore.setAuthList(list);
@@ -66,13 +71,23 @@ function AppRouter() {
       }, []);
 
     const Root = useCallback(() => {
+        //  分两种情况，直接由dapp唤起或者是通过点击右上角唤起，为了保证样式一致，需要一些特殊操作
+        const { signReqList, authReqList, metadataReqList } = GlobalStore;
         if (!document.getElementById('notification')) {
-            return GlobalStore.signReqList.length ? <SignPopup /> : <Home />;
-        } else {
-            if (GlobalStore.authReqList.length) {
-                return <Authorize />;
+            if (signReqList.length || metadataReqList.length) {
+                const target = document.getElementsByTagName('html')[0];
+                target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
+                return signReqList.length ? <SignPopup /> : <MetadataPopup />;
             } else {
+                return <Home />
+            }
+        } else {
+            if (authReqList.length) {
+                return <Authorize />;
+            } else if (signReqList.length) {
                 return <SignPopup />
+            } else {
+                return <MetadataPopup />
             }
         }
     }, [GlobalStore.authReqList, GlobalStore.signReqList])
