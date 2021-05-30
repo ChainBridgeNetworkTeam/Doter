@@ -2,16 +2,15 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-05-29 20:43:28
+ * @LastEditTime: 2021-05-30 14:54:26
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import keyring from '@polkadot/ui-keyring';
 import { keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
-import { ADDRESS_ARRAY } from '@constants/chrome';
+import { LOCAL_CONFIG } from '@constants/chrome';
 import { getStorage, setStorage } from '@utils/chrome';
-import { globalStoreType } from '@entry/store';
 import { useTranslation } from 'react-i18next';
 import type { CreateResult } from '@polkadot/ui-keyring/types';
 import { runInAction } from 'mobx';
@@ -23,6 +22,7 @@ import { useMemo } from 'react';
 import i18n from 'i18next';
 import { decodeAddress, encodeAddress } from '@polkadot/util-crypto';
 import { BN_ONE, extractTime } from '@polkadot/util';
+import { LOCAL_LANGUAGE } from '@constants/app';
 
 type Result = [number, string, Time];
 
@@ -189,6 +189,21 @@ export function getBlockTime(blocks = BN_ONE) {
       .slice(0, 2)
       .join(' ');
     return timeStr
+}
+
+export function updateLanguage(lan: 'english' | 'chinese') {
+    const targetLan = lan === 'english' ? 'en' : 'zh';
+    window.localStorage.setItem(LOCAL_LANGUAGE, targetLan);
+    i18n.changeLanguage(targetLan);
+    runInAction(() => {
+        globalStore.localConfig.language = lan;
+    })
+    setStorage({
+        [LOCAL_CONFIG]: {
+            ...globalStore.localConfig,
+            language: lan
+        }
+    })
 }
 
 /**

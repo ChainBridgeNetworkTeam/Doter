@@ -90,7 +90,7 @@ function AppRouter() {
                 return <MetadataPopup />
             }
         }
-    }, [GlobalStore.authReqList, GlobalStore.signReqList])
+    }, [GlobalStore.authReqList, GlobalStore.signReqList, GlobalStore.metadataReqList])
 
     return <MobXProviderContext.Provider value={storeObj}>
         {/* 用这个元素来收集依赖 */}
