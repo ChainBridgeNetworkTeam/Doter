@@ -107,7 +107,6 @@ class AppStore {
     //@observable
     accountObj: Record<string, KeyringPair$Json> = {} as Record<string, KeyringPair$Json>;
     //  当前账户余额
-    //@observable
     balance: number | string | BN | BigInt = 0;
     //  可用余额
     //@observable
