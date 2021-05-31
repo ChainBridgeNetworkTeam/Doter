@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-30 19:46:35
- * @LastEditTime: 2021-05-30 20:31:20
+ * @LastEditTime: 2021-05-31 07:49:01
  */
 
 import Injected from '@polkadot/extension-base/page/Injected';
@@ -37,7 +37,7 @@ export function sendMessage<TMessageType extends MessageTypesWithSubscriptions>(
 
 export function sendMessage<TMessageType extends MessageTypes> (message: TMessageType, request?: RequestTypes[TMessageType], subscriber?: (data: unknown) => void): Promise<ResponseTypes[TMessageType]> {
   return new Promise((resolve, reject): void => {
-    const id = `${Date.now()}.${++idCounter}`;
+    const id = `${Date.now()}.${++idCounter}.d`;
 
     handlers[id] = { reject, resolve, subscriber };
     console.log(handlers, 'handles');
@@ -61,6 +61,11 @@ export async function enable (origin: string): Promise<Injected> {
   return new Injected(sendMessage);
 }
 
+export async function redirectIfPhishing() {
+  const res = await sendMessage('pub(phishing.redirectIfDenied)');
+  return res;
+}
+
 export function handleResponse<TMessageType extends MessageTypes> (data: TransportResponseMessage<TMessageType> & { subscription?: string }): void {
     const handler = handlers[data.id];
     console.log(data, handlers)
@@ -80,6 +85,7 @@ export function handleResponse<TMessageType extends MessageTypes> (data: Transpo
     } else if (data.error) {
       handler.reject(new Error(data.error));
     } else {
+      console.log('resolve', data);
       handler.resolve(data.response);
     }
   }
