@@ -104,7 +104,6 @@ class AppStore {
     //  当前地址
     favoriteAccount: string = '';
     //  账号映射
-    //@observable
     accountObj: Record<string, KeyringPair$Json> = {} as Record<string, KeyringPair$Json>;
     //  当前账户余额
     balance: number | string | BN | BigInt = 0;
