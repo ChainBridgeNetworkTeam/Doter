@@ -108,7 +108,6 @@ class AppStore {
     //  当前账户余额
     balance: number | string | BN | BigInt = 0;
     //  可用余额
-    //@observable
     ableBalance: string;
     //  锁定余额
     //@observable
