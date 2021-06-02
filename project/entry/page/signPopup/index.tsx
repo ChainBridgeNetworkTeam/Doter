@@ -50,7 +50,8 @@ const Auth:FC = function() {
           })
           return approveSignPassword(signId, false, stateObj.secret)
             .then((): void => {
-                console.log('transfer succes!')
+                console.log('transfer succes!');
+                retrieveWindow();
             })
             .catch((error: Error): void => {
                 if (error.toString().includes('supplied passphrase')) {
@@ -59,7 +60,6 @@ const Auth:FC = function() {
                     message.error('Signature failed')
                 }
             }).finally(() => {
-                retrieveWindow();
                 setState({
                     showLoading: false
                 })

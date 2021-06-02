@@ -7,6 +7,7 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { MobXProviderContext, Provider, observer } from 'mobx-react';
+import { toJS } from 'mobx';
 import Home from './page/home';
 import GlobalStore from './store';
 import CreateAccount from './page/createAccount'; //    创建账号
@@ -73,6 +74,7 @@ function AppRouter() {
     const Root = useCallback(() => {
         //  分两种情况，直接由dapp唤起或者是通过点击右上角唤起，为了保证样式一致，需要一些特殊操作
         const { signReqList, authReqList, metadataReqList } = GlobalStore;
+        console.log(toJS(signReqList), toJS(authReqList), toJS(metadataReqList), 'xxxx');
         if (!document.getElementById('notification')) {
             if (signReqList.length || metadataReqList.length) {
                 const target = document.getElementsByTagName('html')[0];

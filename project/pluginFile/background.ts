@@ -2,14 +2,15 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-15 14:28:44
+ * @LastEditTime: 2021-06-02 00:10:40
  */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 // Runs in the extension background, handling all keyring access
 
-import handlers from '@polkadot/extension-base/background/handlers';
+//  import handlers from '@polkadot/extension-base/background/handlers';
+import handlers from '@utils/bgHandlers';
 import { PORT_CONTENT, PORT_EXTENSION } from '@polkadot/extension-base/defaults';
 import { AccountsStore } from '@polkadot/extension-base/stores';
 import chrome from '@polkadot/extension-inject/chrome';
@@ -24,10 +25,14 @@ chrome.browserAction.setBadgeBackgroundColor({ color: '#d90000' });
 chrome.runtime.onConnect.addListener((port): void => {
   // shouldn't happen, however... only listen to what we know about
   assert([PORT_CONTENT, PORT_EXTENSION].includes(port.name), `Unknown connection from ${port.name}`);
-
+  console.log('bg add listener');
   // message and disconnect handlers
   port.onMessage.addListener((data): void => {
-    handlers(data, port)
+    if (data.id.includes('d')) {
+      handlers(data, port)
+    }
+    console.log(data, 'bg get');
+    //handlers(data, port)
   });
   port.onDisconnect.addListener((): void => console.log(`Disconnected from ${port.name}`));
 });
