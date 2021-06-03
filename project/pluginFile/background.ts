@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-06-02 00:10:40
+ * @LastEditTime: 2021-06-02 23:45:26
  */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
@@ -25,19 +25,15 @@ chrome.browserAction.setBadgeBackgroundColor({ color: '#d90000' });
 chrome.runtime.onConnect.addListener((port): void => {
   // shouldn't happen, however... only listen to what we know about
   assert([PORT_CONTENT, PORT_EXTENSION].includes(port.name), `Unknown connection from ${port.name}`);
-  console.log('bg add listener');
   // message and disconnect handlers
   port.onMessage.addListener((data): void => {
     if (data.id.includes('d')) {
       handlers(data, port)
     }
-    console.log(data, 'bg get');
-    //handlers(data, port)
   });
   port.onDisconnect.addListener((): void => console.log(`Disconnected from ${port.name}`));
 });
 
-console.log('bg start');
 // initial setup
 cryptoWaitReady()
   .then((): void => {

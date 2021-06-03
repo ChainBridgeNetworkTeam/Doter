@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-30 19:46:35
- * @LastEditTime: 2021-06-01 23:51:44
+ * @LastEditTime: 2021-06-02 23:44:15
  */
 
 import Injected from '@polkadot/extension-base/page/Injected';
@@ -40,7 +40,6 @@ export function sendMessage<TMessageType extends MessageTypes> (message: TMessag
     const id = `${Date.now()}.${++idCounter}.d`;
 
     handlers[id] = { reject, resolve, subscriber };
-    console.log(message, handlers, 'handles');
 
     const transportRequestMessage: TransportRequestMessage<TMessageType> = {
       id,
@@ -68,7 +67,6 @@ export async function redirectIfPhishing() {
 
 export function handleResponse<TMessageType extends MessageTypes> (data: TransportResponseMessage<TMessageType> & { subscription?: string }): void {
     const handler = handlers[data.id];
-    console.log(data, handlers, 'inject ans');
     if (!handler) {
       console.error(`Unknown response: ${JSON.stringify(data)}`);
   
@@ -85,7 +83,6 @@ export function handleResponse<TMessageType extends MessageTypes> (data: Transpo
     } else if (data.error) {
       handler.reject(new Error(data.error));
     } else {
-      console.log('resolve', data);
       handler.resolve(data.response);
     }
   }

@@ -42,6 +42,7 @@ import MetadataPopup from './page/metadataPopup'; //    metadata同步更新弹�
 import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
+import { retrieveWindow, setWindowForPop } from '@utils/tools';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { subscribeAuthorizeRequests, subscribeSigningRequests, subscribeMetadataRequests } from '@utils/message/message';
@@ -77,13 +78,24 @@ function AppRouter() {
         console.log(toJS(signReqList), toJS(authReqList), toJS(metadataReqList), 'xxxx');
         if (!document.getElementById('notification')) {
             if (signReqList.length || metadataReqList.length) {
-                const target = document.getElementsByTagName('html')[0];
-                target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
+                setWindowForPop();
                 return signReqList.length ? <SignPopup /> : <MetadataPopup />;
             } else {
+                //  Ubuntu好像要样式重整下才生效
+                if (navigator.platform.includes('Linux')) {
+                    setTimeout(() => {
+                        retrieveWindow();
+                    }, 200)
+                }
                 return <Home />
             }
         } else {
+            //  Ubuntu好像要样式重整下才生效
+            if (navigator.platform.includes('Linux')) {
+                setTimeout(() => {
+                    setWindowForPop();
+                }, 200)
+            }
             if (authReqList.length) {
                 return <Authorize />;
             } else if (signReqList.length) {

@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-05-30 14:54:26
+ * @LastEditTime: 2021-06-02 23:34:46
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS } from '@constants/chain';
@@ -153,7 +153,7 @@ export function useBlockTime (blocks = BN_ONE): Result {
     //     DEFAULT_TIME
     //   );
       const blockTime = DEFAULT_TIME;
-      const time = extractTime(blockTime.mul(blocks).toNumber());
+      const time = extractTime(blockTime.mul(blocks as any).toNumber());
       const { days, hours, minutes, seconds } = time;
       const timeStr = [
         days ? (days > 1) ? t<string>('{{days}} days', { replace: { days } }) : t<string>('1 day') : null,
@@ -177,7 +177,7 @@ export function useBlockTime (blocks = BN_ONE): Result {
 
 export function getBlockTime(blocks = BN_ONE) {
     const blockTime = DEFAULT_TIME;
-    const time = extractTime(blockTime.mul(blocks).toNumber());
+    const time = extractTime(blockTime.mul(blocks as any).toNumber());
     const { days, hours, minutes, seconds } = time;
     const timeStr = [
       days ? (days > 1) ? `${days} days` : '1 day' : null, 
@@ -215,5 +215,16 @@ export function updateLanguage(lan: 'english' | 'chinese') {
 export function retrieveWindow () {
     const target = document.getElementsByTagName('html')[0];
     target.style.cssText = 'width: 375px; height: 600px; font-size: 26.66667vw; overflow-x: hidden;'
+}
+
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * 
+ * 为了给page唤起的宽弹窗处理
+ */
+export function setWindowForPop () {
+    const target = document.getElementsByTagName('html')[0];
+    target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
 }
 
