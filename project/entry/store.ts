@@ -110,7 +110,6 @@ class AppStore {
     //  可用余额
     ableBalance: string;
     //  锁定余额
-    //@observable
     lockBalance: string;
     //  转账账户列表
     //@observable
