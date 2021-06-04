@@ -80,9 +80,9 @@ export async function tieAccount (address: string, genesisHash: string | null): 
   return sendMessage('pri(accounts.tie)', { address, genesisHash });
 }
 
-export async function exportAccount (address: string, password: string): Promise<{ exportedJson: string }> {
-  return sendMessage('pri(accounts.export)', { address, password });
-}
+// export async function exportAccount (address: string, password: string): Promise<{ exportedJson: string }> {
+//   return sendMessage('pri(accounts.export)', { address, password });
+// }
 
 // export async function exportAccounts (addresses: string[], password: string): Promise<{ exportedJson: string }> {
 //   return sendMessage('pri(accounts.batchExport)', { addresses, password });

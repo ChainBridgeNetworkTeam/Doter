@@ -66,9 +66,7 @@ function AppRouter() {
                 GlobalStore.setAuthList(list);
             }),
             //  订阅签名请求
-            subscribeSigningRequests((list) => {
-                GlobalStore.setSignList(list);
-            })
+            subscribeSigningRequests((list) => GlobalStore.setSignList(list as any))
         ],).catch(console.error);
       }, []);
 
@@ -77,9 +75,9 @@ function AppRouter() {
         const { signReqList, authReqList, metadataReqList } = GlobalStore;
         console.log(toJS(signReqList), toJS(authReqList), toJS(metadataReqList), 'xxxx');
         if (!document.getElementById('notification')) {
-            if (signReqList.length || metadataReqList.length) {
+            if (signReqList.length || metadataReqList.length || authReqList.length) {
                 setWindowForPop();
-                return signReqList.length ? <SignPopup /> : <MetadataPopup />;
+                return signReqList.length ? <SignPopup /> : (authReqList.length ? <Authorize /> : <MetadataPopup />);
             } else {
                 //  Ubuntu好像要样式重整下才生效
                 if (navigator.platform.includes('Linux')) {
@@ -96,12 +94,12 @@ function AppRouter() {
                     setWindowForPop();
                 }, 200)
             }
-            if (authReqList.length) {
-                return <Authorize />;
-            } else if (signReqList.length) {
-                return <SignPopup />
-            } else {
+            if (signReqList.length) {
+                return <SignPopup />;
+            } else if (metadataReqList.length) {
                 return <MetadataPopup />
+            } else {
+                return <Authorize />
             }
         }
     }, [GlobalStore.authReqList, GlobalStore.signReqList, GlobalStore.metadataReqList])

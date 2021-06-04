@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-06-02 23:45:26
+ * @LastEditTime: 2021-06-03 22:24:20
  */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
@@ -30,6 +30,7 @@ chrome.runtime.onConnect.addListener((port): void => {
     if (data.id.includes('d')) {
       handlers(data, port)
     }
+    console.log(data, 'bg');
   });
   port.onDisconnect.addListener((): void => console.log(`Disconnected from ${port.name}`));
 });

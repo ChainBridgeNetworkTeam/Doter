@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-06-01 23:47:38
+ * @LastEditTime: 2021-06-04 08:23:08
  */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
@@ -24,7 +24,9 @@ window.addEventListener('message', ({ data, source }: Message & { data: { isDote
 
   if (data.id) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    data.id.includes('d') && data.isDoter &&  handleResponse(data as any);
+    if (data.id.includes('d') && data.isDoter) {
+      handleResponse(data as any);
+    }
   } else {
     console.error('Missing id for response.');
   }
