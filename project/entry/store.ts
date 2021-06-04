@@ -112,7 +112,6 @@ class AppStore {
     //  锁定余额
     lockBalance: string;
     //  转账账户列表
-    //@observable
     recipientArr: Array<recipientObj> = [];
     //  本地配置对象
     //@observable
