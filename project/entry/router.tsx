@@ -73,27 +73,20 @@ function AppRouter() {
     const Root = useCallback(() => {
         //  分两种情况，直接由dapp唤起或者是通过点击右上角唤起，为了保证样式一致，需要一些特殊操作
         const { signReqList, authReqList, metadataReqList } = GlobalStore;
-        console.log(toJS(signReqList), toJS(authReqList), toJS(metadataReqList), 'xxxx');
         if (!document.getElementById('notification')) {
             if (signReqList.length || metadataReqList.length || authReqList.length) {
                 setWindowForPop();
                 return signReqList.length ? <SignPopup /> : (authReqList.length ? <Authorize /> : <MetadataPopup />);
             } else {
-                //  Ubuntu好像要样式重整下才生效
-                if (navigator.platform.includes('Linux')) {
-                    setTimeout(() => {
-                        retrieveWindow();
-                    }, 200)
-                }
+                setTimeout(() => {
+                    retrieveWindow();
+                }, 200)
                 return <Home />
             }
         } else {
-            //  Ubuntu好像要样式重整下才生效
-            if (navigator.platform.includes('Linux')) {
-                setTimeout(() => {
-                    setWindowForPop();
-                }, 200)
-            }
+            setTimeout(() => {
+                setWindowForPop();
+            }, 200)
             if (signReqList.length) {
                 return <SignPopup />;
             } else if (metadataReqList.length) {

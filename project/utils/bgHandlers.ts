@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-06-01 22:38:54
- * @LastEditTime: 2021-06-02 23:44:30
+ * @LastEditTime: 2021-06-05 09:56:26
  */
 // Copyright 2019-2021 @polkadot/extension authors & contributors
 // SPDX-License-Identifier: Apache-2.0
@@ -40,7 +40,6 @@ export default function handler<TMessageType extends MessageTypes> ({ id, messag
       // between the start and the end of the promise, the user may have closed
       // the tab, in which case port will be undefined
       assert(port, 'Port has been disconnected');
-
       port.postMessage({ id, response, isDoter: true });
     })
     .catch((error: Error): void => {
