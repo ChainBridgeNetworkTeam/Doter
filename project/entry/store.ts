@@ -114,7 +114,6 @@ class AppStore {
     //  转账账户列表
     recipientArr: Array<recipientObj> = [];
     //  本地配置对象
-    //@observable
     localConfig: loaclConfigType = {} ;
     //  1Dot兑美元汇率
     dotToDollar: string = '0';
