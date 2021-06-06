@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-29 20:18:03
+ * @LastEditTime: 2021-06-05 20:40:50
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -20,8 +20,9 @@ import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
 import { useHistory } from 'react-router-dom';
 import { message } from 'antd';
+import { PAGE_NAME } from '@constants/app';
 
-import { Input, AutoComplete } from 'antd';
+import { Input, AutoComplete, Spin } from 'antd';
 
 const  TRANSFER_STEP = {
     ONE: 0,
@@ -38,6 +39,7 @@ interface transferStateObj {
     buttonActive?: boolean,
     errMsg?: string,
     partialFee?: string;
+    isLoading?: boolean;
 }
 const Transfer:FC = function() {
     let { t } = useTranslation();
@@ -57,6 +59,7 @@ const Transfer:FC = function() {
         targetAdd: '',
         partialFee: '',
         buttonActive: false,
+        isLoading: false,
         errMsg: '',
         secret: '' } as transferStateObj
     );
@@ -158,23 +161,33 @@ const Transfer:FC = function() {
                     errMsg: ''
                 })
             } else {
+                setState({
+                    isLoading: true
+                })
                 let sendPair = keyring.createFromJson(currentAccount);
                 try {
                     sendPair.decodePkcs8(secret)
                 } catch(e) {
                     console.log(e);
-                    setState({ errMsg: lanWrap('Wrong password') })
+                    setState({ errMsg: lanWrap('Wrong password'), isLoading: false });
                     return;
                 }
                 try {
                     const tx = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount));
                     const hash = await tx.signAndSend(sendPair);
-                    message.info(lanWrap('success'))
+                    message.info(lanWrap('success')).then(() => {
+                        history.push(PAGE_NAME.HOME);
+                    });
                 } catch (e) {
                     if (e.toString().includes('Invalid Transaction: Inability to pay some fees')) {
                         setState({ errMsg: lanWrap('The balance is too low')})
                     }
+                    message.error(e.toString());
                     console.log(e)
+                } finally {
+                    setState({
+                        isLoading: false
+                    })
                 }
             }
         }
@@ -264,7 +277,9 @@ const Transfer:FC = function() {
         <div className={s.wrap}>
             <HeadBar selfBack={createPageBack} word={lanWrap('Transfer')}/>
             {isStepOne ? renderStepOne() : isStepTwo()}
-            <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
+            <Spin spinning={stateObj.isLoading}>
+                <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
+            </Spin>
         </div>
     )
 }

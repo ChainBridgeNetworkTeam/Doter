@@ -78,15 +78,11 @@ function AppRouter() {
                 setWindowForPop();
                 return signReqList.length ? <SignPopup /> : (authReqList.length ? <Authorize /> : <MetadataPopup />);
             } else {
-                setTimeout(() => {
-                    retrieveWindow();
-                }, 200)
+                retrieveWindow();
                 return <Home />
             }
         } else {
-            setTimeout(() => {
-                setWindowForPop();
-            }, 200)
+            setWindowForPop();
             if (signReqList.length) {
                 return <SignPopup />;
             } else if (metadataReqList.length) {
