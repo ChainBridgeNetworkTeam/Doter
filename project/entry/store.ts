@@ -118,7 +118,7 @@ class AppStore {
     //  1Dot兑美元汇率
     dotToDollar: string = '0';
 
-    // 认证请求列表
+    // 认证请求列表1
     authReqList: Array<AuthorizeRequest> = [];
     //  签名请求列表
     signReqList: Array<SigningRequest> = [];
