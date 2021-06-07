@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-06-05 20:40:50
+ * @LastEditTime: 2021-06-07 00:11:22
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -19,7 +19,8 @@ import { dotStrToTransferAmount } from '@utils/tools';
 import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
 import { useHistory } from 'react-router-dom';
-import { message } from 'antd';
+import { message, Modal } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { PAGE_NAME } from '@constants/app';
 
 import { Input, AutoComplete, Spin } from 'antd';
@@ -28,6 +29,8 @@ const  TRANSFER_STEP = {
     ONE: 0,
     TWO: 1
 }
+
+const { confirm } = Modal;
 
 interface transferStateObj {
     addressErrMsg?: string,
@@ -64,7 +67,7 @@ const Transfer:FC = function() {
         secret: '' } as transferStateObj
     );
     const globalStore = useStores('GlobalStore') as globalStoreType;
-    const { balance, currentAccount, api, ableBalance } = globalStore;
+    const { balance, lockBalance, currentAccount, api, ableBalance } = globalStore;
     //  判断当前阶段
     const isStepOne = useMemo(() => stateObj.status === TRANSFER_STEP.ONE, [stateObj.status]);
     //  判断摁钮是否可点击
@@ -148,6 +151,40 @@ const Transfer:FC = function() {
         })
     }
 
+    function balanceCheckPass() {
+        const { transferAmount, partialFee } = stateObj;
+        const afterTxLessOne = (parseFloat(ableBalance) - parseFloat(transferAmount) + parseFloat(lockBalance) - parseFloat(partialFee)) < 1;
+        return new Promise((res, rej) => {
+            if (afterTxLessOne) {
+                if (lockBalance === '0') {
+                    confirm({
+                        title: lanWrap('confirm to transfer'),
+                        className: s.modalWrapper,
+                        icon: <ExclamationCircleOutlined />,
+                        content: lanWrap('wiiBeReaped'),
+                        onOk() {
+                            res(true)
+                        },
+                        onCancel() {
+                            res(false)
+                        }
+                    })
+                } else {
+                    confirm({
+                        icon: <ExclamationCircleOutlined />,
+                        className: s.infoM,
+                        content: lanWrap('hasLocked'),
+                        onOk() {
+                            res(false)
+                        },
+                    })
+                }
+            } else {
+                res(true);
+            }
+        })
+    }
+
     async function buttonClick() {
         const { secret, targetAdd, transferAmount } = stateObj;
         if (buttonIsAcctive) {
@@ -161,6 +198,11 @@ const Transfer:FC = function() {
                     errMsg: ''
                 })
             } else {
+                //  对转账后的剩余金额进行提醒或阻止
+                const checkRes = await balanceCheckPass();
+                if (!checkRes) {
+                    return;
+                }
                 setState({
                     isLoading: true
                 })

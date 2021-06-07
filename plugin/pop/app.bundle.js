@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "70d8b2252fc5bd435a85";
+/******/ 	var hotCurrentHash = "c7414303154cfb24344c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -950,6 +950,644 @@ eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"d
 
 /***/ }),
 
+/***/ "./node_modules/@ant-design/icons/es/components/AntdIcon.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/components/AntdIcon.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(33);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/components/AntdIcon.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/components/Context.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/components/Context.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(516);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/components/Context.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js":
+/*!**********************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************************/
+/*! exports provided: setTwoToneColor, getTwoToneColor */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(963);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/components/twoTonePrimaryColor.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ArrowLeftOutlined.js":
+/*!***************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ArrowLeftOutlined.js from dll-reference vendors_dll ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2271);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ArrowLeftOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js":
+/*!****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js from dll-reference vendors_dll ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2269);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ArrowRightOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/BarsOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/BarsOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2118);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/BarsOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CalendarOutlined.js":
+/*!**************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CalendarOutlined.js from dll-reference vendors_dll ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(853);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CalendarOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CaretDownFilled.js":
+/*!*************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CaretDownFilled.js from dll-reference vendors_dll ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2334);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CaretDownFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js":
+/*!***************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js from dll-reference vendors_dll ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2316);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CaretUpOutlined.js":
+/*!*************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CaretUpOutlined.js from dll-reference vendors_dll ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2314);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CaretUpOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CheckCircleFilled.js":
+/*!***************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CheckCircleFilled.js from dll-reference vendors_dll ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(300);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CheckCircleFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js":
+/*!*****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js from dll-reference vendors_dll ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(518);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CheckCircleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CheckOutlined.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CheckOutlined.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(373);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CheckOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ClockCircleOutlined.js":
+/*!*****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ClockCircleOutlined.js from dll-reference vendors_dll ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(852);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ClockCircleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js":
+/*!***************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js from dll-reference vendors_dll ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(135);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CloseCircleOutlined.js":
+/*!*****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CloseCircleOutlined.js from dll-reference vendors_dll ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(520);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CloseCircleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CloseOutlined.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CloseOutlined.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(144);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CloseOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/CopyOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/CopyOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2350);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/CopyOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/DeleteOutlined.js":
+/*!************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/DeleteOutlined.js from dll-reference vendors_dll ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(872);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/DeleteOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/DoubleLeftOutlined.js":
+/*!****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/DoubleLeftOutlined.js from dll-reference vendors_dll ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2245);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/DoubleLeftOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/DoubleRightOutlined.js":
+/*!*****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/DoubleRightOutlined.js from dll-reference vendors_dll ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2247);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/DoubleRightOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/DownOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/DownOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(251);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/DownOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/DownloadOutlined.js":
+/*!**************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/DownloadOutlined.js from dll-reference vendors_dll ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2370);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/DownloadOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/EditOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/EditOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2348);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/EditOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js":
+/*!**************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js from dll-reference vendors_dll ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(831);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/EllipsisOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/EnterOutlined.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/EnterOutlined.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2353);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/EnterOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js":
+/*!*********************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js from dll-reference vendors_dll ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(301);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleOutlined.js":
+/*!***********************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ExclamationCircleOutlined.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(426);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ExclamationCircleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/EyeInvisibleOutlined.js":
+/*!******************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/EyeInvisibleOutlined.js from dll-reference vendors_dll ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2183);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/EyeInvisibleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/EyeOutlined.js":
+/*!*********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/EyeOutlined.js from dll-reference vendors_dll ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(530);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/EyeOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/FileOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/FileOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(876);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/FileOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/FileTwoTone.js":
+/*!*********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/FileTwoTone.js from dll-reference vendors_dll ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2365);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/FileTwoTone.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/FilterFilled.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/FilterFilled.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2312);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/FilterFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/FolderOpenOutlined.js":
+/*!****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/FolderOpenOutlined.js from dll-reference vendors_dll ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2337);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/FolderOpenOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/FolderOutlined.js":
+/*!************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/FolderOutlined.js from dll-reference vendors_dll ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2339);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/FolderOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/InfoCircleFilled.js":
+/*!**************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/InfoCircleFilled.js from dll-reference vendors_dll ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(826);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/InfoCircleFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js":
+/*!****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js from dll-reference vendors_dll ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(519);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/InfoCircleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/LeftOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/LeftOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(256);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/LeftOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/LoadingOutlined.js":
+/*!*************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/LoadingOutlined.js from dll-reference vendors_dll ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(160);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/LoadingOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/MinusSquareOutlined.js":
+/*!*****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/MinusSquareOutlined.js from dll-reference vendors_dll ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2330);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/MinusSquareOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/PaperClipOutlined.js":
+/*!***************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/PaperClipOutlined.js from dll-reference vendors_dll ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2367);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/PaperClipOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/PictureTwoTone.js":
+/*!************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/PictureTwoTone.js from dll-reference vendors_dll ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2363);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/PictureTwoTone.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/PlusOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/PlusOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2159);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/PlusOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/PlusSquareOutlined.js":
+/*!****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/PlusSquareOutlined.js from dll-reference vendors_dll ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2332);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/PlusSquareOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/QuestionCircleOutlined.js":
+/*!********************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/QuestionCircleOutlined.js from dll-reference vendors_dll ***!
+  \********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2215);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/QuestionCircleOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/RedoOutlined.js":
+/*!**********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/RedoOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2185);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/RedoOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/RightOutlined.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/RightOutlined.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(175);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/RightOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/RotateLeftOutlined.js":
+/*!****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/RotateLeftOutlined.js from dll-reference vendors_dll ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2226);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/RotateLeftOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/RotateRightOutlined.js":
+/*!*****************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/RotateRightOutlined.js from dll-reference vendors_dll ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2228);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/RotateRightOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/SearchOutlined.js":
+/*!************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/SearchOutlined.js from dll-reference vendors_dll ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(517);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/SearchOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/StarFilled.js":
+/*!********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/StarFilled.js from dll-reference vendors_dll ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2282);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/StarFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/SwapRightOutlined.js":
+/*!***************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/SwapRightOutlined.js from dll-reference vendors_dll ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2202);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/SwapRightOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/UpOutlined.js":
+/*!********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/UpOutlined.js from dll-reference vendors_dll ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2239);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/UpOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/VerticalAlignTopOutlined.js":
+/*!**********************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/VerticalAlignTopOutlined.js from dll-reference vendors_dll ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2106);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/VerticalAlignTopOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/WarningFilled.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/WarningFilled.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2284);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/WarningFilled.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ZoomInOutlined.js":
+/*!************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ZoomInOutlined.js from dll-reference vendors_dll ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2230);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ZoomInOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ZoomOutOutlined.js":
+/*!*************************************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/icons/ZoomOutOutlined.js from dll-reference vendors_dll ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(2232);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/icons/ZoomOutOutlined.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/utils.js":
+/*!*********************************************************************************************!*\
+  !*** delegated ./node_modules/@ant-design/icons/es/utils.js from dll-reference vendors_dll ***!
+  \*********************************************************************************************/
+/*! exports provided: warning, isIconDefinition, normalizeAttrs, generate, getSecondaryColor, normalizeTwoToneColors, svgBaseProps, iconStyles, useInsertStyles */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(262);\n\n//# sourceURL=webpack:///delegated_./node_modules/@ant-design/icons/es/utils.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
 /*!********************************************************************************************************!*\
   !*** delegated ./node_modules/@babel/runtime/helpers/classCallCheck.js from dll-reference vendors_dll ***!
@@ -1046,6 +1684,28 @@ eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"d
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(22);\n\n//# sourceURL=webpack:///delegated_./node_modules/@babel/runtime/helpers/esm/inherits.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js":
+/*!***********************************************************************************************************!*\
+  !*** delegated ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js from dll-reference vendors_dll ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(4);\n\n//# sourceURL=webpack:///delegated_./node_modules/@babel/runtime/helpers/esm/objectSpread2.js_from_dll-reference_vendors_dll?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js":
+/*!*********************************************************************************************************************!*\
+  !*** delegated ./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js from dll-reference vendors_dll ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = (__webpack_require__(/*! dll-reference vendors_dll */ \"dll-reference vendors_dll\"))(36);\n\n//# sourceURL=webpack:///delegated_./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js_from_dll-reference_vendors_dll?");
 
 /***/ }),
 
@@ -1562,7 +2222,7 @@ eval("var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ \"./node_modules/css-loader/lib/url/escape.js\");\nexports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".Wu64lVM_KYI6mn8HLXX6e {\\n  background-color: #FAFAFA;\\n  height: 100vh;\\n}\\n\\n.n2QnBg61I_5rf6wN4JaAP {\\n  width: 3.43rem;\\n  margin: 0 auto;\\n}\\n\\n._2Qwhb7qsYW-qZG-fK18rgc {\\n  margin-top: 0.24rem;\\n  font-size: 0.14rem;\\n  color: #555555;\\n}\\n\\n._WGm0lP1GB7b9FZ174oGT {\\n  margin-top: 0.24rem;\\n  margin-bottom: 0.12rem;\\n}\\n\\n._2EwFzhpt5UMq5kYDTHilns {\\n  width: 3.43rem;\\n  height: 0.48rem;\\n  font-size: 0.14rem !important;\\n}\\n\\n._2arPEcqC9JbsE3SAgBd6Cb {\\n  width: 0.18rem;\\n  height: 0.18rem;\\n  background-size: 100% 100%;\\n  background-image: url(\" + escape(__webpack_require__(/*! ./img/addressList.png */ \"./project/entry/page/transfer/img/addressList.png\")) + \");\\n}\\n\\n.ZTrSi7xDHi_6rEpw9-U5n {\\n  display: flex;\\n  justify-content: space-between;\\n  align-items: center;\\n  margin-bottom: 0.12rem;\\n  user-select: none;\\n  margin-top: 0.08rem;\\n}\\n\\n._2FqQDrRCulgNJyo2JknhEK {\\n  color: #AAAAAA;\\n  font-size: 0.14rem;\\n}\\n\\n._3aIKF4YnEwpVHtXGNyNQZP {\\n  margin-top: 0.24rem;\\n  width: 3.43rem;\\n  height: 0.48rem;\\n  color: #555555;\\n  font-size: 0.14rem;\\n  display: flex;\\n  align-items: center;\\n  justify-content: space-between;\\n  padding-left: 0.12rem;\\n  padding-right: 0.12rem;\\n  background-color: #FFFFFF;\\n}\\n\\n._1HJHOWrQFk53kEwyQEBfTC {\\n  color: #AAAAAA;\\n}\\n\\n.tM7F_iRi62JDam4itgd87 {\\n  color: #AAAAAA;\\n  font-size: 0.14rem;\\n}\\n\\n._3pYU63D0Z4Kr_2XVKA82gG {\\n  color: #0273A4;\\n  font-size: 0.1rem;\\n  height: 0.14rem;\\n  margin-top: 0.12rem;\\n}\\n\\n._1_KHZ2_AWTg-fq4YMw2Iw8 {\\n  position: fixed;\\n  bottom: 0.28rem;\\n  width: 3.4rem;\\n  height: 0.48rem;\\n  left: 0.18rem;\\n  text-align: center;\\n  font-size: 0.14rem;\\n  color: #ffffff;\\n  line-height: 0.48rem;\\n  border-radius: 0.02rem;\\n  background-color: #358FB6;\\n}\\n\\n._3tjgzYT0MtZUWnA3qFl6Pe {\\n  height: 0.48rem;\\n  display: flex;\\n  background-color: #ffffff;\\n  justify-content: space-between;\\n  align-items: center;\\n  color: #AAAAAA;\\n  font-size: 0.14rem;\\n  padding-left: 0.12rem;\\n  padding-right: 0.12rem;\\n  margin-bottom: 0.01rem;\\n}\\n\\n._2IQ_rkghTnx1JQEojP7uiv {\\n  height: 0.36rem;\\n  width: 2.35rem;\\n  color: #333333;\\n  word-break: break-all;\\n  text-align: left;\\n  line-height: 0.36rem;\\n}\\n\\n.JJqJBKUPBFFDTKmfong_O {\\n  line-height: normal;\\n}\\n\\n._2n0K04Q0A8p_EuFxmLKaEa {\\n  background-color: #C7E3F0;\\n}\\n\\n._28N9V7T6V-HS2FT8TzV97m .ant-input {\\n  background-color: #ffffff !important;\\n  font-size: 0.14rem;\\n  color: #555555 !important;\\n  user-select: none;\\n  height: 0.48rem;\\n}\\n\\n.G0b1J_5P6fucYaG3-yCSE .ant-input {\\n  height: 0.48rem;\\n  border: 0.01rem solid #FFFFFF;\\n}\\n.G0b1J_5P6fucYaG3-yCSE .ant-input-group-addon {\\n  border: 0.01rem solid #FFFFFF;\\n  background-color: #FFFFFF;\\n}\\n\\n._3eyW77S4bxxk8QNsdZEXAb {\\n  color: red !important;\\n  border: 0.01rem solid #FFFFFF !important;\\n}\\n._3eyW77S4bxxk8QNsdZEXAb .ant-input {\\n  font-size: 0.14rem !important;\\n  border: none;\\n  height: 0.45rem;\\n  position: relative;\\n  top: -0.05rem;\\n  height: 0.48rem;\\n}\\n\\n._3NUjF8FGp8Vr3t-REEgFHw {\\n  display: flex;\\n  justify-content: flex-start;\\n  align-items: center;\\n  background-color: #FFFFFF;\\n}\\n\\n._2YUdr0e-3GpyTanMjYeeZr {\\n  width: 3.2rem !important;\\n}\\n\\n._1_pE7GFCIcdnU0tMeK6Y4S {\\n  cursor: pointer;\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"wrap\": \"Wu64lVM_KYI6mn8HLXX6e\",\n\t\"contentWrap\": \"n2QnBg61I_5rf6wN4JaAP\",\n\t\"formTitle\": \"_2Qwhb7qsYW-qZG-fK18rgc\",\n\t\"topT\": \"_WGm0lP1GB7b9FZ174oGT\",\n\t\"input\": \"_2EwFzhpt5UMq5kYDTHilns\",\n\t\"icon\": \"_2arPEcqC9JbsE3SAgBd6Cb\",\n\t\"mid\": \"ZTrSi7xDHi_6rEpw9-U5n\",\n\t\"tAmount\": \"_2FqQDrRCulgNJyo2JknhEK\",\n\t\"feeWrap\": \"_3aIKF4YnEwpVHtXGNyNQZP\",\n\t\"feeStl\": \"_1HJHOWrQFk53kEwyQEBfTC\",\n\t\"fee\": \"tM7F_iRi62JDam4itgd87\",\n\t\"addressError\": \"_3pYU63D0Z4Kr_2XVKA82gG\",\n\t\"button\": \"_1_KHZ2_AWTg-fq4YMw2Iw8\",\n\t\"sTd\": \"_3tjgzYT0MtZUWnA3qFl6Pe\",\n\t\"tContent\": \"_2IQ_rkghTnx1JQEojP7uiv\",\n\t\"tCAdd\": \"JJqJBKUPBFFDTKmfong_O\",\n\t\"shadowBtn\": \"_2n0K04Q0A8p_EuFxmLKaEa\",\n\t\"feeInput\": \"_28N9V7T6V-HS2FT8TzV97m\",\n\t\"tInput\": \"G0b1J_5P6fucYaG3-yCSE\",\n\t\"sInput\": \"_3eyW77S4bxxk8QNsdZEXAb\",\n\t\"texWrap\": \"_3NUjF8FGp8Vr3t-REEgFHw\",\n\t\"textArea\": \"_2YUdr0e-3GpyTanMjYeeZr\",\n\t\"canClick\": \"_1_pE7GFCIcdnU0tMeK6Y4S\"\n};\n\n//# sourceURL=webpack:///./project/entry/page/transfer/index.scss?./node_modules/css-loader??ref--5-1!./node_modules/sass-loader/dist/cjs.js");
+eval("var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ \"./node_modules/css-loader/lib/url/escape.js\");\nexports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \".Wu64lVM_KYI6mn8HLXX6e {\\n  background-color: #FAFAFA;\\n  height: 100vh;\\n}\\n\\n.n2QnBg61I_5rf6wN4JaAP {\\n  width: 3.43rem;\\n  margin: 0 auto;\\n}\\n\\n._2Qwhb7qsYW-qZG-fK18rgc {\\n  margin-top: 0.24rem;\\n  font-size: 0.14rem;\\n  color: #555555;\\n}\\n\\n._WGm0lP1GB7b9FZ174oGT {\\n  margin-top: 0.24rem;\\n  margin-bottom: 0.12rem;\\n}\\n\\n._2EwFzhpt5UMq5kYDTHilns {\\n  width: 3.43rem;\\n  height: 0.48rem;\\n  font-size: 0.14rem !important;\\n}\\n\\n._2arPEcqC9JbsE3SAgBd6Cb {\\n  width: 0.18rem;\\n  height: 0.18rem;\\n  background-size: 100% 100%;\\n  background-image: url(\" + escape(__webpack_require__(/*! ./img/addressList.png */ \"./project/entry/page/transfer/img/addressList.png\")) + \");\\n}\\n\\n.ZTrSi7xDHi_6rEpw9-U5n {\\n  display: flex;\\n  justify-content: space-between;\\n  align-items: center;\\n  margin-bottom: 0.12rem;\\n  user-select: none;\\n  margin-top: 0.08rem;\\n}\\n\\n._2FqQDrRCulgNJyo2JknhEK {\\n  color: #AAAAAA;\\n  font-size: 0.14rem;\\n}\\n\\n._3aIKF4YnEwpVHtXGNyNQZP {\\n  margin-top: 0.24rem;\\n  width: 3.43rem;\\n  height: 0.48rem;\\n  color: #555555;\\n  font-size: 0.14rem;\\n  display: flex;\\n  align-items: center;\\n  justify-content: space-between;\\n  padding-left: 0.12rem;\\n  padding-right: 0.12rem;\\n  background-color: #FFFFFF;\\n}\\n\\n._1HJHOWrQFk53kEwyQEBfTC {\\n  color: #AAAAAA;\\n}\\n\\n.tM7F_iRi62JDam4itgd87 {\\n  color: #AAAAAA;\\n  font-size: 0.14rem;\\n}\\n\\n._3pYU63D0Z4Kr_2XVKA82gG {\\n  color: #0273A4;\\n  font-size: 0.1rem;\\n  height: 0.14rem;\\n  margin-top: 0.12rem;\\n}\\n\\n._1_KHZ2_AWTg-fq4YMw2Iw8 {\\n  position: fixed;\\n  bottom: 0.28rem;\\n  width: 3.4rem;\\n  height: 0.48rem;\\n  left: 0.18rem;\\n  text-align: center;\\n  font-size: 0.14rem;\\n  color: #ffffff;\\n  line-height: 0.48rem;\\n  border-radius: 0.02rem;\\n  background-color: #358FB6;\\n}\\n\\n._3tjgzYT0MtZUWnA3qFl6Pe {\\n  height: 0.48rem;\\n  display: flex;\\n  background-color: #ffffff;\\n  justify-content: space-between;\\n  align-items: center;\\n  color: #AAAAAA;\\n  font-size: 0.14rem;\\n  padding-left: 0.12rem;\\n  padding-right: 0.12rem;\\n  margin-bottom: 0.01rem;\\n}\\n\\n._2IQ_rkghTnx1JQEojP7uiv {\\n  height: 0.36rem;\\n  width: 2.35rem;\\n  color: #333333;\\n  word-break: break-all;\\n  text-align: left;\\n  line-height: 0.36rem;\\n}\\n\\n.JJqJBKUPBFFDTKmfong_O {\\n  line-height: normal;\\n}\\n\\n._2n0K04Q0A8p_EuFxmLKaEa {\\n  background-color: #C7E3F0;\\n}\\n\\n._28N9V7T6V-HS2FT8TzV97m .ant-input {\\n  background-color: #ffffff !important;\\n  font-size: 0.14rem;\\n  color: #555555 !important;\\n  user-select: none;\\n  height: 0.48rem;\\n}\\n\\n.G0b1J_5P6fucYaG3-yCSE .ant-input {\\n  height: 0.48rem;\\n  border: 0.01rem solid #FFFFFF;\\n}\\n.G0b1J_5P6fucYaG3-yCSE .ant-input-group-addon {\\n  border: 0.01rem solid #FFFFFF;\\n  background-color: #FFFFFF;\\n}\\n\\n._3eyW77S4bxxk8QNsdZEXAb {\\n  color: red !important;\\n  border: 0.01rem solid #FFFFFF !important;\\n}\\n._3eyW77S4bxxk8QNsdZEXAb .ant-input {\\n  font-size: 0.14rem !important;\\n  border: none;\\n  height: 0.45rem;\\n  position: relative;\\n  top: -0.05rem;\\n  height: 0.48rem;\\n}\\n\\n._3vpcwnTSidFHNIy1fIaCpq {\\n  width: 2.89rem !important;\\n}\\n._3vpcwnTSidFHNIy1fIaCpq .ant-modal-body {\\n  padding: 0.16rem !important;\\n}\\n\\n._2qvB9XKeyOdsq5ISF-by5k {\\n  width: 2.89rem !important;\\n}\\n._2qvB9XKeyOdsq5ISF-by5k .ant-modal-body {\\n  padding: 0.16rem !important;\\n}\\n._2qvB9XKeyOdsq5ISF-by5k .anticon-exclamation-circle {\\n  margin-right: 0.05rem !important;\\n}\\n._2qvB9XKeyOdsq5ISF-by5k .ant-modal-confirm-btns .ant-btn:nth-child(1) {\\n  display: none;\\n}\\n\\n._3NUjF8FGp8Vr3t-REEgFHw {\\n  display: flex;\\n  justify-content: flex-start;\\n  align-items: center;\\n  background-color: #FFFFFF;\\n}\\n\\n._2YUdr0e-3GpyTanMjYeeZr {\\n  width: 3.2rem !important;\\n}\\n\\n._1_pE7GFCIcdnU0tMeK6Y4S {\\n  cursor: pointer;\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"wrap\": \"Wu64lVM_KYI6mn8HLXX6e\",\n\t\"contentWrap\": \"n2QnBg61I_5rf6wN4JaAP\",\n\t\"formTitle\": \"_2Qwhb7qsYW-qZG-fK18rgc\",\n\t\"topT\": \"_WGm0lP1GB7b9FZ174oGT\",\n\t\"input\": \"_2EwFzhpt5UMq5kYDTHilns\",\n\t\"icon\": \"_2arPEcqC9JbsE3SAgBd6Cb\",\n\t\"mid\": \"ZTrSi7xDHi_6rEpw9-U5n\",\n\t\"tAmount\": \"_2FqQDrRCulgNJyo2JknhEK\",\n\t\"feeWrap\": \"_3aIKF4YnEwpVHtXGNyNQZP\",\n\t\"feeStl\": \"_1HJHOWrQFk53kEwyQEBfTC\",\n\t\"fee\": \"tM7F_iRi62JDam4itgd87\",\n\t\"addressError\": \"_3pYU63D0Z4Kr_2XVKA82gG\",\n\t\"button\": \"_1_KHZ2_AWTg-fq4YMw2Iw8\",\n\t\"sTd\": \"_3tjgzYT0MtZUWnA3qFl6Pe\",\n\t\"tContent\": \"_2IQ_rkghTnx1JQEojP7uiv\",\n\t\"tCAdd\": \"JJqJBKUPBFFDTKmfong_O\",\n\t\"shadowBtn\": \"_2n0K04Q0A8p_EuFxmLKaEa\",\n\t\"feeInput\": \"_28N9V7T6V-HS2FT8TzV97m\",\n\t\"tInput\": \"G0b1J_5P6fucYaG3-yCSE\",\n\t\"sInput\": \"_3eyW77S4bxxk8QNsdZEXAb\",\n\t\"modalWrapper\": \"_3vpcwnTSidFHNIy1fIaCpq\",\n\t\"infoM\": \"_2qvB9XKeyOdsq5ISF-by5k\",\n\t\"texWrap\": \"_3NUjF8FGp8Vr3t-REEgFHw\",\n\t\"textArea\": \"_2YUdr0e-3GpyTanMjYeeZr\",\n\t\"canClick\": \"_1_pE7GFCIcdnU0tMeK6Y4S\"\n};\n\n//# sourceURL=webpack:///./project/entry/page/transfer/index.scss?./node_modules/css-loader??ref--5-1!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -3469,7 +4129,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.scss */ \"./project/entry/page/transfer/index.scss\");\n/* harmony import */ var _widgets_headBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @widgets/headBar */ \"./project/entry/widgets/headBar/index.tsx\");\n/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-i18next */ \"./node_modules/react-i18next/dist/es/index.js\");\n/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ \"./node_modules/classnames/index.js\");\n/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _utils_useStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @utils/useStore */ \"./project/utils/useStore.tsx\");\n/* harmony import */ var _utils_tools__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @utils/tools */ \"./project/utils/tools.tsx\");\n/* harmony import */ var _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @polkadot/ui-keyring */ \"./node_modules/@polkadot/ui-keyring/index.js\");\n/* harmony import */ var _widgets_balanceDotInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @widgets/balanceDotInput */ \"./project/entry/widgets/balanceDotInput/index.tsx\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var antd_lib_message__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd/lib/message */ \"./node_modules/antd/lib/message/index.js\");\n/* harmony import */ var antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(antd_lib_message__WEBPACK_IMPORTED_MODULE_10__);\n/* harmony import */ var antd_lib_message_style_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd/lib/message/style/index.js */ \"./node_modules/antd/lib/message/style/index.js\");\n/* harmony import */ var antd_lib_message_style_index_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(antd_lib_message_style_index_js__WEBPACK_IMPORTED_MODULE_11__);\n/* harmony import */ var _constants_app__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @constants/app */ \"./project/constants/app.tsx\");\n/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! antd/lib/input */ \"./node_modules/antd/lib/input/index.js\");\n/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(antd_lib_input__WEBPACK_IMPORTED_MODULE_13__);\n/* harmony import */ var antd_lib_input_style_index_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! antd/lib/input/style/index.js */ \"./node_modules/antd/lib/input/style/index.js\");\n/* harmony import */ var antd_lib_input_style_index_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(antd_lib_input_style_index_js__WEBPACK_IMPORTED_MODULE_14__);\n/* harmony import */ var antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! antd/lib/auto-complete */ \"./node_modules/antd/lib/auto-complete/index.js\");\n/* harmony import */ var antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_15__);\n/* harmony import */ var antd_lib_auto_complete_style_index_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! antd/lib/auto-complete/style/index.js */ \"./node_modules/antd/lib/auto-complete/style/index.js\");\n/* harmony import */ var antd_lib_auto_complete_style_index_js__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(antd_lib_auto_complete_style_index_js__WEBPACK_IMPORTED_MODULE_16__);\n/* harmony import */ var antd_lib_spin__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! antd/lib/spin */ \"./node_modules/antd/lib/spin/index.js\");\n/* harmony import */ var antd_lib_spin__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(antd_lib_spin__WEBPACK_IMPORTED_MODULE_17__);\n/* harmony import */ var antd_lib_spin_style_index_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! antd/lib/spin/style/index.js */ \"./node_modules/antd/lib/spin/style/index.js\");\n/* harmony import */ var antd_lib_spin_style_index_js__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(antd_lib_spin_style_index_js__WEBPACK_IMPORTED_MODULE_18__);\n/*\n * @Author: your name\n * @Date: 2021-04-06 23:45:39\n * @LastEditTime: 2021-06-05 20:40:50\n * @LastEditors: dianluyuanli-wp\n * @Description: In User Settings Edit\n * @FilePath: /Doter/project/entry/page/transfer/index.tsx\n */\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst TRANSFER_STEP = {\n    ONE: 0,\n    TWO: 1\n};\nconst Transfer = function () {\n    let { t } = Object(react_i18next__WEBPACK_IMPORTED_MODULE_3__[\"useTranslation\"])();\n    const history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_9__[\"useHistory\"])();\n    //  国际化的包裹函数\n    const lanWrap = (input) => t(`transfer:${input}`);\n    //  状态管理\n    function stateReducer(state, action) {\n        return Object.assign({}, state, action);\n    }\n    const [stateObj, setState] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useReducer\"])(stateReducer, {\n        addressErrMsg: '',\n        transAmountErrMsg: '',\n        status: TRANSFER_STEP.ONE,\n        transferAmount: '0',\n        targetAdd: '',\n        partialFee: '',\n        buttonActive: false,\n        isLoading: false,\n        errMsg: '',\n        secret: ''\n    });\n    const globalStore = Object(_utils_useStore__WEBPACK_IMPORTED_MODULE_5__[\"useStores\"])('GlobalStore');\n    const { balance, currentAccount, api, ableBalance } = globalStore;\n    //  判断当前阶段\n    const isStepOne = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useMemo\"])(() => stateObj.status === TRANSFER_STEP.ONE, [stateObj.status]);\n    //  判断摁钮是否可点击\n    const buttonIsAcctive = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useMemo\"])(() => {\n        const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret, partialFee } = stateObj;\n        if (isStepOne) {\n            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0' && partialFee !== '' && partialFee !== '0');\n        }\n        else {\n            return !!secret;\n        }\n    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret, stateObj.partialFee]);\n    const aferIcon = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].icon }));\n    Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n        function computedFee() {\n            return __awaiter(this, void 0, void 0, function* () {\n                //  实时计算交易费用\n                try {\n                    const { targetAdd, transferAmount } = stateObj;\n                    if (!targetAdd) {\n                        return;\n                    }\n                    const transfer = api.tx.balances.transfer(targetAdd, Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"dotStrToTransferAmount\"])(transferAmount));\n                    const { partialFee } = yield transfer.paymentInfo(currentAccount.address);\n                    console.log(partialFee.toHuman(), parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '');\n                    setState({\n                        partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + ''\n                    });\n                }\n                catch (_a) {\n                }\n            });\n        }\n        computedFee();\n    }, [stateObj.transferAmount, stateObj.targetAdd]);\n    //  校验地址\n    //  React.ChangeEventHandler<HTMLTextAreaElement> React.ChangeEvent<HTMLInputElement>\n    function addressInput(e) {\n        let inputValue = e.target.value;\n        try {\n            const publicKey = _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__[\"keyring\"].decodeAddress(inputValue);\n            _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__[\"keyring\"].encodeAddress(publicKey);\n        }\n        catch (e) {\n            return setState({\n                addressErrMsg: lanWrap('bad address')\n            });\n        }\n        setState({\n            addressErrMsg: inputValue === currentAccount.address ? lanWrap('Collection address and payment address cannot be the same') : '',\n            targetAdd: inputValue\n        });\n    }\n    //  验证输入金额\n    function inputAmount(inputValue) {\n        console.log('outer input');\n        setState({ transferAmount: inputValue });\n    }\n    function inputSec(e) {\n        const targetVallue = e.target.value;\n        if (!targetVallue) {\n            setState({\n                errMsg: ''\n            });\n        }\n        setState({\n            secret: targetVallue\n        });\n    }\n    function addInput(value) {\n        setState({\n            addressErrMsg: value === currentAccount.address ? lanWrap('Collection address and payment address cannot be the same') : '',\n            targetAdd: value\n        });\n    }\n    function setAmountErrString(err) {\n        setState({\n            transAmountErrMsg: err\n        });\n    }\n    function buttonClick() {\n        return __awaiter(this, void 0, void 0, function* () {\n            const { secret, targetAdd, transferAmount } = stateObj;\n            if (buttonIsAcctive) {\n                if (isStepOne) {\n                    //  强判断是否超过余额\n                    if (parseFloat(stateObj.transferAmount) > (parseFloat(ableBalance) - parseFloat(stateObj.partialFee))) {\n                        return antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default.a.error(t('widgets:your credit is running low'));\n                    }\n                    setState({\n                        status: TRANSFER_STEP.TWO,\n                        errMsg: ''\n                    });\n                }\n                else {\n                    setState({\n                        isLoading: true\n                    });\n                    let sendPair = _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__[\"keyring\"].createFromJson(currentAccount);\n                    try {\n                        sendPair.decodePkcs8(secret);\n                    }\n                    catch (e) {\n                        console.log(e);\n                        setState({ errMsg: lanWrap('Wrong password'), isLoading: false });\n                        return;\n                    }\n                    try {\n                        const tx = api.tx.balances.transfer(targetAdd, Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"dotStrToTransferAmount\"])(transferAmount));\n                        const hash = yield tx.signAndSend(sendPair);\n                        antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default.a.info(lanWrap('success')).then(() => {\n                            history.push(_constants_app__WEBPACK_IMPORTED_MODULE_12__[\"PAGE_NAME\"].HOME);\n                        });\n                    }\n                    catch (e) {\n                        if (e.toString().includes('Invalid Transaction: Inability to pay some fees')) {\n                            setState({ errMsg: lanWrap('The balance is too low') });\n                        }\n                        antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default.a.error(e.toString());\n                        console.log(e);\n                    }\n                    finally {\n                        setState({\n                            isLoading: false\n                        });\n                    }\n                }\n            }\n        });\n    }\n    function selectAddress() {\n        const { addressArr, accountObj, recipientArr } = globalStore;\n        //  个人的账户和转账账户拼接起来\n        return addressArr.filter(item => item !== currentAccount.address).map(item => {\n            const { address, meta } = accountObj[item];\n            return {\n                label: meta.name + ' - ' + Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"addressFormat\"])(address),\n                value: address\n            };\n        }).concat(recipientArr.map(item => {\n            const { comment, address } = item;\n            return {\n                label: comment + ' - ' + Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"addressFormat\"])(address),\n                value: address\n            };\n        }));\n    }\n    function renderStepOne() {\n        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].contentWrap },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].topT) }, lanWrap('Collection address')),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_15___default.a, { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].input, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tInput), onChange: addInput, options: selectAddress() },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].texWrap },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_input__WEBPACK_IMPORTED_MODULE_13___default.a.TextArea, { onChange: addressInput, value: stateObj.targetAdd, className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].textArea, autoSize: { minRows: 2, maxRows: 2 }, placeholder: lanWrap('Enter the address') }),\n                    aferIcon)),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].addressError }, stateObj.addressErrMsg),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].mid) },\n                lanWrap('amount of money'),\n                \" \",\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"span\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tAmount },\n                    parseFloat(ableBalance).toFixed(4),\n                    \" DOT \",\n                    lanWrap('available'))),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_widgets_balanceDotInput__WEBPACK_IMPORTED_MODULE_8__[\"default\"], { changeInputFn: inputAmount, minerFee: parseFloat(stateObj.partialFee || '0') * 1.1, controlValue: stateObj.transferAmount, setErr: setAmountErrString, allDot: ableBalance }),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].feeWrap },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"span\", null, lanWrap('Transfer fee')),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"span\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].feeStl },\n                    parseFloat(stateObj.partialFee || '0').toFixed(5),\n                    \" DOT\")));\n    }\n    function isStepTwo() {\n        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].contentWrap },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].topT) }, lanWrap('Transfer information')),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null,\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Transfer amount')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent },\n                        stateObj.transferAmount,\n                        \" DOT\")),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Collection address v2')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tCAdd) }, stateObj.targetAdd)),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Payment address')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tCAdd) }, currentAccount.address)),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Transfer fee')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent },\n                        parseFloat(stateObj.partialFee).toFixed(5),\n                        \" DOT\"))),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].topT) }, lanWrap('Password confirmation')),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_input__WEBPACK_IMPORTED_MODULE_13___default.a.Password, { onChange: (e) => inputSec(e), className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].input, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sInput), placeholder: lanWrap('Please input a password') }),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].addressError }, stateObj.errMsg));\n    }\n    function createPageBack() {\n        //  条件判断回退\n        if (stateObj.status === TRANSFER_STEP.ONE) {\n            history.goBack();\n        }\n        else {\n            setState({\n                status: TRANSFER_STEP.ONE\n            });\n        }\n    }\n    const btnClass = (isStepOne ? buttonIsAcctive : stateObj.secret) ? _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].canClick : _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].shadowBtn;\n    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].wrap },\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_widgets_headBar__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { selfBack: createPageBack, word: lanWrap('Transfer') }),\n        isStepOne ? renderStepOne() : isStepTwo(),\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_spin__WEBPACK_IMPORTED_MODULE_17___default.a, { spinning: stateObj.isLoading },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].button, buttonIsAcctive ? _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].canClick : _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].shadowBtn), onClick: buttonClick }, isStepOne ? lanWrap('next step') : lanWrap('confirm')))));\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (Transfer);\n\n\n//# sourceURL=webpack:///./project/entry/page/transfer/index.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.scss */ \"./project/entry/page/transfer/index.scss\");\n/* harmony import */ var _widgets_headBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @widgets/headBar */ \"./project/entry/widgets/headBar/index.tsx\");\n/* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-i18next */ \"./node_modules/react-i18next/dist/es/index.js\");\n/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ \"./node_modules/classnames/index.js\");\n/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _utils_useStore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @utils/useStore */ \"./project/utils/useStore.tsx\");\n/* harmony import */ var _utils_tools__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @utils/tools */ \"./project/utils/tools.tsx\");\n/* harmony import */ var _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @polkadot/ui-keyring */ \"./node_modules/@polkadot/ui-keyring/index.js\");\n/* harmony import */ var _widgets_balanceDotInput__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @widgets/balanceDotInput */ \"./project/entry/widgets/balanceDotInput/index.tsx\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var antd_lib_message__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd/lib/message */ \"./node_modules/antd/lib/message/index.js\");\n/* harmony import */ var antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(antd_lib_message__WEBPACK_IMPORTED_MODULE_10__);\n/* harmony import */ var antd_lib_message_style_index_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd/lib/message/style/index.js */ \"./node_modules/antd/lib/message/style/index.js\");\n/* harmony import */ var antd_lib_message_style_index_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(antd_lib_message_style_index_js__WEBPACK_IMPORTED_MODULE_11__);\n/* harmony import */ var antd_lib_modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd/lib/modal */ \"./node_modules/antd/lib/modal/index.js\");\n/* harmony import */ var antd_lib_modal__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(antd_lib_modal__WEBPACK_IMPORTED_MODULE_12__);\n/* harmony import */ var antd_lib_modal_style_index_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! antd/lib/modal/style/index.js */ \"./node_modules/antd/lib/modal/style/index.js\");\n/* harmony import */ var antd_lib_modal_style_index_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(antd_lib_modal_style_index_js__WEBPACK_IMPORTED_MODULE_13__);\n/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ant-design/icons */ \"./node_modules/@ant-design/icons/es/index.js\");\n/* harmony import */ var _constants_app__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @constants/app */ \"./project/constants/app.tsx\");\n/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! antd/lib/input */ \"./node_modules/antd/lib/input/index.js\");\n/* harmony import */ var antd_lib_input__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(antd_lib_input__WEBPACK_IMPORTED_MODULE_16__);\n/* harmony import */ var antd_lib_input_style_index_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! antd/lib/input/style/index.js */ \"./node_modules/antd/lib/input/style/index.js\");\n/* harmony import */ var antd_lib_input_style_index_js__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(antd_lib_input_style_index_js__WEBPACK_IMPORTED_MODULE_17__);\n/* harmony import */ var antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! antd/lib/auto-complete */ \"./node_modules/antd/lib/auto-complete/index.js\");\n/* harmony import */ var antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_18__);\n/* harmony import */ var antd_lib_auto_complete_style_index_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! antd/lib/auto-complete/style/index.js */ \"./node_modules/antd/lib/auto-complete/style/index.js\");\n/* harmony import */ var antd_lib_auto_complete_style_index_js__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(antd_lib_auto_complete_style_index_js__WEBPACK_IMPORTED_MODULE_19__);\n/* harmony import */ var antd_lib_spin__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! antd/lib/spin */ \"./node_modules/antd/lib/spin/index.js\");\n/* harmony import */ var antd_lib_spin__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(antd_lib_spin__WEBPACK_IMPORTED_MODULE_20__);\n/* harmony import */ var antd_lib_spin_style_index_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! antd/lib/spin/style/index.js */ \"./node_modules/antd/lib/spin/style/index.js\");\n/* harmony import */ var antd_lib_spin_style_index_js__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(antd_lib_spin_style_index_js__WEBPACK_IMPORTED_MODULE_21__);\n/*\n * @Author: your name\n * @Date: 2021-04-06 23:45:39\n * @LastEditTime: 2021-06-07 00:11:22\n * @LastEditors: dianluyuanli-wp\n * @Description: In User Settings Edit\n * @FilePath: /Doter/project/entry/page/transfer/index.tsx\n */\nvar __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\n    return new (P || (P = Promise))(function (resolve, reject) {\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\n    });\n};\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst TRANSFER_STEP = {\n    ONE: 0,\n    TWO: 1\n};\nconst { confirm } = antd_lib_modal__WEBPACK_IMPORTED_MODULE_12___default.a;\nconst Transfer = function () {\n    let { t } = Object(react_i18next__WEBPACK_IMPORTED_MODULE_3__[\"useTranslation\"])();\n    const history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_9__[\"useHistory\"])();\n    //  国际化的包裹函数\n    const lanWrap = (input) => t(`transfer:${input}`);\n    //  状态管理\n    function stateReducer(state, action) {\n        return Object.assign({}, state, action);\n    }\n    const [stateObj, setState] = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useReducer\"])(stateReducer, {\n        addressErrMsg: '',\n        transAmountErrMsg: '',\n        status: TRANSFER_STEP.ONE,\n        transferAmount: '0',\n        targetAdd: '',\n        partialFee: '',\n        buttonActive: false,\n        isLoading: false,\n        errMsg: '',\n        secret: ''\n    });\n    const globalStore = Object(_utils_useStore__WEBPACK_IMPORTED_MODULE_5__[\"useStores\"])('GlobalStore');\n    const { balance, lockBalance, currentAccount, api, ableBalance } = globalStore;\n    //  判断当前阶段\n    const isStepOne = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useMemo\"])(() => stateObj.status === TRANSFER_STEP.ONE, [stateObj.status]);\n    //  判断摁钮是否可点击\n    const buttonIsAcctive = Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useMemo\"])(() => {\n        const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret, partialFee } = stateObj;\n        if (isStepOne) {\n            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0' && partialFee !== '' && partialFee !== '0');\n        }\n        else {\n            return !!secret;\n        }\n    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret, stateObj.partialFee]);\n    const aferIcon = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].icon }));\n    Object(react__WEBPACK_IMPORTED_MODULE_0__[\"useEffect\"])(() => {\n        function computedFee() {\n            return __awaiter(this, void 0, void 0, function* () {\n                //  实时计算交易费用\n                try {\n                    const { targetAdd, transferAmount } = stateObj;\n                    if (!targetAdd) {\n                        return;\n                    }\n                    const transfer = api.tx.balances.transfer(targetAdd, Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"dotStrToTransferAmount\"])(transferAmount));\n                    const { partialFee } = yield transfer.paymentInfo(currentAccount.address);\n                    console.log(partialFee.toHuman(), parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '');\n                    setState({\n                        partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + ''\n                    });\n                }\n                catch (_a) {\n                }\n            });\n        }\n        computedFee();\n    }, [stateObj.transferAmount, stateObj.targetAdd]);\n    //  校验地址\n    //  React.ChangeEventHandler<HTMLTextAreaElement> React.ChangeEvent<HTMLInputElement>\n    function addressInput(e) {\n        let inputValue = e.target.value;\n        try {\n            const publicKey = _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__[\"keyring\"].decodeAddress(inputValue);\n            _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__[\"keyring\"].encodeAddress(publicKey);\n        }\n        catch (e) {\n            return setState({\n                addressErrMsg: lanWrap('bad address')\n            });\n        }\n        setState({\n            addressErrMsg: inputValue === currentAccount.address ? lanWrap('Collection address and payment address cannot be the same') : '',\n            targetAdd: inputValue\n        });\n    }\n    //  验证输入金额\n    function inputAmount(inputValue) {\n        console.log('outer input');\n        setState({ transferAmount: inputValue });\n    }\n    function inputSec(e) {\n        const targetVallue = e.target.value;\n        if (!targetVallue) {\n            setState({\n                errMsg: ''\n            });\n        }\n        setState({\n            secret: targetVallue\n        });\n    }\n    function addInput(value) {\n        setState({\n            addressErrMsg: value === currentAccount.address ? lanWrap('Collection address and payment address cannot be the same') : '',\n            targetAdd: value\n        });\n    }\n    function setAmountErrString(err) {\n        setState({\n            transAmountErrMsg: err\n        });\n    }\n    function balanceCheckPass() {\n        const { transferAmount, partialFee } = stateObj;\n        const afterTxLessOne = (parseFloat(ableBalance) - parseFloat(transferAmount) + parseFloat(lockBalance) - parseFloat(partialFee)) < 1;\n        return new Promise((res, rej) => {\n            if (afterTxLessOne) {\n                if (lockBalance === '0') {\n                    confirm({\n                        title: lanWrap('confirm to transfer'),\n                        className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].modalWrapper,\n                        icon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ant_design_icons__WEBPACK_IMPORTED_MODULE_14__[\"ExclamationCircleOutlined\"], null),\n                        content: lanWrap('wiiBeReaped'),\n                        onOk() {\n                            res(true);\n                        },\n                        onCancel() {\n                            res(false);\n                        }\n                    });\n                }\n                else {\n                    confirm({\n                        icon: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ant_design_icons__WEBPACK_IMPORTED_MODULE_14__[\"ExclamationCircleOutlined\"], null),\n                        className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].infoM,\n                        content: lanWrap('hasLocked'),\n                        onOk() {\n                            res(false);\n                        },\n                    });\n                }\n            }\n            else {\n                res(true);\n            }\n        });\n    }\n    function buttonClick() {\n        return __awaiter(this, void 0, void 0, function* () {\n            const { secret, targetAdd, transferAmount } = stateObj;\n            if (buttonIsAcctive) {\n                if (isStepOne) {\n                    //  强判断是否超过余额\n                    if (parseFloat(stateObj.transferAmount) > (parseFloat(ableBalance) - parseFloat(stateObj.partialFee))) {\n                        return antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default.a.error(t('widgets:your credit is running low'));\n                    }\n                    setState({\n                        status: TRANSFER_STEP.TWO,\n                        errMsg: ''\n                    });\n                }\n                else {\n                    //  对转账后的剩余金额进行提醒或阻止\n                    const checkRes = yield balanceCheckPass();\n                    if (!checkRes) {\n                        return;\n                    }\n                    setState({\n                        isLoading: true\n                    });\n                    let sendPair = _polkadot_ui_keyring__WEBPACK_IMPORTED_MODULE_7__[\"keyring\"].createFromJson(currentAccount);\n                    try {\n                        sendPair.decodePkcs8(secret);\n                    }\n                    catch (e) {\n                        console.log(e);\n                        setState({ errMsg: lanWrap('Wrong password'), isLoading: false });\n                        return;\n                    }\n                    try {\n                        const tx = api.tx.balances.transfer(targetAdd, Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"dotStrToTransferAmount\"])(transferAmount));\n                        const hash = yield tx.signAndSend(sendPair);\n                        antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default.a.info(lanWrap('success')).then(() => {\n                            history.push(_constants_app__WEBPACK_IMPORTED_MODULE_15__[\"PAGE_NAME\"].HOME);\n                        });\n                    }\n                    catch (e) {\n                        if (e.toString().includes('Invalid Transaction: Inability to pay some fees')) {\n                            setState({ errMsg: lanWrap('The balance is too low') });\n                        }\n                        antd_lib_message__WEBPACK_IMPORTED_MODULE_10___default.a.error(e.toString());\n                        console.log(e);\n                    }\n                    finally {\n                        setState({\n                            isLoading: false\n                        });\n                    }\n                }\n            }\n        });\n    }\n    function selectAddress() {\n        const { addressArr, accountObj, recipientArr } = globalStore;\n        //  个人的账户和转账账户拼接起来\n        return addressArr.filter(item => item !== currentAccount.address).map(item => {\n            const { address, meta } = accountObj[item];\n            return {\n                label: meta.name + ' - ' + Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"addressFormat\"])(address),\n                value: address\n            };\n        }).concat(recipientArr.map(item => {\n            const { comment, address } = item;\n            return {\n                label: comment + ' - ' + Object(_utils_tools__WEBPACK_IMPORTED_MODULE_6__[\"addressFormat\"])(address),\n                value: address\n            };\n        }));\n    }\n    function renderStepOne() {\n        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].contentWrap },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].topT) }, lanWrap('Collection address')),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_auto_complete__WEBPACK_IMPORTED_MODULE_18___default.a, { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].input, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tInput), onChange: addInput, options: selectAddress() },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].texWrap },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_input__WEBPACK_IMPORTED_MODULE_16___default.a.TextArea, { onChange: addressInput, value: stateObj.targetAdd, className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].textArea, autoSize: { minRows: 2, maxRows: 2 }, placeholder: lanWrap('Enter the address') }),\n                    aferIcon)),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].addressError }, stateObj.addressErrMsg),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].mid) },\n                lanWrap('amount of money'),\n                \" \",\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"span\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tAmount },\n                    parseFloat(ableBalance).toFixed(4),\n                    \" DOT \",\n                    lanWrap('available'))),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_widgets_balanceDotInput__WEBPACK_IMPORTED_MODULE_8__[\"default\"], { changeInputFn: inputAmount, minerFee: parseFloat(stateObj.partialFee || '0') * 1.1, controlValue: stateObj.transferAmount, setErr: setAmountErrString, allDot: ableBalance }),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].feeWrap },\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"span\", null, lanWrap('Transfer fee')),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"span\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].feeStl },\n                    parseFloat(stateObj.partialFee || '0').toFixed(5),\n                    \" DOT\")));\n    }\n    function isStepTwo() {\n        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].contentWrap },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].topT) }, lanWrap('Transfer information')),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null,\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Transfer amount')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent },\n                        stateObj.transferAmount,\n                        \" DOT\")),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Collection address v2')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tCAdd) }, stateObj.targetAdd)),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Payment address')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tCAdd) }, currentAccount.address)),\n                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sTd },\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, lanWrap('Transfer fee')),\n                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].tContent },\n                        parseFloat(stateObj.partialFee).toFixed(5),\n                        \" DOT\"))),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].formTitle, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].topT) }, lanWrap('Password confirmation')),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_input__WEBPACK_IMPORTED_MODULE_16___default.a.Password, { onChange: (e) => inputSec(e), className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].input, _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].sInput), placeholder: lanWrap('Please input a password') }),\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].addressError }, stateObj.errMsg));\n    }\n    function createPageBack() {\n        //  条件判断回退\n        if (stateObj.status === TRANSFER_STEP.ONE) {\n            history.goBack();\n        }\n        else {\n            setState({\n                status: TRANSFER_STEP.ONE\n            });\n        }\n    }\n    const btnClass = (isStepOne ? buttonIsAcctive : stateObj.secret) ? _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].canClick : _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].shadowBtn;\n    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].wrap },\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_widgets_headBar__WEBPACK_IMPORTED_MODULE_2__[\"default\"], { selfBack: createPageBack, word: lanWrap('Transfer') }),\n        isStepOne ? renderStepOne() : isStepTwo(),\n        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd_lib_spin__WEBPACK_IMPORTED_MODULE_20___default.a, { spinning: stateObj.isLoading },\n            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", { className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(_index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].button, buttonIsAcctive ? _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].canClick : _index_scss__WEBPACK_IMPORTED_MODULE_1__[\"default\"].shadowBtn), onClick: buttonClick }, isStepOne ? lanWrap('next step') : lanWrap('confirm')))));\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (Transfer);\n\n\n//# sourceURL=webpack:///./project/entry/page/transfer/index.tsx?");
 
 /***/ }),
 
@@ -3481,7 +4141,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"transferEn\", function() { return transferEn; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"transferZh\", function() { return transferZh; });\n/*\n * @Author: guanlanluditie\n * @Date: 2021-03-06 12:08:53\n * @Last Modified by: guanlanluditie\n * @Last Modified time: 2021-03-06 12:26:43\n */\nconst transferEn = {\n    'bad address': 'bad address',\n    'Collection address and payment address cannot be the same': 'Collection address and payment address cannot be same',\n    'your credit is running low': 'your credit is running low',\n    'Wrong format': 'Wrong format',\n    'Wrong password': 'Wrong password',\n    'The balance is too low': 'The balance is too low',\n    'Collection address': 'Receiver',\n    'Collection address v2': 'To',\n    'Enter the address': 'Enter the address',\n    'amount of money': 'Amount',\n    'available': 'available',\n    'Transfer information': 'Transfer Information',\n    'Transfer amount': 'Amount',\n    'Payment address': 'From',\n    'Transfer fee': 'Miner Fee',\n    'Password confirmation': 'Password Confirmation',\n    'Please input a password': 'Wallet Password',\n    'Transfer': 'Transfer',\n    'next step': 'Next',\n    'confirm': 'Confirm',\n    'success': 'success'\n};\nconst transferZh = {\n    'bad address': '错误的地址',\n    'Collection address and payment address cannot be the same': '收款地址和付款地址不能相同',\n    'your credit is running low': '余额不足',\n    'Wrong format': '错误的格式',\n    'Wrong password': '密码错误',\n    'The balance is too low': '余额过低',\n    'Collection address': '收款地址',\n    'Enter the address': '输入地址',\n    'amount of money': '金额',\n    'available': '可用',\n    'Transfer information': '转账信息',\n    'Transfer amount': '转账金额',\n    'Payment address': '付款地址',\n    'Collection address v2': '目标地址',\n    'Transfer fee': '矿工费',\n    'Password confirmation': '密码确认',\n    'Please input a password': '请输入密码',\n    'Transfer': '转账',\n    'next step': '下一步',\n    'confirm': '确认',\n    'success': '成功'\n};\n\n\n//# sourceURL=webpack:///./project/entry/page/transfer/language.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"transferEn\", function() { return transferEn; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"transferZh\", function() { return transferZh; });\n/*\n * @Author: guanlanluditie\n * @Date: 2021-03-06 12:08:53\n * @Last Modified by: guanlanluditie\n * @Last Modified time: 2021-03-06 12:26:43\n */\nconst transferEn = {\n    'bad address': 'bad address',\n    'Collection address and payment address cannot be the same': 'Collection address and payment address cannot be same',\n    'your credit is running low': 'your credit is running low',\n    'Wrong format': 'Wrong format',\n    'Wrong password': 'Wrong password',\n    'The balance is too low': 'The balance is too low',\n    'Collection address': 'Receiver',\n    'Collection address v2': 'To',\n    'Enter the address': 'Enter the address',\n    'amount of money': 'Amount',\n    'available': 'available',\n    'Transfer information': 'Transfer Information',\n    'Transfer amount': 'Amount',\n    'Payment address': 'From',\n    'Transfer fee': 'Miner Fee',\n    'Password confirmation': 'Password Confirmation',\n    'Please input a password': 'Wallet Password',\n    'Transfer': 'Transfer',\n    'next step': 'Next',\n    'confirm': 'Confirm',\n    'success': 'Transfer request submitted',\n    'confirm to transfer': 'Are you sure to execute this transfer?',\n    'hasLocked': 'The current account has locked balance. Please keep the total balance(avalable balance + locked balance) in the account greater than 1dot, otherwise the transfer cannot be performed!',\n    'wiiBeReaped': 'After the transfer the account balance is less than 1dot, the network will reap the account and the balance will be cleared!',\n};\nconst transferZh = {\n    'bad address': '错误的地址',\n    'Collection address and payment address cannot be the same': '收款地址和付款地址不能相同',\n    'your credit is running low': '余额不足',\n    'Wrong format': '错误的格式',\n    'Wrong password': '密码错误',\n    'The balance is too low': '余额过低',\n    'Collection address': '收款地址',\n    'Enter the address': '输入地址',\n    'amount of money': '金额',\n    'available': '可用',\n    'Transfer information': '转账信息',\n    'Transfer amount': '转账金额',\n    'Payment address': '付款地址',\n    'Collection address v2': '目标地址',\n    'Transfer fee': '矿工费',\n    'Password confirmation': '密码确认',\n    'Please input a password': '请输入密码',\n    'Transfer': '转账',\n    'next step': '下一步',\n    'confirm': '确认',\n    'success': '转账请求已提交',\n    'confirm to transfer': '确认执行这笔转账吗？',\n    'hasLocked': '当前账户有处于锁定期的余额，请保持账户内总余额大于1DOT，否则无法执行转账！',\n    'wiiBeReaped': '账户余额小于1DOT之后，改装胡将会被网络清理，账户余额将清零!',\n};\n\n\n//# sourceURL=webpack:///./project/entry/page/transfer/language.tsx?");
 
 /***/ }),
 

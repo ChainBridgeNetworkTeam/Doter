@@ -160,6 +160,35 @@
     }
 }
 
+.modalWrapper {
+    width: 2.89rem !important;
+    :global {
+        .ant-modal-body {
+            padding: .16rem !important;
+        }
+    }
+}
+
+.infoM {
+    width: 2.89rem !important;
+    :global {
+        .ant-modal-body {
+            padding: .16rem !important;
+        }
+        .anticon-exclamation-circle {
+            margin-right: .05rem !important;
+        }
+        .ant-modal-confirm-btns {
+            .ant-btn {
+                &:nth-child(1) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
 .texWrap {
     display: flex;
     justify-content: flex-start;
