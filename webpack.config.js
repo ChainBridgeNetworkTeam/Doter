@@ -183,6 +183,6 @@ module.exports = {
             "@constants": path.resolve(__dirname, "project/constants")
           },
     },
-    mode:"development",
-    //mode:"production",
+    //mode:"development",
+    mode:"production",
 }

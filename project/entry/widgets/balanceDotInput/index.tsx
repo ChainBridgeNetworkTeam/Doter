@@ -78,7 +78,7 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
 
     //  点击全部
     function allBtnClick() {
-        const legalAllMount = (parseFloat(allDot) * Math.pow(10, 10) - minerFee * Math.pow(10, 10)) / Math.pow(10, 10) + ''
+        const legalAllMount = Math.max((parseFloat(allDot) * Math.pow(10, 10) - minerFee * Math.pow(10, 10)) / Math.pow(10, 10), 0) + ''
         changeInputFn(legalAllMount);
         setCValue(legalAllMount);
     }
@@ -91,10 +91,6 @@ const DotInput:FC<BarProps> = function(props:BarProps) {
 
     return (
         <div className={wrapCls}>
-            {/* <Input onChange={(e) => inputAmount(e)}
-                addonAfter={amountIcon}
-                value={cValue === '0' ? '' : cValue}
-                className={cx('tInput', 'tMInput')}/> */}
             <div className={s.inputWrap}>
                 <InputNumber
                     bordered={false}
