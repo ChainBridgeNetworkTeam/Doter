@@ -21,7 +21,6 @@ class CreateAccountStore {
         makeAutoObservable(this);
     }
     //  用户名
-    //@observable 
     accountName: string = '';
     //  注册输入密码
     @observable inputSec: string = '';
