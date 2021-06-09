@@ -23,7 +23,8 @@ class CreateAccountStore {
     //  用户名
     accountName: string = '';
     //  注册输入密码
-    @observable inputSec: string = '';
+    //  @observable
+    inputSec: string = '';
     //  密码确认
     @observable inputSecConfirm: string = '';
     //  注册阶段
