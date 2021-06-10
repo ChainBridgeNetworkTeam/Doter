@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { useStores } from '@utils/useStore';
+import { Spin } from 'antd';
 import { globalStoreType } from '@entry/store';
 import { getRecordDetail } from '../service';
 import moment from 'moment';
@@ -66,36 +67,38 @@ const Entry:FC = function() {
     return (
         <div className={s.wrap}>
             <HeadBar word={lanWrap('transaction details')}/>
-            <div className={cx(s.icon, success ? '' : s.failIcon)}/>
-            <div className={s.status}>{success ? lanWrap('success') : lanWrap('fail')}</div>
-            <div className={s.content}>
-                <div className={s.title}>{lanWrap('amount')}</div>
-                <div className={s.cInfo}>{isIn ? '+' : '-'}{parseFloat(amount || '0').toFixed(4)} {tokenName}</div>
-            </div>
-            <div className={cx(s.content, s.mT)}>
-                <div className={s.title}>{lanWrap("Miner's fee")}</div>
-                <div className={s.cInfo}>{parseFloat((parseInt(fee) / tokenRate + '')).toFixed(5)} {tokenName}</div>
-            </div>
-            <div className={s.content}>
-                <div className={s.title}>{lanWrap('to')}</div>
-                <div className={cx(s.cInfo, s.blockContent)}>{to}</div>
-            </div>
-            <div className={s.content}>
-                <div className={s.title}>{lanWrap('from')}</div>
-                <div className={cx(s.cInfo, s.blockContent)}>{from}</div>
-            </div>
-            <div className={s.content}>
-                <div className={s.title}>{lanWrap('Transaction time')}</div>
-                <div className={s.cInfo}>{moment(block_timestamp * 1000).format('YYYY-MM-DD HH:mm:ss')}</div>
-            </div>
-            <div className={cx(s.content, s.order)}>
-                <div className={s.title}>{lanWrap('hash')}</div>
-                <div className={cx(s.cInfo, s.orderContent)}>{hash}</div>
-            </div>
-            <div className={cx(s.content, s.bottomContent)} onClick={seeOrderDetail}>
-                <div className={cx(s.title, s.bTitile)}>{lanWrap('Query transaction details in subscan')}</div>
-                <div className={s.arrow}/>
-            </div>
+            <Spin spinning={success === undefined}>
+                <div className={cx(s.icon, success === false ? s.failIcon : '')}/>
+                <div className={s.status}>{success === false ? lanWrap('fail') : lanWrap('success')}</div>
+                <div className={s.content}>
+                    <div className={s.title}>{lanWrap('amount')}</div>
+                    <div className={s.cInfo}>{isIn ? '+' : '-'}{parseFloat(amount || '0').toFixed(4)} {tokenName}</div>
+                </div>
+                <div className={cx(s.content, s.mT)}>
+                    <div className={s.title}>{lanWrap("Miner's fee")}</div>
+                    <div className={s.cInfo}>{parseFloat((parseInt(fee) / tokenRate + '')).toFixed(5)} {tokenName}</div>
+                </div>
+                <div className={s.content}>
+                    <div className={s.title}>{lanWrap('to')}</div>
+                    <div className={cx(s.cInfo, s.blockContent)}>{to}</div>
+                </div>
+                <div className={s.content}>
+                    <div className={s.title}>{lanWrap('from')}</div>
+                    <div className={cx(s.cInfo, s.blockContent)}>{from}</div>
+                </div>
+                <div className={s.content}>
+                    <div className={s.title}>{lanWrap('Transaction time')}</div>
+                    <div className={s.cInfo}>{moment(block_timestamp * 1000).format('YYYY-MM-DD HH:mm:ss')}</div>
+                </div>
+                <div className={cx(s.content, s.order)}>
+                    <div className={s.title}>{lanWrap('hash')}</div>
+                    <div className={cx(s.cInfo, s.orderContent)}>{hash}</div>
+                </div>
+                <div className={cx(s.content, s.bottomContent)} onClick={seeOrderDetail}>
+                    <div className={cx(s.title, s.bTitile)}>{lanWrap('Query transaction details in subscan')}</div>
+                    <div className={s.arrow}/>
+                </div>
+            </Spin>
         </div>
     )
 }

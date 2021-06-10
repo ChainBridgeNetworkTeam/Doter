@@ -14,6 +14,7 @@ import { globalStoreType } from '@entry/store';
 import GlobalStore from '@entry/store';
 import BottomBtn from '@widgets/bottomBtn';
 import s from './index.scss';
+import { retrieveWindow } from '@utils/tools';
 import { approveAuthRequest, rejectAuthRequest } from '@utils/message/message';
 
 const Auth:FC = function() {
@@ -26,10 +27,10 @@ const Auth:FC = function() {
 
     const target = globalStore.authReqList.slice(-1)?.[0];
     const _onApprove = (authId: string) => {
-        approveAuthRequest(authId).catch((error: Error) => console.error(error));
+        approveAuthRequest(authId).catch((error: Error) => console.error(error)).finally(() => retrieveWindow());
     }
     const _onReject = (authId: string) => {
-        rejectAuthRequest(authId).catch((error: Error) => console.error(error));
+        rejectAuthRequest(authId).catch((error: Error) => console.error(error)).finally(() => retrieveWindow());
     }
 
     function renderList() {

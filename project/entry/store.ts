@@ -20,6 +20,7 @@ import { encodeAddress } from '@polkadot/util-crypto';
 import { TypeRegistry } from '@polkadot/types';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 import type BN from 'bn.js';
+import type { MetadataRequest } from '@polkadot/extension-base/background/types';
 
 export interface RequestAuthorizeTab {
     origin: string;
@@ -74,8 +75,8 @@ export interface globalStoreType {
     isKusama: boolean;
 
     changeNetType: (value: string) => void;
+    metadataReqList: MetadataRequest[];
 }
-
 interface metaData {
     name: string,
     whenCreated: number
@@ -125,6 +126,8 @@ class AppStore {
     //  网络类型 polkadot或者kusama
     netType: string = '';
 
+    metadataReqList: MetadataRequest[] = [];
+
     //  设置认证请求列表
     setAuthList(valueList: Array<AuthorizeRequest>) {
         this.authReqList = valueList;
@@ -133,7 +136,10 @@ class AppStore {
     setSignList(valueList: Array<SigningRequest>) {
         this.signReqList = valueList;
     }
-
+    //  设置metadata请求列表
+    setMetadataList(valueList: Array<MetadataRequest>) {
+        this.metadataReqList = valueList;
+    }
     constructor() {
         makeAutoObservable(this)
     }
@@ -169,7 +175,6 @@ class AppStore {
             {
                 const addArrs = Object.keys(accounts);
                 const parsedAccObj = {} as Record<string, any>;
-                console.log(accounts, 'lll');
                 addArrs.map(key => {
                     parsedAccObj[key] = accounts[key].json
                 })

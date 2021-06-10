@@ -14,7 +14,7 @@ import { useHistory } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import { useStores } from '@utils/useStore';
 import democrcacyStore from '../store';
-import { Input, message } from 'antd';
+import { Input, message, Spin } from 'antd';
 import cx from 'classnames';
 import { keyring } from '@polkadot/ui-keyring';
 import { WEIGHT_ARR } from '@constants/chain';
@@ -24,9 +24,9 @@ import { PAGE_NAME } from '@constants/app';
 import { useTokenName, useFeeRate } from '@utils/tools';
 
 interface checkStatus {
-    fee?: string;
     passWord?: string;
-    errPass?: boolean
+    errPass?: boolean;
+    isLoading?: boolean;
 }
 
 interface HisState {
@@ -63,19 +63,6 @@ const Entry:FC = function() {
         });
     }
 
-    useEffect(() => {
-        async function computedFee() {
-            //  实时计算投票费用
-            try {
-                const voteAction = getVoteAction();
-                const { partialFee } = await voteAction.paymentInfo(currentAccount.address);
-                setState({ fee: parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + '' })
-            } catch {
-            }
-        }
-        computedFee();
-    }, []);
-
     function changePass(e: React.ChangeEvent<HTMLInputElement>) {
         setState({ passWord: e.target.value })
     }
@@ -86,13 +73,17 @@ const Entry:FC = function() {
         if (!stateObj.passWord) {
             return;
         }
+        setState({
+            isLoading: true
+        })
         try {
             sendPair.decodePkcs8(stateObj.passWord)
         } catch(e) {
             console.log(e);
-            setState({ errPass: true })
+            setState({ errPass: true, isLoading: false });
             return;
         }
+
         setState({ errPass: false })
         try {
             const voteAction = getVoteAction();
@@ -102,6 +93,10 @@ const Entry:FC = function() {
             console.log(result);
         } catch (e) {
             console.log(e)
+        } finally {
+            setState({
+                isLoading: false
+            })
         }
     }
 
@@ -124,11 +119,11 @@ const Entry:FC = function() {
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap('total')}</div>
-                    <div className={s.cContent}>{parseFloat(voteDot) * voteRatio} polls ({voteDot}×{voteRatio})</div>
+                    <div className={s.cContent}>{parseFloat(voteDot) * 10 *  voteRatio / 10} polls ({voteDot}×{voteRatio})</div>
                 </div>
                 <div className={s.colum}>
                     <div className={s.cTitle}>{lanWrap("Miner's fee")}</div>
-                    <div className={s.cContent}>{stateObj.fee} {tokenName}</div>
+                    <div className={s.cContent}>{democrcacyStore.minerFee} {tokenName}</div>
                 </div>
                 <div className={s.title}>{lanWrap('Password confirmation')}</div>
                 <Input.Password
@@ -137,7 +132,9 @@ const Entry:FC = function() {
                     placeholder={lanWrap('Wallet password')}
                 />
                 <div className={s.errPass}>{stateObj.errPass ? lanWrap('Wrong password') : ''}</div>
-                <BottonBtn cb={vote} propClass={cx(stateObj.passWord ? '' : s.notActive)} word={lanWrap('confirm')}/>
+                <Spin spinning={stateObj.isLoading}>
+                    <BottonBtn cb={vote} propClass={cx(stateObj.passWord ? '' : s.notActive)} word={lanWrap('confirm')}/>
+                </Spin>
             </div>
         </div>
     )

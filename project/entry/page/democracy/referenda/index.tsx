@@ -43,6 +43,7 @@ const Referenda:FC = function() {
     }
 
     function vote(action: 'support' | 'reject', index: number) {
+        democrcacyStore.resetStore();
         runInAction(() => {
             democrcacyStore.action = action;
         })
@@ -101,7 +102,7 @@ const Referenda:FC = function() {
                     });
                     return target.status.end.sub(bestNum).isub(BN_ONE);
                 })
-                setValue(res.map(item => getBlockTime(item)));
+                setValue(res.map(item => getBlockTime(item as BN)));
             }
             globalStore.hasInit && oHasInit && comDetail();
         }, [oHasInit, globalStore.hasInit])
@@ -115,7 +116,7 @@ const Referenda:FC = function() {
             async function comDetail() {
                 const totalIssuance = await globalStore.api.query.balances.totalIssuance();
                 const res = democrcacyStore.referenda.map(item => {
-                    return `${((item.votedTotal.muln(10000).div(totalIssuance).toNumber()) / 100).toFixed(4)}%`
+                    return `${((item.votedTotal.muln(10000).div(totalIssuance as unknown as BN).toNumber()) / 100).toFixed(4)}%`
                 })
                 setValue(res);
             }

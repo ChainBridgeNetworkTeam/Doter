@@ -12,7 +12,7 @@ import { PAGE_NAME } from '@constants/app';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '../../store';
 import { observer } from 'mobx-react';
-import { myFormatBalance, addressFormat } from '@utils/tools';
+import { updateLanguage, addressFormat } from '@utils/tools';
 import { Spin, message } from 'antd';
 import copyContent from 'copy-to-clipboard';
 import { getAddInfo, getDotInfo } from '@entry/service';
@@ -205,7 +205,8 @@ const HomePage:FC = function() {
     }
 
     function changeLanguage(value: 'en' | 'zh') {
-        i18n.changeLanguage(value)
+        i18n.changeLanguage(value);
+        updateLanguage(value === 'en' ? 'english' : 'chinese');
     }
 
     function homeWithoutAccount() {

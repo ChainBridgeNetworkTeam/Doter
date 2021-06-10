@@ -60,7 +60,7 @@ function sendMessage<TMessageType extends MessageTypesWithNoSubscriptions>(messa
 function sendMessage<TMessageType extends MessageTypesWithSubscriptions>(message: TMessageType, request: RequestTypes[TMessageType], subscriber: (data: SubscriptionMessageTypes[TMessageType]) => void): Promise<ResponseTypes[TMessageType]>;
 function sendMessage<TMessageType extends MessageTypes> (message: TMessageType, request?: RequestTypes[TMessageType], subscriber?: (data: unknown) => void): Promise<ResponseTypes[TMessageType]> {
   return new Promise((resolve, reject): void => {
-    const id = `${Date.now()}.${++idCounter}`;
+    const id = `${Date.now()}.${++idCounter}.d`;
 
     handlers[id] = { reject, resolve, subscriber };
 
@@ -80,9 +80,9 @@ export async function tieAccount (address: string, genesisHash: string | null): 
   return sendMessage('pri(accounts.tie)', { address, genesisHash });
 }
 
-export async function exportAccount (address: string, password: string): Promise<{ exportedJson: string }> {
-  return sendMessage('pri(accounts.export)', { address, password });
-}
+// export async function exportAccount (address: string, password: string): Promise<{ exportedJson: string }> {
+//   return sendMessage('pri(accounts.export)', { address, password });
+// }
 
 // export async function exportAccounts (addresses: string[], password: string): Promise<{ exportedJson: string }> {
 //   return sendMessage('pri(accounts.batchExport)', { addresses, password });

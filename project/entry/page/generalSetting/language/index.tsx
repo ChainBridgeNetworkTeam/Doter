@@ -16,6 +16,7 @@ import { runInAction } from 'mobx';
 import { LOCAL_CONFIG } from '@constants/chrome';
 import CommonBtn from '@widgets/bottomBtn';
 import { setStorage } from '@utils/chrome';
+import { updateLanguage } from '@utils/tools';
 import { LOCAL_LANGUAGE, PAGE_NAME } from '@constants/app';
 import globalStore from '../../../store';
 
@@ -32,17 +33,8 @@ const Entry:FC = function() {
     function changeLanguage() {
         const lan = conLanguage;
         const targetLan = lan === 'english' ? 'en' : 'zh';
-        window.localStorage.setItem(LOCAL_LANGUAGE, targetLan);
         i18n.changeLanguage(targetLan);
-        runInAction(() => {
-            globalStore.localConfig.language = lan;
-        })
-        setStorage({
-            [LOCAL_CONFIG]: {
-                ...localConfig,
-                language: lan
-            }
-        })
+        updateLanguage(conLanguage);
         history.push(PAGE_NAME.HOME);
     }
 

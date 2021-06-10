@@ -36,9 +36,10 @@ const HeadBar:FC<SecretInput> = function(props:SecretInput) {
             const hasCapitalLetter = /[A-Z]/.test(value);
             const hasLowcaseLetter = /[a-z]/.test(value);
             const hasNumber = /[0-9]/.test(value);
+            const nonAlphanumerics = /[^a-zA-Z0-9]/.test(value);
             const moreThan8 = value.length > 7;
-            const res = [hasCapitalLetter, hasLowcaseLetter, hasNumber, moreThan8].reduce((origin, item) => origin + (item ? 1 : 0), 0);
-            setSecretSta(res === 4 ? 'strong' : 'weak')
+            const res = [hasCapitalLetter, hasLowcaseLetter, hasNumber, moreThan8, nonAlphanumerics].reduce((origin, item) => origin + (item ? 1 : 0), 0);
+            setSecretSta(res === 5 ? 'strong' : 'weak')
         }
     }
     return (

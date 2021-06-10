@@ -15,6 +15,7 @@ import BottomBtn from '@widgets/bottomBtn';
 import type { SignerPayloadJSON } from '@polkadot/types/types';
 import s from '../authPopup/index.scss';
 import styles from './index.scss';
+import { retrieveWindow } from '@utils/tools';
 import { approveSignPassword, cancelSignRequest } from '@utils/message/message';
 import { Input, Spin, message } from 'antd';
 
@@ -54,7 +55,8 @@ const Auth:FC = function() {
           })
           return approveSignPassword(signId, false, stateObj.secret)
             .then((): void => {
-                console.log('transfer succes!')
+                console.log('transfer succes!');
+                retrieveWindow();
             })
             .catch((error: Error): void => {
                 if (error.toString().includes('supplied passphrase')) {
