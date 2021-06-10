@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-03-22 22:13:56
  */
 
-import React, { FC, useReducer } from 'react';
+import React, { FC, useReducer, useEffect } from 'react';
 import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import cx from 'classnames';
@@ -17,6 +17,7 @@ import DotInput from '@widgets/balanceDotInput';
 import { Select, message } from 'antd';
 import { observer } from 'mobx-react';
 import democrcacyStore, { CreateStoreType } from '../store';
+import { dotStrToTransferAmount } from '@utils/tools';
 import { useWeightArr } from '@constants/chain';
 import { runInAction } from 'mobx';
 import { PAGE_NAME } from '@constants/app';
@@ -37,6 +38,10 @@ const Entry = function() {
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const history = useHistory();
     const tokenName = useTokenName();
+    const { api, currentAccount, ableBalance } = globalStore;
+    const { reScanDetial, action } = democrcacyStore;
+    const { index } = history.location.state as HisState;
+    const { referendum_index } = reScanDetial[index];
     function stateReducer(state: Object, action: infoVote) {
         return Object.assign({}, state, action);
     }
@@ -64,8 +69,11 @@ const Entry = function() {
     function nextSetp() {
         const { index } = history.location.state as HisState;
         const voteAmount = democrcacyStore.voteDot;
-        if (!voteAmount || voteAmount === '0') {
+        if (!voteAmount || voteAmount === '0' || democrcacyStore.minerFee === '0') {
             return;
+        }
+        if (parseFloat(voteAmount) > (parseFloat(ableBalance) - parseFloat(democrcacyStore.minerFee))) {
+            return message.error(t('widgets:your credit is running low'));
         }
         if (stateObj.errStr) {
             message.error(lanWrap('Wrong number of votes'))
@@ -73,6 +81,30 @@ const Entry = function() {
             history.push(PAGE_NAME.DEMOCRACY_CHECK, { index })
         }
     }
+
+    function getVoteAction() {
+        return api.tx.democracy.vote(referendum_index, {
+            Standard: {
+                balance: dotStrToTransferAmount(voteDot),
+                vote: { aye: action === 'support', conviction: parseInt('' + voteRatio) }
+            }
+        });
+    }
+
+    useEffect(() => {
+        async function computedFee() {
+            //  实时计算投票费用
+            try {
+                const voteAction = getVoteAction();
+                const { partialFee } = await voteAction.paymentInfo(currentAccount.address);
+                runInAction(() => {
+                    democrcacyStore.minerFee = parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '';
+                })
+            } catch {
+            }
+        }
+        computedFee();
+    }, [democrcacyStore.voteDot, democrcacyStore.voteRatio]);
 
     function setErrStr(value: string) {
         setState({
@@ -91,7 +123,7 @@ const Entry = function() {
                     <div className={s.title}>{lanWrap('Number of votes')}</div>
                     <div className={s.dot}>{parseFloat(globalStore.ableBalance).toFixed(4)} {tokenName} {lanWrap('available')}</div>
                 </div>
-                <DotInput changeInputFn={cInput} controlValue={voteDot} setErr={setErrStr} allDot={globalStore.ableBalance}/>
+                <DotInput changeInputFn={cInput} minerFee={parseFloat(democrcacyStore.minerFee) * 1.1} controlValue={voteDot} setErr={setErrStr} allDot={ableBalance}/>
                 <div className={cx(s.bWapr, s.weight)}>
                     <div className={s.title}>{lanWrap('Voting weight')}</div>
                 </div>
@@ -101,7 +133,7 @@ const Entry = function() {
                         return <Select.Option key={index} value={ratio}>{text}</Select.Option>
                     })}
                 </Select>
-                <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{(parseFloat(democrcacyStore.voteDot || '0') * voteRatio).toFixed(4)}</div>{lanWrap('polls')}</div>
+                <div className={s.allVote}>{lanWrap('total')}<div className={s.voteNum}>{(parseFloat(democrcacyStore.voteDot || '0') * 10 * voteRatio / 10).toFixed(4)}</div>{lanWrap('polls')}</div>
                 <div className={s.split}/>
                 <BottonBtn word={lanWrap('next step')} propClass={cx((voteDot && voteDot !== '0') ? '' : s.notActive)} cb={nextSetp}/>
             </div>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-22 21:18:08
+ * @LastEditTime: 2021-06-10 08:25:42
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -20,14 +20,18 @@ import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
 import { useHistory } from 'react-router-dom';
 import { useTokenName, useFeeRate } from '@utils/tools';
-import { message } from 'antd';
+import { message, Modal } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { PAGE_NAME } from '@constants/app';
 
-import { Input, AutoComplete } from 'antd';
+import { Input, AutoComplete, Spin } from 'antd';
 
 const  TRANSFER_STEP = {
     ONE: 0,
     TWO: 1
 }
+
+const { confirm } = Modal;
 
 interface transferStateObj {
     addressErrMsg?: string,
@@ -39,6 +43,7 @@ interface transferStateObj {
     buttonActive?: boolean,
     errMsg?: string,
     partialFee?: string;
+    isLoading?: boolean;
 }
 const Transfer:FC = function() {
     let { t } = useTranslation();
@@ -58,23 +63,25 @@ const Transfer:FC = function() {
         status: TRANSFER_STEP.ONE,
         transferAmount: '0',
         targetAdd: '',
+        partialFee: '',
         buttonActive: false,
+        isLoading: false,
         errMsg: '',
         secret: '' } as transferStateObj
     );
     const globalStore = useStores('GlobalStore') as globalStoreType;
-    const { balance, currentAccount, api, ableBalance } = globalStore;
+    const { balance, lockBalance, currentAccount, api, ableBalance } = globalStore;
     //  判断当前阶段
     const isStepOne = useMemo(() => stateObj.status === TRANSFER_STEP.ONE, [stateObj.status]);
     //  判断摁钮是否可点击
     const buttonIsAcctive = useMemo(() => {
-        const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret } = stateObj;
+        const { transAmountErrMsg, addressErrMsg, targetAdd, transferAmount, secret, partialFee } = stateObj;
         if (isStepOne) {
-            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0')
+            return !!(!transAmountErrMsg && !addressErrMsg && targetAdd && transferAmount && transferAmount !== '0' && partialFee !== '' && partialFee !== '0')
         } else {
             return !!secret
         }
-    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret])
+    }, [stateObj.status, stateObj.transferAmount, stateObj.transAmountErrMsg, stateObj.addressErrMsg, stateObj.targetAdd, stateObj.secret, stateObj.partialFee])
     const aferIcon = (
         <div className={s.icon}/>
     )
@@ -91,6 +98,7 @@ const Transfer:FC = function() {
                 }
                 const transfer = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount))
                 const { partialFee } = await transfer.paymentInfo(currentAccount.address);
+                console.log(partialFee.toHuman(), parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '');
                 setState({
                     partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + ''
                 })
@@ -148,32 +156,85 @@ const Transfer:FC = function() {
         })
     }
 
+    function balanceCheckPass() {
+        const { transferAmount, partialFee } = stateObj;
+        const afterTxLessOne = (parseFloat(ableBalance) - parseFloat(transferAmount) + parseFloat(lockBalance) - parseFloat(partialFee)) < 1;
+        return new Promise((res, rej) => {
+            if (afterTxLessOne) {
+                if (lockBalance === '0') {
+                    confirm({
+                        title: lanWrap('confirm to transfer'),
+                        className: s.modalWrapper,
+                        icon: <ExclamationCircleOutlined />,
+                        content: lanWrap('wiiBeReaped'),
+                        onOk() {
+                            res(true)
+                        },
+                        onCancel() {
+                            res(false)
+                        }
+                    })
+                } else {
+                    confirm({
+                        icon: <ExclamationCircleOutlined />,
+                        className: s.infoM,
+                        content: lanWrap('hasLocked'),
+                        onOk() {
+                            res(false)
+                        },
+                    })
+                }
+            } else {
+                res(true);
+            }
+        })
+    }
+
     async function buttonClick() {
         const { secret, targetAdd, transferAmount } = stateObj;
         if (buttonIsAcctive) {
             if (isStepOne) {
+                //  强判断是否超过余额
+                if (parseFloat(stateObj.transferAmount) > (parseFloat(ableBalance) - parseFloat(stateObj.partialFee))) {
+                    return message.error(t('widgets:your credit is running low'));
+                }
                 setState({
                     status: TRANSFER_STEP.TWO,
                     errMsg: ''
-                })  
+                })
             } else {
+                //  对转账后的剩余金额进行提醒或阻止
+                const checkRes = await balanceCheckPass();
+                if (!checkRes) {
+                    return;
+                }
+                setState({
+                    isLoading: true
+                })
                 let sendPair = keyring.createFromJson(currentAccount);
                 try {
                     sendPair.decodePkcs8(secret)
                 } catch(e) {
                     console.log(e);
-                    setState({ errMsg: lanWrap('Wrong password') })
+                    setState({ errMsg: lanWrap('Wrong password'), isLoading: false });
                     return;
                 }
                 try {
                     const tx = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount));
                     const hash = await tx.signAndSend(sendPair);
-                    message.info(lanWrap('success'))
+                    message.info(lanWrap('success')).then(() => {
+                        history.push(PAGE_NAME.HOME);
+                    });
                 } catch (e) {
                     if (e.toString().includes('Invalid Transaction: Inability to pay some fees')) {
                         setState({ errMsg: lanWrap('The balance is too low')})
                     }
+                    message.error(e.toString());
                     console.log(e)
+                } finally {
+                    setState({
+                        isLoading: false
+                    })
                 }
             }
         }
@@ -216,7 +277,7 @@ const Transfer:FC = function() {
             </AutoComplete>
             <div className={s.addressError}>{stateObj.addressErrMsg}</div>
             <div className={cx(s.formTitle, s.mid)}>{lanWrap('amount of money')} <span className={s.tAmount}>{parseFloat(ableBalance).toFixed(4)} {tokenName} {lanWrap('available')}</span></div>
-            <DotInput changeInputFn={inputAmount} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
+            <DotInput changeInputFn={inputAmount} minerFee={parseFloat(stateObj.partialFee || '0') * 1.1} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
             <div className={s.feeWrap}>
                 <span>{lanWrap('Transfer fee')}</span>
                 <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(fixDicimal)} {tokenName}</span>
@@ -263,7 +324,9 @@ const Transfer:FC = function() {
         <div className={s.wrap}>
             <HeadBar selfBack={createPageBack} word={lanWrap('Transfer')}/>
             {isStepOne ? renderStepOne() : isStepTwo()}
-            <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
+            <Spin spinning={stateObj.isLoading}>
+                <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
+            </Spin>
         </div>
     )
 }

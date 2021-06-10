@@ -1,8 +1,16 @@
+/*
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @Date: 2021-05-29 10:36:59
+ * @LastEditTime: 2021-06-10 08:17:49
+ */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import keyring from '@polkadot/ui-keyring';
 import { keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
+import { LOCAL_CONFIG } from '@constants/chrome';
+import { getStorage, setStorage } from '@utils/chrome';
 import { useTranslation } from 'react-i18next';
 import type { CreateResult } from '@polkadot/ui-keyring/types';
 import { runInAction } from 'mobx';
@@ -15,6 +23,7 @@ import i18n from 'i18next';
 import { NET_TYPE, POLKADOT_TOKEN_RATE, KUSAMA_TOKEN_RATE } from '@constants/chain';
 import { decodeAddress, encodeAddress } from '@polkadot/util-crypto';
 import { BN_ONE, extractTime } from '@polkadot/util';
+import { LOCAL_LANGUAGE } from '@constants/app';
 
 type Result = [number, string, Time];
 
@@ -169,7 +178,7 @@ export function useBlockTime (blocks = BN_ONE): Result {
     //     DEFAULT_TIME
     //   );
       const blockTime = DEFAULT_TIME;
-      const time = extractTime(blockTime.mul(blocks).toNumber());
+      const time = extractTime(blockTime.mul(blocks as any).toNumber());
       const { days, hours, minutes, seconds } = time;
       const timeStr = [
         days ? (days > 1) ? t<string>('{{days}} days', { replace: { days } }) : t<string>('1 day') : null,
@@ -193,7 +202,7 @@ export function useBlockTime (blocks = BN_ONE): Result {
 
 export function getBlockTime(blocks = BN_ONE) {
     const blockTime = DEFAULT_TIME;
-    const time = extractTime(blockTime.mul(blocks).toNumber());
+    const time = extractTime(blockTime.mul(blocks as any).toNumber());
     const { days, hours, minutes, seconds } = time;
     const timeStr = [
       days ? (days > 1) ? `${days} days` : '1 day' : null, 
@@ -205,5 +214,42 @@ export function getBlockTime(blocks = BN_ONE) {
       .slice(0, 2)
       .join(' ');
     return timeStr
+}
+
+export function updateLanguage(lan: 'english' | 'chinese') {
+    const targetLan = lan === 'english' ? 'en' : 'zh';
+    window.localStorage.setItem(LOCAL_LANGUAGE, targetLan);
+    i18n.changeLanguage(targetLan);
+    runInAction(() => {
+        globalStore.localConfig.language = lan;
+    })
+    setStorage({
+        [LOCAL_CONFIG]: {
+            ...globalStore.localConfig,
+            language: lan
+        }
+    })
+}
+
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * 
+ * 主要是用来给各种非dapp唤起的弹窗来重新设置样式，为了保证样式一致
+ */
+export function retrieveWindow () {
+    const target = document.getElementsByTagName('html')[0];
+    target.style.cssText = 'width: 375px; height: 600px; font-size: 26.66667vw; overflow-x: hidden;'
+}
+
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * 
+ * 为了给page唤起的宽弹窗处理
+ */
+export function setWindowForPop () {
+    const target = document.getElementsByTagName('html')[0];
+    target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
 }
 

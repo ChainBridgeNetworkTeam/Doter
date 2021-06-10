@@ -20,5 +20,16 @@ fileNames.forEach(item => {
         fs.unlinkSync(deletePath);
     }
 });
+
+const outerPath = path.resolve(rootPosition, "./plugin");
+fileNames = fs.readdirSync(outerPath);
+
+const outerUsedFileName = ['imgs', 'pop', 'background.js', 'content.js', 'injectScript.js', 'manifest.json', 'notification.html'];
+fileNames.forEach(item => {
+    if (!outerUsedFileName.includes(item)) {
+        const deletePath = path.resolve(outerPath, item);
+        fs.unlinkSync(deletePath);
+    }
+});
 console.log('delete effect files!')
 

@@ -23,6 +23,7 @@ import { democracyZh, democracyEn } from '@entry/page/democracy/language'; //  �
 import { transRecordEn, transRecordZh } from '@entry/page/transferRecord/language'; // 转账记录
 import { signUpEn, signUpZh } from '@entry/page/signPopup/language'; // 签名弹窗
 import { authorizeEn, authorizeZh } from '@entry/page/authPopup/language'; //  认证弹窗
+import { metadataZh, metadataEn} from '@entry/page/metadataPopup/language'; // 元数据升级弹窗
 import { LOCAL_LANGUAGE } from '@constants/app';
 import {
   initReactI18next
@@ -53,6 +54,7 @@ i18n.use(initReactI18next) //init i18next
       transRecord: transRecordEn,
       signPopup: signUpEn,
       authPopup: authorizeEn,
+      metadata: metadataEn,
     },
     zh: {
       home: homeCn,
@@ -72,6 +74,7 @@ i18n.use(initReactI18next) //init i18next
       transRecord: transRecordZh,
       signPopup: signUpZh,
       authPopup: authorizeZh,
+      metadata: metadataZh,
     },
   },
   //选择默认语言，选择内容为上述配置中的key，即en/zh
