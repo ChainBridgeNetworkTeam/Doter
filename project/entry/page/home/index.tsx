@@ -60,37 +60,30 @@ const HomePage:FC = function() {
         getInfo();
     }, [])
 
-    function comLeft() {
-        const [value, setValue] = useState({
-            balance: '0',
-            lockBalance: '0',
-            preserveDot: '0'
-        });
-        useEffect(() => {
-            async function com() {
-                const { address } = globalStore.currentAccount;
-                //  没有地址直接返回
-                if (!address) {
-                    return;
-                }
-                const endoceAdd = keyring.encodeAddress(address);
-                const res = await getAddInfo(endoceAdd);
-                const { balance = 0, lock = 0, reserved = 0 } = res?.data?.account || {};
-                setValue({
-                    balance,
-                    lockBalance: lock,
-                    preserveDot: reserved
-                });
-                runInAction(() => {
-                    globalStore.balance = balance;
-                    globalStore.lockBalance = lock;
-                    globalStore.ableBalance = parseFloat(balance) - parseFloat(lock) - parseFloat(reserved) / Math.pow(10, 10)+ '';
-                })
+    useEffect(() => {
+        (async function () {
+            const { address } = globalStore.currentAccount;
+            //  没有地址直接返回
+            if (!address) {
+                return;
             }
-            com();
-        }, [globalStore.currentAccount, globalStore.dotToDollar])
-        return value;
-    }
+            const endoceAdd = keyring.encodeAddress(address);
+            let ans;
+
+            const res = await getAddInfo(endoceAdd);
+            if (typeof res === "object") {
+                ans = res;
+            } else {
+                return;
+            }
+            const { balance = 0, lock = 0, reserved = 0 } = ans?.data?.account || {};
+            runInAction(() => {
+                globalStore.balance = balance;
+                globalStore.lockBalance = lock;
+                globalStore.ableBalance = parseFloat(balance) - parseFloat(lock) - parseFloat(reserved) / Math.pow(10, 10)+ '';
+            })
+        })();
+    }, [globalStore.currentAccount, globalStore.dotToDollar])
 
     function statusIcon() {
         return !hasInit ? <div className={s.connetIcon}>{t('home:connecting')}</div> : null;
@@ -116,8 +109,7 @@ const HomePage:FC = function() {
         });
     }
 
-    const balanceObj = comLeft();
-    const { balance, lockBalance = '0', preserveDot = '0' } = balanceObj;
+    const { balance, lockBalance = '0', ableBalance } = globalStore;
 
     function toSingleManage(e: React.MouseEvent<HTMLSpanElement, MouseEvent>, address: string) {
         //  避免冒泡
@@ -128,7 +120,7 @@ const HomePage:FC = function() {
     function AccountPage() {
         const target = currentAccount;
         const { address, meta } = target;
-        const useDolar = (parseFloat(balance) * parseFloat(globalStore.dotToDollar)).toFixed(2);
+        const useDolar = (parseFloat(balance+ '') * parseFloat(globalStore.dotToDollar)).toFixed(2);
         return (
             <>
                 <div className={s.head}>
@@ -151,7 +143,7 @@ const HomePage:FC = function() {
                 </div>
                 <div className={cx(s.pIcon, globalStore.netType === NET_TYPE.KUSAMA ? s.kusama : '')}/>
                 <Spin spinning={balance === ''}>
-                    <div className={s.balance}>{parseFloat(balance).toFixed(4)} {tokenName}</div>
+                    <div className={s.balance}>{parseFloat(balance+ '').toFixed(4)} {tokenName}</div>
                     <div className={s.usd}>${parseFloat(useDolar).toFixed(4)} USD</div>
                     <div className={s.balanceDetial}>
                         <div className={s.aWrap}>
@@ -160,7 +152,7 @@ const HomePage:FC = function() {
                         </div>
                         <div className={s.split}/>
                         <div className={s.aWrap}>
-                            <div>{parseFloat(parseFloat(balance) - parseFloat(lockBalance) - parseFloat(preserveDot) / Math.pow(10, 10) + '').toFixed(4)} {tokenName}</div>
+                            <div>{parseFloat(parseFloat(ableBalance + '') + '').toFixed(4)} {tokenName}</div>
                             <div className={s.balanceDes}>{t('home:Available balance')}</div>
                         </div>
                     </div>
