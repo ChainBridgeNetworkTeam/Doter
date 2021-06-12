@@ -2,10 +2,13 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-08 23:06:10
- * @LastEditTime: 2021-05-21 08:42:59
+ * @LastEditTime: 2021-06-12 11:51:43
 -->
 # What is Doter
 Doter is a chrome wallet extension for polkadot ecosystem. User can import or create the accounts with the wallet, and to transfer dot to some other account or join in the ecosystem governance.  
+
+Doter has got the grant from Web3 Foundation!  
+![web3 grant](docs/web3_foundation_grants_badge_white.png)
 ## the home page
 ![home page](docs/home.png)
 
@@ -40,31 +43,31 @@ Now, we can already install Doter in the Google Chrome extension market.
 If you want to use Doter to participate in the Polkadot ecology, you can refer to the following tutorial：  
 1. Create wallet  
 1)Please choose a language you are familiar with before creating a wallet. There are currently two options: English and Chinese. Then click the Create Wallet button  
-![create](https://uploader.shimo.im/f/OysV39ix35Q5Gx3g.png)  
+![create](docs/create.png)  
 2)This password will be used as the transaction password for the wallet，Please remember the password，Doter is a decentralized wallet and cannot provide password retrieval function  
-![](https://uploader.shimo.im/f/nZLpEdrQbip3qKXs.png)  
+![password](docs/password.png)  
 3)Be sure to back up the mnemonic phrase, Don’t take screenshots  
-![](https://uploader.shimo.im/f/gKewU2bnm4Hx1v2G.png)  
+![mnemonic](docs/mnemonic.png)  
 4)Please enter the mnemonic words you just backed up in order to make sure you back them up correctly  
-![](https://uploader.shimo.im/f/Yy3uJ2zYPQ8fPc1P.png)  
+![remnemonic](docs/remnemonic.png)  
 5)Congratulations, seeing this page means that you have successfully created a wallet. The operation of the wallet homepage is shown in the figure below  
-![](https://uploader.shimo.im/f/ZrgVS0zC27QSH0k9.png)  
+![home](docs/home.png)  
 
 2. Receive  
 Just click Receive on the homepage to jump to this page. Scan the QR code, or copy the wallet address by clicking Copy  
-![](https://uploader.shimo.im/f/n5haC5k3Ho5kNcTp.png)  
+![retrive](docs/retrive.png)  
 
 3. Transfer  
 1)Just click Transfer on the homepage to jump to this page. Enter the recipient's wallet address and transfer amount, click Next  
-![](https://uploader.shimo.im/f/yxxGK43QeCxu8n1y.png)  
+![trans](docs/transfer.png)  
 2)After ensuring that the transfer information is correct, enter the password to confirm, Wait a moment and the transfer will be completed  
-![](https://uploader.shimo.im/f/XKmKI6Mmv6GXDz1c.png)  
+![transfer2](docs/transfer2.png)  
 3)Just click Transactions on the homepage to jump to this page. You can see all transaction records  
-![](https://uploader.shimo.im/f/u4tB2nZVjG0a64vF.png)  
+![records](docs/records.png)  
 
 4. Governance
 Just click Governance on the homepage to jump to this page. The governance module includes three parts: on-chain referendum, community proposal, and council election. At present, you can use the on-chain referendum module to vote on proposals from the community or council. The other two governance modules will be developed soon  
-![](https://uploader.shimo.im/f/cDXLpDuyyfZ64CXq.png)  
+![referendum](docs/referendum.png)  
 
 The above is all the tutorials.
 Our Twitter account: @ChainBridgeNetwork, if you have any suggestions, you can interact with us on Twitter.
