@@ -27,7 +27,6 @@ class CreateAccountStore {
     //  密码确认
     inputSecConfirm: string = '';
     //  注册阶段
-    //  @observable 
     createStage: number = 0;
     //  用户协议是否勾选
     userAgreementSlect = false;
