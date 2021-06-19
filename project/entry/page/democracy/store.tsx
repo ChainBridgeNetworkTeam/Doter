@@ -30,7 +30,8 @@ class Democry {
     //  @observable 
     reScanDetial: Record<string, any>[] = [];
     //  支持还是反对
-    @observable action: 'support' | 'reject';
+    //  @observable 
+    action: 'support' | 'reject';
     //  投票金额
     @observable voteDot: string;
     //  投票系数
