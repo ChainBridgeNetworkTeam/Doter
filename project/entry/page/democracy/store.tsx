@@ -36,7 +36,6 @@ class Democry {
     //  @observable
     voteDot: string;
     //  投票系数
-    //  @observable
     voteRatio: number = 0.1;
 
     //  矿工费
