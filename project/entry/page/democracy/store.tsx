@@ -33,7 +33,6 @@ class Democry {
     //  @observable 
     action: 'support' | 'reject';
     //  投票金额
-    //  @observable
     voteDot: string;
     //  投票系数
     voteRatio: number = 0.1;
