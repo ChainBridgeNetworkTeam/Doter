@@ -27,7 +27,6 @@ class Democry {
     //  @observable 
     referenda: DeriveReferendumExt[];
     //  subscan的公投详情
-    //  @observable 
     reScanDetial: Record<string, any>[] = [];
     //  支持还是反对
     //  @observable 
