@@ -12,7 +12,7 @@ import { getStorage, setStorage, chromeLocalGet, chromeLocalSet } from '@utils/c
 import { OFFICAL_END_POINT, KUSAMA_END_POINT, NET_TYPE, ADDRESS_FORMAT } from '@constants/chain';
 import { AccountsStore } from '@polkadot/extension-base/stores';
 import { accounts as accountsObservable } from '@polkadot/ui-keyring/observable/accounts';
-import type { SubjectInfo, SingleAddress } from '@polkadot/ui-keyring/observable/types';
+import type { SubjectInfo } from '@polkadot/ui-keyring/observable/types';
 import type { KeyringPair, KeyringPair$Json, KeyringPair$Meta } from '@polkadot/keyring/types';
 import type { SignerPayloadJSON, SignerPayloadRaw } from '@polkadot/types/types';
 import type { KeypairType } from '@polkadot/util-crypto/types';
