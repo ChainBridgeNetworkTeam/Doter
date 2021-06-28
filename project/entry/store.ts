@@ -4,7 +4,7 @@
  * @Last Modified by: guanlanluditie
  * @Last Modified time: 2021-04-05 10:52:17
  */
-import { observable, runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
+import { runInAction, action, makeAutoObservable, computed, toJS } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { ADDRESS_ARRAY, FAVORITE_ACCOUNT, RECIPIENT_ARRAY, LOCAL_CONFIG, MAINTAIN_NET } from '@constants/chrome';
 import keyring from '@polkadot/ui-keyring';
