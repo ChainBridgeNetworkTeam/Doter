@@ -58,6 +58,7 @@ const CommonPart:FC = function() {
         });
         if (isInMnemonic) {
             const mnemoRes = keyring.addUri(mnemonicWords, secret, { name });
+            console.log(mnemoRes, 'res');
             //  store和chrome存储都同步
             createAccountSuri(name, secret, mnemonicWords, undefined).catch(e => console.log('backup accound from mnemonic failed', e));
             await addNewAccount(mnemoRes);
