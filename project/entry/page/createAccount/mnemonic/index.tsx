@@ -189,7 +189,9 @@ const CreactMnemonic:FC = function() {
                 })
                 setState({
                     showLoading: false
-                })
+                });
+                //  重置store的状态
+                createStore.resetStore();
                 //  回到首页
                 history.push(PAGE_NAME.HOME);
             }, 0)

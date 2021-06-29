@@ -2,10 +2,10 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-06-10 08:17:49
+ * @LastEditTime: 2021-06-28 23:09:19
  */
 import { formatBalance, isHex } from '@polkadot/util';
-import { SEED_LENGTHS } from '@constants/chain';
+import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import keyring from '@polkadot/ui-keyring';
 import { keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
@@ -99,7 +99,7 @@ export function validateKeyStoreJsonStr(content: string) {
 //  添加新账号，同步store和chrome storage
 export async function addNewAccount(result: CreateResult) {
     const { pair } = result;
-    const targetAdd = encodeAddress(pair.publicKey, 0)
+    const targetAdd = encodeAddress(pair.publicKey, globalStore.isKusama ? ADDRESS_FORMAT.KUSAMA : ADDRESS_FORMAT.POLKADOT)
     runInAction(() => {
         globalStore.favoriteAccount = targetAdd || globalStore.favoriteAccount;
     })
