@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-29 09:00:56
- * @LastEditTime: 2021-04-30 22:14:51
+ * @LastEditTime: 2021-06-30 08:37:19
  */
 
 import Adapter from 'enzyme-adapter-react-16';
@@ -22,7 +22,7 @@ keyring.loadAll({
     //  genesisHash: this.api.genesisHash as any,
     ss58Format: 0,
     //  store: new AccountsStore(),
-    type: 'ed25519'
+    type: 'sr25519'
 }, []);
 
 jest.mock('react-router-dom', () => ({
