@@ -231,7 +231,7 @@ class AppStore {
             //  控制地址格式，0是polkadot格式，2是kusama格式
             ss58Format: isKusama ? ADDRESS_FORMAT.KUSAMA : ADDRESS_FORMAT.POLKADOT,
             //  类型要和bg的保持一致，否则会有bug,删除账号的时候有问题
-            type: 'ed25519'
+            type: 'sr25519'
         }, []));
         const netUrl = isKusama ? KUSAMA_END_POINT : OFFICAL_END_POINT;
         const provider = new WsProvider(netUrl);
