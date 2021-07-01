@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-20 23:14:27
- * @LastEditTime: 2021-05-23 08:23:37
+ * @LastEditTime: 2021-06-30 23:39:47
  */
 
 import React, { FC, useState } from 'react';
@@ -16,12 +16,13 @@ const ChangeNetBtn:FC = function() {
     const [showMask, setShow] = useState(false);
     let { t } = useTranslation();
 
-    function changeNet(inputType: string) {
+    async function changeNet(inputType: string) {
         const type = globalStore.netType;
         if (inputType === type) {
             return setShow(false);
         } else {
-            globalStore.changeNetType(inputType);
+            setShow(false);
+            await globalStore.changeNetType(inputType);
         }
     }
 

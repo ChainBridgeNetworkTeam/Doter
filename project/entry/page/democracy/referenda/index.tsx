@@ -128,6 +128,9 @@ const Referenda:FC = function() {
     const rateList = comRate();
 
     function renderReferendaArr() {
+        if (!democrcacyStore.reScanDetial.length) {
+            return <div className={s.noContent}>{lanWrap('noReferendum')}</div>
+        }
         return democrcacyStore.reScanDetial.map((_: any, index: number) => {
             const { referendum_index, pre_image = {}, delay, turnout, aye_amount, nay_amount  } = democrcacyStore.reScanDetial[index];
             const { call_module, call_name, author } = pre_image || {};
