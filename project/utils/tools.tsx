@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-06-28 23:09:19
+ * @LastEditTime: 2021-06-30 23:35:58
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
@@ -40,6 +40,7 @@ export function myFormatBalance(balance: number | string | BN | BigInt ) {
 
 //  将地址处理成有好一点的形式xxx....xxx
 export function addressFormat(address: string, padLength = 4) {
+    address = encodeAddress(address, globalStore.isKusama ? ADDRESS_FORMAT.KUSAMA : ADDRESS_FORMAT.POLKADOT);
     return address.slice(0, padLength) + '....' + address.slice(address.length - padLength);
 }
 

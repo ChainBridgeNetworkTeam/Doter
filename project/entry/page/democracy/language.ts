@@ -41,6 +41,7 @@ export const democracyEn = {
     'Password confirmation': 'Password confirmation',
     'Wrong password': 'Wrong password',
     'confirm': 'confirm',
+    'noReferendum': 'no referendum'
 }
 export const democracyZh = {
     'Democratic Governance': '民主治理',
@@ -77,5 +78,6 @@ export const democracyZh = {
     "Miner's fee": '矿工费',
     'Password confirmation': '密码确认',
     'Wrong password': '密码错误',
-    'confirm': '确认'
+    'confirm': '确认',
+    'noReferendum': '没有提案',
 }

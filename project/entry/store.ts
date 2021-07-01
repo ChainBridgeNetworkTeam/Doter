@@ -20,6 +20,7 @@ import { encodeAddress } from '@polkadot/util-crypto';
 import { TypeRegistry } from '@polkadot/types';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 import type BN from 'bn.js';
+import { Subscription } from 'rxjs';
 import type { MetadataRequest } from '@polkadot/extension-base/background/types';
 
 export interface RequestAuthorizeTab {
@@ -126,6 +127,9 @@ class AppStore {
     //  网络类型 polkadot或者kusama
     netType: string = '';
 
+    //  账户订阅
+    accountSubscribtion: Subscription = {} as Subscription;
+
     metadataReqList: MetadataRequest[] = [];
 
     //  设置认证请求列表
@@ -178,6 +182,7 @@ class AppStore {
                 addArrs.map(key => {
                     parsedAccObj[key] = accounts[key].json
                 })
+                console.log(parsedAccObj);
                 runInAction(() => {
                     this.accountObj = parsedAccObj;
                     this.addressArr = addArrs;
@@ -189,6 +194,7 @@ class AppStore {
         );
         const firsetAcc = ans.accountAddress[0];
         runInAction(() => {
+            this.accountSubscribtion = subscription;
             this.favoriteAccount = ans.favoriteAccount || firsetAcc;
             this.localConfig = ans[LOCAL_CONFIG];
             //  常用的地址存在chrome本地存储,根据环境调整格式
@@ -210,8 +216,28 @@ class AppStore {
         await chromeLocalSet({
             [MAINTAIN_NET]: type,
         })
+        this.hasInit = false;
+        await this.changApiNetWork();
         //  首页刷新
-        location.reload();
+        // location.reload();
+    }
+
+    @action.bound
+    async changApiNetWork() {
+        const netUrl = this.isKusama ? KUSAMA_END_POINT : OFFICAL_END_POINT;
+        const provider = new WsProvider(netUrl);
+        let initSuccess = true;
+        this.api = await (ApiPromise.create({
+            provider
+        }).catch(e => {
+            console.log(e);
+            initSuccess = false;
+            return {} as ApiPromise;
+        }));
+        console.log('api init again');
+        runInAction(() => {
+            this.hasInit = initSuccess;
+        })
     }
 
     //  初始化api
