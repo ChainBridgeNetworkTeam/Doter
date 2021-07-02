@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-06-10 08:25:42
+ * @LastEditTime: 2021-07-01 23:33:07
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -14,12 +14,11 @@ import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '../../store';
-import { addressFormat } from '@utils/tools';
-import { dotStrToTransferAmount } from '@utils/tools';
+import { addressFormat, dotStrToTransferAmount } from '@utils/tools';
 import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
 import { useHistory } from 'react-router-dom';
-import { useTokenName, useFeeRate } from '@utils/tools';
+import { useTokenName, useFeeRate, checkAddressFormat } from '@utils/tools';
 import { message, Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { PAGE_NAME } from '@constants/app';
@@ -89,23 +88,24 @@ const Transfer:FC = function() {
     const fixDicimal = globalStore.isKusama ? 7 : 5;
 
     useEffect(() => {
-        async function computedFee() {
-            //  实时计算交易费用
-            try {
-                const { targetAdd, transferAmount } = stateObj;
-                if (!targetAdd) {
-                    return;
-                }
-                const transfer = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount))
-                const { partialFee } = await transfer.paymentInfo(currentAccount.address);
-                console.log(partialFee.toHuman(), parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '');
-                setState({
-                    partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + ''
-                })
-            } catch {
-            }
-        }
-        computedFee();
+        // async function computedFee() {
+        //     //  实时计算交易费用
+        //     try {
+        //         const { targetAdd, transferAmount } = stateObj;
+        //         if (!targetAdd) {
+        //             return;
+        //         }
+        //         const transfer = api.tx.balances.transfer(targetAdd, dotStrToTransferAmount(transferAmount))
+        //         const { partialFee } = await transfer.paymentInfo(currentAccount.address);
+        //         console.log(partialFee.toHuman(), parseFloat(partialFee.toHuman().split(' ')[0]) / 1000 + '');
+        //         setState({
+        //             partialFee: parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + ''
+        //         })
+        //     } catch {
+        //     }
+        // }
+        // computedFee();
+        setState({ partialFee: globalStore.estimatedMinerFee })
     }, [stateObj.transferAmount, stateObj.targetAdd])
 
     //  校验地址
@@ -115,6 +115,7 @@ const Transfer:FC = function() {
         try {
             const publicKey = keyring.decodeAddress(inputValue);
             keyring.encodeAddress(publicKey);
+            checkAddressFormat(inputValue);
         } catch(e) {
             return setState({
                 addressErrMsg: lanWrap('bad address')

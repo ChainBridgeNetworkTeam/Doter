@@ -12,7 +12,7 @@ import { PAGE_NAME } from '@constants/app';
 import { useStores } from '@utils/useStore';
 import { globalStoreType } from '../../store';
 import { observer } from 'mobx-react';
-import { updateLanguage, addressFormat } from '@utils/tools';
+import { updateLanguage, addressFormat, computedFee } from '@utils/tools';
 import { Spin, message } from 'antd';
 import copyContent from 'copy-to-clipboard';
 import { getAddInfo, getDotInfo } from '@entry/service';
@@ -81,6 +81,13 @@ const HomePage:FC = function() {
                 globalStore.balance = balance;
                 globalStore.lockBalance = lock;
                 globalStore.ableBalance = parseFloat(balance) - parseFloat(lock) - parseFloat(reserved) / Math.pow(10, 10)+ '';
+            })
+            const fee = await computedFee();
+            if (!fee) {
+                return;
+            }
+            runInAction(() => {
+                globalStore.estimatedMinerFee = fee;
             })
         })();
     }, [globalStore.currentAccount, globalStore.dotToDollar])

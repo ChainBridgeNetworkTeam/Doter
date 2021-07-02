@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-06-30 23:35:58
+ * @LastEditTime: 2021-07-01 23:38:52
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
@@ -160,6 +160,21 @@ export function useFeeRate () {
     return feeRate;
 }
 
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * @param {string} add
+ * 如果不是匹配的地址格式，抛出错误
+ */
+export function checkAddressFormat(add: string) {
+    const firstChar = add[0];
+    if (globalStore.isKusama && firstChar !== '1') {
+        throw(new Error('address is not in polkadot format'))
+    } else if (!/[A-Z]/.test(firstChar)) {
+        throw(new Error('address is in not KSM format'))
+    }
+}
+
 export function useTokenName () {
     const name = useMemo(() => {
         return globalStore.netType === NET_TYPE.KUSAMA ? 'KSM' : 'DOT';
@@ -252,5 +267,29 @@ export function retrieveWindow () {
 export function setWindowForPop () {
     const target = document.getElementsByTagName('html')[0];
     target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
+}
+
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * 
+ * 提升用户体验，提前计算矿工费
+ */
+export async function computedFee() {
+    const estimateAdd = '14MXedfxTovBvJVRfLQFGpsLwKWjS7PpaM98kqyiVkrffwPL';
+    const { favoriteAccount, api, isKusama, ableBalance } = globalStore;
+    const feeRate = isKusama ? Math.pow(10, 6) : Math.pow(10, 3)
+    //  实时计算交易费用
+    try {
+        if (!favoriteAccount) {
+            return '';
+        }
+        const transfer = api.tx.balances.transfer(estimateAdd, dotStrToTransferAmount(ableBalance))
+        const { partialFee } = await transfer.paymentInfo(favoriteAccount);
+        return parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + '';
+    } catch(e) {
+        console.log(e);
+        return '';
+    }
 }
 
