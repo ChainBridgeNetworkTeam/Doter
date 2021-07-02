@@ -74,6 +74,7 @@ export interface globalStoreType {
     signReqList: Array<SigningRequest>;
     netType: string;
     isKusama: boolean;
+    estimatedMinerFee: string;
 
     changeNetType: (value: string) => void;
     metadataReqList: MetadataRequest[];
@@ -98,6 +99,7 @@ export interface loaclConfigType {
     lastInSTM?: number
 }
 
+//  export let initResolve = () => {};
 class AppStore {
     hasInit: boolean = false;
     api: ApiPromise;
@@ -126,6 +128,16 @@ class AppStore {
     signReqList: Array<SigningRequest> = [];
     //  网络类型 polkadot或者kusama
     netType: string = '';
+    //  估算旷工费
+    estimatedMinerFee = ''
+    initResolve = () => {};
+    // 包一个promise，方便外界看是否完成初始化
+    initPromise = new Promise((res: any, rej) => {
+        this.initResolve = () => {
+            console.log('wrap promise')
+            res();
+        };
+    })
 
     //  账户订阅
     accountSubscribtion: Subscription = {} as Subscription;
@@ -182,7 +194,6 @@ class AppStore {
                 addArrs.map(key => {
                     parsedAccObj[key] = accounts[key].json
                 })
-                console.log(parsedAccObj);
                 runInAction(() => {
                     this.accountObj = parsedAccObj;
                     this.addressArr = addArrs;
@@ -270,6 +281,7 @@ class AppStore {
             return {} as ApiPromise;
         }));
         console.log('api init');
+        this.initResolve();
         runInAction(() => {
             this.hasInit = initSuccess;
         })

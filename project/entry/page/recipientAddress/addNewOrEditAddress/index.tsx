@@ -16,7 +16,7 @@ import { runInAction } from 'mobx';
 import { keyring } from '@polkadot/ui-keyring';
 import { chromeLocalSet } from '@utils/chrome'
 import globalStore from '@entry/store';
-import { useTokenName } from '@utils/tools';
+import { useTokenName, checkAddressFormat } from '@utils/tools';
 import { RECIPIENT_ARRAY } from '@constants/chrome';
 interface AddStatus {
     input?: string,
@@ -65,7 +65,9 @@ const Entry:FC = function() {
         try {
             const publicKey = keyring.decodeAddress(inputValue);
             keyring.encodeAddress(publicKey);
+            checkAddressFormat(inputValue);
         } catch(e) {
+            console.log(e);
             return setState({
                 errInfo: lanWrap('bad address')
             })
