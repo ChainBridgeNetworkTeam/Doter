@@ -46,8 +46,13 @@
     font-size: .14rem;
 }
 
+.placeH {
+    width: 100%;
+    height: .24rem;
+}
+
 .feeWrap {
-    margin-top: .24rem;
+    // margin-top: .24rem;
     width: 3.43rem;
     height: .48rem;
     color: #555555;
@@ -88,6 +93,7 @@
     line-height: .48rem;
     border-radius: .02rem;
     background-color: #358FB6;
+    user-select: none;
 }
 
 .sTd {

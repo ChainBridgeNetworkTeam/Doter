@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-07-01 23:38:52
+ * @LastEditTime: 2021-07-02 23:02:47
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
@@ -276,16 +276,14 @@ export function setWindowForPop () {
  * 提升用户体验，提前计算矿工费
  */
 export async function computedFee() {
+    await globalStore.initPromise;
     const estimateAdd = '14MXedfxTovBvJVRfLQFGpsLwKWjS7PpaM98kqyiVkrffwPL';
-    const { favoriteAccount, api, isKusama, ableBalance } = globalStore;
-    const feeRate = isKusama ? Math.pow(10, 6) : Math.pow(10, 3)
+    const { api, isKusama, ableBalance } = globalStore;
+    const feeRate = isKusama ? Math.pow(10, 6) : Math.pow(10, 3);
     //  实时计算交易费用
     try {
-        if (!favoriteAccount) {
-            return '';
-        }
         const transfer = api.tx.balances.transfer(estimateAdd, dotStrToTransferAmount(ableBalance))
-        const { partialFee } = await transfer.paymentInfo(favoriteAccount);
+        const { partialFee } = await transfer.paymentInfo(estimateAdd);
         return parseFloat(partialFee.toHuman().split(' ')[0]) / feeRate + '';
     } catch(e) {
         console.log(e);

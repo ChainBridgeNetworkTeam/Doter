@@ -20,6 +20,7 @@ import { encodeAddress } from '@polkadot/util-crypto';
 import { TypeRegistry } from '@polkadot/types';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 import type BN from 'bn.js';
+import { computedFee } from '@utils/tools';
 import { Subscription } from 'rxjs';
 import type { MetadataRequest } from '@polkadot/extension-base/background/types';
 
@@ -134,7 +135,6 @@ class AppStore {
     // 包一个promise，方便外界看是否完成初始化
     initPromise = new Promise((res: any, rej) => {
         this.initResolve = () => {
-            console.log('wrap promise')
             res();
         };
     })
@@ -162,7 +162,7 @@ class AppStore {
 
     @computed
     get currentAccount() {
-        return this.accountObj[this.favoriteAccount] || this.accountObj[this.addressArr[0]] || {} as account
+        return this.accountObj[this.favoriteAccount] || this.accountObj[this.addressArr[0]] || {} as KeyringPair$Json
     }
 
     @computed
@@ -223,12 +223,20 @@ class AppStore {
     async changeNetType(type: string) {
         runInAction(() =>{
             this.netType = type;
+            this.estimatedMinerFee = '';
         })
         await chromeLocalSet({
             [MAINTAIN_NET]: type,
         })
         this.hasInit = false;
         await this.changApiNetWork();
+        //  重新估计矿工费
+        const fee = await computedFee();
+        if (fee) {
+            runInAction(() => {
+                this.estimatedMinerFee = fee;
+            })
+        }
         //  首页刷新
         // location.reload();
     }

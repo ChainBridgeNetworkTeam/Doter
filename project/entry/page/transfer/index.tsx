@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-07-01 23:33:07
+ * @LastEditTime: 2021-07-02 23:27:19
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -12,18 +12,16 @@ import s from './index.scss';
 import HeadBar from '@widgets/headBar';
 import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
-import { useStores } from '@utils/useStore';
-import { globalStoreType } from '../../store';
 import { addressFormat, dotStrToTransferAmount } from '@utils/tools';
 import { keyring } from '@polkadot/ui-keyring';
 import DotInput from '@widgets/balanceDotInput';
 import { useHistory } from 'react-router-dom';
 import { useTokenName, useFeeRate, checkAddressFormat } from '@utils/tools';
-import { message, Modal } from 'antd';
+import globalStore from '@entry/store';
+import { observer } from 'mobx-react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { PAGE_NAME } from '@constants/app';
-
-import { Input, AutoComplete, Spin } from 'antd';
+import { Input, AutoComplete, Spin, message, Modal } from 'antd';
 
 const  TRANSFER_STEP = {
     ONE: 0,
@@ -68,7 +66,6 @@ const Transfer:FC = function() {
         errMsg: '',
         secret: '' } as transferStateObj
     );
-    const globalStore = useStores('GlobalStore') as globalStoreType;
     const { balance, lockBalance, currentAccount, api, ableBalance } = globalStore;
     //  判断当前阶段
     const isStepOne = useMemo(() => stateObj.status === TRANSFER_STEP.ONE, [stateObj.status]);
@@ -106,7 +103,7 @@ const Transfer:FC = function() {
         // }
         // computedFee();
         setState({ partialFee: globalStore.estimatedMinerFee })
-    }, [stateObj.transferAmount, stateObj.targetAdd])
+    }, [stateObj.transferAmount, stateObj.targetAdd, globalStore.estimatedMinerFee])
 
     //  校验地址
     //  React.ChangeEventHandler<HTMLTextAreaElement> React.ChangeEvent<HTMLInputElement>
@@ -279,13 +276,15 @@ const Transfer:FC = function() {
             <div className={s.addressError}>{stateObj.addressErrMsg}</div>
             <div className={cx(s.formTitle, s.mid)}>{lanWrap('amount of money')} <span className={s.tAmount}>{parseFloat(ableBalance).toFixed(4)} {tokenName} {lanWrap('available')}</span></div>
             <DotInput changeInputFn={inputAmount} minerFee={parseFloat(stateObj.partialFee || '0') * 1.1} controlValue={stateObj.transferAmount} setErr={setAmountErrString} allDot={ableBalance}/>
-            <div className={s.feeWrap}>
-                <span>{lanWrap('Transfer fee')}</span>
-                <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(fixDicimal)} {tokenName}</span>
-            </div>
+            <div className={s.placeH}/>
+            <Spin spinning={!stateObj.partialFee}>
+                <div className={s.feeWrap}>
+                    <span>{lanWrap('Transfer fee')}</span>
+                    <span className={s.feeStl}>{parseFloat(stateObj.partialFee || '0').toFixed(fixDicimal)} {tokenName}</span>
+                </div>
+            </Spin>
         </div>
     }
-
     function isStepTwo() {
         return <div className={s.contentWrap}>
             <div className={cx(s.formTitle, s.topT)}>{lanWrap('Transfer information')}</div>
@@ -332,4 +331,4 @@ const Transfer:FC = function() {
     )
 }
 
-export default Transfer;
+export default observer(Transfer);

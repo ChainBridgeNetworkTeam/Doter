@@ -42,7 +42,8 @@ import MetadataPopup from './page/metadataPopup'; //    metadata同步更新弹�
 import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
-import { retrieveWindow, setWindowForPop } from '@utils/tools';
+import { runInAction } from 'mobx';
+import { retrieveWindow, setWindowForPop, computedFee } from '@utils/tools';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { subscribeAuthorizeRequests, subscribeSigningRequests, subscribeMetadataRequests } from '@utils/message/message';
@@ -55,20 +56,28 @@ function AppRouter() {
         DemocracyStore
     }
 
-    useEffect((): void => {
-        Promise.all([
-            //  订阅metadata同步请求，尽管没啥用
-            subscribeMetadataRequests((list) => {
-                GlobalStore.setMetadataList(list);
-            }),
-            //  订阅认证请求
-            subscribeAuthorizeRequests((list) => {
-                GlobalStore.setAuthList(list);
-            }),
-            //  订阅签名请求
-            subscribeSigningRequests((list) => GlobalStore.setSignList(list as any))
-        ],).catch(console.error);
-      }, []);
+    useEffect(() => {
+        (async function() {
+            Promise.all([
+                //  订阅metadata同步请求，尽管没啥用
+                subscribeMetadataRequests((list) => {
+                    GlobalStore.setMetadataList(list);
+                }),
+                //  订阅认证请求
+                subscribeAuthorizeRequests((list) => {
+                    GlobalStore.setAuthList(list);
+                }),
+                //  订阅签名请求
+                subscribeSigningRequests((list) => GlobalStore.setSignList(list as any))
+            ],).catch(console.error);
+            const fee = await computedFee();
+            if (fee) {
+                runInAction(() => {
+                    GlobalStore.estimatedMinerFee = fee;
+                })
+            }
+        })();
+    },[]);
 
     const Root = useCallback(() => {
         //  分两种情况，直接由dapp唤起或者是通过点击右上角唤起，为了保证样式一致，需要一些特殊操作
