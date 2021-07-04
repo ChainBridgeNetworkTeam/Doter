@@ -29,7 +29,7 @@ export const transferEn = {
     'success': 'Transfer request submitted',
     'confirm to transfer': 'Are you sure to execute this transfer?',
     'hasLocked': 'The current account has locked balance. Please keep the total balance(avalable balance + locked balance) in the account greater than 1dot, otherwise the transfer cannot be performed!',
-    'wiiBeReaped': 'After the transfer the account balance is less than 1dot, the network will reap the account and the balance will be cleared!',
+    'wiiBeReaped': 'After the transfer the account balance is less than {{threshold}}, the network will reap the account and the balance will be cleared!',
 }
 
 export const transferZh = {
@@ -56,5 +56,5 @@ export const transferZh = {
     'success': '转账请求已提交',
     'confirm to transfer': '确认执行这笔转账吗？',
     'hasLocked': '当前账户有处于锁定期的余额，请保持账户内总余额大于1DOT，否则无法执行转账！',
-    'wiiBeReaped': '账户余额小于1DOT之后，改装胡将会被网络清理，账户余额将清零!',
+    'wiiBeReaped': '账户余额小于{{threshold}}之后，改装胡将会被网络清理，账户余额将清零!',
 }
