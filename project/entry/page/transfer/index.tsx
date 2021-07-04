@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-07-02 23:27:19
+ * @LastEditTime: 2021-07-04 22:47:44
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -156,7 +156,9 @@ const Transfer:FC = function() {
 
     function balanceCheckPass() {
         const { transferAmount, partialFee } = stateObj;
-        const afterTxLessOne = (parseFloat(ableBalance) - parseFloat(transferAmount) + parseFloat(lockBalance) - parseFloat(partialFee)) < 1;
+        const thrteshold = globalStore.isKusama ? 0.0000333 : 1;
+        const thresholdContent = globalStore.isKusama ? '33.33 micro KSM' : '1 DOT';
+        const afterTxLessOne = (parseFloat(ableBalance) - parseFloat(transferAmount) + parseFloat(lockBalance) - parseFloat(partialFee)) < thrteshold;
         return new Promise((res, rej) => {
             if (afterTxLessOne) {
                 if (lockBalance === '0') {
@@ -164,7 +166,7 @@ const Transfer:FC = function() {
                         title: lanWrap('confirm to transfer'),
                         className: s.modalWrapper,
                         icon: <ExclamationCircleOutlined />,
-                        content: lanWrap('wiiBeReaped'),
+                        content: t('transfer:wiiBeReaped', { threshold: thresholdContent }),
                         onOk() {
                             res(true)
                         },
