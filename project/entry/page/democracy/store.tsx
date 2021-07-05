@@ -24,7 +24,6 @@ class Democry {
         makeAutoObservable(this);
     }
     //  官方api的公投详情
-    //  @observable 
     referenda: DeriveReferendumExt[];
     //  subscan的公投详情
     reScanDetial: Record<string, any>[] = [];
