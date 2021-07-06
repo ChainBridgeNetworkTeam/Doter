@@ -28,7 +28,6 @@ class Democry {
     //  subscan的公投详情
     reScanDetial: Record<string, any>[] = [];
     //  支持还是反对
-    //  @observable 
     action: 'support' | 'reject';
     //  投票金额
     voteDot: string;
