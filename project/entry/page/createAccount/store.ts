@@ -4,7 +4,7 @@
  * @Last Modified by: guanlanluditie
  * @Last Modified time: 2021-02-11 09:54:20
  */
-import { observable, runInAction, action, makeAutoObservable } from 'mobx';
+import { runInAction, action, makeAutoObservable } from 'mobx';
 //  import { OFFICAL_END_POINT } from '@constants/url';
 
 export interface CreateStoreType {
