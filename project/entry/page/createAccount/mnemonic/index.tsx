@@ -69,6 +69,7 @@ const CreactMnemonic:FC = function() {
         async function init() {
             await cryptoWaitReady();
             const mnemonic = mnemonicGenerate() as string;
+            console.log(mnemonic, 'sss');
             const wordsList = mnemonic.split(' ').map((item, index) => ({ value: item, isPick: false, key: index } as WordObj))
             setState({
                 words: wordsList,
