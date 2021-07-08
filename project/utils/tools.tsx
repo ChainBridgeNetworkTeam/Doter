@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-07-02 23:02:47
+ * @LastEditTime: 2021-07-07 23:42:24
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
@@ -168,7 +168,7 @@ export function useFeeRate () {
  */
 export function checkAddressFormat(add: string) {
     const firstChar = add[0];
-    if (globalStore.isKusama && firstChar !== '1') {
+    if (!globalStore.isKusama && firstChar !== '1') {
         throw(new Error('address is not in polkadot format'))
     } else if (!/[A-Z]/.test(firstChar)) {
         throw(new Error('address is in not KSM format'))
@@ -255,7 +255,10 @@ export function updateLanguage(lan: 'english' | 'chinese') {
  */
 export function retrieveWindow () {
     const target = document.getElementsByTagName('html')[0];
-    target.style.cssText = 'width: 375px; height: 600px; font-size: 26.66667vw; overflow-x: hidden;'
+    target.style.cssText = 'width: 375px; height: 601px; font-size: 26.66667vw; overflow-x: hidden;'
+    setTimeout(() => {
+        target.style.cssText = 'width: 375px; height: 600px; font-size: 26.66667vw; overflow-x: hidden;'
+    }, 10);
 }
 
 /**
@@ -266,7 +269,20 @@ export function retrieveWindow () {
  */
 export function setWindowForPop () {
     const target = document.getElementsByTagName('html')[0];
-    target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
+    target.style.cssText = 'width: 560px; height: 601px; font-size: 17.8581vw; overflow-x: hidden;'
+    setTimeout(() => {
+        target.style.cssText = 'width: 560px; height: 600px; font-size: 17.8581vw; overflow-x: hidden;'
+    }, 10);
+}
+
+/**
+ * @Author: dianluyuanli-wp
+ * @LastEditors: dianluyuanli-wp
+ * 给有Dapp唤起的弹窗使用
+ */
+export function setWindowForDapp () {
+    const target = document.getElementsByTagName('html')[0];
+    target.style.cssText = 'width: 560px; font-size: 17.8581vw; overflow-x: hidden;'
 }
 
 /**

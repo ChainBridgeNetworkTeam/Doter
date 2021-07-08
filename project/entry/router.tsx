@@ -43,7 +43,7 @@ import RetrieveStore from './page/retriveWallet/store';
 import DemocracyStore from './page/democracy/store';
 import { PAGE_NAME } from '@constants/app';
 import { runInAction } from 'mobx';
-import { retrieveWindow, setWindowForPop, computedFee } from '@utils/tools';
+import { retrieveWindow, setWindowForPop, setWindowForDapp, computedFee } from '@utils/tools';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { subscribeAuthorizeRequests, subscribeSigningRequests, subscribeMetadataRequests } from '@utils/message/message';
@@ -82,6 +82,7 @@ function AppRouter() {
     const Root = useCallback(() => {
         //  分两种情况，直接由dapp唤起或者是通过点击右上角唤起，为了保证样式一致，需要一些特殊操作
         const { signReqList, authReqList, metadataReqList } = GlobalStore;
+        //  右上角点击
         if (!document.getElementById('notification')) {
             if (signReqList.length || metadataReqList.length || authReqList.length) {
                 setWindowForPop();
@@ -91,7 +92,7 @@ function AppRouter() {
                 return <Home />
             }
         } else {
-            setWindowForPop();
+            setWindowForDapp();
             if (signReqList.length) {
                 return <SignPopup />;
             } else if (metadataReqList.length) {
