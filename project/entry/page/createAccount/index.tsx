@@ -23,12 +23,12 @@ const CreactAccount:FC = function() {
     const history = useHistory();
 
     function stageRender() {
-        const widgetMap = {
-            [CREAT_STAGE.SECRECT]: SecretPart,
-            [CREAT_STAGE.MNEMONIC]: Mnemonic
+        switch (createStore.createStage) {
+            case CREAT_STAGE.SECRECT:
+                return <SecretPart />
+            default:
+                return <Mnemonic />
         }
-        const Target = widgetMap[createStore.createStage];
-        return <Target />
     }
     function resetStatus() {
         createStore.resetStore();
@@ -36,18 +36,23 @@ const CreactAccount:FC = function() {
 
     function createPageBack() {
         //  条件判断回退
-        if (createStore.createStage === CREAT_STAGE.SECRECT) {
+        const { createStage } = createStore;
+        if (createStage === CREAT_STAGE.SECRECT) {
             resetStatus()
             history.goBack();
-        } else {
+        } else if (createStage === CREAT_STAGE.MNEMONIC_MASK || createStage === CREAT_STAGE.MNEMONIC_PLAIN) {
             runInAction(() => {
                 createStore.createStage = CREAT_STAGE.SECRECT
+            })
+        } else {
+            runInAction(() => {
+                createStore.createStage = CREAT_STAGE.MNEMONIC_PLAIN
             })
         }
     }
  
     return (
-        <div className={cx(s.wrap, createStore.createStage === CREAT_STAGE.MNEMONIC ? s.mnBg : '')}>
+        <div className={cx(s.wrap, createStore.createStage !== CREAT_STAGE.SECRECT ? s.mnBg : '')}>
             <HeadBar selfBack={createPageBack} word={t('createAccount:create wallet')}/>
             {stageRender()}
         </div>

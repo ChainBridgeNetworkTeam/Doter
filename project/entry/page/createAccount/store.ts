@@ -4,7 +4,8 @@
  * @Last Modified by: guanlanluditie
  * @Last Modified time: 2021-02-11 09:54:20
  */
-import { runInAction, action, makeAutoObservable } from 'mobx';
+import { action, makeAutoObservable } from 'mobx';
+import { CREAT_STAGE } from './contants';
 //  import { OFFICAL_END_POINT } from '@constants/url';
 
 export interface CreateStoreType {
@@ -27,7 +28,7 @@ class CreateAccountStore {
     //  密码确认
     inputSecConfirm: string = '';
     //  注册阶段
-    createStage: number = 0;
+    createStage: number = CREAT_STAGE.SECRECT;
     //  用户协议是否勾选
     userAgreementSlect = false;
 

@@ -9,13 +9,11 @@ import s from './index.scss';
 import { Input, Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
-import { useStores } from '@utils/useStore';
 import { changeInput } from '@utils/input';
 import { CREAT_STAGE } from '../contants';
 import { observer } from 'mobx-react';
 import { runInAction } from 'mobx';
 import UserAgreement from '@widgets/userAgreement';
-import { CreateStoreType } from '../store';
 import SecretInput from '@widgets/secretInput';
 import createStore from '../store';
 
@@ -84,7 +82,7 @@ const SecretPart:FC = function() {
         }
         //  进入下一阶段
         runInAction(() => {
-            createStore.createStage = CREAT_STAGE.MNEMONIC;
+            createStore.createStage = CREAT_STAGE.MNEMONIC_MASK;
         })
     }
 

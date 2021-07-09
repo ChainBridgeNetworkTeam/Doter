@@ -18,15 +18,12 @@ import { runInAction } from 'mobx';
 import { mnemonicGenerate, cryptoWaitReady } from '@polkadot/util-crypto';
 import { createAccountSuri } from '@utils/message/message';
 import cx from 'classnames';
+import { chromeLocalSet } from '@utils/chrome'
+import { FAVORITE_ACCOUNT} from '@constants/chrome';
+import { CREAT_STAGE } from '../contants';
 import { Spin, message } from 'antd';
 import { observer } from 'mobx-react';
 import { addNewAccount } from '@utils/tools';
-
-const STATUS = {
-    ONE: 0,
-    TWO: 1,
-    THREE: 2
-}
 
 const LAN_PREFIX = 'createAccount';
 interface WordObj {
@@ -35,7 +32,6 @@ interface WordObj {
     key: number
 }
 interface mnemonicStateObj {
-    status?: number,
     words?: Array<WordObj>,
     randomSortWords?: Array<WordObj>,
     pickWords?: Array<WordObj>,
@@ -57,9 +53,9 @@ const CreactMnemonic:FC = function() {
     function stateReducer(state: Object, action: mnemonicStateObj) {
         return Object.assign({}, state, action);
     }
-    const [stateObj, setState] = useReducer(stateReducer, { status: STATUS.ONE, words: [], pickWords: [], showLoading: false } as mnemonicStateObj);
+    const [stateObj, setState] = useReducer(stateReducer, { words: [], pickWords: [], showLoading: false } as mnemonicStateObj);
     //  是否第一阶段
-    const isStepOne = useMemo(() => stateObj.status === STATUS.ONE, [stateObj.status]);
+    const isStepOne = createStore.createStage === CREAT_STAGE.MNEMONIC_MASK;
     //  是否正确恢复的顺序
     const isRightOrder = useMemo(() => {
         const { words, pickWords } = stateObj;
@@ -118,15 +114,17 @@ const CreactMnemonic:FC = function() {
     }
     //  渲染助记词区域
     function showArea() {
-        const { status, words, randomSortWords, pickWords = [] } = stateObj;
+        const { words, randomSortWords, pickWords = [] } = stateObj;
         const contentMap = {
-            [STATUS.ONE]: () => <>
-                <div className={s.mask} onClick={() => setState({ status: STATUS.TWO })}>
+            [CREAT_STAGE.MNEMONIC_MASK]: () => <>
+                <div className={s.mask} onClick={() => runInAction(() => {
+                    createStore.createStage = CREAT_STAGE.MNEMONIC_PLAIN;
+                })}>
                     <div className={s.lock}/>
                     <div className={s.btnTip}>{t(`${LAN_PREFIX}:click to show mnemonic`)}</div>
                 </div>
             </>,
-            [STATUS.TWO]: () => <>
+            [CREAT_STAGE.MNEMONIC_PLAIN]: () => <>
                 <div className={s.showContent}>
                     {words.map(item => {
                         const { value, key } = item;
@@ -134,7 +132,7 @@ const CreactMnemonic:FC = function() {
                     })}
                 </div>
             </>,
-            [STATUS.THREE]: () => <>
+            [CREAT_STAGE.MNEMONIC_SORT]: () => <>
                 <div className={s.showContent}>
                     {pickWords.map(item => {
                         const { value, key } = item;
@@ -155,19 +153,20 @@ const CreactMnemonic:FC = function() {
                 </div>
             </>
         }
-        return contentMap[status]();
+        return contentMap[createStore.createStage]();
     }
 
     async function buttonClick() {
-        const { status, words, pickWords } = stateObj;
+        const { words, pickWords } = stateObj;
         //  第一阶段直接返回
         if (isStepOne) {
             return;
         }
+        const { createStage } = createStore;
         //  第二阶段就切换阶段
-        if (status === STATUS.TWO) {
-            setState({
-                status: STATUS.THREE
+        if (createStage === CREAT_STAGE.MNEMONIC_PLAIN) {
+            runInAction(() => {
+                createStore.createStage = CREAT_STAGE.MNEMONIC_SORT
             })
         } else {
             if (!(pickWords.map(item => item.value).join(' ') === words.map(item => item.value).join(' '))) {
@@ -188,6 +187,10 @@ const CreactMnemonic:FC = function() {
                 runInAction(() => {
                     globalStore.favoriteAccount = result.json.address
                 })
+                //  同步到本地存储
+                await chromeLocalSet({
+                    [FAVORITE_ACCOUNT]: result.json.address
+                })
                 setState({
                     showLoading: false
                 });
@@ -201,18 +204,18 @@ const CreactMnemonic:FC = function() {
     }
 
     function button() {
-        const { status } = stateObj;
-        const isAble = status === STATUS.TWO || isRightOrder;
+        const { createStage } = createStore;
+        const isAble = createStage === CREAT_STAGE.MNEMONIC_PLAIN || isRightOrder;
         return <Spin spinning={stateObj.showLoading}>
             <div className={cx(s.bottomBtn, isAble ? s.ableBtn : '')} onClick={buttonClick}>
-                {status !== STATUS.THREE ? mnLan('confirm the mnenoic') : mnLan('finish')}
+                {createStage !== CREAT_STAGE.MNEMONIC_SORT ? mnLan('confirm the mnenoic') : mnLan('finish')}
             </div>
         </Spin>
     }
 
     function headInfo() {
-        const { status } = stateObj;
-        return status !== STATUS.THREE ? <>
+        const { createStage } = createStore;
+        return createStage !== CREAT_STAGE.MNEMONIC_SORT ? <>
                 <div className={cx(s.title, 'mnTitle')}>{mnLan('save mnenoic')}</div>
                 <div className={s.info}>{mnLan('Please copy the following mnemonics manually to make sure the backup is correct')}</div>
                 <div className={s.info}><span className={s.point}>·</span> {mnLan('Acquiring mnemonics is equivalent to owning the property of the wallet')}</div>
