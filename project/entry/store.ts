@@ -182,9 +182,9 @@ class AppStore {
                 lastInSTM: 0
             }}) as any || {};
 
-
         const chormeLocalStorage = await chromeLocalGet({
             [RECIPIENT_ARRAY]: [],
+            [FAVORITE_ACCOUNT]: ans[ADDRESS_ARRAY][0]
         }) as any || {};
         //  订阅账户的变化,核心内容通过库来存取
         const subscription = accountsObservable.subject.subscribe((accounts: SubjectInfo): void =>
@@ -206,7 +206,7 @@ class AppStore {
         const firsetAcc = ans.accountAddress[0];
         runInAction(() => {
             this.accountSubscribtion = subscription;
-            this.favoriteAccount = ans.favoriteAccount || firsetAcc;
+            this.favoriteAccount = chormeLocalStorage[FAVORITE_ACCOUNT] || firsetAcc;
             this.localConfig = ans[LOCAL_CONFIG];
             //  常用的地址存在chrome本地存储,根据环境调整格式
             this.recipientArr = chormeLocalStorage[RECIPIENT_ARRAY].map((item: recipientObj) => {

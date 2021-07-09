@@ -2,15 +2,15 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-07-07 23:42:24
+ * @LastEditTime: 2021-07-08 23:24:24
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
 import type { KeyringPair$Json } from '@polkadot/keyring/types';
 import keyring from '@polkadot/ui-keyring';
 import { keyExtractSuri, mnemonicValidate } from '@polkadot/util-crypto';
-import { LOCAL_CONFIG } from '@constants/chrome';
-import { getStorage, setStorage } from '@utils/chrome';
+import { LOCAL_CONFIG, FAVORITE_ACCOUNT } from '@constants/chrome';
+import { chromeLocalSet, setStorage } from '@utils/chrome';
 import { useTranslation } from 'react-i18next';
 import type { CreateResult } from '@polkadot/ui-keyring/types';
 import { runInAction } from 'mobx';
@@ -103,6 +103,10 @@ export async function addNewAccount(result: CreateResult) {
     const targetAdd = encodeAddress(pair.publicKey, globalStore.isKusama ? ADDRESS_FORMAT.KUSAMA : ADDRESS_FORMAT.POLKADOT)
     runInAction(() => {
         globalStore.favoriteAccount = targetAdd || globalStore.favoriteAccount;
+    })
+    //  同步到本地存储
+    await chromeLocalSet({
+        [FAVORITE_ACCOUNT]: result.json.address
     })
 }
 
