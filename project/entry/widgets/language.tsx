@@ -20,7 +20,7 @@ export const widgetsZh = {
     'password': '密码',
     'Wallet password': '钱包密码',
     'Repeat the password': '重复输入密码',
-    'I have read and agree to the user agreement': '我已阅读并同意用户协议',
+    'I have read and agree to the user agreement': '我已阅读并同意',
     'User agreement': '用户协议',
     'strong': '强',
     'weak': '弱',

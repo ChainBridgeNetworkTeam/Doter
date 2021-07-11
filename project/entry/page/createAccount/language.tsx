@@ -43,7 +43,7 @@ export const createZh = {
     'Confirm mnemonics': '确认助记词',
     'Please click the mnemonic words in order to confirm that your backup is correct': '请按顺序点击助记词，已确认您备份正确',
     'info1': '不少于8位字符，建议混合大小写字母、数字、符号',
-    "info2": '该密码将作为钱包的交易密码。doter无法提供找回密码功能，请务必妥善保管钱包密码！',
+    "info2": '该密码将作为钱包的交易密码。Doter无法提供找回密码功能，请务必妥善保管钱包密码！',
     'Please check the user agreement': '请勾选用户协议',
     'The password is inconsistent': '密码不一致',
     'The password is less than 8 digits': '密码少于8位',

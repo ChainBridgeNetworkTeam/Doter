@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-07-04 22:47:44
+ * @LastEditTime: 2021-07-10 15:59:47
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -259,7 +259,7 @@ const Transfer:FC = function() {
     }
 
     function renderStepOne() {
-        return <div className={s.contentWrap}>
+        return <div className={s.contentWrapOne}>
             <div className={cx(s.formTitle, s.topT)}>{lanWrap('Collection address')}</div>
             <AutoComplete
                 className={cx(s.input, s.tInput)}
@@ -326,7 +326,7 @@ const Transfer:FC = function() {
         <div className={s.wrap}>
             <HeadBar selfBack={createPageBack} word={lanWrap('Transfer')}/>
             {isStepOne ? renderStepOne() : isStepTwo()}
-            <Spin spinning={stateObj.isLoading}>
+            <Spin spinning={stateObj.isLoading || !isStepOne}>
                 <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
             </Spin>
         </div>
