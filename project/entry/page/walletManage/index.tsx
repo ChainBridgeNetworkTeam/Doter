@@ -15,7 +15,7 @@ import { observer } from 'mobx-react';
 import cx from 'classnames';
 import { PAGE_NAME } from '@constants/app';
 import { addressFormat } from '@utils/tools';
-import { setStorage } from '@utils/chrome';
+import { chromeLocalSet } from '@utils/chrome';
 import { useStores } from '@utils/useStore';
 import { FAVORITE_ACCOUNT } from '@constants/chrome';
 import { NET_WORD } from '@constants/chain';
@@ -33,12 +33,12 @@ const WalletManage:FC = function() {
         history.push(path);
     }
 
-    function changeFavorite(address: string) {
+    async function changeFavorite(address: string) {
         runInAction(() => {
             globalStore.favoriteAccount = address;
         })
         //  设置localStorage存储
-        setStorage({
+        await chromeLocalSet({
             [FAVORITE_ACCOUNT]: address
         })
         //  回到首页

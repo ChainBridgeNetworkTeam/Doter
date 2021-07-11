@@ -56,11 +56,11 @@
 
 .bottomBtn {
     width: 3.43rem;
-    position: fixed;
     left: .16rem;
     bottom: .28rem;
     height: .48rem;
     text-align: center;
+    margin-top: .05rem;
     line-height: .48rem;
     font-size: .14rem;
     color: #ffffff;
@@ -75,6 +75,10 @@
     background-color: #FAFAFA;
     padding-top: .28rem;
     padding-left: .19rem;
+}
+
+.bMargin {
+    margin-bottom: 1.3rem;
 }
 
 .pickContent {
@@ -127,4 +131,10 @@
 .deLine {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.wordPoint {
+    height: .14rem;
+    align-items: flex-start;
+    margin-bottom: .28rem;
 }

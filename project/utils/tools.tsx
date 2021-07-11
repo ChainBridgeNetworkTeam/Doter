@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-07-08 23:24:24
+ * @LastEditTime: 2021-07-10 16:03:26
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
@@ -106,7 +106,7 @@ export async function addNewAccount(result: CreateResult) {
     })
     //  同步到本地存储
     await chromeLocalSet({
-        [FAVORITE_ACCOUNT]: result.json.address
+        [FAVORITE_ACCOUNT]: targetAdd
     })
 }
 

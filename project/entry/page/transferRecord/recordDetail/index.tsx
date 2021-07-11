@@ -57,7 +57,7 @@ const Entry:FC = function() {
     }
 
     function seeOrderDetail() {
-        window.open(`https://polkadot.subscan.io/extrinsic/${hash}`)
+        window.open(`https://${globalStore.isKusama ? 'kusama' : 'polkadot'}.subscan.io/extrinsic/${hash}`)
     }
 
     const { transfer, fee, block_timestamp, success } = getTransDetail();

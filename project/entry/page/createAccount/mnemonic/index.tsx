@@ -18,7 +18,7 @@ import { runInAction } from 'mobx';
 import { mnemonicGenerate, cryptoWaitReady } from '@polkadot/util-crypto';
 import { createAccountSuri } from '@utils/message/message';
 import cx from 'classnames';
-import { chromeLocalSet } from '@utils/chrome'
+import { chromeLocalSet } from '@utils/chrome';
 import { FAVORITE_ACCOUNT} from '@constants/chrome';
 import { CREAT_STAGE } from '../contants';
 import { Spin, message } from 'antd';
@@ -117,7 +117,7 @@ const CreactMnemonic:FC = function() {
         const { words, randomSortWords, pickWords = [] } = stateObj;
         const contentMap = {
             [CREAT_STAGE.MNEMONIC_MASK]: () => <>
-                <div className={s.mask} onClick={() => runInAction(() => {
+                <div className={cx(s.mask, s.bMargin)} onClick={() => runInAction(() => {
                     createStore.createStage = CREAT_STAGE.MNEMONIC_PLAIN;
                 })}>
                     <div className={s.lock}/>
@@ -125,7 +125,7 @@ const CreactMnemonic:FC = function() {
                 </div>
             </>,
             [CREAT_STAGE.MNEMONIC_PLAIN]: () => <>
-                <div className={s.showContent}>
+                <div className={cx(s.showContent, s.bMargin)}>
                     {words.map(item => {
                         const { value, key } = item;
                         return <div className={cx(s.tag, s.notPick)} key={key}>{value}</div>
@@ -199,7 +199,6 @@ const CreactMnemonic:FC = function() {
                 //  回到首页
                 history.push(PAGE_NAME.HOME);
             }, 0)
-
         }
     }
 
@@ -219,7 +218,7 @@ const CreactMnemonic:FC = function() {
                 <div className={cx(s.title, 'mnTitle')}>{mnLan('save mnenoic')}</div>
                 <div className={s.info}>{mnLan('Please copy the following mnemonics manually to make sure the backup is correct')}</div>
                 <div className={s.info}><span className={s.point}>·</span> {mnLan('Acquiring mnemonics is equivalent to owning the property of the wallet')}</div>
-                <div className={s.info}><span className={s.point}>·</span> {mnLan('Do not take a screen capture or copy, otherwise it may cause asset loss')}</div>
+                <div className={cx(s.info, s.wordPoint)}><span className={s.point}>·</span> {mnLan('Do not take a screen capture or copy, otherwise it may cause asset loss')}</div>
             </> :
             <>
                 <div className={s.title}>{mnLan('Confirm mnemonics')}</div>

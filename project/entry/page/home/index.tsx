@@ -91,7 +91,8 @@ const HomePage:FC = function() {
 
     //  跳转subscan
     function seeBloclBrowser() {
-        window.open('https://polkadot.subscan.io/')
+        const targetUrl = globalStore.isKusama ? 'https://kusama.subscan.io/' : 'https://polkadot.subscan.io/';
+        window.open(targetUrl)
     }
     useEffect(() => {
         //  设置消息提醒高度，全局的

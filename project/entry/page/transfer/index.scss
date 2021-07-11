@@ -6,6 +6,13 @@
 .contentWrap {
     width: 3.43rem;
     margin: 0 auto;
+    margin-bottom: .7rem;
+}
+
+.contentWrapOne {
+    width: 3.43rem;
+    margin: 0 auto;
+    margin-bottom: 1.4rem;
 }
 
 .formTitle {
@@ -82,14 +89,11 @@
 }
 
 .button {
-    position: fixed;
-    bottom: .28rem;
-    width: 3.4rem;
-    height: .48rem;
-    left: .18rem;
     text-align: center;
     font-size: .14rem;
+    width: 3.43rem;
     color: #ffffff;
+    margin: 0 auto;
     line-height: .48rem;
     border-radius: .02rem;
     background-color: #358FB6;

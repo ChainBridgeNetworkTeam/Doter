@@ -20,7 +20,7 @@ export const setPanelZh = {
     'Wallet management': '钱包管理',
     'Transfer address': '转账地址',
     'General settings': '通用',
-    'About doter': '关于doter',
+    'About doter': '关于Doter',
     'User agreement': '用户协议',
 
 }
