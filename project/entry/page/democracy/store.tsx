@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-03-12 22:45:49
  */
 
-import { observable, runInAction, action, makeAutoObservable } from 'mobx';
+import { runInAction, action, makeAutoObservable } from 'mobx';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import type { DeriveReferendumExt } from '@polkadot/api-derive/types';
 import keyring from '@polkadot/ui-keyring';
