@@ -33,7 +33,7 @@ class RetrieveStore {
         makeAutoObservable(this);
     }
     //  用户名
-    @observable name: string = '';
+    name: string = '';
     //  注册输入密码
     @observable secret: string = '';
     //  二次确认密码
