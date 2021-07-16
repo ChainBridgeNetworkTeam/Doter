@@ -37,7 +37,7 @@ class RetrieveStore {
     //  注册输入密码
     secret: string = '';
     //  二次确认密码
-    @observable confirmSecret: string = '';
+    confirmSecret: string = '';
     //  用户协议是否选中
     @observable checkAgreement: boolean = false;
     //  输入助记词
