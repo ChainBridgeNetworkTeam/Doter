@@ -39,7 +39,7 @@ class RetrieveStore {
     //  二次确认密码
     confirmSecret: string = '';
     //  用户协议是否选中
-    @observable checkAgreement: boolean = false;
+    checkAgreement: boolean = false;
     //  输入助记词
     @observable mnemonicWords: string = '';
     //  助记词错误
