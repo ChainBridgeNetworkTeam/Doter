@@ -41,7 +41,7 @@ class RetrieveStore {
     //  用户协议是否选中
     checkAgreement: boolean = false;
     //  输入助记词
-    @observable mnemonicWords: string = '';
+    mnemonicWords: string = '';
     //  助记词错误
     @observable mnemonicErrMsg: string = '请输入助记词';
     //  keyStore json内容
