@@ -45,7 +45,7 @@ class RetrieveStore {
     //  助记词错误
     mnemonicErrMsg: string = '请输入助记词';
     //  keyStore json内容
-    @observable keyStoreJsonStr: string = '';
+    keyStoreJsonStr: string = '';
     //  keyStore errMsg
     @observable keyStoreErrMsg: string = '';
     //  是否可以创建
