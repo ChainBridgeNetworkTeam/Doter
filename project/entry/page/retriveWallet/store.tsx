@@ -47,7 +47,7 @@ class RetrieveStore {
     //  keyStore json内容
     keyStoreJsonStr: string = '';
     //  keyStore errMsg
-    @observable keyStoreErrMsg: string = '';
+    keyStoreErrMsg: string = '';
     //  是否可以创建
     @observable buttonActive: boolean = false;
     //  检查状态
