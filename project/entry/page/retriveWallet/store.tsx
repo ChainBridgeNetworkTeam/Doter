@@ -49,7 +49,7 @@ class RetrieveStore {
     //  keyStore errMsg
     keyStoreErrMsg: string = '';
     //  是否可以创建
-    @observable buttonActive: boolean = false;
+    buttonActive: boolean = false;
     //  检查状态
     @observable checkStatus: number = CHECT_STATUS.PASS;
 
