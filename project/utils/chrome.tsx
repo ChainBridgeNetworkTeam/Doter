@@ -6,6 +6,7 @@
  */
 
 import chrome from '@polkadot/extension-inject/chrome';
+import sinonChrome from 'sinon-chrome';
 
  // 获取本地存储
 function getLocalStorage(obj: Object) {
@@ -116,7 +117,7 @@ export async function chromeLocalGet(obj: Record<string, any>) {
 //  设置chrome本地存储内容
 export async function chromeLocalSet(obj: Record<string, any>) {
     return await new Promise((res) => {
-        chrome.storage.local.set(obj, () => {
+        (chrome || sinonChrome).storage.local.set(obj, () => {
             res(1);
         });
     });

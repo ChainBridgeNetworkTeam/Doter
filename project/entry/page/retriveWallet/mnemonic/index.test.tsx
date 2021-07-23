@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-30 22:09:49
- * @LastEditTime: 2021-06-30 08:37:40
+ * @LastEditTime: 2021-07-22 23:01:42
  */
 import Adapter from 'enzyme-adapter-react-16';
 import { configure, mount, ReactWrapper } from 'enzyme';

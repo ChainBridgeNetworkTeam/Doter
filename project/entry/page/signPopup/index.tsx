@@ -65,7 +65,6 @@ const Auth:FC = function() {
                     message.error('Signature failed')
                 }
             }).finally(() => {
-                retrieveWindow()
                 setState({
                     showLoading: false
                 })

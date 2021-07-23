@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-07-10 15:59:47
+ * @LastEditTime: 2021-07-22 22:37:39
  * @LastEditors: dianluyuanli-wp
  * @Description: In User Settings Edit
  * @FilePath: /Doter/project/entry/page/transfer/index.tsx
@@ -321,12 +321,11 @@ const Transfer:FC = function() {
         }
     }
 
-    const btnClass = (isStepOne ? buttonIsAcctive : stateObj.secret) ? s.canClick : s.shadowBtn;
     return (
         <div className={s.wrap}>
             <HeadBar selfBack={createPageBack} word={lanWrap('Transfer')}/>
             {isStepOne ? renderStepOne() : isStepTwo()}
-            <Spin spinning={stateObj.isLoading || !isStepOne}>
+            <Spin spinning={stateObj.isLoading}>
                 <div className={cx(s.button, buttonIsAcctive ? s.canClick : s.shadowBtn)} onClick={buttonClick}>{isStepOne ? lanWrap('next step') : lanWrap('confirm')}</div>
             </Spin>
         </div>
