@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-05-29 10:36:59
- * @LastEditTime: 2021-07-10 16:03:26
+ * @LastEditTime: 2021-07-22 23:37:01
  */
 import { formatBalance, isHex } from '@polkadot/util';
 import { SEED_LENGTHS, ADDRESS_FORMAT } from '@constants/chain';
@@ -286,7 +286,7 @@ export function setWindowForPop () {
  */
 export function setWindowForDapp () {
     const target = document.getElementsByTagName('html')[0];
-    target.style.cssText = 'width: 560px; font-size: 17.8581vw; overflow-x: hidden;'
+    target.style.cssText = 'font-size: 17.8581vw; overflow-x: hidden;'
 }
 
 /**

@@ -10,7 +10,7 @@ import s from './index.scss';
 import { useTranslation } from 'react-i18next';
 import keyring from '@polkadot/ui-keyring';
 import { useStores } from '@utils/useStore';
-import { CreateStoreType } from '../store';
+import createStore from '../store';
 import { globalStoreType } from '@entry/store';
 import { useHistory } from 'react-router-dom';
 import { PAGE_NAME } from '@constants/app';
@@ -45,7 +45,6 @@ export interface addressArrayObj {
 const CreactMnemonic:FC = function() {
     let { t } = useTranslation();
     const history = useHistory();
-    const createStore = useStores('CreateAccountStore') as CreateStoreType;
     const globalStore = useStores('GlobalStore') as globalStoreType;
     const mnLan = (input: string) => t(`createAccount:${input}`);
 
