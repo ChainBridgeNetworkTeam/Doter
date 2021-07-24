@@ -85,7 +85,9 @@ function AppRouter() {
         //  右上角点击
         if (!document.getElementById('notification')) {
             if (signReqList.length || metadataReqList.length || authReqList.length) {
-                setWindowForPop();
+                setTimeout(() => {
+                    setWindowForPop();
+                }, 50)
                 return signReqList.length ? <SignPopup /> : (authReqList.length ? <Authorize /> : <MetadataPopup />);
             } else {
                 retrieveWindow();
