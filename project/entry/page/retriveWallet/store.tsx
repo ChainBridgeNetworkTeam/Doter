@@ -51,7 +51,7 @@ class RetrieveStore {
     //  是否可以创建
     buttonActive: boolean = false;
     //  检查状态
-    @observable checkStatus: number = CHECT_STATUS.PASS;
+    checkStatus: number = CHECT_STATUS.PASS;
 
     //  重置store,方便下次创建
     @action.bound
