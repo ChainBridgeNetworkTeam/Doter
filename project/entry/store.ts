@@ -19,6 +19,7 @@ import type { KeypairType } from '@polkadot/util-crypto/types';
 import { encodeAddress } from '@polkadot/util-crypto';
 import { TypeRegistry } from '@polkadot/types';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
+import { getDotInfo } from '@entry/service';
 import type BN from 'bn.js';
 import { computedFee } from '@utils/tools';
 import { Subscription } from 'rxjs';
@@ -246,6 +247,11 @@ class AppStore {
         const netUrl = this.isKusama ? KUSAMA_END_POINT : OFFICAL_END_POINT;
         const provider = new WsProvider(netUrl);
         let initSuccess = true;
+        const res = await getDotInfo();
+        const tokenName = this.isKusama ? 'KSM' : 'DOT';
+        runInAction(() => {
+            this.dotToDollar = res?.data?.detail?.[tokenName]?.price || '0';
+        })
         this.api = await (ApiPromise.create({
             provider
         }).catch(e => {
