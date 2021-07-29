@@ -17,7 +17,7 @@ class SingleAccEditStore {
         makeAutoObservable(this);
     }
     //  注册输入密码
-    @observable secret: string = '';
+    secret: string = '';
     //  二次确认密码
     @observable confirmSecret: string = '';
 
