@@ -19,7 +19,7 @@ class SingleAccEditStore {
     //  注册输入密码
     secret: string = '';
     //  二次确认密码
-    @observable confirmSecret: string = '';
+    confirmSecret: string = '';
 
     //  重置store,方便下次创建
     @action.bound
