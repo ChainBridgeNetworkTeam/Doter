@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-02-26 09:45:38
  */
 
-import { observable, action, makeAutoObservable } from 'mobx';
+import { action, makeAutoObservable } from 'mobx';
 
 export interface retrieveStoreType {
     name: string;
