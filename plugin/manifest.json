@@ -1,6 +1,6 @@
 {
     "name": "Doter",
-    "description" : "Doter is a browser extension wallet for Polkadot. It aims to become an interactive bridge between Polkadot and Parachain.",
+    "description" : "Doter is a browser extension wallet for Polkadot and Kusama. It aims to become an interactive bridge between Polkadot and Parachain.",
     "version": "1.0.6",
     "manifest_version": 2,
     "browser_action": {
