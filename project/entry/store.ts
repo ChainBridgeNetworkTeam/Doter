@@ -248,6 +248,8 @@ class AppStore {
         const provider = new WsProvider(netUrl);
         let initSuccess = true;
         const res = await getDotInfo();
+
+        //  update
         const tokenName = this.isKusama ? 'KSM' : 'DOT';
         runInAction(() => {
             this.dotToDollar = res?.data?.detail?.[tokenName]?.price || '0';
