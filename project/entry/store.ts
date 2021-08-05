@@ -249,7 +249,7 @@ class AppStore {
         let initSuccess = true;
         const res = await getDotInfo();
 
-        //  update a
+        //  update 
         const tokenName = this.isKusama ? 'KSM' : 'DOT';
         runInAction(() => {
             this.dotToDollar = res?.data?.detail?.[tokenName]?.price || '0';
