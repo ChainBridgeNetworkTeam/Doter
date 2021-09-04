@@ -2,7 +2,7 @@
  * @Author: dianluyuanli-wp
  * @LastEditors: dianluyuanli-wp
  * @Date: 2021-04-06 23:45:39
- * @LastEditTime: 2021-05-22 20:40:06
+ * @LastEditTime: 2021-09-04 10:17:16
  */
 import GlobalStore from '@entry/store';
 import { useTranslation } from 'react-i18next';
@@ -21,10 +21,10 @@ export const KUSAMA_END_POINT = 'wss://kusama-rpc.polkadot.io';
 export const SEED_LENGTHS = [12, 15, 18, 21, 24];
 
 //  subscan的域名
-export const SUBSCAN_DOMAIN = 'https://polkadot.subscan.io';
+export const SUBSCAN_DOMAIN = 'https://polkadot.webapi.subscan.io';
 
 //  kusama下subsacan的域名
-export const KUSAMA_DOMAIN = 'https://kusama.subscan.io';
+export const KUSAMA_DOMAIN = 'https://kusama.webapi.subscan.io';
 
 export const NET_TYPE = {
     POLKADOT: 'polkadot',
