@@ -166,7 +166,8 @@ function AppRouter() {
                     </>
                 }} />
                 {/* 转账记录 */}
-                <Route path={PAGE_NAME.TRANSFER_RECORD} render={() => {
+                <Route
+                path={PAGE_NAME.TRANSFER_RECORD} render={() => {
                     return <>
                         <Route exact path={PAGE_NAME.TRANSFER_RECORD} component={transferRecord}/>
                         <Route exact path={PAGE_NAME.TRANSFER_RECORD_DETAIL} component={transferRecordDetail}/>
